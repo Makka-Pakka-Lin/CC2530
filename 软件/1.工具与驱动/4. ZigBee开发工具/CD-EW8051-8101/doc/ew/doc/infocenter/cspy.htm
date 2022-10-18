@@ -1,0 +1,159 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+    "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<!--  $Id: csTARGET.htm 30 2009-10-08 07:59:30Z peter $-->
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemalocation="http://www.w3.org/MarkUp/SCHEMA/xhtml11.xsd" xml:lang="en">
+<head>
+    <title>Release notes for the IAR C-SPY Debugger for 8051 </title>
+    <meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8" />
+    <link type="text/css" rel="stylesheet" media="all" href="style/ewic.css" />
+</head>
+<body>
+    <div id="topbanner">
+    </div>
+    <div id="titlebanner_small">
+        <h2>
+            Release notes for the IAR C-SPY Debugger for 8051 version 8.10.1
+        </h2>
+    </div>
+    <div class="breadcrumb">
+        <a href="index.ENU.html">IAR Information Center for 8051</a> | <a href="release_notes.ENU.html">
+            Release notes</a> | <a href="components.html">Components</a>
+            | Release notes for the IAR C-SPY Debugger for 8051
+    </div>
+    <div class="mainblock">
+        <ul>
+            <li><a href="#important">Important information</a> </li>
+            <li><a href="#features">New features</a> </li>
+            <li><a href="#problems">Known problems</a> </li>
+            <li><a href="#pcorr">Program corrections</a> </li>
+            <li><a href="#manuals">User guide corrections</a> </li>
+            <li><a href="#misc">Miscellaneous</a> </li>
+            <li><a href="#history">Release history</a> </li>
+        </ul>
+        <!--======================================================================-->
+        <!-- IMPORTANT INFORMATION                                                -->
+        <!--======================================================================-->
+        <h3>
+            <a name="important" id="important"></a>Important information
+        </h3>
+        <!--======================================================================-->
+        <!-- NEW FEATURES                                                         -->
+        <!--======================================================================-->
+        <h3>
+            <a name="features" id="features"></a>New features
+        </h3>
+<ul>
+	<li>
+		<p><b>More breakpoints available</b><br>
+			The number of hardware breakpoints used by the runtime library can now be configured,
+        	making it possible to free up more breakpoints for use in the application code.<p>
+	</li>
+	<li>
+		<p><b>Debug without downloading</b><br>
+			You can now start the debugger with or without downloading code, using two new buttons
+        	on the toolbar and two new Project menu commands. There are also two new corresponding
+        	ways to restart the debugger during the debug session.
+		</p>
+	</li>
+
+
+</ul>
+        <!--======================================================================-->
+        <!-- Known Problems-->
+        <!--======================================================================-->
+        <h3>
+            <a name="problems" id="problems"></a>Known Problems
+        </h3>
+<ul>
+  <li><p><a NAME="EW22133"><b>EW22133</b></a><br>
+      The Stack plug-in is not compatible with the extended stack present in the
+      Analog Devices ADE devices.
+  </p></li>
+</ul>
+        <!--======================================================================-->
+        <!-- Program Corrections                                                  -->
+        <!--======================================================================-->
+        <h3>
+            <a name="pcorr" id="pcorr"></a>Program Corrections
+        </h3>
+    <ul>
+      <li><p><a NAME="EW20295"><b>EW20295</b></a><br>
+	  Auto variables placed in registers were not displayed correctly in
+	  the Watch window. This has been corrected.
+      </p></li>
+      <li><p><a NAME="EW20975"><b>EW20975</b></a><br>
+	  Using a custom runtime library together with a custom linker
+          configuration file will no longer cause C-SPY to terminate.
+      </p></li>
+      <li><p><a NAME="EW21926"><b>EW21926</b></a><br>
+	  Support for the --ks_version command line option was re-enabled for
+	  the kickstart edition.
+      </p></li>
+      <li><p><a NAME="EW22031"><b>EW22031</b></a><br>
+	  The Stack window displayed structures with too many padding bytes.
+	  This has been corrected.
+      </p></li>
+    </ul>
+        <!--======================================================================-->
+        <!-- USER GUIDE CORRECTIONS                                               -->
+        <!--======================================================================-->
+        <h3>
+            <a name="manuals" id="manuals"></a>User guide corrections
+        </h3>
+    <ul>
+        <li>None</li>
+    </ul>
+ 
+        <!--======================================================================-->
+        <!-- MISCELLANEOUS                                                        -->
+        <!--======================================================================-->
+        <h3>
+            <a name="misc" id="misc"></a>Miscellaneous
+        </h3>
+    <ul>
+        <li>None</li>
+    </ul>
+        <!--======================================================================-->
+        <!-- RELEASE HISTORY                                                      -->
+        <!--======================================================================-->
+        <h3>
+            <a name="history" id="history"></a>Release history
+        </h3>
+    <p>
+        <b>V7.60.1, June 2010</b>
+    </p>
+    <p>
+        <b>Program corrections</b>
+    </p>
+    <ul>
+      <li><p><a NAME="EW21355"><b>EW21355, EW21361, EW21362</b></a><br>
+          The user can now control access to memory address ranges in
+          the following zones by using the [Memory] tag in the .ddf file.:
+          <ul>
+            <li>Code</li>
+            <li>XData</li>
+            <li>IData</li>
+            <li>SFR</li>
+          </ul>
+      </p></li>
+      <li><p><a NAME="EW21539"><b>EW21539</b></a><br>
+          Symbolic names for special function registers in ddf files
+          were not able to override some internal hard coded names.
+          This has been corrected.
+      </p></li>
+      <li><p><a NAME="EW21540"><b>EW21540</b></a><br>
+          C-SPY no longer issue superfluous warnings for symbolic
+          SFR names defined more than once.
+      </p></li>
+    </ul>
+    <p>
+      <b>New features</b>
+    </p>
+    <ul>
+        <li>This file was introduced in version 7.60 of IAR Embedded Workbench for 8051. It
+        covers changes and modifications made to C-SPY core functionality since that release.</li>
+    </ul>
+    </div>
+</body>
+</html>

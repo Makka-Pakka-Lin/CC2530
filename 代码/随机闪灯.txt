@@ -1,0 +1,71 @@
+#include iocc2530.h
+#include stdlib.h
+
+int st = 0;
+int time = 0;
+void initview()
+{
+  P1SEL = ~0x1f;
+  P1DIR = 0x1b;
+  P1 = 0;
+  
+  IEN2 = 0X10;
+  P1IEN = 0x04;
+  PICTL = 0x02;
+  
+  T1CTL = 0x0c;
+  T1CC0H = 0x0c;
+  T1CC0L = 0x35;0.05
+  T1IE = 1;
+  EA = 1;
+  T1CTL = 0x03;
+}
+void main(void)
+{
+  initview();
+  while(1)
+  {
+    if (st)
+    {
+      if (time == 10)
+      {
+        P1 = (rand() % 2)  1 + (rand() % 2)  2 + (rand() % 2)  8 + (rand() % 2)  16;
+        time = 0;
+      }
+    }
+    else
+    {
+      time = 0;
+    }
+  }
+}
+#pragma vector = 0x7b
+__interrupt void zd(void)
+{
+  if (P1IFG & 0x04)
+  {
+    EA = 0;
+    int i, j;
+    for (i = 100; i  0; i--)
+      for (j = 325; j  0; j--);
+    while(!P1_2);
+    time = 0;
+    if (st)
+    {
+      st = 0;
+    }
+    else
+    {
+      st = 1;
+    }
+    P1IFG = 0;
+  }
+  P1IF = 0;
+  EA = 1;
+}
+#pragma vector = 0x4b
+__interrupt void t1(void)
+{
+  T1STAT &= ~0x20;
+  time++;
+}

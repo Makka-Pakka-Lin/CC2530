@@ -1,0 +1,65 @@
+#include <iocc2530.h>
+#include <stdio.h>
+#include <string.h>
+typedef unsigned char uchar;
+
+void Delay(int time)     
+{
+  while(time--){
+    asm("NOP");
+  }
+}
+
+void Init_Uart()
+{
+  Init_32M();   //使用32MHz的外部晶振
+  
+  PERCFG&=~0x01;   //有2个备用位置，0使用备用位置1；1使用备用位置2
+  P0SEL |= 0x0C;   //P0_2 RXD P0_3 TXD 外设功能 0000 1100
+ 
+  U0CSR |= 0xC0;  //串口接收使能  1100 0000 工作UART模式+允许接受
+  U0UCR |= 0x00;  //无奇偶校验，1位停止位
+ 
+  U0GCR |= 11;           //U0GCR与U0BAUD配合     
+  U0BAUD |= 216;       // 波特率设为115200 
+ 
+  IEN0 |= 0X04;     //开串口接收中断 'URX0IE = 1',也可以写成 URX0IE=1;
+  EA=1;
+    
+}
+
+				/* 串口发送一个字符串 */
+				void Uart_Send_String(char *Data,int len) 
+				{
+				 { 
+ 				 int j; 
+ 				 for(j=0;j<len;j++)   //一个字符一个字符的发送
+  				{ 
+ 				    Uart0_SendCh(*Data++); 
+ 				 } 
+ 				}
+				}
+
+
+void main(void){
+  
+  char *dht11;  // 将 从DHT11接收到的数据 转换成一个字符串
+
+  Init_Uart();
+  
+  Uart_Send_String("Welcome DHT11 Test!\n",20);//欢迎语句
+  Delay_ms(1000);
+  while(1){
+
+    if(Read_DHT()){
+      
+      /* 将 从DHT11接收到的数据 转换成一个字符串 */
+      sprintf(dht11,"湿度:%2d.%d 温度:%2d.%d\n",dh.humi_H,dh.humi_L,dh.temp_H,dh.temp_L);
+      Uart_Send_String(dht11,20);// 发送给串口
+    }
+    else{
+      Uart_Send_String("Read DHT11 ERROR!\n",18); //读取失败的话，发送“Read DHT11 ERROR！”
+    }
+    
+  }
+}

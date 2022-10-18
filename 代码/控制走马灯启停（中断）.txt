@@ -1,0 +1,72 @@
+#include "ioCC2530.h" //引用CC2530头文件
+
+#define LED1 (P1_0)     //LED1端口宏定义
+#define LED2 (P1_1)     //LED1端口宏定义
+#define LED3 (P1_3)
+#define LED4 (P1_4)
+
+unsigned char flag_Pause=0;  //流水灯运行标志位，为1暂停，为0运行。
+
+//功    能：软件延时入口参数：time--延时循环执行次数
+void delay(unsigned int time)
+{
+    unsigned int i;
+    unsigned char j;
+    for(i = 0;i < time;i++)
+        for(j = 0;j < 240;j++)
+        {
+            while(flag_Pause);//根据flag_Pause的值确定是否在此循环
+        }
+}
+
+//功    能：程序主函数
+void main(void)
+{
+    P1SEL &= ~0x1f;         //设置P1_0口和P1_1口为普通I/O口
+    P1DIR |= 0x1b;          //设置P1_0口和P1_1口为输出口
+    
+    LED1 = 0;               //熄灭LED1
+    LED2 = 0;               //熄灭LED2
+    LED3 = 1;
+    LED4 = 0;
+    
+    /*************新增外部中断初始化部分****************/
+    IEN2 |= 0x10;           //使能P1口中断
+    P1IEN |= 0x04;          //使能P1_2口中断
+    PICTL |= 0x02;          //P1_3到P1_0口下降沿触发中断
+    EA = 1;                 //使能总中断
+    /***************************************************/
+    
+    while(1)//程序主循环
+    {
+        delay(1000);        //延时
+        LED1 = 1;           //点亮LED1
+        delay(1000);        //延时
+        LED2 = 1;           //点亮LED2
+        delay(1000);        //延时
+        LED1 = 0;           //熄灭LED1
+        delay(1000);        //延时
+        LED2 = 0;           //熄灭LED2
+    }
+}
+
+/*功    能：P1口外部中断服务函数*/
+#pragma  vector = P1INT_VECTOR
+__interrupt void zd()
+{
+    if(P1_2)       //如果P1_2口中断标志位置位
+    {
+      LED3 = ~LED3;
+      LED4 = ~LED4;
+        if(flag_Pause == 0)
+        {
+            flag_Pause = 1;
+        }
+        else
+        {
+            flag_Pause = 0;
+        }
+        P1IFG &= ~0x04;    //清除P1_2口中断标志位
+    }
+    P1IF = 0;              //清除P1口中断标志位
+}

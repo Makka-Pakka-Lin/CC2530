@@ -1,0 +1,918 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+    "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<!--  $Id: iccTARGET.htm 83 2010-11-15 16:03:28Z peter $-->
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemalocation="http://www.w3.org/MarkUp/SCHEMA/xhtml11.xsd" xml:lang="en">
+<head>
+    <title>Release notes for the 8051 IAR C/C++ Compiler</title>
+    <meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8" />
+    <link type="text/css" rel="stylesheet" media="all" href="style/ewic.css" />
+</head>
+<body>
+    <div id="topbanner">
+    </div>
+    <div id="titlebanner_small">
+        <h2>
+            Release notes for the 8051 IAR C/C++ Compiler version 8.10.1
+        </h2>
+    </div>
+    <div class="breadcrumb">
+        <a href="index.ENU.html">IAR Information Center for 8051</a> | <a href="release_notes.ENU.html">
+            Release notes</a> | <a href="components.html">Components</a> | Release notes
+        for the 8051 IAR C/C++ Compiler
+    </div>
+    <div class="mainblock">
+        <ul>
+            <li><a href="#important">Important information</a> </li>
+            <li><a href="#features">New features</a> </li>
+            <li><a href="#problems">Known problems</a> </li>
+            <li><a href="#pcorr">Program corrections</a> </li>
+            <li><a href="#manuals">User guide corrections</a> </li>
+            <li><a href="#misc">Miscellaneous</a> </li>
+            <li><a href="#history">Release history</a> </li>
+        </ul>
+        <!--======================================================================-->
+        <!-- IMPORTANT INFORMATION                                                -->
+        <!--======================================================================-->
+        <h3>
+            <a name="important" id="important"></a>Important information
+        </h3>
+    <ul>
+        <li>
+            <p>
+                Please note that libraries built with previous versions of IAR Embedded Workbench
+                for 8051 need to be rebuilt in order to link correctly against an application built
+                with version 8.10 of the compiler.
+            </p>
+        </li>
+        <li>
+            <p>
+                If you are using multi-file compilation together with the banked memory model, you
+                must make sure that the size of each multi-file compiled module does not exceed
+                the size of the code bank on the device you are using.
+            </p>
+        </li>
+    </ul>
+        <!--======================================================================-->
+        <!-- NEW FEATURES                                                         -->
+        <!--======================================================================-->
+        <h3>
+            <a name="features" id="features"></a>New features
+        </h3>
+    <ul>
+        <li>
+       	  <p><b>C99 compliance</b><br>
+	    
+	    The IAR C/C++ Compiler for 8051 now supports the ISO/IEC 9899:1999 standard.Refer to the Embedded Workbench Migration Guide (v8) for more information on how this affects your application.
+
+  			</p>
+  		</li>
+  		<li>
+  			<p><b>Improved runtime library support for constants placed in code memory</b><br>
+  			The CLIB runtime library has been extended with functions that accept constants placed in code memory as parameters. Please refer to the Compiler Reference Guide for more information on how to use this in your application.
+			</p>
+  		</li>
+    </ul>
+        <!--======================================================================-->
+        <!-- Known Problems-->
+        <!--======================================================================-->
+        <h3>
+            <a name="problems" id="problems"></a>Known Problems
+        </h3>
+    <ul>
+      <li><p><a NAME="EW21366"><b>EW21366:</b><br></a> 
+	  If the banked code model and the option --place_constants=code are
+	  used, constants must be placed in the root bank and NOT in a code
+	  bank. This is regardless of whether the device you are working with
+	  supports the command line option --has_cobank or not.
+      </p></li>
+
+    </ul>
+
+        <!--======================================================================-->
+        <!-- Program Corrections                                                  -->
+        <!--======================================================================-->
+        <h3>
+            <a name="pcorr" id="pcorr"></a>Program Corrections
+        </h3>
+<ul>
+  <li><p><a NAME="EW20971"><b>EW20971</b></a><br>
+      A range error could occur at link time if a large array was accessed with
+      an immediate index that was larger than 0x7FFF. This has been corrected.
+  </p></li>
+  <li><p><a NAME="EW21354"><b>EW21354</b></a><br> 
+      In some circumstances, the compiler could generate an internal error when
+      the __idata_overlay keyword was used on a function. This has been
+      corrected.
+  </p></li>
+  <li><p><a NAME="EW21913"><b>EW21913</b></a><br> 
+      A signed division of an expression with a negative divider no longer gets
+      optimized into using an unsigned division.
+  </p></li>
+  <li><p><a NAME="EW21981"><b>EW21981, EW21990</b></a><br> 
+      The compiler did not correctly preserve the accumulator for certain
+      8-bit comparison operations. This has been corrected.
+  </p></li>
+  <li><p><a NAME="EW21996"><b>EW21996</b></a><br> 
+      An internal error was issued in the compiler by expressions such as 'const
+      volatile __code int a;'. This has been corrected.
+  </p></li>
+  <li><p><a NAME="EW22111"><b>EW22111</b></a><br> 
+      On the highest optimization level, the compiler could sometimes neglect to
+      save and restore the content of the accumulator when the function inlining and
+      the common subexpression elimination optimizations were used to optimize
+      switch cases for bitfields. This has been corrected.
+  </p></li>
+  <li><p><a NAME="EW22158"><b>EW22158</b></a><br> 
+      Bitwise OR of a value to an output port register would lead to the
+      compiler generating a superfluous MOV instruction. This has been
+      corrected.
+  </p></li>  
+  <li><p><a NAME="EW22280"><b>EW22280</b></a><br> 
+      Casting a __pdata address to a short generated faulty code. This has been
+      corrected.
+  </p></li>
+  <li><p><a NAME="EW22284"><b>EW22284</b></a><br> 
+      Code could be displayed as data in the Disassembly window if it was
+      immediately preceded in memory by a data object. This has been corrected.
+  </p></li>
+  <li><p><a NAME="EW21115"><b>EW21115, EW21180, EW21367, EW22039, EW22132, EW22253, EW22386</b></a><br> 
+      The documentation has been updated in this release, correcting several
+      errors from the previous edition.
+  </p></li>
+</ul>
+        <!--======================================================================-->
+        <!-- USER GUIDE CORRECTIONS                                               -->
+        <!--======================================================================-->
+        <h3>
+            <a name="manuals" id="manuals"></a>User guide corrections
+        </h3>
+    <ul>
+        <li>None</li>
+    </ul>
+ 
+        <!--======================================================================-->
+        <!-- MISCELLANEOUS                                                        -->
+        <!--======================================================================-->
+        <h3>
+            <a name="misc" id="misc"></a>Miscellaneous
+        </h3>
+    <ul>
+        <li>
+        	<p>
+	        	The library functions that update the XDATA stack pointer (XSP) and the augmented
+				extended stack pointer (ESP) have been modified to ensure that stack pointer
+				update operations always are carried out atomically.
+        	</p>
+        </li>
+    </ul>
+        <!--======================================================================-->
+        <!-- RELEASE HISTORY                                                      -->
+        <!--======================================================================-->
+        <h3>
+            <a name="history" id="history"></a>Release history
+        </h3>
+    <p>
+        <b>V7.60.1, June 2010</b>
+    </p>
+    <p>
+        <b>Program corrections</b>
+    </p>
+    <ul>
+     <li><p><a NAME="EW20949"><b>EW20949</b></a><br>
+               The symbols _heap_of_memory and _top_of_heap are no longer
+               implemented as variables but rather as macros that
+               automatically find the beginning and end of the XDATA_HEAP
+               segment.
+     </p></li>
+     <li><p><a NAME="EW20958"><b>EW20958</b></a><br>
+               Realloc in Clib could fail if the pointer plus its size
+               caused the pointer to wrap around. This has been corrected.
+     </p></li>
+     <li><p><a NAME="EW20976"><b>EW20976</b></a><br>
+               The compiler now uses the command line option --dlib_config
+               instead of -D_DLIB_CONFIG_FILE=FILE.
+     </p></li>
+     <li><p><a NAME="EW21103"><b>EW21103</b></a><br>
+               Using a boolean type as prameter to a function would fail
+               if the banked code model together with a ?CBANK_MASK other
+               than 0xFF was used.
+     </p></li>
+     <li><p><a NAME="EW21104"><b>EW21104</b></a><br>
+               In case banked functions were explicitly placed in a user
+               defined segment (e.g using the #pragma location-directive) the
+               compiler could at times generate code which triggered a range
+               check error from the linker.
+     </p></li>
+     <li><p><a NAME="EW21138"><b>EW21138</b></a><br>
+               Combining the options --code_model=far with --data_model=large
+               and --place_constants=code made it impossible to build the
+               CLIB library, this has been corrected.
+     </p></li>
+     <li><p><a NAME="EW21476"><b>EW21476</b></a><br>
+               Initialization of global C++ objects in the banked code model
+               has been corrected.
+     </p></li>
+     <li><p><a NAME="EW21574"><b>EW21574</b></a><br>
+               The saving and restoration of DPTR1 in the function prologue
+               and epilogue was incorrect if more than one DPTR, combined
+               with a function declared with the __idata_overlay calling
+               convention, was used. This has been corrected.
+     </p></li>
+     <li><p><a NAME="EW21629"><b>EW21629</b></a><br>
+               The upper byte of the PDATA stack pointer was hardwired to
+               the same address as the P2 register. This has been corrected.
+     </p></li>
+    </ul>
+    <p>
+        <b>V7.51A, March 2009</b>
+    </p>
+    <ul>
+        <li>
+            <p>
+                <b>EW20344</b><br>
+                The _EXTENDED_STACK_END symbol was incorrectly defined. This has been corrected.
+            </p>
+        </li>
+        <li>
+            <p>
+                <b>EW20509</b><br>
+                The address of the FLSTAT register was wrong in the device io file for the Silabs
+                C8051F127 device. This has been corrected.
+            </p>
+        </li>
+        <li>
+            <p>
+                <b>EW20869</b><br>
+                The address of the PLL0CN register was wrong in the device io file for the Silabs
+                C8051F120 device. This has been corrected.
+            </p>
+        </li>
+        <li>
+            <p>
+                <b>EW20965</b><br>
+                Testing whether an unsigned character value was greater than or equal to <tt>0xFF</tt>
+                would lead to an erroneus error message. This has been fixed.
+            </p>
+        </li>
+        <li>
+            <p>
+                <b>EW20870</b><br>
+                Passing a variable placed with the keyword __data as a parameter when using calling
+                convention pdata_reentrant and more than one dptr could make the compiler stop as
+                in a uncontrolled termination.
+            </p>
+        </li>
+        <li>
+            <p>
+                <b>EW20747, EW20748</b><br>
+                When using multiple file compilation (--mfc), defining a variable with an absolute
+                location in more than one translation unit was erroneously signalled as an error.
+            </p>
+        </li>
+    </ul>
+
+
+    <p>
+        <b>V7.50C, September 2008</b>
+    </p>
+    <p>
+        <b>Program corrections</b>
+    </p>
+    <ul>
+        <li>
+            <p>
+                <b>EW20134</b><br>
+                Support has been added to handle the Silicon Laboratories C8051F12x-F13x devices
+                <tt>COBANK</tt>-selection bits (part of the <tt>PSBANK</tt> register on address
+                0xB1) correctly within the compiler if one uses the banked code model. Please specify
+                the command line option "--has_cobank" if you are using one of these devices.
+            </p>
+        </li>
+        <li>
+            <p>
+                <b>EW20187</b><br>
+                In C++ mode, the compiler could sometimes erroneously generate a copy assignment
+                operator for memories that were too small for a particular class/struct/union, resulting
+                in spurious 'type too large' errors.
+            </p>
+        </li>
+        <li>
+            <p>
+                <b>EW20286<br>
+                </b>A shift combined with a bitwise <tt>OR</tt> of a <tt>SFR</tt> one bit bitfield
+                could generate wrong code in specific cases.
+            </p>
+        </li>
+        <li>
+            <p>
+                <b>EW20457<br>
+                </b>Empty while loops will no longer cause an internal error.
+            </p>
+        </li>
+    </ul>
+    <p>
+        <b>V7.50B, July 2008</b>
+    </p>
+    <p>
+        <b>Program corrections</b>
+    </p>
+    <ul>
+        <li>
+            <p>
+                <b>EW20274, EW20277, EW20293, EW20299</b><br>
+                The compiler would fail when attempting to generate code for bitfields wider than
+                1 bit.
+            </p>
+        </li>
+    </ul>
+    <p>
+        <b>V7.50A, June 2008</b>
+    </p>
+    <p>
+        <b>New features</b>
+    </p>
+    <ul>
+        <li><b>New options added to the compiler:</b><br>
+            <ul>
+                <li>
+                    <p>
+                        <b><tt>--mfc</tt></b><br>
+                        Use this option to compile several source files in one compilation. The advantage
+                        of multi-file compilation is that it gives the interprocedural optimizations a larger
+                        set of functions to work on.
+                        <br>
+                        Syntax:<br>
+                        <br>
+                        <tt>icc8051 -mfc file1 {file2 file3 ...}</tt><br>
+                        <br>
+                        The order in which the source files are given on the command line may affect the
+                        code size.<br>
+                        <br>
+                        <tt>--discard_unused_publics</tt><br>
+                        Use this option together with the <tt>--mfc</tt> option if the compilation unit
+                        is the whole application apart from the library. This can improve the optimization
+                        further because the compiler will assume that there are no references to any symbol
+                        not included in the current batch of files being compiled (ie. that the compilation
+                        unit is the whole application apart from the library).
+                    </p>
+                </li>
+            </ul>
+        </li>
+    </ul>
+    <p>
+        <b>Program corrections</b>
+    </p>
+    <ul>
+        <li>
+            <p>
+                <b>EW20035</b><br>
+                The default memory attribute of an interrupt function when the banked memory model
+                is used is now __near_func.
+            </p>
+        </li>
+        <li>
+            <p>
+                <b>EW19424</b><br>
+                It is now possible to declare volatile constants with the <tt>__code</tt> attribute
+                set.
+            </p>
+        </li>
+        <li>
+            <p>
+                <b>EW18278, EW19909</b><br>
+                Placing a C++ variable that needed dynamic initialization in a non-writable memory
+                caused an internal error. This is now treated as a regular error.
+            </p>
+        </li>
+        <li>
+            <p>
+                <b>EW18243, EW19911</b><br>
+                Instantiating a template function or a template class on a member of an anonymous
+                union caused an internal error in the compiler.
+            </p>
+        </li>
+        <li>
+            <p>
+                <b>EW19924, EW19979</b><br>
+                In C, a <tt>bool</tt> cast at the top level of a Boolean controlling expression
+                could result in an internal error in the compiler.
+            </p>
+        </li>
+    </ul>
+    <p>
+        <b>V7.40A, February 2008</b>
+    </p>
+    <b>New features</b>
+    <ul>
+        <li>
+            <p>
+                The storing and restoration of the original state of the Interrupt Enable register
+                (<tt>IE</tt>) during an update of the XDATA or Extended Stack Pointer is now interrupt
+                safe.
+            </p>
+        </li>
+    </ul>
+    <b>Program corrections</b>
+    <ul>
+        <li>
+            <p>
+                <b>EW15883</b><br>
+                Added peephole optimization to improve code generation for bit manipulations in
+                the SFR area.
+            </p>
+        </li>
+        <li>
+            <p>
+                <b>EW16816, EW18918</b><br>
+                Converting a legal constant value to a pointer could earlier incorrectly generate
+                the warning: <tt>Warning[Pe1053]: conversion from integer to smaller pointer.</tt>
+            </p>
+        </li>
+        <li>
+            <p>
+                <b>EW18065</b><br>
+                Attempts to create pointers to the SFR area now generates a correct error message.<br>
+            </p>
+        </li>
+        <li>
+            <p>
+                <b>EW18258</b><br>
+                The compiler now generates a proper error message when the parameter passed to <tt>__tbac</tt>
+                is not declared <tt>__bit.</tt> In previous versions of the compiler an internal
+                error was generated.
+            </p>
+        </li>
+        <li>
+            <p>
+                <b>EW18277</b><br>
+                A struct declared in SFR memory cannot be used for copying because it is not possible
+                to have a pointer to the SFR area. A more descriptive error message has been added
+                for this situation.
+            </p>
+        </li>
+        <li>
+            <p>
+                <b>EW18821</b><br>
+                Located variables can now be defined in other modules than the ones where they are
+                used.
+            </p>
+        </li>
+        <li>
+            <p>
+                <b>EW18911</b><br>
+                When the result of a multiplication was used as adress for <tt>@</tt> and the result
+                overflowed to a non-negative (<tt>signed</tt>) integer constant an Internal Error
+                was generated. This has been replaced with a more descriptive error message.
+            </p>
+        </li>
+        <li>
+            <p>
+                <b>EW18914, EW18915, EW19041, EW19045, EW19618</b><br>
+                Calling an <tt>__idata_reentrant</tt> function from an <tt>__xdata_reentrant</tt>
+                function could sometimes generate an Internal Error. The same Internal Error would
+                also be triggered when a struct of size 256 to 511 was passed as a parameter to
+                an <tt>__xdata</tt> function.
+            </p>
+        </li>
+    </ul>
+    <p>
+        <b>V7.30B, September 2007</b>
+    </p>
+    <ul>
+        <li>
+            <p>
+                <b>New design of banked code model</b><br>
+                The banked code model was redesigned in this release. More information can be found
+                in the document <a href="Migrating banked projects from 7.2x.html">Migrating banked
+                    projects from 7.2x.html</a>.
+            </p>
+        </li>
+        <li>
+            <p>
+                <b>EW19423</b><br>
+                Declaring a pdata reentrant interrupt function would generate an internal error.
+            </p>
+        </li>
+    </ul>
+    <p>
+        <b>V7.30A, August 2007</b>
+    </p>
+    <ul>
+        <li>
+            <p>
+                <b>EW16031, EW16043 </b>
+                <br>
+                The use of a <tt>__bit bool</tt> variable in a switch statement generated an internal
+                error.
+            </p>
+        </li>
+        <li>
+            <p>
+                <b>EW17380</b><br>
+                Including an I/O definition header and referencing more than one SFR from C++ code
+                resulted in an incorrect warning when linking.
+            </p>
+        </li>
+        <li>
+            <p>
+                <b>EW17385</b><br>
+                Multiple-line, inline assembler used to generate an internal error from the compiler.
+            </p>
+        </li>
+        <li>
+            <p>
+                <b>EW17388 </b>
+                <br>
+                Under certain specific circumstances the loop unrolling optimization would cause
+                an internal error
+            </p>
+        </li>
+        <li>
+            <p>
+                <b>EW17389 </b>
+                <br>
+                If a label ending with ':' was used inside an inline assembler function an internal
+                error was given.
+            </p>
+        </li>
+        <li>
+            <p>
+                <b>EW17531 </b>
+                <br>
+                An empty conditional loop is no longer incorrectly removed as dead code.
+            </p>
+        </li>
+        <li>
+            <p>
+                <b>EW17573 </b>
+                <br>
+                An internal error occured when multiplying signed values between 0x4000 and 0x7FFF
+                by two.
+            </p>
+        </li>
+        <li>
+            <p>
+                <b>EW18359</b><br>
+                Conditional expressions using the <tt>?</tt> operator would generate illegal code
+                if the contitions involved manipulation of SFR registers.
+            </p>
+        </li>
+        <li>
+            <p>
+                <b>EW19257 </b>
+                <br>
+                A problem that occured when attempting to allocate more memory than 0x1F bytes on
+                the XDATA heap when using banked code has been resolved.
+            </p>
+        </li>
+    </ul>
+    <p>
+        <b>V7.20H, November 2006</b>
+    </p>
+    <ul>
+        <li>
+            <p>
+                <b>EW18238</b><br>
+                The compiler failed to properly preserve the carry flag for functions that return
+                a bool value and have more than three bytes of auto area allocated. This resulted
+                in the return value being corrupted.
+            </p>
+        </li>
+        <li>
+            <p>
+                <b>EW18018</b><br>
+                The code that generated text for a constant only worked for 8-bit constants. This
+                only affects CALL instructions which uses a special output mode.
+            </p>
+        </li>
+        <li>
+            <p>
+                <b>EW18406</b><br>
+                The code generator would misstakenly try to generate MOV instructions for all accesses
+                to located variables where the address was less than 256 and the memory attribute
+                was not __pdata or __generic. This was especially bad for __xdata variables which
+                should have used MOVX. This affected all located __xdata, __ixdata, and __xdata_rom
+                variables.
+            </p>
+        </li>
+        <li>
+            <p>
+                <b>EW18443</b><br>
+                The code generator did not clear the accumulator before accessing the second byte
+                of a 16-bit pointer located in __code, __far_code or __huge_code memory when doing
+                pointer arithmetics. Only expressions of the kind "p + i" where p is a 16-bit pointer
+                stored in the code memory and i is any integer expression are affected (independent
+                if the pointer expression is used as an lvalue or an rvalue).
+            </p>
+        </li>
+        <li>
+            <p>
+                <b>EW17854</b><br>
+                The assemble source created by icc8051 compiler no longer generates "*" comments.
+            </p>
+        </li>
+        <li>
+            <p>
+                <b>EW17770</b><br>
+                The optimizer could sometimes mistakenly combine two if-else statments into one
+                common set.
+            </p>
+        </li>
+        <li>
+            <p>
+                <b>EW14809</b><br>
+                An error in the instruction level analysis phase could cause the optimizer to erronously
+                remove a load instruction. A support routine used the wrong target address (off
+                by one) when tracking memory accesses in conjunction to pushing values onto the
+                stack.
+            </p>
+        </li>
+        <li>
+            <p>
+                <b>EW18050</b><br>
+                A MISRA error in sysmac.h has been fixed.
+            </p>
+        </li>
+    </ul>
+    <p>
+        <b>V7.20D-v7.20G</b>
+    </p>
+    <p>
+        These versions were never publically released.
+    </p>
+    <p>
+        <b>V7.20C, January 2006</b>
+    </p>
+    <ul>
+        <li>
+            <p>
+                <b>EW17693, EW17694</b><br>
+                Accesses to volatile declared variables could under certain circumstances be removed
+                at optimization level medium or high (6 or 9). Now the volatile information is correctly
+                handled and operations on volatile declared variables will not be removed at higher
+                optimization levels.
+            </p>
+        </li>
+    </ul>
+    <p>
+        <b>V7.20A, Oct 2005</b>
+    </p>
+    <ul>
+        <li>
+            <p>
+                <b>EW15870</b><br>
+                Now an error message is generated when the INTVEC segment is not located at the
+                address zero. This is because the INTVEC segment contains the reset vector which
+                should normally be located at the address zero. Previously no warning or error message
+                was given.
+            </p>
+        </li>
+        <li>
+            <p>
+                <b>EW16044, EW17131, EW17343</b><br>
+                Mixing switch-case and if-else constructions can generate <tt>internal error: [CoreUtil/General]:
+                    1: bad byte count for graph ...</tt> when the file is compiled. This error can
+                often be avoided if the nested code statements are rewritten.
+            </p>
+        </li>
+        <li>
+            <p>
+                <b>EW17157</b><br>
+                The compiler could in certain cases generate a JBC instruction instead of a JNB
+                instruction. This has now been corrected.
+            </p>
+        </li>
+        <li>
+            <p>
+                <b>EW17241</b><br>
+                If the same interrupt vector was used for different interrupt functions, located
+                in different files, no error or warning message was generated and only one of the
+                interrupt functions was placed in code memory, while the others were removed. Now
+                a warning message is generated and all interrupt functions using the same interrupt
+                vector are located in code memory.
+            </p>
+        </li>
+        <li>
+            <p>
+                <b>EW17344</b><br>
+                Accessing a structure member from a <tt>>struct</tt> located in the <tt>__sfr</tt>
+                memory could generate the internal error: <tt>Internal error: [CoreUtil/General]: Illegal
+                    state</tt>. This problem has now been corrected.
+            </p>
+        </li>
+        <li>
+            <p>
+                <b>EW17345</b><br>
+                Data placed at an absolute location, with the <tt>@</tt> operator or the <tt>#pragma=location</tt>
+                could previously be placed in the wrong memory type. This could result in the same
+                memory address being used for more than one variable, which generated the XLINK
+                error message: <tt>Error[e24]: Segment ... overlaps segment ....</tt>
+            </p>
+        </li>
+    </ul>
+    <p>
+        <b>V7.10A, July 2005</b>
+    </p>
+    <ul>
+        <li>
+            <p>
+                <b>EW15834</b><br>
+                Absolute located variables are now allowed in bdata memory, e.g., <tt>__no_init __bdata
+                    unsigned char foo @ 0x22.</tt>
+            </p>
+        </li>
+        <li>
+            <p>
+                <b>EW15994</b><br>
+                The error message generated by the compiler, when too much code is generated in
+                the Baseline and Kickstart editions, has been corrected. The correct limits are
+                8192 and 4096 bytes.
+            </p>
+        </li>
+        <li>
+            <p>
+                <b>EW16020</b><br>
+                Cast from a signed char to a <tt>__far</tt> or <tt>__huge</tt> pointer generated
+                an internal error. Now these cast operations are correctly generated.
+            </p>
+        </li>
+        <li>
+            <p>
+                <b>EW16094</b><br>
+                The inline register restore sequence performed at function return could be erroneously
+                removed. This most likely occurred for interrupt functions using a separate register
+                bank. This has now been corrected.
+            </p>
+        </li>
+        <li>
+            <p>
+                <b>EW16675</b><br>
+                Older versions of ubrof (ubrof5 or ubrof6) can now properly be generated from the
+                compiler. Registers will be correctly displayed in third-party tools reading older
+                ubrof versions.
+            </p>
+        </li>
+    </ul>
+    <p>
+        <b>V6.11A-P04314, November 2004</b>
+    </p>
+    <ul>
+        <li>
+            <p>
+                <b>EW16045</b><br>
+                Incorrect <tt>__sfr</tt> variable declarations could previously generate an internal
+                error. Now an error message is instead generated.
+            </p>
+        </li>
+        <li>
+            <p>
+                <b>EW16096</b><br>
+                Access to an <tt>__sfr</tt> declared variable could previously erroneously be performed
+                with indirect addressing and thus accessing IDATA memory instead of SFR memory.
+                This has now been corrected.
+            </p>
+        </li>
+    </ul>
+    <p>
+        <b>V6.11A, October 2004</b>
+    </p>
+    <ul>
+        <li>
+            <p>
+                <b>EW15795</b><br>
+                The compiler now always clean the stack before an infinite loop. Earlier you could
+                get the internal error: <tt>[CoreUtil/General]: Different paths give different backtrace
+                    info</tt>. The compiler removed the stack cleaning code because it was dead
+                depending on the infinite loop. However, this assumtion was incorrect as an interrupt
+                can occur.
+            </p>
+        </li>
+        <li>
+            <p>
+                <b>EW15775</b><br>
+                Interrupt functions that performs in-line saving and restoring of callee-saved registers
+                now restores the saved registers correctly, independent of the optimization level.
+            </p>
+        </li>
+        <li>
+            <p>
+                <b>EW15770</b><br>
+                The <tt>internal error: [CoreUtil/General]: Illegal unspillreg</tt>, has been fixed.
+                The error occured when a bool variable that had been spilled from the VB register
+                to the B register was restored (unspilled) to the VB register.
+            </p>
+        </li>
+        <li>
+            <p>
+                <b>EW15333</b><br>
+                The <tt>__low_level_init</tt> function, used to initialize I/O registers or to omit
+                the default initialization made by <tt>CStartup</tt>, is now declared as <tt>__root</tt>
+                and will always be included in the linked application.
+            </p>
+        </li>
+        <li>
+            <p>
+                <b>EW15311</b><br>
+                #pragma dataseg and #pragma location now work as intended. The produced code is
+                now located in the specified segment.
+            </p>
+        </li>
+        <li>
+            <p>
+                <b>EW15047, EW15080</b><br>
+                The <tt>__task</tt> keyword is now acknowledged.
+            </p>
+        </li>
+        <li>
+            <p>
+                <b>EW15004</b><br>
+                Variables located in a specific, user-created, segment with <tt>#pragma location="NAME"</tt>
+                or <tt>@ "NAME"</tt> now ends up in this segment.
+            </p>
+        </li>
+        <li>
+            <p>
+                <b>EW11851</b><br>
+                Version 6 of 8051 IAR C/EC++ Compiler is totally new compared to version 5. All
+                problems exsisting in v5 have been corrected in v6. There is for instance no longer
+                a problem to combine banked code with high optimization.
+            </p>
+        </li>
+    </ul>
+    <p>
+        <b>V6.10C, June 2004</b>
+    </p>
+    <p>
+        (V6.10B was a pre-release of V6.10C)
+    </p>
+    <ul>
+        <li>
+            <p>
+                <b>EW15564</b><br>
+                Operations on __bit declared variables and 1 bit bitfields have been improved. The
+                direct bit addressing mode is used more often for instructions supporting this addressing
+                mode.
+            </p>
+        </li>
+        <li>
+            <p>
+                <b>EW15514</b><br>
+                The <tt>volatile</tt> keyword was ignored and the generated code could be corrupt
+                for a volatile variable.
+            </p>
+        </li>
+        <li>
+            <p>
+                <b>EW15332</b><br>
+                The <tt>not</tt> operation applied on bit fields now works correctly, e.g. <tt>P1_bit.b6
+                    = !P1_bit.b6</tt>. This operation and lot of other operations on bitfields now
+                also produce more efficient code.
+            </p>
+        </li>
+        <li>
+            <p>
+                <b>EW15264, EW15573</b><br>
+                Bit operations combined with xdata access could generate an internal error: <tt>[CgDriver]:
+                    Coloring failed</tt>.
+            </p>
+        </li>
+        <li>
+            <p>
+                The following bit optimizations were implemented
+            </p>
+            <ul>
+                <li>Assignments (bytes in bit-addressable space)
+                    <ul>
+                        <li><tt>byte.bit = constant</tt> </li>
+                        <li><tt>byte.bit = byte.bit</tt> </li>
+                        <li><tt>byte.bit &= constant</tt> </li>
+                        <li><tt>byte.bit |= constant</tt> </li>
+                        <li><tt>byte.bit ^= expr</tt> </li>
+                    </ul>
+                    <br>
+                </li>
+                <li>Assignments (bytes in non-bit-addressable space)
+                    <ul>
+                        <li><tt>byte.bit = expr</tt> </li>
+                    </ul>
+                    <br>
+                </li>
+                <li>Compare (bytes in bit-addressable space)
+                    <ul>
+                        <li><tt>if(byte & aMask)</tt>
+                        <li><tt>if(byte.bit)</tt> and <tt>if(!byte.bit)</tt> </li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+    </ul>
+    <p>
+        <b>V6.10A, February 2004</b>
+    </p>
+    <p>
+        Initial release.
+    </p>
+    </div>
+</body>
+</html>

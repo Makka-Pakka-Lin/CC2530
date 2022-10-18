@@ -1,0 +1,3667 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+   <title>Readme file for the IAR XLINK Linker V5.0.2.5</title>
+</head>
+<body bgcolor="#FFDE00">
+
+<h2>Readme file for the IAR XLINK Linker V5.0.2.5</h2>
+<font size=-1>Updated: Nov 05, 2010 [IJYB]</font>
+<p>
+<ul>
+<li><a href="#important">Important information</a></li>
+
+<li><a href="xman.htm">Manual Corrections and Updates</a></li>
+
+<li><a href="xar.htm">The XAR Library Builder</a></li>
+
+<li><a href="#problems">Known problems in Current Version</a></li>
+
+<li><a href="#pcorr">Program Corrections and Updates</a></li>
+</ul>
+
+<h3><a NAME="important"></a>Important information</h3>
+<h4><a NAME="DebugModulesUsedInReleaseLink"></a>XLINK 5.0.2.5 - 2010-Nov-05</h4>
+
+<ul>   
+  <li><a NAME="ew22072"></a><b>EW22072</b> When not building an
+  application for use with the C-SPY debugger (not using
+  the <tt>-r</tt> command line option) XLINK could still include
+  symbol definitions from the runtime library intended only for use
+  with C-SPY, instead of generating an undefined external error, as
+  expected, when the application did not otherwise include definitions
+  for the needed symbols. The most common such symbol
+  is <tt>__write</tt>.<p>
+
+  This problem was introduced in <a href="#4.61L">XLINK 4.61L.</a><p>
+</li>
+
+
+  </li>
+</ul>
+
+<h4><a NAME="4wayVersionNumber"></a>XLINK 5.0.0.1 - 2010-May-17</h4>
+
+<ul>
+  <li> Starting with XLINK 5.0.0.1 the version number uses four numbers.
+       Major version, minor version, revision and build number.
+  </li>
+</ul>
+
+<h4><a NAME="NoDLLs"></a>XLINK 4.61A - 2007-Dec-10</h4>
+<ul>
+  <li> Starting with XLINK 4.61A the .dll version of xlink is no longer
+       available.</li><p>
+</ul>
+
+<h4><a NAME="PackedAlignmentError"></a>XLINK 4.59P - 2005-09-28</h4>
+<ul> 
+    <li><b>EW17228</b>
+    When doing packed segment placement (-P) and the input files
+    contained sequences of segment parts with mixed alignment that
+    were to be placed consecutively, XLINK treated those segment parts
+    as if they had the highest alignment of any segment part in that
+    sequence. This wasted space and lead to incorrect code when the
+    code was fall through. <p>
+
+    This problem was introduced in XLINK 4.58A. <p>
+
+  </li>
+</ul>
+
+<h4><a NAME="RangesError"></a>XLINK 4.55H - 2003-05-13</h4>
+<ul>
+  <li><b>EW14006</b>
+       In segment placement commands, when using consecutive ranges 
+       (like 0-FF,100-1FF,200-2FF or, equivalently, [0-2FF]/100), 
+       XLINK treated the range as if it was 0-2FF without the 
+       boundaries. Segments that were too large for the original 
+       ranges would fit and segments could be placed across 
+       boundaries that they should not be allowed to be placed 
+       across.<p>
+
+       This problem was introduced in XLINK 4.55B.<p>
+  </li>
+</ul>
+
+<h4>XLINK 4.55B - 2002-12-17</h4>
+<ul>
+<li>The IAR Universal Binary Relocatable Object Format, UBROF,
+    has been updated to version 10.0.0. This means that XLINK
+    will now output UBROF 10 files when given UBROF 10 input. The
+    UBROF format is used by IAR's C-SPY debugger and a number of
+    other debuggers/emulators. The new version of the output
+    format supports C++ templates, has no limit on the number of 
+    segments and externals in a module and has no limit on the 
+    number of types in a program.<p>
+
+    XLIB supports UBROF 10 starting with version 3.28N.<p>
+
+    All released versions of XAR support UBROF 10.<p>
+
+    XLINK is now able to produce relocatable output, output
+    that can be located after linking by a program loader.
+    This is currently only supported for the ARM processor
+    and the ELF output format.<p>
+    
+</li>
+</ul>
+
+<h4>XLINK 4.53J - 2002-03-18</h4>
+<ul>
+<li>
+     <a href="xar.htm">XAR</a>, the IAR Universal Library Builder, is
+     now included in the XLINK package. XAR has a very simple command
+     line interface to construct library files from object files,
+     which is likely to be far more convenient than using XLIB for the
+     same purpose.<p>
+</li>
+</ul>
+
+<h4><a NAME="SFEError"></a>XLINK 4.53I - 2002-02-19</h4>
+<ul>
+<li>
+     XLINK calculated the wrong value for SFE (Segment End) directives
+     for segments placed using far placement when the entire segment
+     did not fit in a single 64K page. The incorrect value was too low
+     by the amount of space skipped at the page boundaries.<p>
+
+     Initialization of variables in far memory normally uses the SFE
+     (or equivalently, SIZEOF) directive to determine the amount of
+     data to set. This means that the incorrect value can result in
+     some bytes of initialized or zeroed variables in far memory not
+     being set at program start-up.<p>
+
+     This problem was introduced in XLINK version 4.52E, released
+     2001-02-19.<p>
+</li>
+</ul>
+
+
+<h4>XLINK 4.53A - 2001-06-07</h4>
+<ul>
+<li>The IAR Universal Binary Relocatable Object Format, UBROF,
+    has been updated to version 9.1.0. This version supercedes UBROF
+    9.0.0, for which version support has been dropped from XLINK.<p>
+
+    XLIB supports UBROF 9.1 starting with version 3.28B.<p>
+</li>
+</ul>
+
+<h4>XLINK 4.52A - 2000-10-20</h4>
+<ul>
+<li>The IAR Universal Binary Relocatable Object Format, UBROF,
+    has been updated to version 9.0.0. This means that XLINK
+	will now output UBROF 9 files when given UBROF 9 input. The
+	UBROF format is used by IAR's C-SPY debugger and a number of
+	other debuggers/emulators. The new version of the output
+	format improves debug information support. Specifically it
+        adds support for call frame information and better statement
+        information.<p>
+
+    This adds a new output format to XLINK:<p>
+
+    <ul><pre>-Fubrof9   Output UBROF 9 even if no input was UBROF 9</pre></ul><p>
+
+    As before, using -r or -Fdebug will produce output using the
+	latest version of UBROF used in any of the input files.<p>
+
+    If you are using a debugger/emulator other than C-SPY that
+	reads UBROF and a compiler generating UBROF 9 (check the
+	documentation accompanying the compiler) and the output file
+	cannot be loaded, the new format version could be the
+	cause. In that case try using
+        -Fubrof8/-Fubrof7/-Fubrof6/-Fubrof5 or
+	contact the supplier of your debugger/emulator. Also be sure
+	to check the compiler release notes for any pertinent
+	information on this issue. As of this writing only one IAR
+	compiler generates UBROF 9 output.<p>
+
+    XLIB supports UBROF 9 starting with version 3.28A.<p>
+
+</li>
+
+<li>
+    Starting with version 4.52A, the Windows release of XLINK is no
+    longer delivered with a DOS extender. This means that XLINK will
+    not work in environments that do not provide the Win32 interface
+    (Win32 is provided in Windows 95 and later).
+
+    <p>The same is true for XLIB, starting with version 3.28A.
+
+<p></li>
+
+</ul>
+
+<h4>XLINK 4.51D - 1998-12-01</h4>
+<ul>
+<li>The IAR Universal Binary Relocatable Object Format, UBROF,
+    has been updated to version 8.0.0. This means that XLINK
+	will now output UBROF 8 files when given UBROF 8 input. The
+	UBROF format is used by IAR's C-SPY debugger and a number of
+	other debuggers/emulators. The new version of the output
+	format adds support for Embedded C++.<p>
+
+    This adds a new output format to XLINK:<p>
+
+    <ul><pre>-Fubrof8   Output UBROF 8 even if no input was UBROF 8</pre></ul><p>
+
+    As before, using -r or -Fdebug will produce output using the
+	latest version of UBROF used in any of the input files.<p>
+
+    If you are using a debugger/emulator other than C-SPY that
+	reads UBROF and a compiler generating UBROF 8 (check the
+	documentation accompanying the compiler) and the output file
+	cannot be loaded, the new format version could be the
+	cause. In that case try using -Fubrof7/-Fubrof6/-Fubrof5 or
+	contact the supplier of your debugger/emulator. Also be sure
+	to check the compiler release notes for any pertinent
+	information on this issue. As of this writing only IAR
+	compilers capable of compiling C++ generate UBROF 8 output.<p></li>
+</ul>
+
+<h4>XLINK 4.51C - 1998-10-21</h4>
+<ul>
+<li>XLINK can now generate ELF format output with DWARF format
+    debug information. See <a href="xman.htm#chap10">XMAN.HTM</a> for details.<p></li>
+</ul>
+
+<h4>XLINK 4.51A - 1998-10-08</h4>
+<ul>
+<li>Segment placement has been improved. See <a href="xman.htm#chap08">
+    XMAN.HTM</a> for details.<p></li>
+</ul>
+
+<h4>XLINK 4.50C - 1998-05-14</h4>
+<ul>
+<li>The IAR Universal Binary Relocatable Object Format, UBROF,
+    has been updated to version 7.0.0. This means that XLINK
+	will now output UBROF 7 files when given UBROF 7 input. The
+	UBROF format is used by IAR's C-SPY debugger and a number of
+	other debuggers/emulators. The new version of the output
+	format exists mainly to expand the system for keeping track
+	of IAR specific type and object attributes.<p>
+
+	This adds a new output format to XLINK:<p>
+
+	<ul><pre>-Fubrof7   Output UBROF 7 even if no input was UBROF 7</pre></ul><p>
+	
+	As before, using -r or -Fdebug will produce output using the
+	latest version of UBROF used in any of the input files.<p>
+	
+	If you are using a debugger/emulator that reads UBROF and a
+	compiler generating UBROF 7 (check the documentation
+	accompanying the compiler) and the output file cannot be
+	loaded, the new format version could be the cause. In that
+	case try using -Fubrof6/-Fubrof5 or contact the supplier of
+	your debugger/emulator. Also be sure to check the compiler
+	release notes for any pertinent information on this issue.<p></li>
+</ul>
+
+</ul>
+<h3><a NAME="problems"></a>Known problems in Current Version</h3>
+<ul>
+
+<h4>XLINK 5.0.2.5 - 2010-Nov-05</h4>
+<ul>
+
+<li><a NAME="ew10551"></a><b>EW10551</b> [XLINK0151] SFRs are not
+    present in the IEEE-695 output from XLINK for code compiled with
+    compilers using UBROF 6 and earlier.</li><p>
+
+<li><a NAME="ew10554"></a><b>EW10554</b> [XLINK0119] When doing
+    static overlay, XLINK fails to warn about functions called from
+    indirect functions and from someplace else.  This is dangerous,
+    if, for instance, one of these is from an interrupt function and
+    the other from main.<p></li>
+
+<li><a NAME="ew10555"></a><b>EW10555</b> [XLINK0116] Under certain
+    circumstances XLINK can fail to place empty segments.  This will
+    happen if the entire memory address range in which to place the
+    empty segments has already been taken by previous segment
+    placements, or by absolute code from assembler modules, but the
+    address (not the byte) after the range is still free.<p></li>
+
+<li><a NAME="ew10556"></a><b>EW10556</b> [XLINK0107] Empty segments
+    placed in previous segment placement commands do not cause later
+    segment placements ranges to split. Example: -ZEMPTY=400-4FF
+    -ZBAR=0-FFFF. This should place the empty segment EMPTY at address
+    400 and cause the range 0-FFFF to be split into 0-3FF and
+    400-FFFF.<p></li>
+
+<li><a NAME="ew10557"></a><b>EW10557</b> [XLINK0045] Static overlay
+    system: A function which does not appear to be called (warning 39)
+    still counts as a caller for warning 16 (function called from two
+    function trees), resulting in two warnings instead of one.
+    <p></li>
+
+<li><a NAME="ew10558"></a><b>EW10558</b> [XLINK0136] Specifying
+    filler ranges explicitly (using -h) does not work if any segment
+    parts are placed using banked placement (-b). Use packed
+    placement (-P) instead.<p></li>
+
+<li><a NAME="EW18364_rest"></a><b>EW18364</b> When generating output
+    in the ELF/DWARF output format for the H8 processor, XLINK fails
+    to generate correct debug information for variables placed in
+    bit-memory. It is not possible to inspect or modify such variables
+    through its name in a debugger.<p></li>
+</ul>
+
+</ul>
+<h3><a NAME="pcorr"></a>Program Corrections and Updates</h3>
+<ul>
+
+<h4><a NAME="5.0.2.5"></a>XLINK 5.0.2.5 - 2010-Nov-05</h4>
+
+<ul>
+   <li><a NAME="ew22046"></a><b>EW22046</b> When doing
+  <tt>FAR</tt>-segment placement (using a -Z segment placement command
+  whose segment type begins with "FAR", like
+  <tt>-Z(FARCODE)</tt>), XLINK could terminate with an internal error
+  if the placed segments had the segment type
+  <tt>CODE</tt> or <tt>FARCODE</tt> in the input file. This problem
+  was introduced in <a href="#4.61T">XLINK 4.61T</a>.</li><p>
+
+  <li><a NAME="ew22047"></a><b>EW22047</b> When an address that would
+  have been negative was specified (this can be achieved through the
+  use of <a href="xman.htm#chap11_address expressions">address
+  expressions</a>), XLINK terminated with an internal error.</li><p>
+
+  <li><a NAME="ew22059"></a><b>EW22059</b> When doing packed segment
+  placement (-P), generating filler bytes (-H or -h) and the placed
+  segment contained segment parts withat a size that was not a
+  multiple of the segment part's alignment, XLINK could fail to
+  generate filler bytes for the alignment gap. The alignment gap could
+  contain undefined bytes which could result in a checksum computed by
+  the program not matching the checksum computed by XLINK. </li><p>
+
+  <li><a NAME="ew22072"></a><b>EW22072</b> When not building an
+  application for use with the C-SPY debugger (not using
+  the <tt>-r</tt> command line option) XLINK could still include
+  symbol definitions from the runtime library intended only for use
+  with C-SPY, instead of generating an undefined external error, as
+  expected, when the application did not otherwise include definitions
+  for the needed symbols. The most common such symbol
+  is <tt>__write</tt>. This problem was introduced
+  in <a href="#4.61L">XLINK 4.61L.</a><p></li>
+
+  <li>A new warning, <a href="xman.htm#warning75">75</a> (The program
+      does not contain any content) has been introduced,
+      see <a href="xman.htm">xman.htm</a> for the details.</li><p>
+
+</ul>
+
+<h4><a NAME="5.0.0.2"></a>XLINK 5.0.0.2 - 2010-Jun-15</h4>
+
+<ul>
+  <li> The XAR och XLIB executables did not have a version resource in
+       the <a href="#5.0.0.1">5.0.0.1</a> release. </li><p>
+
+  <li> XLINK is now better integrated in IAR Infocenter.</li><p>
+</ul>
+
+<h4><a NAME="5.0.0.1"></a>XLINK 5.0.0.1 - 2010-May-17</h4>
+
+<ul>
+
+<li><a NAME="ew21707"></a><b>EW21707</b> When producing output in the
+    ELF/DWARF output format for the M16C and M32C processors, XLINK
+    produced an output file that could lead to problems when debugged
+    with a Renesas debugger. The problem was introduced
+    in <a href="#4.61O">XLINK 4.61O</a> when new ELF machine constants
+    were introduced. XLINK will now use the same ELF machine constants
+    as it used before XLINK 4.61O. See 
+    <a href="xman.htm#ELF_machine_constants">xman.htm</a> for details
+    about ELF machine constants.<p></li>
+
+<li><a NAME="ew21778"></a><b>EW21778</b> When generating output in the
+    UBROF output format, XLINK could terminate with an internal error
+    if a <tt>COMMON</tt> segment was duplicated using the <tt>-K</tt>
+    option. This problem was introduced in <a href="#4.61S">XLINK
+    4.61S</a>.<p></li>
+
+<li> The <tt>-!</tt> option (old style comment) is no longer
+     recognized as an option. Use <tt>//</tt> or <tt>/* */</tt>
+     comments instead. <p></li>
+
+</ul>
+
+
+<h4><a NAME="4.61T"></a>XLINK 4.61T - 2010-Feb-02</h4>
+
+<ul>
+
+<li><a NAME="ew21526"></a><b>EW21526</b> When generating output in the
+    xcoff78k format, XLINK could generate incorrect output or
+    terminate with an internal error when statement information was
+    generated for data declarations in assembler files.</li><p>
+
+<li><a NAME="ew21568"></a><b>EW21568</b> When placing code segments
+    using FAR placement (<tt>-Z(FARCODE)</tt>), XLINK failed to honor
+    the <tt>NOREORDER</tt> (also known as keep-with-next) segment part
+    property at page boundaries. Some content in a sequence could be
+    placed on one side of the page boundary and some on the other even
+    though all of it should have been placed in one contiguous chunk
+    in one page. This problem was introduced in XLINK 4.51F
+    (1999-Feb-02).</li><p>
+
+<li>It is now possible to specify the exact order of the bytes in a
+    checksum command. See <a href="xman.htm#LiteralSegments">
+    xman.htm</a> for the details.</li><p>
+
+</ul>
+
+
+<h4><a NAME="4.61S"></a>XLINK 4.61S - 2009-Dec-09</h4>
+
+<ul>
+
+<li><a NAME="ew21451"></a><b>EW21451</b> When generating a checksum
+    (-J), XLINK could in rare cases terminate with an internal
+    error.</li><p>
+
+<li><a NAME="ew21474"></a><b>EW21474</b> When generating output in the
+    UBROF output format, XLINK failed to generate debug information
+    for typedefs. This problem was introduced in
+    <a href="#4.61M">XLINK 4.61M</a>.</li><p>
+
+<li>When producing output in the ELF/DWARF output format for the
+    RX-processor, XLINK could produce corrupt code sections when the
+    size of the code section was not a multiple of 4.</li><p>
+
+<li>When command line segment alignment
+    (<tt>-Z(SEGTYPE)SEGNAME|ALIGNMENT|</tt>) was specified for a
+    segment for which there were no segment parts, XLINK terminated
+    with an internal error.</li><p>
+
+<li>A new error, <a href="xman.htm#error172">172</a> (bi-endian code
+    segment not aligned) has been introduced. See
+    <a href="xman.htm">xman.htm</a> for the details.</li><p>
+
+<li>A new warning, <a href="xman.htm#warning74">74</a> (least
+    significant bit in crc polynomial not set) has been introduced,
+    see <a href="xman.htm">xman.htm</a> for the details.</li><p>
+
+</ul>
+
+<h4><a NAME="4.61R"></a>XLINK 4.61R - 2009-Oct-16</h4>
+
+<ul>
+
+<li><a href="#4.61Q">XLINK 4.61Q</a> was built using the wrong version
+    number in the version resource.</li><p>
+
+</ul>
+
+
+<h4><a NAME="4.61Q"></a>XLINK 4.61Q - 2009-Oct-14</h4>
+
+<ul>
+
+<li><a NAME="ew21298"></a><b>EW21298</b> When generating output in the
+    simple ROM-formats (this includes, but is not limited to,
+    intel-standard, intel-extended and motorola s-records) and the
+    program contained ROM content that was placed into two or more non
+    contiguous ranges using <tt>FAR</tt>-placement 
+    (<tt>-Z(FARCONST)</tt> or <tt>-Z(FARCODE)</tt>), XLINK could
+    generate an output file where the gap between the ranges was
+    erroneously filled with zeroes. This problem was introduced in
+    XLINK 4.51K (1999-Aug-24).<p></li>
+
+<li><a NAME="ew21373"></a><b>EW21373</b> When placing an empty segment
+    using sequential segment placement (-Z), XLINK failed to reserve
+    alignment space before the empty segment. This could lead to
+    overlapping segments.<p>
+
+    <i>Example:<tt>-Z(CODE)EMPTY,NON_EMPTY=...</tt><br>
+    If <tt>EMPTY</tt> had a higher alignment than <tt>NON_EMPTY</tt>, 
+    <tt>NON_EMPTY</tt> could start before <tt>EMPTY</tt>. This created
+    a segment overlap.</i></li><p>
+
+<li>A new option, <tt>-N</tt>, that forces all content in an object
+    file to be included in the output, has been added. See
+    <a href="xman.htm#N_option">xman.htm</a> for the details.<p></li>
+
+</ul>
+
+
+<h4><a NAME="4.61P"></a>XLINK 4.61P - 2009-Sep-14</h4>
+
+<ul>
+
+<li><a NAME="ew21232"></a><b>EW21232</b> When downgrading output from
+    UBROF 9 or 10 to UBROF 8 or lower and at least one row number
+    exceeded 65535 XLINK terminated with an internal error. This now
+    generates the new warnings <a href="xman.htm#warning72">72</a>
+    and <a href="xman.htm#warning73">73</a>. Source level debugging
+    will not be available for the affected functions. Assembly level
+    debugging and variable information will still be available.</li><p>
+
+<li><a NAME="ew21296"></a><b>EW21296</b> When generating output in the
+    IEEE-695 output format for the NEC 78k0R processor, XLINK could
+    terminate with an internal error if any variable in the program
+    resided in a register.</li><p>
+
+</ul>
+
+<h4><a NAME="4.61O"></a>XLINK 4.61O - 2009-Jul-02</h4>
+
+<ul>
+
+<li><a NAME="ew21147"></a><b>EW21147</b> When generating output in the
+    UBROF output format XLINK could, in rare cases involving C++
+    templates, generate a corrupt file that caused the C-SPY debugger
+    to abort while reading the file. This problem was introduced
+    in <a href="#4.61M">XLINK 4.61M</a>.</li><p>
+
+<li><a NAME="ew21149"></a><b>EW21149</b> When generating more than one
+    UBROF file, XLINK could generate spurious error 133 (The output
+    format cannot handle multiple address spaces). This problem was
+    introduced in <a href="#4.61K"> XLINK 4.61K</a>.</li><p>
+   
+<li>A new warning, <a href="xman.htm#warning71">71</a> (-! option
+    encountered), has been introduced. Support for -! (old style comment)
+    will eventually be removed from XLINK. Use <tt>/* */</tt>
+    or <tt>//</tt> for comments in .xcl-files.
+
+</ul>
+
+<h4><a NAME="4.61N"></a>XLINK 4.61N - 2009-May-04</h4>
+
+<ul>
+
+<li> XLINK now supports the Renesas RX processor.</li><p>
+
+</ul>
+
+<h4><a NAME="4.61M"></a>XLINK 4.61M - 2009-Apr-24</h4>
+
+<ul>
+
+<li><a NAME="ew19453"></a><b>EW19453</b> When generating output in the
+    COFF output format for the PIC processor, XLINK used byte
+    addresses instead of word addresses for segments declared using
+    the <tt>ASEG</tt> assembler directive.</li><p>
+
+<li><a href="#ew20909">EW20909</a> was corrected in 
+    <a href="#4.61L">XLINK 4.61L</a> but was not listed in the
+    release notes.</li><p>
+
+</ul>
+
+<h4><a NAME="4.61L"></a>XLINK 4.61L - 2009-Mar-06</h4>
+
+<ul>
+
+<li><a NAME="ew20735"></a><b>EW20735</b> The attempt
+    in <a href="#4.61K">XLINK 4.61K</a> to
+    solve <a href="#ew20735_old">EW20735</a> was not completely
+    successful. The information about the enums did not contain the
+    size of the underlying type.</li><p>
+
+<li><a NAME="ew20881"></a><b>EW20881</b> When generating output in the
+    xocff78k output format and a data segment (a segment that does not
+    contain object code) contained statement information, XLINK
+    generated a corrupt output file that was rejected by the
+    debugger.</li><p>
+
+<li><a NAME="ew20885"></a><b>EW20885</b> It is now possible to
+    checksum segments by using them in the checksum command. See
+    <a href="xman.htm#ChecksumSegmentsByName">xman.htm</a> for the
+    details.</li><p>
+
+<li><a NAME="ew20887"></a><b>EW20887</b> When generating output in the
+    raw-binary output format, XLINK could generate a very large
+    (exceeding 4 gigabytes) output file if the linked program
+    contained overlaps between segments with content. Now exactly one
+    of the segments will be used to decide the values of the bytes on
+    the overlapping addresses.</li><p>
+
+<li><a NAME="ew20909"></a><b>EW20909</b> When generating output in the
+    ELF/DWARF output format for the Coldfire processor, XLINK
+    terminated with an "illegal ELF-register" error message if the
+    debug information for the object files used register
+    pairs.</li><p>
+
+<li>2 new errors, <a href="xman.htm#error170">170</a> (checksummed
+    segment is not defined) and <a href="xman.htm#error171">171</a>
+    (checksummed segment is packed), and 1 new
+    warning, <a href="xman.htm#warning70">70</a> (segments with
+    content overlaps in a raw-binary file) have been
+    introduced.</li><p>
+
+
+<li>When linking modules that contain a very large number (tens of
+    thousands) of segment parts, XLINK now uses significantly less
+    memory.</li><p>
+
+<li>When linking input files that contain many (thousands) library
+    modules (compiled as library or defined in assembler
+    using <tt>MODULE</tt>), XLINK now uses significantly less
+    time.</li><p>
+
+</ul>
+
+<h4><a NAME="4.61K"></a>XLINK 4.61K - 2009-Feb-04</h4>
+
+<ul>
+
+<li><a NAME="ew20735_old"></a><b>EW20735</b> When generating debug
+    information in the IEEE-695 output format, XLINK now correctly
+    outputs the name and value of enum constants.<p></li>
+
+<li>It is now possible to increase the alignment of a segment when
+    placing it by using <tt>|<i>align</i></tt> (align start address)
+    or <tt>|<i>align</i>|</tt> (align start address and size) in a -Z
+    placement command.
+    See <a href="xman.htm#alignment_specification">xman.htm</a> for
+    the details.<p></li>
+
+<li>6 new errors, <a href="xman.htm#error162">error162 </a> (alignment
+    specification is not allowed for segment names here), 
+    <a href="xman.htm#error165">error165</a> (segment definition uses 
+    an alignment that is too large), <a href="xman.htm#error166">error166</a> 
+    (code fill option must be used for this processor), 
+    <a href="xman.htm#error167">error167</a> (bi-endian output is not 
+    supported for this output format), <a href="xman.htm#error168">error168</a>
+    (segment part does not have the required alignment for bi-endian 
+    output), <a href="xman.htm#error169">error169</a> (code fill requires all 
+    ranges to be closed) have been introduced.<p></li>
+
+<li>XLINK now supports generation of special kickstart files.<p></li>
+
+<li>The option summary of XLINK's signon message has been updated to
+    use [] for optional parameters.<p></li>
+
+<li>XLINK, XLIB and XAR now all have the same version number.<p></li>
+
+</ul>
+
+<h4><a NAME="4.61J"></a>XLINK 4.61J - 2008-Dec-19</h4>
+
+<ul>
+
+<li><a NAME="ew20726"></a><b>EW20726</b> When generating the
+    <tt>.debug_pubnames</tt> section of the ELF/DWARF output fromat,
+    XLINK generated incorrect offsets for entries in the
+    section.<p></li>
+
+<li>The copyright notices of XLINK, XLIB, XAR and the html-files
+    have been updated.<p></li>
+
+<li>An experimental fill option, -hc, has been introduced. It
+    currently has no effect.<p></li>
+
+<li>2 new errors, <a href="xman.htm#error163">error 163</a> (Command
+    line symbol not defined) and <a href="xman.htm#error164">error
+    164</a> (Neither number nor symbol) have been introduced. They are
+    generated instead of <a href="xman.htm#error99">error 99</a>
+    (Syntax error in segment definition) in relevant cases.</li>
+   
+</ul>
+
+<h4><a NAME="4.61I"></a>XLINK 4.61I - 2008-Oct-07</h4>
+
+<ul>
+
+<li><a NAME="ew20526"></a><b>EW20526</b> Error 123 (the format does
+    not support address translation) is now the
+    new <a href="xman.htm#warning69">warning 69</a>. The
+    usual <a href="xman.htm#chap16">diagnostic control mechanism</a>
+    can be used to turn this warning into an error or to suppress
+    it. See xman.htm for how this affects
+    the <a href="xman.htm#chap13">-M option</a>.<p></li>
+
+<li><a NAME="ew20536"></a><b>EW20536</b> When calculating a checksum
+    <a href="xman.htm#chap04">(-J)</a>, XLINK erroneously did not
+    include any bytes generated by other -J commands in the
+    calculation. This resulted in an incorrect checksum if the
+    checksummed range contained checksum bytes from other -J
+    commands. This problem was introduced in XLINK
+    <a href="#4.60I">4.60I</a>.<p></li>
+
+<li><a NAME="ew20547"></a><b>EW20547</b> When generating output in the
+    ELF/DWARF output format for the ARM processor, XLINK now generates
+    AEABI compliant call frame information.<p></li>
+
+<li> When generating the extra text for warning 6 (type conflict for
+     external) and warning 35 (more than one definition for
+     struct/union type) XLINK now outputs the module in which the type
+     was first encountered.<p></li>
+
+<li> When generating the static overlay map part of linker list file
+     (-xo), stacks are now listed by name instead of by
+     number. Only stacks with non zero usage are listed.<p></li>
+
+<li> When generating a memory summary for the DSPIC processor, XLINK
+     now reports <tt>CODE</tt> memory usage in words as well as in
+     bytes.<p></li>
+
+</ul>
+
+<h4><a NAME="4.61H"></a>XLINK 4.61H - 2008-Aug-20</h4>
+
+<ul>
+
+<li><a NAME="ew20189"></a><b>EW20189</b> When generating output in the
+    UBROF5 output format, XLINK could erroneously generate error 62
+    (File name used for multiple files) if a source file contained
+    more than one module. This could only happen for assembler
+    files. <p></li>
+
+<li><a NAME="ew20321"></a><b>EW20321</b> When generating output in the
+    ELF/DWARF output format for the AVR32 processor, XLINK erroneously
+    claimed that an input file was corrupt if the input file contained
+    debug information for variables that resided in more than one
+    register (typically only <tt>long long</tt> and <tt>double</tt>
+    variables reside in more than one register).<p></li>
+
+<li><a NAME="ew20366_old"></a><b>EW20366</b> A new variant of the -z
+    option (treat segment overlaps as warnings),  
+    <a href="xman.htm#SFR_OverlapOptions">-za</a>, has been introduced
+    to ignore overlaps between absolute entries.<p></li>
+
+<li><a NAME="ew20372"></a><b>EW20372</b> When generating output in the
+    ELF/DWARF output format, XLINK could erroneously tag function
+    local variables as parameters if the source code didn't name all
+    parameters (example: <tt>int foo(int a, float)</tt> ). This could
+    result in ELF/DWARF readers rejecting the file. This problem was
+    introduced in <a href="#4.61A">XLINK 4.61A</a> with the
+    introduction of tagging of parameters.<p></li>
+
+<li><a NAME="ew20373"></a><b>EW20373</b> When generating output in the
+    ELF/DWARF output format use of both the 
+    <a href="xman.htm#suppress_pubnames">-yb</a> (no 
+    <tt>.debug_pubnames</tt> section) and the
+    <a href="xman.htm#suppress_aranges">-yw</a> (no 
+    <tt>.debug_aranges</tt> section) format variants in the same link
+    job erroneously generated error 81 (Unknown flag in extended
+    format option). This problem was introduced in
+    <a href="#4.60K">XLINK 4.60K</a> with the generation of the
+    <tt>.debug_pubnames</tt> section. <p></li>
+</ul>
+
+<h4><a NAME="4.61G"></a>XLINK 4.61G - 2008-Jun-04</h4>
+
+<ul>
+
+<li><a NAME="ew18617"></a><b>EW18617</b> When generating the linker
+    list file and the HTML and entry list options were specified
+    (-xeh), XLINK did not output the entry list.<p></li>
+
+<li><a NAME="ew20177"></a><b>EW20177</b> When generating output in the
+    ELF/DWARF output format for the M16C processor and the input files
+    contained debug information that referred to the <tt>A1:A0</tt>
+    register pair, XLINK erroneously claimed that the file used
+    illegal registers.</li><p>
+
+<li><a NAME="ew20178"></a><b>EW20178</b> Three new variants for the -z
+    option (treat segment overlaps as warnings) have been introduced,
+    <tt>-zo</tt>, <tt>-zp</tt> and <tt>-zs</tt>. See <a 
+    href="xman.htm#SFR_OverlapOptions">xman.htm</a> for the details.<p>
+</li>
+
+<li>A new warning, <a href="xman.htm#warning68">warning 68</a>, has
+    been introduced. It is generated when the new <tt>-zs</tt> option
+    is specified for a processor that lacks a dedicated SFR-area.</li><p>
+
+<li>When linking code that used SFB/SFE on a packed segment (placed
+    using -P), XLINK could in rare cases fail to generate warning 12
+    (Using SFB/SFE in banked or packed segment).<p></li>
+
+</ul>
+
+<h4><a NAME="4.61F"></a>XLINK 4.61F - 2008-May-12</h4>
+
+<ul>
+
+<li><a NAME="ew20145"></a><b>EW20145</b> In some rare cases involving
+    indirectly called functions, the C-SPY debugger could suffer an
+    uncontrolled termination when debugging UBROF files generated by
+    XLINK. This was caused by XLINK outputting an incorrect type for
+    indirectly called functions.<p></li>
+
+<li>The readme text for <a href="xman.htm#warning23">warning 23</a>
+    has been updated.<p></li>
+
+</ul>
+
+<h4><a NAME="4.61E"></a>XLINK 4.61E - 2008-Apr-14</h4>
+
+<ul>
+
+<li><a NAME="ew20019"></a><b>EW20019</b><a href="#ew20019_old">EW20019</a>
+    was not fixed correctly in <a href="#4.61D">XLINK 4.61D</a>. If a
+    byte that was associated with statement information was placed on
+    the address 0xFFFFFFFF, XLINK terminated with an internal
+    error.<p></li>
+
+</ul>
+
+<h4><a NAME="4.61D"></a>XLINK 4.61D - 2008-Apr-12</h4>
+
+<ul>
+
+<li><a NAME="ew20016"></a><b>EW20016</b> When generating output in the
+    xcoff78k output format, XLINK terminated with an internal error
+    when generating statement information for compiler generated
+    functions.<p></li>
+
+<li><a NAME="ew20019_old"></a><b>EW20019</b> When generating output in the
+    ELF/DWARF and IEEE695 output formats for the AVR32 and R32C
+    processors, XLINK failed to generate statement information for
+    assembler files.<p></li>
+
+</ul>
+
+<h4><a NAME="4.61C"></a>XLINK 4.61C - 2008-Mar-04</h4>
+
+<ul>
+
+<li><a NAME="ew19844"></a><b>EW19844</b> When generating additional
+    output files (-O) and the name was to be the same as the main
+    output file but with its own extension (example:
+    <tt>-Omotorola=.mot</tt>), XLINK did not add the extension if the
+    name of the main output file contained a '.' (example: <tt>-o
+    my_app_1.2.bin -Omotorola=.mot</tt> resulted in the output file
+    <tt>my_app_1.2</tt> not the expected
+    <tt>my_app_1.2.mot</tt>).<p></li>
+
+<li><a NAME="ew19939"></a><b>EW19939</b> When generating output in the
+    ELF/DWARF output format and the strip source file paths option
+    (-yx) was used, XLINK did not output the extension of the files in
+    the .debug_line section. This lead to debuggers being unable to
+    locate source files. This problem was introduced
+    in <a href="#4.61A">XLINK 4.61A</a> with the LOCALE specific file
+    paths.<p></li>
+
+<li> XLINK is now LARGEADDRESSAWARE. In a system that is prepared for
+     this XLINK can now address 3 gigabytes of memory instead of the
+     normal 2. This is only relevant when linking very large projects
+     where the memory requirements can exceed 2 gigabyte. Consult <a
+     href="http://www.microsoft.com/whdc/system/platform/server/PAE/PAEmem.mspx">Microsoft</a>
+     for more details about what needs to be done for this to
+     work.<p></li>
+
+<li> XLINK now supports bytewise and mirrored initial values for
+     checksums. See <a href="xman.htm#chap04">xman.htm</a> for the
+     details.</li><p>
+
+<li> Specifying an initial checksum value that is greater than the
+     maximum value that can be contained in the checksum now generates
+     the new <a href="xman.htm#error161">error 161.</a><p>
+
+<li> XLINK now supports linking of protected files. A protected file
+     can only be successfully linked if a valid license can be found
+     for that file. Protected files currently (March 2008) include
+     only the <tt>IAR Power Pack</tt> object files. If one or more of
+     the protected files contain a license requirement that cannot be
+     satisfied, XLINK will generate the new <a
+     href="xman.htm#error160">error 160</a>. License managment is
+     active only for protected files.</li><p>
+
+<li>The MISRA-C 2004 rules are now available in XLINK. MISRA-C 2004
+    does not introduce any new rules that are checked in XLINK, only
+    the rule numbers have been changed since <a
+    href="xman.htm#MISRAC">MISRA-C 1998</a>.<p></li>
+
+<li>Issue <a href="#ew19764">EW19764</a> was erroneously listed as
+    issue EW19568 in the release notes for <a href="#4.61B">XLINK
+    4.61B.</a></li><p>
+
+</ul>
+
+<h4><a NAME="4.61B"></a>XLINK 4.61B - 2008-Jan-18</h4>
+
+<ul>
+
+<li><a NAME="ew19764"></a><b>EW19764</b> When generating output in the
+    UBROF output format and using the -n option (no local symbols),
+    XLINK removed all local function symbols referenced by the debug
+    information. If such symbols were removed the C-SPY debugger
+    failed to load the generated file.<p>
+
+    The -n option now no longer removes local function symbols that
+    are referenced by the debug information. If debug information is
+    not present in the file the symbol will be removed as
+    normal.<p></li>
+
+<li><a NAME="ew19827"></a><b>EW19827</b> When generating output in the
+    xcoff78k output format for the 78000 processor, XLINK generated
+    output files that were rejected by the NEC debugger. The output
+    generated for the 78K0R processor was not affected by this
+    problem. This problem was introduced in <a href="#4.61A">XLINK
+    4.61A</a>.<p></li>
+
+<li><a NAME="ew19828"></a><b>EW19828</b> A new format variant
+    modifier, <a href="xman.htm#elf_format_variants">-yb</a>, has been
+    added to the ELF/DWARF output format. It is used to suppress the
+    generation of the .debug_pubnames section. This is useful if the
+    debugger is unable to read XLINK's .debug_pubnames section,
+    see <a href="xman.htm#recommended_elf_settings">recommended
+    ELF/DWARF settings</a> for the details.<p></li>
+
+<li><a NAME="ew19829"></a><b>EW19829</b> When specifying file specific
+    properties on input files using the -C (force library), -A (force
+    program) or -E (empty load) options, XLINK failed to locate the
+    file if the path was supplied via the -I option or the
+    <tt>XLINK_DFLTDIR</tt> environment variable. This problem was
+    introduced in <a href="#4.61A">XLINK 4.61A</a> with LOCALE
+    specific file paths.<p></li>
+
+<li><a NAME="ew19830"></a><b>EW19830</b> When generating additional
+    output files (the -O option) and the name of the outputfile was not
+    specified (like -OELF,axs), XLINK generated the additional output
+    file in the same directory that XLINK was called from, not in the
+    directory that was specified in the -o option.<p>
+    
+    <tt>Example:
+       xlink -f other_commands.xcl -o ..\MyFile.hex -OELF,axs</tt><p>
+    
+    The expected behavior here is that XLINK should generate
+    <tt>MyFile.hex</tt> and <tt>MyFile.elf</tt> in the parent
+    directory. XLINK generated <tt>MyFile.hex</tt> there and
+    <tt>MyFile.elf</tt> in the current directory. This problem was
+    introduced in <a href="#4.61A">XLINK 4.61A</a> with LOCALE
+    specific file paths.</li><p>
+
+</ul>
+
+<h4><a NAME="4.61A"></a>XLINK 4.61A - 2007-Dec-10</h4>
+
+<ul>
+
+<li> XLINK now supports <tt>LOCALE</tt> specific file paths.</li><p>
+
+<li> Starting with the 4.61A release XLINK is no longer compatible
+     with the EW23 and earlier release of the Embedded
+     Workbench. 4.60M is the last release that is compatible with
+     EW23.</li><p>     
+
+<li> When generating debug information in the ELF/DWARF output format
+     for the ColdFire processor, XLINK produced erroneous stack
+     variable information (wrong register used as base).</li><p>
+
+<li> When generating debug information in the ELF/DWARF output format,
+     XLINK now specifies which of a function's local variables that
+     are parameters.</li><p>
+
+<li> When generating debug information in the ELF/DWARF output format
+     for the M16C processor, XLINK now produces files that work better
+     with the Renesas debugger.</li><p>
+
+<li> When generating output in the xcoff78k output format for the NEC
+     78K0R processor, XLINK now produces files that work better with
+     the NEC debugger.</li><p>
+
+<li> XLINK did not check for segment overlaps in space that was
+     allocated due to use of the -U (address sharing) option. These
+     are now detected and handled like any other segment
+     overlap.</li><p>
+
+<li> The segment overlap detection now works significantly faster in
+     cases where there are many (thousands) segments.</li><p>
+
+<li> The behavior of -I has been updated. The argument to -I is no
+     longer a semicolon separated list of path prefixes but a single
+     include path. See <a href="xman.htm#chap_l:changedI">xman.htm</a>
+     for the details.</li><p>
+
+<li> Two new errors, <a href="xman.htm#error158">error 158</a>
+     (invalid directory name) and <a href="xman.htm#error159"> error
+     159</a> (invalid file name) have been added.</li><p>
+
+</ul>
+
+<h4><a NAME="4.60M"></a>XLINK 4.60M - 2007-Oct-08</h4>
+
+<ul>
+
+<li><a NAME="ew19568"></a><b>EW19568</b>When performing ARM/THUMB
+    relay function optimization and generating filler bytes (-H),
+    XLINK could in some cases terminate with an internal
+    error.<p></li>
+</ul>
+
+<h4><a NAME="4.60L"></a>XLINK 4.60L - 2007-Sep-24</h4>
+
+<ul>
+
+<li>XLINK now supports the Freescale ColdFire processor.</li><p>
+
+</ul>
+
+<h4><a NAME="4.60K"></a>XLINK 4.60K - 2007-Aug-31</h4>
+
+<ul>
+
+<li><a NAME="ew19443"></a><b>EW19443</b> When linking object files for
+    the 8051 processor and the input files contained absolutely placed
+    data below address 0x20, XLINK could consider the entire
+    <tt>BIT</tt>-area to be occupied. This could lead to spurious e16
+    (Segment too large) errors.<p></li>
+
+<li><a NAME="ew19449"></a><b>EW19449</b> When generating output in the
+    raw-binary output format, XLINK could in some cases produce a very
+    large (over 4 Gigabyte) output file. This problem was introduced
+    when <a href="#ew18235">EW18235</a> was fixed.<p></li>
+
+<li>When generating output in the xcoff78k output format for the NEC
+    78K0R processor, XLINK now produces files that work slightly
+    better with the NEC debugger.<p></li>
+
+<li>When generating output in the ELF/DWARF output format for the M16C
+    processor, XLINK used the wrong register number as the base register
+    for auto variables.<p></li>
+
+<li>XLINK's ELF/DWARF output has been updated. See <a
+    href="xman.htm#chap10">xman.htm</a> for the details.<p></li>
+
+</ul>
+
+<h4><a NAME="4.60J">XLINK 4.60J - 2007-Jun-29</a></h4>
+
+<ul>
+
+<li><a NAME="ew19216"></a><b>EW19216</b> When linking object files
+    that contained a mix of <tt>COMMON</tt> segments with the same
+    name where some had content and some had not, XLINK could
+    terminate with an internal error.<p></li>
+
+<li><a NAME="ew19217"></a><b>EW19217</b> When generating output in the
+    raw-binary output format, XLINK could erroneously generate error
+    133 (The output format cannot handle multiple address spaces) if
+    space was allocated in more than one address space. Now the error
+    is only generated if actual content is present in more than one
+    address space. <p></li>
+
+</ul>
+
+<h4><a NAME="4.60I"></a>XLINK 4.60I - 2007-May-28</h4>
+
+<ul>
+
+<li><a NAME="ew19065"></a><b>EW19065</b> When generating output in the
+    xcoff78k output format for the 78K0R processor, XLINK did not emit size
+    information for <i>far</i> pointers. This could result in an incorrect
+    display of pointers in a debugger's watch window.<p></li>
+
+<li>When generating output in the UBROF and ELF/DWARF output formats,
+    XLINK will now generate an additional symbol for each checksum
+    symbol that contains the checksum's value, not its address. Please
+    consult <a href="xman.htm#ChecksumValueSymbols">xman.htm</a> for the
+    details.<p></li>
+
+</ul>
+
+<h4><a NAME="4.60H"></a>XLINK 4.60H - 2007-Apr-24</h4>
+
+<ul>
+
+<li><a NAME="ew19053"></a><b>EW19053</b> When generating output in the
+    ELF/DWARF output format, XLINK could in some cases generate
+    erroneous call frame information for relatively large
+    functions. This could lead to an incorrect call stack display in
+    debuggers.<p></li> </ul>
+
+<h4><a NAME="4.60G"></a>XLINK 4.60G - 2007-Mar-30</h4>
+
+<ul>
+
+<li><a NAME="ew18764"></a><b>EW18764</b> When checking for segment
+    overlap for processors where <tt>BIT</tt> memory shares an address
+    space with non-bit memory, XLINK could terminate with an internal
+    error if the address space only contained <tt>BIT</tt> variables
+    and segments.<p></li>
+
+<li><a NAME="ew18808"></a><b>EW18808</b> When generating output in the
+    xcoff78k output format for functions that contained inline
+    assembler statements and were compiled with version 4.x of the
+    ICC78k compiler, XLINK generated corrupt debug information for
+    those functions.<p></li>
+
+<li><a NAME="ew18899"></a><b>EW18899</b> In rare cases involving
+    definitions/declarations of a variable using different top-level
+    typedefs in different modules, XLINK could terminate with an
+    internal error during type unification.<p></li>
+
+<li><a NAME="ew18988"></a> <b>EW18988</b> When linking input files
+    that contained absolute segments (<tt>ASEGN</tt>), XLINK always
+    treated these as if they had the <tt>ROOT</tt> attribute. Such
+    segments were always included in the output even if they were not
+    needed.<p></li>
+
+<li><a NAME="ew18989"></a> <b>EW18989</b> When linking input files
+    that contained absolute segments that resided in <tt>BIT</tt>
+    addressable memory, XLINK could fail to reserve enough memory in
+    the <tt>BIT</tt> address space if the absolute segment was larger
+    than 1 byte. This could lead to overlaps between the absolute
+    segment and BIT segments.<p></li>
+
+<li>XLINK now supports the Renesas R32C processor.
+
+</ul>
+
+<h4><a NAME="4.60F"></a>XLINK 4.60F - 2007-Jan-16</h4>
+
+<ul>
+
+<li><a NAME="ew18559"></a><b>EW18559</b> When generating output in the
+    ELF/DWARF output format for object files produced with the
+    <tt>--preinclude</tt> compiler option, XLINK could terminate with
+    an internal error if the preincluded file was completely empty (0
+    bytes). This problem was introduced with the fix for <a
+    href="#ew18532">EW18532</a>.<p></li>
+
+<li><a NAME="ew18730"></a><b>EW18730</b> When generating output in the
+    MPDS-code output format and using the -YA format variant modifier
+    (produce a raw-binary file instead of a MPDS-code file), XLINK
+    erroneously produced a completely empty file (0 bytes). This
+    problem was introduced in <a href="#4.60B">XLINK 4.60B</a> with
+    the ability to restrict output to a single address space in the
+    raw-binary output format.
+
+</ul>
+
+<h4><a NAME="4.60E"></a>XLINK 4.60E - 2006-Dec-07</h4>
+
+<ul>
+
+<li><a NAME="ew18573"></a><b>EW18573</b> <a
+    href="#ew18573_old">EW18573</a> was not correctly fixed in <a
+    href="#4.60D">XLINK 4.60D</a>. For target processors with multiple
+    address spaces XLINK always generated <a href="xman.htm#error133">
+    error 133</a> for the intel-standard output format, even when the <a
+    href="xman.htm#restrictingoutputtosinglespace">restrict output to
+    a single address space format variant modifier</a> was used.<p></li>
+
+<li>Starting with XLINK 4.60E generation of <a
+    href="xman.htm#warning67">warning 67</a> has been disabled as it
+    has been judged to cause too much confusion.<p></li>
+
+<li>When generating output in the ELF/DWARF output format some section
+    header properties were given incorrect values.<p></li>
+
+
+</ul>
+
+<h4><a NAME="4.60D"></a>XLINK 4.60D - 2006-Nov-20</h4>
+
+<ul>
+
+<li><a NAME="ew18532"></a><b>EW18532</b> When generating output in the
+    ELF/DWARF output format and using ARM compatible output (-ya), the
+    least significant bit in the address of all symbols was always
+    cleared.  This should only be done for code symbols. <p></li>
+
+<li><a NAME="ew18559_old"></a><b>EW18559</b> When generating debug
+    information in the ELF/DWARF output format, XLINK could produce an
+    incorrect name for a compile unit if it was compiled with the
+    <tt>--preinclude</tt> compiler option. <p></li>
+
+<li><a NAME="ew18573_old"></a><b>EW18573</b> When generating output in the
+    intel-standard output format, XLINK could terminate with an
+    internal error if the <a
+    href="xman.htm#restrictingoutputtosinglespace">restrict output to
+    a single address space format variant modifier</a> (like
+    <tt>-y(CODE) </tt>or <tt>-Ointel-standard,(CODE)=file1)</tt> was
+    used. This problem was introduced in <a href="#4.60C">XLINK
+    4.60C</a>. <p></li>
+
+<li> When the debug system option (-r) is used when a format type has
+     been specified (-F), XLINK now generates <a
+     href="xman.htm#4.48Jwarnings"> warning 33</a>. Warning 33 was
+     disabled by misstake in XLINK 4.58A.<p></li>
+
+<li> When the debug system option (-r) is used and there are one or
+     more extra output files (-O), XLINK now generates the new <a
+     href="xman.htm#warning67">warning 67</a>.<p></li>
+
+</ul>
+
+<h4><a NAME="4.60C"></a>XLINK 4.60C - 2006-Oct-13</h4>
+
+<ul>
+
+<li><a NAME="ew18360"></a><b>EW18360</b> The <a
+    href="#ew18360_old">EW18360</a> problem was not fixed properly in
+    <a href="#4.60B">XLINK 4.60B</a> so xcoff78k output for programs
+    containing partially initialized segments was still
+    corrupt. <p></li>
+
+<li><a NAME="ew18446"></a><b>EW18446</b> When producing output in the
+    ELF/DWARF output format for the H8 processor (and only for this
+    processor), XLINK could produce incorrect statement
+    information. This could lead to an incorrect mapping between
+    addresses and source code.<p></li>
+
+<li><a NAME="ew18469"></a><b>EW18469</b> When linking files for the
+    78000 processor, XLINK could erroneously consider the address
+    after absolutely placed constants and code with odd sizes
+    to be occupied. Nothing could be placed at, and no filler bytes (-H) 
+    were generated for, such addresses.<p></li>
+
+<li>DWARF debug information for the H8 processor has been modified to
+    be compatible with the Renesas HEW debugger. The
+    <tt>.debug_aranges</tt> section of such files are not standard
+    (DWARF 2.0.0) compliant. Use the format variant modifier
+    <i>w</i> (<i>-yw</i>) to disable generation of the
+    <tt>.debug_aranges</tt> section if this is a problem.<p></li>
+
+</ul>
+
+<h4><a NAME="4.60B"></a>XLINK 4.60B - 2006-Sep-06</h4>
+
+<ul>
+
+<li><a NAME="ew18216"></a><b>EW18216</b> When generating filler bytes
+    (-H) and a sequentially placed (-Z) segment was placed in a hole
+    left by a packed (-P) placement command, XLINK could erroneously
+    generate filler bytes that overlapped that segment.<p></li>
+
+<li><a NAME="ew18235"></a><b>EW18235</b> When producing output in the
+    raw-binary output format and bytes were placed in more than one
+    address space, XLINK failed to terminate and began producing
+    an output file containing an unending sequence of zeroes.<p></li>
+
+<li><a NAME="ew18346"></a><b>EW18346</b> When generating filler bytes
+    (-H) for segments that were placed using a packed segment
+    placement command (-P) and that placement command had two or more
+    nonconsecutive ranges, XLINK could fail to fill the entire
+    range. This problem was introduced in <a href="#4.60A">XLINK
+    4.60A</a>.<p></li>
+
+<li><a NAME="ew18360_old"></a><b>EW18360</b> When generating output in
+    the xcoff78k format and the program contained a segment that was
+    only partially initialized (example: a segment with a memory size
+    of 0x20 bytes where the object file only initializes the first 4),
+    XLINK produced a corrupt file were the sizes of the initialized
+    segment and the initializer section were switched. <p></li>
+
+<li><a NAME="ew18361"></a><b>EW18361</b> When generating output in the
+    raw-binary output format and the input files contained absolute
+    code, XLINK failed to terminate and began producing an output file
+    containing an unending sequence of zeroes.<p></li>
+
+<li><a NAME="ew18364"></a><b>EW18364</b> When generating output in the
+    ELF/DWARF output format for the H8 processor, XLINK failed to
+    translate the address of bit segments from bit addresses to byte
+    addresses. Also the size of such segments was given in bits
+    instead of in bytes. This could lead to debuggers rejecting the
+    file. Even with this problem fixed the debug information for
+    variables in bit segments does not work correctly, this is a new
+    <a href="#EW18364_rest">known problem</a>.<p></li>
+
+<li><a NAME="ew18366"></a><b>EW18366</b> When producing output in the
+    ELF/DWARF output format, XLINK generated a .debug_aranges section
+    that did not comply with the DWARF 2.0.0 standard. This problem
+    was introduced with the introduction of the .debug_aranges section
+    in <a href="#4.59Q">XLINK 4.59Q.</a></p></li>
+
+<li>Output in the raw-binary output format is now limited to a single
+    address space. Please consult <a
+    href="xman.htm#restrictingoutputtosinglespace">xman.htm</a> for
+    details of how to generate raw-binary output for several address
+    spaces.<p></li>
+
+<li>ARM/Thumb relay functions are now listed as "shared" in the module
+    summary in the linker list file.<p></li>
+
+</ul>
+
+<h4><a NAME="4.60A"></a>XLINK 4.60A - 2006-Jun-20</h4>
+
+<ul>
+
+<li><a NAME="ew18166"></a><b>EW18166</b> When producing output in the
+    intel-standard output format, XLINK produced an end of file record
+    containing a program entry point that was off by one and a corrupt
+    checksum. This problem was introduced in XLINK 4.59Z.<p></li>
+
+<li><a NAME="ew18178"></a><b>EW18178</b> When performing type
+    unification for EC++-modules that contained a class that inherited
+    from a template of itself, XLINK could terminate with no error
+    message and no generated output.<br>
+    Code example:
+    <tt>
+    <pre>
+  template &lt;class T&gt; 
+  class A 
+  {
+    T* data;
+  };
+    
+  class B : public A&lt;B&gt; 
+  {
+  }; </pre></li><p>
+  </tt>    
+
+<li>The previously ignored <tt>-m</tt> and <tt>-t</tt> options are no
+    longer recognized as options. See <a href =
+    "xman.htm#chap_l:mandt">xman.htm</a> for the details.</li><p>
+    </ul>
+
+<h4><a NAME="4.59Z"></a>XLINK 4.59Z - 2006-05-10</h4>
+
+<ul>
+
+<li><a NAME="ew18000"></a><b>EW18000</b> When generating output in the
+    IEEE695 output format, XLINK could terminate with error 119
+    (Cannot handle C++ identifiers in this output format) if the
+    program was compiled using a new (released during 2006) IAR
+    compiler and contained any interrupt function.<p></li>
+
+<li><a NAME="ew18029"></a><b>EW18029</b> When generating output in the
+    intel extended output format and using segmented addresses (-Y0 or
+    -Y3), XLINK could generate records where the bytes of a data
+    record spanned a 64K page boundary. The bytes who's address in the
+    record would place them in a new page were actually placed in the
+    same page as the rest of the record but starting at address 0 as
+    the address is calculated modulo 64K. This could lead to several 
+    bytes residing at the same address.<p></li>
+
+<li><a NAME="ew18060"></a><b>EW18060</b> When generating output in the
+    simple-code output format and the input files contained segment
+    parts that resided in the <tt>REGISTER</tt> address space, XLINK
+    terminated with an internal error.<p></li>
+
+<li><a NAME="ew18061"></a><b>EW18061</b> When generating output in the
+    simple-code output format, XLINK could not generate an output file
+    that contained only one address space when that was requested. The
+    file always contained all address spaces. This problem has been
+    present in XLINK since the introduction of simple-code in 
+    <a href="#4.59C">XLINK 4.59C</a>.<p></li>
+
+<li><a NAME="ew18062"></a><b>EW18062</b> When performing ARM/Thumb
+    Relay Function Optimization and using packed segment placement
+    (-P) with filler bytes, XLINK could fail to generate filler bytes
+    correctly if all code in a segment placement command did not 
+    have the same alignment.<p></li>
+
+<li> A new command line option, -zb, has been introduced. When -zb is
+     specified error 24 (segment overlap) is suppressed for segment
+     overlaps where at least one of the involved segments is a bit
+     segment.</li>
+
+</ul>
+
+<h4><a NAME="4.59Y"></a>XLINK 4.59Y - 2006-04-03</h4>
+
+<ul>
+
+<li><a NAME="ew17934"></a><b>EW17934</b> When linking files that
+    contained absolute assembler code, XLINK could sometimes fail to
+    produce debug information for that code. This problem was
+    introduced in XLINK 4.52C.<p></li>
+
+<li><a NAME="ew17935"></a><b>EW17935</b> When producing output in the
+    MPDS-SYMB output format, XLINK could in rare cases terminate with
+    an internal error. This problem was introduced in XLINK
+    4.48A.<p></li>
+
+<li><a NAME="ew17936"></a><b>EW17936</b> When producing relocatable
+    output in the ELF/DWARF output format, XLINK could spuriously
+    generate warning 64 (The address space used in the command is
+    incompatible with the address space of the ranges) if the address
+    ranges of one <a href="xman.htm#chap18">relocation area</a> were
+    "inherited" from a previous relocation area. This problem has been
+    present since the introduction of <a
+    href="xman.htm#warning64">warning 64</a> in <a href="#4.59R">XLINK
+    4.59R</a>.<p></li>
+ 
+<li><a NAME="ew17938"></a><b>EW17938</b> When linking object files
+    that contained BIT variables or references to empty segments,
+    XLINK could in some cases terminate with an internal error. This
+    problem was introduced with the fix for <a
+    href="#ew17820">EW17820</a> in <a href="#4.59X">XLINK
+    4.59X</a>.<p></li>
+
+<li>XLINK now supports the NEC 78K0R processor.<p></li>
+
+</ul>
+
+
+<h4><a NAME="4.59X"></a>XLINK 4.59X - 2006-02-28</h4>
+
+<ul>
+
+<li><a NAME="ew17813"></a><b>EW17813</b> When performing ARM/Thumb
+    Relay Function Optimization, XLINK could terminate with an
+    internal error if the program contained segment parts of a segment
+    that wasn't named in a segment placement command and none of those
+    segment parts were needed by the program. This problem was
+    introduced in XLINK 4.59W with the fix for <a
+    href="#ew17773">EW17773</a>.<p></li>
+
+<li><a NAME="ew17820"></a><b>EW17820</b> When doing packed segment
+    placement (-P), XLINK could spuriously generate error 24 (segment
+    overlap) if a sequential segment placement command (-Z) placed
+    segments in the same ranges as a -P command. This problem was
+    introduced in 4.59W with the fix for <a href="#ew17774">EW17774
+    </a>.<p></li>
+
+</ul>
+
+<h4><a NAME="4.59W"></a>XLINK 4.59W - 2006-02-08</h4>
+
+<ul>
+
+<li><a NAME="ew17707"></a><b>EW17707</b>When generating output in the
+    ELF/DWARF output format for the HCS12 processor, XLINK could
+    terminate with an internal error if any variable resided in a
+    register pair.<p></li>
+
+<li><a NAME="ew17741"></a><b>EW17741</b>When doing packed segment
+    placement (-P), XLINK terminated with an internal error if at
+    least one packed segment was placed in an address space in which
+    no sequentially placed segment (-Z) segment was placed. This
+    problem was introduced in XLINK 4.59U with the fix for
+    EW17667.<p></li>
+
+<li><a NAME="ew17773"></a><b>EW17773</b>When performing ARM/Thumb Relay
+    Function Optimization, XLINK could terminate with an internal
+    error if an entire code segment was not needed.<p></li>
+
+<li><a NAME="ew17774"></a><b>EW17774</b>When using the filler bytes option
+    (-H) and a sequential segment placement command (-Z) placed
+    segments in a range into which a packed segment placement command
+    (-P) already had placed segments and the segments did not fit in
+    the available space, XLINK created filler segments that caused
+    spurious segment overlap errors (error 24).<p></li>
+
+</ul>
+
+<h4><a NAME="4.59V"></a>XLINK 4.59V - 2006-01-31</h4>
+
+<ul>
+
+<li><a NAME="ew17601"></a><b>EW17601</b> When generating type information,
+    XLINK could in rare cases generate corrupt type information for a
+    symbol if it was defined in assembler code and was referenced from
+    C-code.<p></li>
+
+<li><a NAME="ew17730"></a><b>EW17730</b> When doing packed segment
+    placement (-P), XLINK could generate spurious segment overlap
+    errors (error 24) in cases involving segment parts with a
+    size that wasn't a multiple of its alignment.<p></li>
+
+</ul>
+
+<h4><a NAME="4.59U"></a>XLINK 4.59U - 2006-01-16</h4>
+
+<ul>
+
+<li><a NAME="ew17667"></a><b>EW17667</b> When doing packed segment
+    placement (-P), XLINK could generate spurious segment overlap
+    errors when an entire sequentially placed segment fit into an
+    alignment hole between two of the individual parts placed by the
+    packed placement.<p></li>
+
+<li> When performing Relay Function Optimization for the ARM/Thumb
+     processor, XLINK now detects if both the old and the new system
+     are used simultaneously and if so generates <a
+     href="xman.htm#warning65">warning 65.</li><p>
+
+<li> When generating the error text for error 18 (range error), XLINK
+     now correctly reports the offset from the involved label rather
+     than the offset in the segment part.</li><p>
+
+<li> XLINK now supports the avr32 processor.</li><p>
+
+</ul>
+
+<h4><a NAME="4.59T"></a>XLINK 4.59T - 2005-12-15</h4>
+
+<ul>
+
+<li><a NAME="ew17604"></a><b>EW17604</b> XLINK did not work correctly
+    when running under the IAR Embedded Workbench and generated an
+    "uncontrolled termination" error message. This problem was
+    introduced in XLINK 4.59S.</li><p>
+
+<li><a NAME="ew17605"></a><b>EW17605</b> When generating the module
+    summary part of the linker list file (-xn), XLINK could terminate
+    with an internal error if the linked program contained only
+    absolute code.</li><p>
+
+</ul>
+
+<h4><a NAME="4.59S"></a>XLINK 4.59S - 2005-12-13</h4>
+
+<ul>
+
+<li><a NAME="ew17534"></a><b>EW17534</b> When generating output for
+    the PIC family of processors and using the filler bytes options (-H
+    or -h), XLINK could spuriously generate warning 52 (More than one
+    definition for the byte at address <i>address</i> in common
+    segment <i>segment</i>.) if the program used fill in any
+    common segment. </li><p>
+
+<li><a NAME="ew17586"></a><b>EW17586</b> When linking programs that
+    contained weakly defined symbols (PUBWEAK assembler labels or
+    non inlined instances of inlined functions) generated by the
+    ICC78000 compiler, XLINK could terminate with an internal error
+    ("Address calculation needed to use an invalid address"). </li><p>
+
+<li><a NAME="ew17587"></a><b>EW17587</b> When generating output in the
+    motorola or intel formats (or other simple formats), XLINK no
+    longer starts a new record on an address immediately following the
+    last address in a record that did not specify content for all
+    bytes available to it. </li><p>
+
+<li><a NAME="ew17589"></a><b>EW17589</b> When performing Relay
+    Function Optimization and using packed segment placement (-P) with
+    filler bytes (-H or -h), XLINK could fail to allocate filler bytes
+    for unallocated space at the start of a packed segment. This
+    could happen when the segment with the higher start address
+    also had a higher alignment than the previous one. In this case no
+    filler bytes were generated in the gap between the packed
+    segments.</li><p>
+
+<li>The time requirements of XLINK have been significantly reduced.
+</li><p>
+
+
+
+</ul>
+
+<h4><a NAME="4.59R"></a>XLINK 4.59R - 2005-11-22</h4>
+
+<ul>
+
+<li><a NAME="ew17409"></a><b>EW17409</b> When generating checksums
+    (-J), it is now possible to specify the initial value of each <a
+    href="xman.htm#chap04">checksum</a> command. The initial value for
+    each checksum command is listed in the linker listfile.</li><p>
+
+<li><a NAME="ew17430"></a><b>EW17430</b> When performing checksum
+    calculation using <i>mirrored simple sum</i>, XLINK failed to
+    mirror the bytes. This resulted in an incorrect checksum in this
+    case. This problem was introduced in XLINK 4.59E with the expanded
+    checksum calculation.</li><p>
+
+<li><a NAME="ew17511"></a><b>EW17511</b> When generating debug
+    information for the new ICC8051 (version 6 and above), XLINK could
+    in some cases generate incorrect debug information for variables that
+    resided in more than 2 registers.</li><p>
+
+<li><a NAME="ew17512"></a><b>EW17512</b>
+
+    When a segment placement command inherited addresses from a
+    previous placement command, the address space was incorrectly
+    inherited as well. Example:
+<pre>
+     -Z(CODE)SOMECODE=1000-1FFF
+     -Z(DATA)SOMEDATA
+</pre>
+    In this case <tt>SOMEDATA</tt> was placed after <tt>SOMECODE</tt>
+    but in the <tt>CODE</tt> address space, not <tt>DATA</tt> address
+    space that was expected.<p>
+
+    Generally it is not a good idea to inherit ranges from a placement
+    command in a different address space. This now generates <a
+    href="xman.htm#warning64">warning 64</a>.<p>
+
+    The example above will now generate the warning and then place
+    <tt>SOMEDATA</tt> in the <tt>DATA</tt> address space but on the first
+    available address after the end of <tt>SOMECODE</tt>.
+</li><p>
+
+<li><a NAME="ew17513"></a><b>EW17513</b> When doing segment overlap
+    control, XLINK could erroneously claim that two absolutley placed
+    bit variables overlapped if their bit addresses were mapped to the
+    same byte address.</li><p>
+
+<li><a NAME="ew17514"></a><b>EW17514</b> When performing ARM/Thumb Relay
+    Function Optimization, XLINK could in rare cases terminate with an
+    internal error ("address calculation needed to use an invalid
+    address"). This problem was introduced in XLINK 4.59L when
+    <a href="#ew16612">EW16612</a> was fixed. </li><p>
+
+<li> A new format variant, -Y2, has been added for the intel-extended
+     format. It behaves like linear addresses (-Y1) in every way
+     except that the program entry record is not emitted.</li><p>
+
+</ul>
+
+<h4><a NAME="4.59Q"></a>XLINK 4.59Q - 2005-10-24</h4>
+
+<ul>
+
+<li><a NAME="ew16003"></a><b>EW16003</b> When linking input files that
+    were generated using the --char_is_signed compiler option and
+    generating output in the UBROF 8 or later output format, XLINK
+    generated output where the type information claimed that <i>plain
+    chars</i> were <i>unsigned</i>.</li><p>
+
+<li><a NAME="ew16003-2"></a><b>EW16003-2</b> When performing the
+    list-object-code operation on absolute UBROF files, XLIB always
+    output type information where <i>signed plain chars</i> were listed
+    as <i>unsigned</i>.</li><p>
+
+<li><a NAME="ew17355"></a><b>EW17355</b> When generating output in the
+    XCOFF78K format and generating additional output files (-O) in one
+    of the simpler output formats (like intel-hex or motorola), XLINK
+    could produce erroneous bytes in COMMON segments (usually used for
+    the interrupt vector) of the additional output files. This problem
+    was introduced in XLINK 4.58H.<p></li><p>
+
+<li><a NAME="ew17356"></a><b>EW17356</b> When generating error 62
+    (Filename <i>file</i> used for multiple files), XLINK named the
+    file immediately preceding the multiply defined file on the
+    command line instead of the multiply defined one. This problem
+    was introduced in XLINK 4.59K.</li><p>
+
+<li><a NAME="ew17358"></a><b>EW17358</b>When performing segment
+    overlap control on segments placed using packed segment placement
+    (-P), XLINK could generate spurious segment overlap errors (error
+    24) if at least one segment part had a size that wasn't a multiple
+    of its alignment. This problem was introduced in XLINK
+    4.59O.</li><p>
+
+<li><a NAME="ew17396"></a><b>EW17396</b> When lowering output to UBROF
+    5, XLINK could fail to set the correct UBROF revision on modules
+    created using the --image_input option.</li><p>
+
+<li><a NAME="ew17403"></a><b>EW17403</b> When generating output in the
+    ELF/DWARF output format, XLINK generated corrupt DWARF information
+    for assembler modules. This problem was introduced in XLINK
+    4.59P.</li><p>
+
+<li>ELF/DWARF output has been updated with two new sections. 
+    See <a href="xman.htm#chap10">xman</a> for the details.</li><p>
+
+<li> When producing ELF/DWARF output, XLINK can now produce non
+     factored offsets for Call Frame Information if the -yo format
+     variant is specified.  See <a href="xman.htm#chap10">xman</a> for
+     further details.</li><p>
+
+</ul>
+
+<h4><a NAME="4.59P"></a>XLINK 4.59P - 2005-09-28</h4>
+<ul>
+
+<li><a NAME="ew17136"></a><b>EW17136</b> When generating output in the
+    IEEE-695 output format, the debug information contained incorrect
+    offsets for bitfields whose base type was given as a
+    typedef.</li></p>
+
+<li><a NAME="ew17228"></a><b>EW17228</b> When doing packed segment
+    placement (-P) and the input files contained sequences of
+    consecutive segment parts with mixed alignment, XLINK treated
+    those segment parts as if they had the highest alignment of any
+    segment part in that sequence. This wasted space and lead to
+    incorrect code when the code was fall through. This problem was
+    introduced in XLINK 4.58A.</li><p>
+
+<li><a NAME="ew17275"></a><b>EW17275</b> When generating output in the
+    ashling, zax, msd-symb, pentica-a, pentica-b, pentica-c,
+    pentica-d, symbolic or typed output format, XLINK could
+    erroneously generate error 119 (Cannot handle C++ identifiers in
+    this output format) if the input files contained interrupt
+    functions.</li><p>
+
+<li><a NAME="ew17312"></a><b>EW17312</b> When performing Relay
+    Function Optimization and doing packed segment placement (-P),
+    XLINK could fail to generate filler bytes to fill alignment gaps
+    between the last segment in a sequence of segments placed with -Z
+    placement commands and the first segment in a sequence of -P
+    placement commands. This problem has been present in XLINK since
+    the introduction of Relay Function Optimization in XLINK
+    4.58A.</li><p>
+
+<li><a NAME="ew17313"></a><b>EW17313</b> When matching C++ names
+    across modules, enum types with the same name but different
+    definitions were previously considered different types. Now enum
+    types with the same name are always considered the same type for
+    this purpose. This should make any consequent problems manifest in
+    ways that are easier to understand.</li><p>
+
+<li><a NAME="ew17314"></a><b>EW17314</b> When lowering output to UBROF
+    5, XLINK could erroneously set the UBROF revision field of
+    internal modules (like absolute entries and filler bytes) to
+    0. This problem was introduced in XLINK 4.59L.</li><p>
+
+<li><a NAME="ew17321"></a><b>EW17321</b> When generating output in the
+    IEEE-695 output format, and not using the PDB30 format variant,
+    the debug information contained incorrect offsets for bitfields
+    for all targets using little-endian byte order.</li><p>
+ 
+<li> XLINK now supports output in the <a href="xman.htm#chap02">IEEE-695</a>
+     output format for the 78000 processor.</li><p>
+
+<li> Address Translation (-M) is now available for the ELF output
+     format. See <a href="xman.htm#chap13">Address Translation</a> for
+     more details.</li><p>
+
+</ul>
+
+<h4><a NAME="4.59O"></a>XLINK 4.590 - 2005-08-18</h4>
+
+<ul>
+
+<li><a NAME="ew17507"></a><b>EW17057</b> When generating XCOFF78K
+    output for the 78000 processor, XLINK could terminate with an
+    internal error if the program contained static functions. This
+    problem was introduced with the stack usage functionality in XLINK
+    4.59N.<p></li>
+
+<li><a NAME="ew17058"></a><b>EW17058</b> When a range error was to be
+    generated and there was no symbol involved (this usually only
+    happens for assembler code without PUBLIC labels), XLINK could
+    silently fail to emit the error. This could create the impression
+    that the linking process succeeded when it actually failed and the
+    end result could be an incorrect program. This problem was
+    introduced in XLINK 4.58C.<p></li>
+
+<li><a NAME="ew17072"></a><b>EW17072</b> When doing packed segment
+    placement (-P) and using filler bytes (-H), XLINK generated
+    spurious segment overlap error messages when a filler byte was
+    generated in alignment holes inside a packed segment. This problem was
+    introduced in XLINK 4.58A.<p></li>
+
+<li><a NAME="ew17079"></a><b>EW17079</b> When accessing the start
+    (SFB) or end (SFE) address of a packed segment from a program,
+    XLINK could fail to generate warning 12 (Using SFB/SFE on banked
+    or packed segment) if the last linked in module that made a
+    contribution to the segment contained an empty segment part. Under
+    the same circumstances the segment in question was listed twice in
+    the linker list file. Once as as part of packed segment (like
+    &lt;SEGMENTNAME 1>) and once as sequentially placed segment
+    (SEGMENTNAME).<p></li>
+
+<li><a NAME="ew17090"></a><b>EW17090</b> When linking files that
+    contained zero sized absolute segments, XLINK could fail to place
+    other segments at the address of the zero sized absolute segment
+    if the address of the absolute segment overlapped the bit memory
+    of the target processor. This problem was introduced in XLINK
+    4.59J.<p></li>
+
+<li><a NAME="ew17118"></a><b>EW17118</b> When linking files containing
+    mode change information (this is currently only available in
+    ICCARM 4.30a) and generating output in older UBROF format (UBROF9
+    and lower), XLINK output the mode change information in that
+    format, even though there is no way to represent this information
+    in older UBROF formats. This lead to corrupt older UBROF files.
+    <p></li>
+
+<li> When generating ELF/DWARF output for the ARM processor, XLINK now
+     outputs the special $a, $d and $t symbols if the input files
+     contain mode change information. Mode change information is
+     currently only available in files generated by ICCARM
+     4.30a.<p></li>
+
+</ul>
+
+<h4><a NAME="4.59N"></a>XLINK 4.59N - 2005-06-20</h4>
+
+<ul>
+
+<li><a NAME="ew16836"></a><b>EW16836</b> Previous versions of XLINK
+    have always set the stack usage of all functions to 0 in the
+    xcoff78k format as sufficient stack usage information have not
+    been available in the input files. Now the stack usage will be set
+    correctly provided that the stack usage information is present in
+    the input files (ICC78000 v4 supplies the needed
+    information).<p></li>
+
+<li><a NAME="ew16896"></a><b>EW16896</b> When performing ARM/Thumb
+    Relay Function Optimization and using sequential segment placement
+    (-Z) for the segment containing the code, XLINK could terminate
+    with an internal error in rare circumstances involving intra
+    module mode switching calls to a non inlined function in an
+    <i>interwork</i> module. This problem was introduced in XLINK
+    4.58B.<p></li>
+
+</ul>
+
+<h4><a NAME="4.59M"></a>XLINK 4.59M - 2005-05-16</h4>
+<ul>
+
+<li><a NAME="ew16744"></a><b>EW16744</b> When an expression (
+    (START-END) ) resulting in a negative number was used as a range
+    declaration, XLINK terminated with an internal error. Note that
+    START-END is a range while (START-END) is an expression.  Negative
+    start ranges now generate <a href="xman.htm#error156"> error
+    156</a>. <p></li>
+
+<li><a NAME="ew16751"></a><b>EW16751</b> When generating the linker
+    list file for a case where two or more segments had been placed
+    with -P (packed segment placement) in the same memory range using
+    different segment types (example: -P(CODE)CODESEG=1000-2FFFF
+    -P(CONST)CONSTSEG=1000-2FFFF), the end of the resulting packed
+    segment in the segment map (-xs) could be incorrect. This problem
+    has been present in XLINK since 4.59K.<p></li>
+
+<li><a NAME="ew16799"></a><b>EW16799</b> Xlib has been updated to 
+    handle completely empty (0 byte) UBROF files. Completely empty
+    files can be produced by some IAR assemblers under special 
+    circumstances.<p></li>
+
+<li><a NAME="ew16811"></a><b>EW16811</b> When generating the entry
+    list of the linker list file, all function and block scope locals
+    were always listed as residing in the CODE address space. This
+    problem has been present in XLINK since XLINK 4.55B.<p></li>
+
+<li><a NAME="ew16823"></a><b>EW16823</b> When performing ARM/Thumb
+    Relay Function Optimization, XLINK could terminate with an
+    internal error ("address calculation needed to use an invalid
+    address") if there were several non inlined instances of an
+    inlined function where at least one instance was compiled in arm
+    mode and at least one instance was compiled in thumb mode. This
+    was a variant of <a href="#ew16612">EW16612</a>. This problem has
+    been present in XLINK since the introduction of Relay Function
+    Optimization in XLINK 4.58A. <p></li>
+
+<li><a NAME="ew16832"></a><b>EW16832</b> When producing the module
+    summary part of the linker list file (-xn), the total size of the
+    module's contribution to common segments was incorrect when the
+    module contained more than one common segment part with the same
+    name. The problem only affected the contribution from modules,
+    the listed total size of the common segments in the program was
+    correct This problem has been present in XLINK since the
+    introduction of -xn in 4.55F. <p></li>
+
+<li><a NAME="ew16833"></a><b>EW16833</b> When performing ARM/Thumb
+    Relay Function Optimization with code using relay functions in
+    several different segments and some of the segments were placed
+    far (> 4.2 MB) apart, XLINK could fail to generate relay functions
+    correctly, resulting in a range error. <p></li>
+
+<li><a NAME="ew16835"></a><b>EW16835</b> When performing ARM/Thumb
+    Relay Function Optimization and the program would not fit in the
+    allocated ranges even if all relay functions were eliminated,
+    XLINK could give error 144 (unable to use definition of last
+    resort) instead of error 15 (segment too long). <p></li>
+
+</ul>
+
+<h4><a NAME="4.59L"></a>XLINK 4.59L - 2005-04-15</h4>
+<ul>
+
+<li><a NAME="ew16597"></a><b>EW16597</b> When producing IEEE695
+    output, XLINK could terminate with an internal error if the
+    program contained any <i>long long</i> c-type.<p></li>
+
+<li><a NAME="ew16612"></a><b>EW16612</b> When performing ARM/Thumb
+    Relay Function Optimization, XLINK could terminate with an
+    internal error ("address calculation needed to use an invalid
+    address") if there were several non inlined instances of an
+    inlined function where at least one instance was compiled in arm
+    mode and at least one instance was compiled in thumb mode. This
+    problem has been present in XLINK since the introduction of Relay
+    Function Optimization in XLINK 4.58A. <p></li>
+
+<li><a NAME="ew16633"></a><b>EW16633</b> When doing segment
+    duplication (-K), XLINK could terminate with an internal error if
+    the increment was so large that the address of at least one
+    duplicated segment would become greater than 0xFFFFFFFF. This now
+    generates <a href="xman.htm#error154">error 154</a>. When using -K
+    it is now possible to specify negative increments. See the <a
+    href="xman.htm#chap05">-K option</a> for the details.<p></li>
+
+<li><a NAME="ew16625"></a><b>EW16625</b> When an empty option
+    (example: xlink -f lnkXX.xcl file.rXX "" ) was encountered, XLINK
+    terminated with an internal error. Some versions of the Embedded
+    Workbench send "" to XLINK. This problem was introduced in XLINK
+    4.59K. <p></li>
+
+<li><a NAME="ew16654"></a><b>EW16654</b> When generating error 142
+    (Entries included in PUBWEAK/PUBLIC resolution must be in a named
+    segment), the PUBLIC and PUBWEAK labels were switched so the
+    PUBLIC label was listed as PUBWEAK and the PUBWEAK label was
+    listed as PUBLIC. This problem has been present since the
+    introduction of error 142 in XLINK 4.56F.<p></li>
+
+<li><a NAME="ew16692"></a><b>EW16692</b> When generating output in the
+    XCOFF78K format, XLINK terminated with an internal error if at
+    least one object file contained a symbol that had been renamed
+    using XLIB's rename-entry command, this can only happen for files
+    using UBROF 7 or earlier and contain debug information. This now
+    generates <a href="xman.htm#warning63">warning 63</a>.<p></li>
+
+<li><a NAME="ew16734"></a><b>EW16734</b> When performing ARM/Thumb
+    Relay Function Optimization, XLINK could terminate with an
+    internal error ("address calculation needed to use an invalid
+    address"). This could happen if a globally visible thumb function
+    that was removed by XLINK (not used by the program) and used the
+    _BLF pseudo instruction for calls inside the module (this usually
+    only happens when --interwork is used). This problem has been
+    present in XLINK since the introduction of Relay Function
+    Optimization in XLINK 4.58A.<p></li>
+
+<li>The "banked" / "non banked" function property in the module map of
+    the linker list file has been removed as it is deemed to be
+    obsolete.<p></li>
+
+<li>XLINK now supports <i>asm mode change information</i>. This allows
+    better disassembly of code and data for toolsets that support
+    generation of such information.<p></li>
+
+<li><a href="../UBROFRecordTags.pdf">UBROFRecordTags.pdf</a>
+    is now included in the XLINK distribution. This document describes
+    which record types in a UBROF file can affect the actual
+    application code, and which record types only give supplementary
+    information used for debugging or other purposes.<p></li>
+
+</ul>
+
+<h4><a NAME="4.59K"></a>XLINK 4.59K - 2005-03-08</h4>
+
+<ul>
+
+<li><a NAME="ew16172"></a><b>EW16172</b> When generating multiple
+    output files (-O), XLINK can now create the output file using a
+    relative path. Example: -Oelf,as=..\MyElfCode\myApp.elf<p></li>
+
+<li><a NAME="ew16386"></a><b>EW16386</b> When generating output in the
+    xcoff78k format, XLINK terminated with an internal error if a
+    struct type was larger than 65535 bytes. Xcoff78k can only
+    represent debug information for struct types of sizes up to 65535
+    bytes, larger struct types will now get their size set to 65535
+    bytes. XLINK will generate <a href="xman.htm#warning62">warning
+    62</a> when this happens.<p></li>
+
+<li><a NAME="ew16476"></a><b>EW16476</b> When producing output in the
+    xcoff78k format, XLINK could terminate with an internal error if
+    the input files contained absolutely placed variables with the
+    __const memory attribute and were compiled using the ICC78K v4
+    compiler.<p></li>
+
+<li><a NAME="ew16557"></a><b>EW16557</b> When linking files that
+    contained the program entry point in a region introduced using the
+    ASEG assembler directive, XLINK terminated with an internal
+    error.<p></li>
+
+<li><a NAME="ew16566"></a><b>EW16566</b> When doing function auto
+    storage layout for processors that use the static overlay system,
+    XLINK could fail to correctly allocate memory for a function's
+    parameters and local storage. This could happen when a program had
+    multiple non inlined instances of an inlined function (or
+    contained assembler code that used multiple PUBWEAK symbols in a
+    similar way). This problem could result in an incorrect program
+    and has been present in XLINK since the introduction of PUBWEAK
+    symbols in XLINK 4.50C.<p></li>
+
+<li><a NAME="16567"></a><b>EW16567</b> When producing UBROF output and
+    linking input files where the first bytes of a segment part were
+    not present (this can be achieved by using the ORG directive in the
+    assembler), XLINK could produce corrupt debug information that
+    made the C-SPY debugger abort when the file was read.<p></li>
+
+<li><a NAME="16580"></a><b>EW16580</b> When producing UBROF output and
+    doing packed segment placement (-P) where two or more placement
+    commands placed segments in the same address range (example:
+    -P(DATA)BANK_N=[0-7FF]/100 -P(DATA)BANK_0=0-FF
+    -P(DATA)BANK_1=100-1FF) XLINK could produce a UBROF file where the
+    segment placement debug information contained duplicate
+    entries. This could cause C-SPY to abort when the file was
+    read.<p></li>
+
+<li><a NAME="16581"></a><b>EW16581</b> When producing UBROF output,
+    XLINK used an incorrect format for three of the subfields in the
+    statement info record type introduced in UBROF 9. As all IAR tools
+    are insensitive to this error, this can only lead to problems if
+    using a UBROF reading tool from another vendor.<p></li>
+
+<li> Absolute segments no longer have " (ABS)" added to their name in the
+     linker list file.<p></li>
+
+<li> Consecutive absolute segment parts are now merged in the segment
+     map (-xs) in the linker list file.</p></li>
+
+<li> The empty load (-E), conditional load (-C) and forced load (-A)
+     options now work slightly differently. A file may now be
+     specified several times, once without any option and once for
+     each option (although -A and -C are mutually exclusive).<p>
+
+     Earlier, the following was an error:
+<pre>
+     xlink -A foo.rXX foo.rXX -f lnk.xcl
+</pre>
+     This is now allowed, foo.rXX will be treated as an input file and
+     the behavior will be as if -A had been specified.<p></li>
+
+<li> The MISRA C checks that were introduced in XLINK 4.59B were not
+     documented at the time, now they are. See <a
+     href="xman.htm#MISRAC">xman.htm</a> for the details.
+
+</ul>
+
+<h4><a NAME="4.59J"></a>XLINK 4.59J - 2005-01-14</h4>
+
+<ul>
+
+<li><a NAME="ew16216"></a><b>EW16216</b> When doing static overlay,
+    XLINK could fail to issue warning 16 (function is called from two
+    function trees) even if a warning was called for. This problem
+    was introduced in XLINK 4.56B.<p></li>
+
+<li><a NAME="ew16349"></a><b>EW16349</b> When linking files that using
+    the ASEG assembler directive placed code on addresses above
+    0x7FFFFFFF, XLINK terminated with an internal error. This problem
+    was introduced in XLINK 4.55A.</li><p>
+
+<li><a NAME="ew16350"></a><b>EW16350</b> When linking files for the
+    6502 processor, XLINK could terminate with an internal error. This
+    problem was introduced in XLINK 4.55A.</li><p> 
+
+<li><a NAME="ew16354"></a><b>EW16354</b> When linking the result of a
+    compilation of a truly empty (0 byte) file, debug information was
+    generated and using UBROF 8 or later, XLINK could terminate with
+    an internal error.</li></p>
+
+<li> A new format variant for the xcoff78k format, -yn, has been
+     introduced. The new format variant offers better support for
+     NEC's debugger in some cases. See <a
+     href="xman.htm#chap03">xman.htm</a> for more details.<p></li>
+
+<li> Support for the Motorola hcs12 processor has been added.<p></li>
+
+</li><p>
+
+</ul>
+
+<h4><a NAME="4.59I"></a>XLINK 4.59I - 2004-12-15</h4>
+
+<ul>
+
+<li><a NAME="ew16157"></a><b>EW16157</b> When producing ELF/DWARF
+    output, XLINK could, under rare circumstances, terminate with an
+    internal error. This problem was introduced in XLINK 4.58H / XLINK
+    4.59B.</li><p>
+
+<li><a NAME="ew16196"></a><b>EW16196</b> When generating the linker list
+    file and the -d option (disable code generation) was specified,
+    XLINK terminated with an internal error. This problem was
+    introduced in XLINK 4.51G.</li><p>
+
+</ul>
+
+<h4><a NAME="4.59H"></a>XLINK 4.59H - 2004-11-24</h4>
+
+<ul>
+
+<li>When generating output in the COFF format, XLINK now offers better
+    support for the MPLAB debugger.<p></li>
+
+</ul>
+
+<h4><a NAME="4.59G"></a>XLINK 4.59G - 2004-11-18</h4>
+
+<ul>
+
+<li><a NAME="ew16041"></a><b>EW16041</b> When doing segment
+    duplication (-K), XLINK failed to duplicate segments with absolute
+    addresses (like the interrupt vector in some versions of the
+    ICC78000 compiler).<p></li>
+
+<li><a NAME="ew16101"></a><b>EW16101</b> Starting with XLINK 4.58A,
+    XLINK failed to detect corrupt files and emit error 20 (Corrupt
+    file. External index out of range in module
+    <i>module</i>(<i>file</i>)). This can only happen for corrupt
+    UBROF files where a UBROF file makes a reference to an external
+    label that is not declared in the UBROF file.<p></li>
+
+<li><a NAME="ew16133"></a><b>EW16133</b> When linking object files for
+    the ARM processor and producing a linker list file, XLINK now
+    better handles the case where a segment part has two labels (this
+    primarily happens for the interwork mode in ICCARM). A symbolic
+    name is usually found and XLINK rarely claims that an entry is
+    "referenced by segment part xxxx".<p></li>
+
+<li><a NAME="ew16134"></a><b>EW16134</b> When generating ELF/DWARF,
+    using packed segment placement (-P) where CODE and CONST segments
+    were placed in the same address ranges, XLINK could produce
+    corrupt ELF/DWARF files.<p></li>
+
+<li><a NAME="ew16135"></a><b>EW16135</b> When doing Relay Function
+    Optimization for the ARM processor and using packed segment
+    placement (-P), XLINK could in rare cases terminate with an
+    internal error. This problem has been present in XLINK since the
+    introduction of Relay Function Optimization in XLINK
+    4.58A. <p></li>
+
+</ul>
+
+<h4><a NAME="4.59F"></a>XLINK 4.59F - 2004-10-18</h4>
+
+<ul>
+
+<li><a NAME="ew15895"></a><b>EW15895</b> A range error referring to a
+    symbol defined by the -J (calculate checksum) option resulted in
+    an internal error. This problem was introduced with the expanded
+    checksum functionality in XLINK 4.59E. <p></li>
+
+<li><a NAME="ew15896"></a><b>EW15896</b> When producing output in the
+    UBROF 6 or earlier UBROF versions and the input files contained
+    arrays with more than 65535 elements, XLINK could terminate with
+    an internal error. The output file will now instead contain
+    erroneous debug information in this case as the output format can
+    not express debug information for arrays of that size.<p></li>
+
+<li><a NAME="ew15901"></a><b>EW15901</b> When generating output in the
+    COFF output format, XLINK could produce corrupt output if the
+    image contained any common segments. This problem was introduced
+    in XLINK 4.59B / XLINK 4.58H. <p></li>
+
+<li><a NAME="ew15930"></a><b>EW15930</b> When generating output in the
+    XCOFF78K format, XLINK failed to generate debug information for
+    the first assembler module if it also was the first module. This
+    problem was introduced in XLINK 4.59B / XLINK 4.58H.<p></li>
+
+<li><a NAME="ew15979"></a><b>EW15979</b> When generating the error
+    message for error 16 (segment too long), XLINK now specifies the
+    address space of the address only when the processor actually has
+    more than one address space. <p></li>
+
+</ul>
+
+<h4><a NAME="4.59E"></a>XLINK 4.59E - 2004-09-15</h4>
+
+<ul>
+
+<li><a NAME="ew15555"></a><b>EW15555</b> Two lines have been added to
+    the module summary part of the linker list file, to account for
+    memory use that is not assignable to a specific module.<p></li>
+
+<li><a NAME="ew15626"></a><b>EW15626</b> When generating a linker list
+    file in HTML format, the Module Map and Segments in Address Order
+    tables were not formatted correctly.<p></li>
+
+<li><a NAME="ew15819"></a><b>EW15819</b> For certain products with a
+    compiler using UBROF 9.0 or later, an assembler using old style
+    line number information and when linking assembler files
+    containing debug information, XLINK could produce corrupt output
+    that was not accepted by the C-SPY debugger.<p></li>
+
+<li><a NAME="ew15822"></a><b>EW15822</b> When using the always
+    generate output option (-B) and linking did not stop after
+    error 16 (segment is too long) XLINK could in rare cases
+    terminate with an internal error.<p></li>
+
+<li><a NAME="ew15833"></a><b>EW15833</b> When generating additional
+    output files (using -O) and the format of the additional output
+    file was simple-code, XLINK could terminate with an internal
+    error.<p></li>
+
+<li><a NAME="ew15846"></a><b>EW15846</b> Type matching could sometimes
+    fail for deeply nested circular types, resulting in spurious
+    'undefined external' (e46) errors. Type matching for the purpose
+    of name resolution has now been changed to eliminate this problem.
+    <p></li>
+
+<li><a NAME="ew15875"></a><b>EW15875</b> When doing packed segment
+    placement (-P), relay function optimization and there were relay
+    functions that had the segment property REORDER (the segment parts
+    of this segment in the module may be reordered by the linker),
+    XLINK could fail to perform relay function optimization and
+    terminate with an internal error. Note: The ICCARM compiler never
+    generates relay functions that are REORDER.<p></li>
+
+<li><a NAME="ew15878"></a><b>EW15878</b> When using the require global
+    entries option (-g) and a required symbol was not present in the
+    input files, XLINK did not emit error 46 (undefined
+    external).<p></li>
+
+<li>XLINK can now generate output in the simple-code format. Simple code
+    is a simple binary format that is primarily intended as a format
+    for flash loading. Support for simple-code was introduced in XLINK
+    4.59C but is made public in the documentation for 4.59E. See 
+    <a href="xman.htm#chap01">xman.htm</a> for the details.<p></li>
+
+<li>XLINK can now generate output in the raw-binary format. Raw binary
+    is a binary image format. It contains nothing but pure binary
+    data. See <a href="xman.htm#chap01">xman.htm</a> for the
+    details.<p></li>
+
+<li>XLINK can now read a raw binary image and link its contents.
+<pre>
+  --image_input=file,symbol,segment,alignment
+</pre>
+    The content of the file <i>file</i> is put into a segment part of
+    the segment <i>segment</i>. The segment part defines the symbol
+    <i>symbol</i> and has an alignment of <i>alignment</i>.<p>
+
+    See <a href="xman.htm#chap_l:image_input">xman.htm</a> for further
+    details.<p>
+
+</li>
+    
+<li>A new experimental feature has been added. XLINK is now capable of
+    producing an arbitrary number of checksums. See 
+    <a href="xman.htm#chap04">xman.htm</a> for the details.<p></li>
+
+<li>A new experimental format variant, 1 (-Y1), has been added to the
+    aomf8051 output format. It can be specified to make XLINK use the
+    SEGID field to contain the bank number (0-0xFF) of addresses
+    greater than 0xFFFF. If this experimental option is not used the
+    SEGID field will always be 0. Note that this is a non standard
+    extension of the aomf8051 format.<p></li>
+
+</ul>
+
+
+<h4><a NAME="4.59C"></a>XLINK 4.59C - 2004-06-30</h4>
+
+<ul>
+
+<li><a NAME="ew15575_2"></a><b>EW15575</b> When doing Relay Function
+    Optimization, XLINK could in rare cases terminate with an internal
+    error. This problem was only partially fixed in XLINK 4.59B.<p></li>
+
+</ul>
+
+<h4><a NAME="4.59B"></a>XLINK 4.59B - 2004-06-29</h4>
+
+<ul>
+
+<li><a NAME="ew15288"></a><b>EW15288</b> When doing output in the
+    AOMF8051 format and linking files from the icc8051 compiler
+    version 6, XLINK could produce incorrect code if any of the input
+    files had debug information for a block local variable.<p></li>
+
+<li><a NAME="ew15404"></a><b>EW15404</b> When producing output in the
+    XCOFF78K format and input files were generated by version 3 of the
+    ICC78000 compiler, XLINK generated spurious zeroes in the interrupt
+    vector.<p></li>
+
+<li><a NAME="ew15532"></a><b>EW15532</b> When generating output in the
+    XCOFF78k format, XLINK could generate incorrect debug information
+    for the first function in each input file, this lead to strange
+    behavior in the debugger. This problem was introduced in XLINK
+    4.58F.<p></li>
+
+<li><a NAME="ew15568"></a><b>EW15568</b> When producing multiple UBROF
+    files using the -O command, XLINK could fail to generate filler
+    bytes and macro information for files except the first.<p></li>
+
+<li><a NAME="ew15574"></a><b>EW15574</b> When reading input in UBROF 9
+    or later and producing output in UBROF 8 or earlier, or one of the
+    output formats: ELF, COFF, XCOFF78K, IEEE695, the debug information
+    concerning the relationship between source statements and source
+    blocks was sometimes incorrect. This could lead to problems
+    loading the file into a debugger or in setting breakpoints on some
+    statements.<p></li>
+
+<li><a NAME="ew15575"></a><b>EW15575</b> When doing Relay Function
+    Optimization, XLINK could in rare cases terminate with an internal
+    error. <p></li>
+
+<li><a NAME="ew15576"></a><b>EW15576</b> When Relay Function
+    Optimization was critical for making the program fit in the
+    specified ranges, XLINK could terminate with an internal
+    error. <p></li>
+
+<li><a NAME="ew15577"></a><b>EW15577</b> When producing ELF/DWARF for
+    the M32C processor, XLINK could produce corrupt debug information
+    for auto variables.<p></li>
+
+<li>Support for the COFF format used by MP-Lab 6.50 for the
+    DSPIC processor has been added.<p></li>
+
+<li>When generating the information about which ranges that are
+    occupied for error 104 (failed to fit all segments into specified
+    ranges) and error 16 (segment is too long for segment definition),
+    consecutive ranges are now merged resulting in more compact and
+    readable error messages.<p></li>
+
+</ul>
+
+<h4><a NAME="4.59A"></a>XLINK 4.59A - 2004-06-10</h4>
+
+<ul>
+
+<li><a NAME="ew10553"></a><b>EW10553</b> [XLINK0145] When producing
+    ELF output for the ARM processor and the input files did not
+    contain debug information, XLINK failed to produce a file that was
+    accepted by the ARM debugger.<p></li>
+
+<li><a NAME="ew15502"></a><b>EW15502</b> When linking files containing
+    references to undefined externals, XLINK could produce a corrupt
+    error message text. This problem was introduced together with the
+    relaxed link model in XLINK 4.58B.<p></li>
+
+<li><a NAME="ew15503"></a><b>EW15503</b> When using the -V option
+    (create relocation area) with an output format that did not
+    support relocatable output and always generate output (-B) was
+    specified, XLINK terminated with an internal error.<p></li>
+
+<li><a NAME="ew15504"></a><b>EW15504</b> When linking files containing
+    static functions/variables or block local structs/unions and
+    producing output in one of the formats NEC, tektronics, hp-symb,
+    mpds, sysrof or IEEE695, XLINK erroneously generated error 119
+    (Cannot handle C++ identifiers in this output format).<p></li>
+
+<li><a NAME="ew15505"></a><b>EW15505</b> When generating output in the
+    IEEE695 format and at least one module contained segment parts
+    that were not included in the output, XLINK could produce corrupt
+    output.<p></li>
+
+<li><a NAME="ew15506"></a><b>EW15506</b> When generating relocatable
+    ELF/DWARF for the ARM processor, XLINK could generate output where
+    code areas had data attributes and data areas had code
+    attributes. This problem was introduced in XLINK 4.58A.<p></li>
+
+<li><a NAME="ew15507"></a><b>EW15507</b> When generating ELF/DWARF,
+    XLINK did not generate debug information for static
+    functions. This problem was introduced in XLINK 4.56C.<p></li>
+
+<li><a NAME="ew15508"></a><b>EW15508</b> When producing UBROF versions
+    lower than 9 and the input files were UBROF 9 or higher,
+    XLINK could terminate with an internal error. This problem was
+    introduced in XLINK 4.58E.<p></li>
+
+<li><a NAME="ew15509"></a><b>EW15509</b> When doing Relay Function
+    Optimization and there was not enough space for the segments,
+    XLINK could terminate with an internal error.<p></li>
+
+<li><a NAME="ew15511"></a><b>EW15511</b> When doing Relay Function
+    Optimization, using filler bytes (-H) and placing the segments
+    using packed segment placement (-P), XLINK could generate filler
+    bytes that overlapped the code bytes. This problem has been
+    present in XLINK since the introduction of Relay Function
+    Optimization in XLINK 4.58A.<p></li>
+
+<li> XLINK now requires significantly less time and memory.<p></li>
+
+<li> Error 106 (Syntax error or bad argument) is now a fatal error
+     (fatal errors cannot be suppressed).<p></li>
+
+</ul>
+
+<h4>XLINK 4.58G - 2004-05-13</h4>
+
+<ul>
+
+<li><a NAME="ew15395"></a><b>EW15395</b> When linking files containing
+    multiple references to an undefined external, XLINK failed to give
+    error 46 (undefined external) if the first reference was made by a
+    suppressed segment part. This problem was introduced in XLINK
+    4.58B with the more relaxed link model.<p></li>
+
+<li><a NAME="ew15411"></a><b>EW15411</b> When checking for segment overlap
+    between absolute and relocatable segments, XLINK would terminate
+    with an internal error if an overlap was found. This problem was
+    introduced in XLINK 4.58A.<p></li>
+
+<li><a NAME="ew15423"></a><b>EW15423</b> When using the -s option (specify
+    entry point), XLINK used the address of the label's segment part,
+    not the address of the label, as the program's entry point. This
+    did not work if the label was not placed at the start of a segment
+    part. This problem has been present since the introduction of -s
+    in XLINK 4.58A.<p></li>
+
+<li><a NAME="ew15424"></a><b>EW15424</b> When doing Relay Function
+    Optimization, XLINK now behaves better when the program does not
+    fit in the available ranges before Relay Function Optimization.<p></li>
+    
+<li><a NAME="ew15425"></a><b>EW15425</b> When doing Relay Function
+    Optimization, XLINK could in rare cases fail to disregard
+    suppressed relay functions. The suppressed relay functions were
+    not output, but they could affect the placement of other segment
+    parts and could result in incorrect code. This problem has been
+    present since the introduction of Relay Function Optimization in
+    XLINK 4.58A.<p></li>
+
+</ul>
+
+<h4>XLINK 4.58F - 2004-04-14</h4>
+
+<ul>
+
+<li><a NAME="ew15234"></a><b>EW15234, EW15284</b>When doing sequential
+    segment placement (-Z), XLINK did not correctly mark the entire
+    consumed address ranges as reserved, which could in rare cases
+    lead to later segment placement commands erroneously placing
+    segments or segment parts into what looked like gaps left by the
+    sequential segment placement command. This could result in segment
+    overlap errors while linking or memory overwrites during program
+    startup.<p></li>
+
+<li><a NAME="ew15237"></a><b>EW15237</b> When generating the linker list
+    file, the size of bit ranges was reported as being in bytes even though
+    the actual number was the size of the range in bits.<p></li>
+
+<li><a NAME="ew15278"></a><b>EW15278</b> When producing relocatable
+    ELF/DWARF output and performing Relay Function Optimization, XLINK
+    could produce corrupt output.<p></li>
+
+<li><a NAME="ew15279"></a><b>EW15279</b> When producing relocatable
+    ELF/DWARF output and generating a linker list file, XLINK did not
+    print the relocation areas of segments. This problem was
+    introduced in XLINK 4.58A.<p></li>
+
+<li><a NAME="ew15280"></a><b>EW15280</b> When generating the error text
+    for error 24 (segment overlap), XLINK could report the overlap as
+    being for another segment than the actual overlapping
+    segment. This problem was introduced in XLINK 4.58A.<p></li>
+
+<li>When performing Relay Function Optimization and doing packed
+    segment placement (-P), XLINK now produces fewer special packed
+    segments than previously. This has no effect on the generated code
+    but results in list files that are easier to read.<p></li>
+
+</ul>
+
+<h4>XLINK 4.58E - 2004-03-24</h4>
+
+<ul>
+
+<li><a NAME="ew14976"></a><b>EW14976</b>When overriding error 16 (Segment
+   <i>segment</i> is too long for segment definition.) and the first
+   available address of the range of the segment that didn't fit was
+   unaligned, XLINK could terminate with an internal error.<p></i>
+
+<li><a NAME="ew14988"></a><b>EW14988</b> XLINK is now able to produce
+    output in the xcoff78k format when the input files are generated
+    by the new icc78k compiler.<p></li>
+
+<li><a NAME="ew14998"></a><b>EW14998</b> The 4.58 series of XLINK did
+    not handle UBROF version 9.1.2. This version is only used by the
+    M16C processor.<p></li>
+
+<li><a NAME="ew15068"></a><b>EW15068</b> When producing ELF/DWARF
+    output, XLINK generated incorrect line number information for
+    line numbers greater than 65535.<p></li>
+
+<li><a NAME="ew15069"></a><b>EW15069</b> When performing Relay
+   Function Optimization and a symbol with a fixed address (this
+   includes absolute symbols and symbols defined using -D) was
+   referenced by a relay function, XLINK terminated with an internal
+   error.<p></li>
+
+<li><a NAME="ew15070"></a><b>EW15070</b> When producing ELF/DWARF
+   output, XLINK terminated with an internal error if the command line option
+   -q (disable Relay Function Optimization) was used in a case where 
+   Relay Function Optimization would have had an effect.<p></li>
+
+<li><a NAME="ew15091"></a><b>EW15091</b> When producing ELF output,
+    XLINK set the wrong alignment in the program headers. This did not
+    matter much because the program header already had an assigned
+    address. This problem has always been present in XLINK.<p>
+    </li>
+
+<li><a NAME="ew15092"></a><b>EW15092</b> When producing symbolic error
+    messages involving absolute symbols, XLINK could terminate with an
+    internal error.<p></li>
+
+<li><a NAME="ew15093"></a><b>EW15093</b> When performing Relay
+    Function Optimization and using packed segment placement (-P),
+    XLINK could in some cases terminate with an internal error.<p></li>
+
+<li> The banked segment placement command (-b) does not handle the
+     requirements on adjacent placement that modern compilers
+     sometimes place on segment parts. XLINK now emits <a
+     href="xman.htm#error145">error 145</a> when such segment parts
+     are placed using -b. Segment placement using the packed segment
+     placement command (-P) does handle these requirements.</p></li>
+
+</ul>
+
+<h4>XLINK 4.58C - 2004-03-05</h4>
+
+<ul>
+
+<li><a NAME="ew14965"></a><b>EW14965</b> When an undefined external
+    was involved in a range error, XLINK could terminate with an
+    internal error.<p></li>
+
+<li><a NAME="ew14967"></a><b>EW14967</b> When an absolute placed
+    segment was involved in a range error, XLINK could terminate with
+    an internal error.<p></li>
+
+<li><a NAME="ew14989"></a><b>EW14989</b> When checking for the
+    presence of the correct version of the C runtime library XLINK
+    could emit both error 88 (Library tag <i>tag</i> not found.)  and
+    error 46 (Undefined external), instead of only error 88. This
+    behavior was introduced in XLINK 4.58B.<p></li>
+
+<li><a NAME="ew14990"></a><b>EW14990</b> When generating the module
+    summary (-xn) in the linker listfile, XLINK could in rare cases
+    terminate with an internal error.<p></li>
+
+<li><a NAME="ew14991"></a><b>EW14991</b> When mixing C and C++ files
+    where a typedef is used to name an anonymous enumeration type,
+    like this:<p>
+
+    <ul><pre>
+typedef enum { a, b } c;</pre></ul><p>
+
+    In this case XLINK would needlessly generate a type conflict
+    warning for any variables or functions whose signature involved
+    the type.<p></li>
+
+<li><a NAME="ew14994"></a><b>EW14994</b> When undefined externals were
+    involved in Relay Function Optimization, XLINK could terminate
+    with an internal error.<p></li>
+
+<li><a NAME="ew14995"></a><b>EW14995</b> The reported address for certain
+    symbols in range errors (error 18/warning 47) was incorrect. The
+    address reported for module local relocatable symbols was based on
+    the start of the segment to which they belonged, rather than the
+    start of the segment part to which they belonged.<p></li>
+
+
+</ul>
+
+<h4>XLINK 4.58B - 2004-03-01</h4>
+
+<ul>
+
+<li><a NAME="ew14964"></a><b>EW14964</b> When performing relay
+    optimization, XLINK could remove a relay function that was
+    actually needed under some circumstances. This resulted in 
+    incorrect code.<p></li>
+
+<li> Beginning with version 4.58B, XLINK employs a more relaxed link
+     model. Undefined external errors (error 46) are now generated
+     only if the referenced symbol is actually needed by the
+     program. Previously, the error was generated if any included
+     module referenced the symbol, even if the parts of the module
+     that referenced the symbol were later discovered not to be needed
+     in the final program.<p></li>
+
+</ul>
+
+<h4>XLINK 4.58A - 2004-02-17</h4>
+
+<ul>
+
+<li> XLINK now performs Relay Function Optimization for the ICCARM
+     compiler version 4.10 and later. As part of this change the
+     internal version of UBROF used between the compiler and the
+     linker was raised to 10.0.1.
+
+     A new error (<a href="xman.htm#error144">error 144</a>) can be
+     generated during Relay Function Optimization if the preconditions
+     for this optimization are violated.
+
+     A new command line option, <a href="xman.htm#chap_l:q">-q</a>, 
+     can be used to disable Relay Function Optimization.<p>
+     
+<li> A new command line option, <a href="xman.htm#chap_l:s">-s</a>, 
+     can be used to specify the entry point of an image.<p></li>
+
+<li> XLINK/XLIB/XAR now support the processors DSPIC, MAXQ and 
+     x51 (ICC8051 version 6).<p></li>
+    
+
+</ul>
+
+<h4>XLINK 4.56H - 2004-02-11</h4>
+
+<ul>
+
+<li><a NAME="ew14692"></a><b>EW14692</b> When linking files that
+    contain SFB and SFE (the start and end address of a segment)
+    references to a packed segment but where those references were not
+    needed (and thus not included) in the output, XLINK could
+    terminate with a "segment didn't fit" internal error.<p></li>
+
+<li><a NAME="ew14754"></a><b>EW14754</b> When producing COFF output
+    for input files that contain block-local struct or union types,
+    XLINK erroneously classified these as C++ identifiers. This
+    resulted in error 119 ("Cannot handle C++ identifiers in this
+    output format").<p></li>
+
+<li><a NAME="ew14806"></a><b>EW14806</b> When using the output format
+    COFF, XLINK did not check that the number of line number data
+    entry records did not exceed the maximum (64K) in the section
+    header for each section, resulting in drastic loss of debugging
+    usability. XLINK now issues a warning in this case (<a
+    href="xman.htm#warning59">warning 59</a>) and includes as many
+    entries as can fit. For the MPLAB debugger for the PIC processor,
+    one line number data entry record is needed for each
+    instruction.<p></li>
+
+<li><a NAME="ew14819"></a><b>EW14819</b> When linking a file that
+    contains two or more PUBWEAK entries for a single segment part,
+    XLINK could silently fail to determine the address of the segment
+    part and would use address 0 instead of the correct address. XLINK
+    now checks explicitly for this error condition and emits <a
+    href="xman.htm#error143">error 143</a>.<p>
+
+    The ARM compiler could generate such erroneous code for inline
+    functions in interwork mode. It is also possible to write assembly
+    code for any processor that triggers the problem.<p></li>
+
+<li><a NAME="ew14848"></a><b>EW14848</b> When producing output in the
+    ELF/DWARF format, XLINK did not correctly align the sections in
+    the ELF/DWARF file on a 4-byte boundary, except when producing
+    output for the ARM Ltd ARM debugger. Note: This only concerns the
+    representation of the program in the ELF-file, not the program
+    itself.<p></li>
+
+<li>When producing output in the UBROF version 7 or older XLINK did
+    not handle symbol and type names longer than 255 characters
+    correctly. Such symbol and type names result primarily from the
+    flattening of C++ names that is performed when translating C++
+    modules using UBROF 8 or later to an earlier version of UBROF. Any
+    such names would result in a corrupt output file from XLINK. When
+    needed, the name is now truncated and <a
+    href="xman.htm#warning58">warning 58</a> is issued.<p></li>
+
+</ul>
+
+<h4>XLINK 4.56F - 2003-11-24</h4>
+
+<ul>
+
+<li><a NAME="ew14666"></a><b>EW14666</b>Turning off global type checking (-G)
+    in the linker had no effect on the time needed to link. In cases
+    when type checking consumes significant amounts of time, XLINK now
+    links less slowly if global type checking is turned off.<p></li>
+
+<li><a NAME="ew14672"></a><b>EW14672</b> When producing output in the formats 
+    UBROF 5 - UBROF 9 and the total number of types in the program
+    exceeded 64k, XLINK produced corrupt output files. This will now
+    result in an error. UBROF 10 has no limit on the number of types
+    in a program.<p></li>
+
+<li><a NAME="ew14673"></a><b>EW14673</b> When generating the error
+    text for range errors, XLINK could sometimes terminate with an
+    internal error when looking up the name of a segment.<p></li>
+
+<li>When linking files that contain large circular types, XLINK now
+    spends significantly less time checking the types.<p></li>
+</ul>
+
+<h4>XLINK 4.56E - 2003-11-10</h4>
+
+<ul>
+
+<li><a NAME="ew14544"></a><b>EW14544</b> When linking files that
+     contained modules that were small enough to fit in a single block
+     of the internal buffer and contained debug information, XLINK
+     could terminate with an internal error.<p></li>
+
+<li><a NAME="ew14577"></a><b>EW14577</b> When producing multiple
+    output files (-O), the second file could contain only zeros if the
+    first output file was in UBROF format or one of the simple debug
+    formats ( pentica (all), symbolic, aomf80196, sysrof,
+    nec2-symbolic, nec78k, zax, nec-symbolic, aomf8051, hp-symb,
+    mpds-symb, ashling, symbolic, typed). This problem was introduced
+    in 4.56A.<p></li>
+
+<li><a NAME="ew14594"></a><b>EW14594</b> When producing symbolic range
+    check error messages (introduced in XLINK 4.55D), XLINK did not
+    handle some of the older (UBROF 6 and below) link range tests
+    correctly, causing it to terminate with an internal error.
+    <p></li>
+
+<li><a NAME="ew14611"></a><b>EW14611</b> When linking files containing
+    PUBWEAK symbols and one PUBLIC symbol in an ASEG (absolute
+    assembler segment), XLINK would terminate with an internal
+    error. Definitions in ASEGs are not allowed in the PUBLIC/PUBWEAK
+    resolution. Note that definitions in ASEGN:s (assembler segment
+    which has a segment part with an absolute address) are
+    allowed.<p></li>
+
+<li><a NAME="ew14612"></a><b>EW14612</b> When linking files containing
+    assembler symbols, XLINK could include those symbols in the output
+    even if they were suppressed.<p></li>
+
+<li>The error message for error 105 ("Recursion not allowed for this
+    system.  Check module map for recursive functions") has been
+    updated. The new error message is: "Recursion not allowed for this
+    system. One recursive function is <i>function</i>"<p></li>
+
+<li>The address limit for the output format <tt>mpds-code</tt> has
+    been removed, it was previously set to 16MB.<p></li>
+
+<li>It is now possible to combine the options -r{char} (generate debug
+    information for IAR's C-SPY debugger) and -O (generate multiple
+    output files). -r picks special modules in the runtime library to
+    allow better debugging in C-SPY. When -r is used with -O, all
+    generated files will contain the special C-SPY modules, they will
+    not work well when run in an environment not involving
+    C-SPY. Under special circumstances the combination of -r and -O is
+    exactly what you need but they should not be routinely used to
+    generate additional output files in the belief that the additional
+    output files can be used just like a file in the same format that
+    is generated using -F. <p> Example:<br> <tt>xlink -rt
+    -Omotorola=.mot -o output.dXX ...<br></tt><p> This will generate
+    two output files, one UBROF-file (output.dXX) with terminal I/O
+    debugging support and one motorola file (output.mot) which has the
+    same byte content as output.dXX.<p> <tt>xlink -rt -o output2.dXX
+    ...<br> xlink -Fmotorola -o output2.mot ...<br></tt><p> This
+    sequence of link commands will also produce two output files, one
+    UBROF-file (output2.dXX) that is the same as output.dXX and one
+    motorola file (output2.mot) that is <u>NOT</u> the equivalent of
+    output.mot as the special C-SPY modules in runtime libarary are
+    not chosen.<p></li>
+
+</ul>
+
+<h4>XLINK 4.56D - 2003-10-08</h4>
+
+<ul>
+
+<li><a NAME="ew14486"></a><b>EW14486</b> When doing SPLIT- or FAR
+    downward segment placement (-Z(Type)Segments#Range), XLINK placed
+    the segment parts in reversed order. In the SPLIT- case this lead
+    to that the entire segment was listed as residing at an incorrect
+    address and having an incorrect size (if the segment had more than
+    1 segment part).<p></li>
+
+<li><a NAME="ew14488"></a><b>EW14488</b> When linking a project that
+    ignores cstartup, without supplying a replacement (this lead to an
+    empty prgram), XLINK did not report any byte useage. This caused a
+    "Build aborted" error when XLINK was run from the Embedded
+    Workbench.<p></li>
+
+<li><a NAME="ew14505"></a><b>EW14505</b> When doing list-object-code,
+    XLIB could not display the UBROF tag t_push_prm_arg_bl1.<p></li>
+
+<li><a NAME="ew14516"></a><b>EW14516</b> When producing the IEEE-695
+    and COFF formats, a buffer overrun problem could cause XLINK to
+    produce incorrect debug information.  This problem was introduced
+    in XLINK 4.55B.<p></li>
+
+</ul>
+
+<h4>XLINK 4.56B - 2003-09-23</h4>
+
+<ul>
+
+<li><a NAME="ew14053"></a><b>EW14053</b> When run without arguments
+    from the command line, XLINK now outputs all options and exits
+    without waiting for input. <p></li>
+
+<li><a NAME="ew14207"></a><b>EW14207</b> When generating ELF/DWARF
+    output for the ARM processor, XLINK mistakenly considered files
+    that contained VFP-doubles to be corrupt.<p></li>
+
+<li><a NAME="ew14341"></a><b>EW14341</b> When producing COFF output
+    for files that contained static functions or variables, XLINK
+    terminated with error 119 ( "Cannot handle C++ identifiers in this
+    output format" ) even if the files weren't C++ files.<p></li>
+
+<li><a NAME="ew14406"></a><b>EW14406</b> XLINK terminated with an
+    internal error when the -n option (suppress all module local
+    symbols) was used with the ELF output format.<p></li>
+
+<li><a NAME="ew14428"></a><b>EW14428</b> XLINK no longer exits with a
+    fatal error when only the -v (print version information) command
+    line option is used.<p></li>
+
+<li><a NAME="ew14430"></a><b>EW14430</b> When producing ELF/DWARF,
+    XLINK could generate incorrect debug line information if the
+    distance from one statement to the next was larger than
+    0x20000000.<p></li>
+
+<li><a NAME="ew14434"></a><b>EW14434</b> While producing a module
+    summary (-xn), XLINK could terminate with an internal error. This
+    problem has been present in XLINK since the introduction of
+    -xn.<p></li>
+
+<li><a NAME="ew14435"></a><b>EW14435</b> While producing error
+    messages for range errors, XLINK could termiante with an internal
+    error if the code responsible for the range error was located in
+    the last file block of the input file. This problem has been
+    present in XLINK since the introduction of the new range errors
+    messages.<p></li>
+
+<li><a NAME="ew14446"></a><b>EW14446</b> When generating filler bytes
+    for common segments, XLINK did not generate any filler byte for
+    the bytes in the common segment that had no defined value.<p></li>
+
+<li> When doing function auto storage layout for processors that use
+     the static overlay system, XLINK now only emits warning 16
+     (function is called from two function trees) when the called
+     function actually needs any static overlay storage space.<p></li>
+
+<li> A new segment placement command modifier, SPLIT-, has been
+     introduced. The SPLIT- modifier is only available for -Z
+     (sequential segment placement) and allows XLINK to place the
+     individual segment parts of the segment non-contiguously.<p>
+
+     See <a href="xman.htm#chap07">xman.htm</a> for more information
+     on the new feature.<p>
+
+<li> The -U command line option (address space sharing, introduced in
+     XLINK 4.53A) is no longer considered to be experimental.<p>
+
+     <tt>-U[(<i>segment type</i>)]<i>ranges1</i>=[(<i>segment
+     type</i>)]<i>ranges2</i></tt><p> All segments placed into any
+     range in ranges1 is also placed in the corresponding range in
+     ranges2. <p>
+
+     See <a href="xman.htm#chap20">xman.htm</a> for more details of
+     -U.<p>
+
+<li> The memory requirement of XLINK have been significantly reduced
+     in many cases.<p></li>
+
+<li> When producing two or more output files where at least one is a
+     simple output format without debug information (for instance
+     Intel Hex or Motorola S-records ) XLINK now requires
+     significantly less time.  <p></li>
+
+</ul>
+
+<h4>XLINK 4.55J - 2003-06-26</h4>
+
+<ul>
+
+<li><a NAME="ew14141"></a><b>EW14141</b> When linking files that
+    contained debug information and at least one segment had more than
+    65535 segment parts, XLINK would terminate with an internal
+    error. This could only happen for the COFF, ELF/DWARF, IEEE och
+    XCOFF output formats. This problem has always been present in
+    XLINK.  <p></li>
+
+<li><a NAME="ew14142"></a><b>EW14142</b> When generating ELF/DWARF
+    output for the ARM processor, XLINK considered files that
+    contained VFP-registers to be corrupt. <p></li>
+
+<li><a NAME="ew14143"></a><b>EW14143</b> When generating UBROF-files,
+    if the next address would have been 0x100000000 (for example when
+    a long is placed on address 0xFFFFFFFC) XLINK terminated with an
+    internal error. This problem was introduced in XLINK
+    4.55B. <p></li>
+
+<li>The memory requirement of XLINK have been somewhat
+    reduced.<p></li>
+
+<li>Linking files that contains many (tens of thousands) segment parts
+    in the same segment now requires significantly less time.<p></li>
+
+</ul>
+
+<h4>XLINK 4.55I - 2003-06-06</h4>
+
+<ul>
+
+<li><a NAME="ew14022"></a><b>EW14022</b> When outputting UBROF version
+    10 files involving C++ code, XLINK generated incorrect skip
+    information for some T_SCOPED_NAME records.  The effects of this
+    is limited to certain rare UBROF readers not used for
+    debugging.<p></li>
+
+<li><a NAME="ew14041"></a><b>EW14041</b> When producing COFF output,
+    XLINK did not handle neither bool nor wchar_t, and terminated with
+    an internal error if either was encountered.<p></li>
+
+<li><a NAME="ew14080"></a><b>EW14080</b> When producing output in the
+    xcoff format and the debug information for an auto variable
+    contained a negative offset from a stack or frame pointer, XLINK
+    terminated with an internal error. This problem was introduced in
+    XLINK 4.55B.  <p></li>
+
+<li><a NAME="ew14081"></a><b>EW14081</b> When linking files containing
+    an ORG in absolute code with an address higher than 0x7FFFFFFF,
+    XLINK would terminate with an Internal Error. This problem was
+    introduced in XLINK 4.55B.  <p></li>
+</ul>
+
+<h4>XLINK 4.55H - 2003-05-13</h4>
+
+<ul>
+
+<li><a NAME="ew13945"></a><b>EW13945</b> When linking files for any
+    target with static overlay, XLINK generated an internal error if
+    absolute code made a reference to an external function. This
+    problem was introduced in XLINK 4.51K.<p></li>
+
+<li><a NAME="ew13954"></a><b>EW13954</b> XLINK did not terminate when
+    a '\' was used outside of a quoted ("") sequence in the
+    environment variable XLINK_ENVPAR. This problem was introduced in
+    XLINK 4.53N.<p></li>
+
+<li><a NAME="ew13956"></a><b>EW13956</b> When generating ELF/DWARF for
+    the M16C processor, XLINK did not generate debug information for
+    the register pairs R0H:R0L and R1H:R1L. This problem has been
+    present since the introduction of ELF-support for M16C in XLINK
+    4.55D.<p></li>
+
+<li><a NAME="ew13987"></a><b>EW13987</b> When SFB or SFE was used on a
+    segment containing tentative segment parts (PUBWEAK symbols) and
+    the included definition was located in a different segment, XLINK
+    generated the wrong value for the SFB/SFE.  <p></li>
+
+<li><a NAME="ew14006"></a><b>EW14006</b> See <a
+    href="#RangesError">Important Information for 4.55H</a> for more
+    information.  <p></li>
+
+<li><a NAME="ew14007"></a><b>EW14007</b> Packed segment placement (-P)
+    did not work as intended. The resulting placement could utilize
+    memory less efficiently than what would normally be the case. The
+    problem was introduced in XLINK 4.55B.<p></li>
+
+<li> When using packed segment placement (-P), the order of the
+     segment names in the list of segments that were combined was not
+     correctly sorted in alphabetical order. This does not affect the
+     addresses of segments in any way, it is a pure cosmetic change in
+     the map-file.<p></li>
+
+<li> When producing xcoff78k, XLINK no longer adds a _ to assembler symbol 
+     names.<p></li>
+
+
+</ul>
+
+<h4>XLINK 4.55G - 2003-04-11</h4>
+
+<ul>
+
+<li><a NAME="ew13795"></a><b>EW13795</b> When producing DWARF debug
+    information, XLINK generated the wrong offsets for bitfields of
+    enum type.<p></li>
+
+<li><a NAME="ew13806"></a><b>EW13806</b> When producing ELF/DWARF, it
+    is now possible to strip the source file paths from the debug
+    information using the fomrat variant option <a
+    href="xman.htm#strip_paths">-yx</a>.<p></li>
+
+<li><a NAME="ew13827"></a><b>EW13827</b> XLINK generated an internal
+    error when the environment variable XLINK_ENVPAR was set. This
+    problem was introduced in XLINK 4.55B.  <p></li>
+
+<li><a NAME="ew13830"></a><b>EW13830</b> When doing address
+    translation (-Mrange1=range2) XLINK would never terminate if
+    neither of the involved ranges started at address 0. This problem
+    was introduced in XLINK 4.55B.  <p></li>
+
+<li><a NAME="ew13877"></a><b>EW13877</b> The experimental <a
+    href="#ew12099">-P$</a> option did not always honor the
+    keep-with-next properties (that the segment parts needs to be
+    placed sequentially) that some segment parts have.<p></li>
+ 
+<li>The linking process will require less memory when producing
+    ELF/DWARF-files. This has no impact on the generated
+    image.<p></li>
+
+<li>When producing ELF/DWARF for the ARM processor, XLINK now aligns
+    the sections on 4-byte boundaries in the file.<p></li>
+
+<li>XLINK no longer generates an error when it encounters a totally
+    empty (0 bytes) file. The empty file is ignored and <a
+    href="xman.htm#warning57">warning 57</a> is generated.  <p></li>
+
+
+</ul>
+
+<h4>XLINK 4.55F - 2003-03-13</h4>
+
+<ul>
+    
+<li><a NAME="ew13602"></a><b>EW13602</b> When linking files for the
+    SAM8 processor, XDATA is now considered to be an address space
+    that does not overlap the DATA address space.<p></li>
+
+<li><a NAME="ew13673"></a><b>EW13673</b> When linking files than
+    contained references to undefined externals, XLINK generated an
+    internal error. This problem was introduced in XLINK
+    4.55B.<p></li>
+
+<li><a NAME="ew13680"></a><b>EW13680</b> When a segment did not fit in
+    the available ranges and at least one bit segment had been placed,
+    the ranges that XLINK presented as relevant to the occupied memory
+    could be both superflous and erroneous.<p></li>
+
+<li><a NAME="ew13681"></a><b>EW13681</b> When placing bit segments,
+    XLINK reserved 1 byte too much space. If the segment consisted of
+    15 bits it would occupy 3 bytes instead of the expected 2. This
+    problem was introduced in XLINK 4.55B.<p></li>
+
+<li><a NAME="ew13698"></a><b>EW13698</b> When the entry point of the
+    program was located in a function that was suppressed (not
+    included in the output) XLINK would crash. Note: It does not make
+    sense to have the program's entry point in a suppressed
+    function.<p></li>
+
+<li><a NAME="ew13705"></a><b>EW13705</b> XLIB did not always handle
+    UBROF 10 files correctly. Some operations produced corrupt output
+    when the number of types (including the built in ones) was below
+    128 or above 32767. The list commands (with the exception of
+    list-object-code) and all commands that produced a new file did
+    not handle UBROF macros.<p></li>
+
+<li>A new list file option, -xn, generate module summary, is now
+    available.  It was actually introduced in XLINK 4.55B but it was
+    not documented in neither this file nor in the command line
+    help. See <a href="xman.htm#chap_L:xn">xman.htm</a> for details of
+    -xn.<p></li>
+
+</ul>
+
+<h4>XLINK 4.55D - 2003-02-13</h4>
+
+<ul>
+
+<li><a NAME="ew12541"></a><b>EW12541</b> When generating listfiles
+    XLINK no longer always claims that the first label in a segment
+    part makes all references in that segment part. If a segment part
+    contains several labels XLINK now lists its number instead of
+    claiming, possibly erroneously, that a certain label is the
+    referer. This mainly affects older tools (UBROF 6 and older) but
+    might affect newer tools too if they contain segment parts with
+    many labels (e.g. assembler modules).<p></li>
+
+<li><a NAME="ew13250"></a><b>EW13250</b> When doing banked segment
+    placement (-b), XLINK could erroneously give error 107 (Banked
+    segments do not fit into the number of banks specified) if the
+    optional <i>count</i> (maximum number of allowed banks) parameter
+    was used and several segments could reside in the same
+    bank.<p></li>
+
+<li><a NAME="ew13273"></a><b>EW13273</b> When trying to produce C++
+    IEEE695 output for the M32C processor XLINK crashed instead of
+    giving an error message. Note: IEEE695 for C++ programs is
+    currently not supported.<p></li>
+ 
+<li><a NAME="ew13370"></a><b>EW13370</b> Absolute code placed on
+    addresses above 0x7FFFFFFF caused XLINK to crash. This bug was
+    introduced in 4.55B.<p></li>
+
+<li><a NAME="ew13377"></a><b>EW13377</b> When producing output in the
+    COFF format, xlink erroneously claimed that locally defined unions
+    were C++ identifiers.<p></li>
+
+<li><a NAME="ew13412"></a><b>EW13412</b> XLINK crashed when -H (fill
+    unused code memory) was used without a hexstring. This now results
+    in error 39 (illegal character specified in option).<p></li>
+
+<li><a NAME="ew13449"></a><b>EW13449</b> When using the static overlay
+    system XLINK now checks that a function uses at least 1 byte of
+    static overlay before emitting warning 39, (The function
+    <i>function</i> in module <i>module</i> (<i>file</i>) does not
+    appear to be called. No static overlay area will be allocated for
+    its parameters and locals.) <p></li>
+
+<li><a NAME="ew13455"></a><b>EW13455</b> When producing ELF/DWARF
+    output for the M16C processor XLINK emitted the wrong frame
+    pointer offset for auto variables and were unable to represent the
+    location of some register pairs.<p></li>
+
+<li><a NAME="ew13566"></a><b>EW13566</b> When the force output flag
+    (-B) was used and some address ranges could not be placed, XLINK
+    would crash with an internal error. This bug was introduced in
+    4.55B.<p></li>
+
+<li><a NAME="ew13568"></a><b>EW13568</b> When producing listfiles,
+    XLINK did not handle special characters, å,ä,ö,ü...,
+    correctly.<p></li>
+
+<li><a NAME="ew13578"></a><b>EW13578</b> When producing UBROF 10,
+    XLINK emitted the wrong size for t_symbol_def:s if the total
+    number of types in the progam (including the built in ones) was
+    above 16383 or below 128.<p></li>
+
+<li>Starting with version 4.55D XLINK presents range errors (error 18)
+    in a new way, see <a href="xman.htm#chap19">xman</a> for the
+    details.<p></li>
+
+</ul>
+
+<h4>XLINK 4.55C - 2003-01-20</h4>
+
+<ul>
+
+<li><a NAME="ew13286"></a><b>EW13286</b> XLINK has been updated to
+    report absolute code and data separately in the memory summary, as
+    these are usually of less interest.<p></li>
+
+<li><a NAME="ew13328"></a><b>EW13328</b> When run from IAR Embedded
+    Workbench with the Force Output option set, XLINK returned the
+    wrong return code if errors were encountered. This resulted in the
+    Workbench removing the generated file.<p></li>
+
+<li><a NAME="ew13346"></a><b>EW13346</b> XLINK could erroneously
+    report a type conflict for cases where some type attributes (like
+    const or volatile) were part of a typedef type.  <p></li>
+
+<li><a NAME="ew13358"></a><b>EW13358</b> XLINK crashed when trying to
+    generate ELF for all targets other than ARM.  This bug was
+    introduced in 4.55B.<p></li>
+
+<li><a NAME="ew13391"></a><b>EW13391</b> Error 27, "entry <i>entry</i>
+    in module <i>module</i> redefined in module <i>module</i>" is now
+    non fatal. This means that it is possible to list all multiply
+    defined entries in a program in a single pass if the force output
+    flag (-B) is set.<p></li>
+
+</ul>
+
+<h4>XLINK 4.55B - Beta Release - 2002-12-17</h4>
+
+<ul>
+
+<li> XLINK can now produce relocatable output. Details on that and the
+     changes below can be found in <a
+     href="xman.htm">xman</a>.<p></li>
+
+<li> A new command line option, -g, makes it possible to tell xlink to
+     include entries that are not referenced from the program.<p></li>
+
+<li> A new command line option, -V, can be used to create relocation
+     areas.  <p></li>
+
+<li> Using the new -xi option it is now possible to list all segment
+     parts in a list file, not just the ones that were included in the
+     output.<p></li>
+
+<li> A new way of specifying ranges ([start:+size]) is now
+     available.<p></li>
+
+
+
+</ul>
+
+<h4>XLINK 4.53P - 2002-11-15</h4>
+
+<ul>
+
+<li><a NAME="ew12961"></a><b>EW12961</b> XLINK did not create intra
+    segment fillers as it should when the range specific version of
+    filling (-h) was used.<p></li>
+
+<li><a NAME="ew12964"></a><b>EW12964</b> Filler bytes no longer count
+    towards the maximum number of bytes in product packages that are
+    limited.<p></li>
+
+<li><a NAME="ew13002"></a><b>EW13002</b> XLINK now allows the prefix
+    0x on hexadecimal numbers in defines and placement commands
+    (e.g. -DROMSTART=0x8000 and -Z(CODE)MYCODE= 0x1000-0xFFFF are now
+    legal) both on the command line and in .xcl-files.  <p></li>
+
+<li><a NAME="ew13003"></a><b>EW13003</b> XLINK could fail to emit a
+    t_org before the first byte of an absolute assembly language
+    file. This could result in broken images as those bytes would
+    count as a part of the last emitted t_org.<p></li>
+
+<li><a NAME="ew13167"></a><b>EW13167</b> XLINK could produce illegal
+    UBROF when converting statement information from a UBROF 9 file to
+    a UBROF 8 file. <p></li>
+
+</ul>
+
+<h4>XLINK 4.53O - 2002-10-17</h4>
+
+<ul>
+
+<li><a NAME="ew12695"></a><b>EW12695</b> When using scatter loading,
+    the -Q option, XLINK gave different sizes for the initialized
+    segment and the initializer segment when the initialized segment
+    was suppressed (not included in the output).  This problem has
+    been present since the introduction of -Q in 4.51K, released
+    1999-08-24.  <p></li>
+
+<li><a NAME="ew12711"></a><b>EW12711</b> XLINK placed absolutely
+    placed DATA and XDATA objects in the same address space in the
+    UBROF output format. If the objects collide C-SPY detects
+    this. This problem was introduced in 4.53F, released 2001-11-30.
+    <p></li>
+
+</ul>
+  
+<h4>XLINK 4.53N - 2002-09-16</h4>
+
+<ul>
+
+<li><a NAME="ew12413"></a><b>EW12413</b> XLINK crashed when producing
+    output in the aomfx96 format for the x96 processor and the
+    --module_name= option for the x96-compiler were used with an empty
+    string.<p></li>
+
+<li><a NAME="ew12484"></a><b>EW12484</b> XLINK now handles "\ "
+    (backslash space) in .xcl-files correctly. These were treated as a
+    single character earlier.<p></li>
+
+<li><a NAME="ew12643"></a><b>EW12643</b> When generating ELF/DWARF
+    output XLINK used an incorrect offset for statement information
+    using the const_add_pc tag. This lead to discrepancies between the
+    generated file and the compiler list file and could result in the
+    debugger setting a breakpoint at the wrong location.<p></li>
+
+<li> When producing ELF/DWARF output XLINK now uses the end point of
+     the source line information to set the column and row
+     number. Older versions of XLINK used the start point of the
+     source line information to set the column and row number. Setting
+     the numbers to the end of the source line information instead of
+     the start should lead to improved compatibility with some third
+     party debuggers while remaining compatible with others.<p></li>
+
+</ul>
+
+
+<h4>XLINK 4.53M - 2002-07-10</h4>
+
+<ul>
+
+<li><a NAME="ew12099"></a><b>EW12099</b> The experimental -P$
+    placement command is introduced in 4.53M. It allows XLINK to break
+    up segments that would normally be placed as a contiguous
+    chunk.<p></li>
+
+<li><a NAME="ew12165"></a><b>EW12165</b> When doing static overlay
+    XLINK warned unnecessarily about a function being called from two
+    roots (warning 16) when one of the callers was suppressed (not
+    included in the output). <p></li>
+
+<li><a NAME="ew12187"></a><b>EW12187</b> Due to a change in the way
+    static functions and variables are emitted in IAR compilers
+    outputting UBROF version 9 or later XLINK would generate error 119
+    (Cannot handle C++ identifiers in this output format) when any of
+    the linker output formats (* has the usual "match all" meaning
+    here): aomf*, ashling*, mpds*, msd*, nec*, pentica*, symbolic,
+    sysrof, typed, zax* were selected and at least one of the input
+    files was compiled using such a compiler.<p></li>
+
+<li><a NAME="ew12267"></a><b>EW12267</b> It is now possible to turn
+    off error 2 (Too many errors encountered) using -we2=i. This will
+    result in no limit on the number of errors XLINK will
+    emit.<p></li>
+
+<li><a NAME="ew12268"></a><b>EW12268</b> When producing output in the
+    ELF/DWARF format for the ARM processor XLINK did not handle
+    variables being placed in the link or stack pointer registers,
+    erroneously claiming that the input file was corrupted.<p></li>
+
+<li><a NAME="ew12277"></a><b>EW12277</b> XAR now warns when the same
+    filename is specified more than once.<p></li>
+
+<li><a NAME="ew12278"></a><b>EW12278</b> XAR now allows the user to
+    specify object files in a separate file. This makes it possible to
+    avoid the problem that the command line can become too long for
+    certain operating environments. Details about this can be found in
+    the <a href="xar.htm#XAROptions">xar.htm</a> file.<p></li>
+     
+</ul>
+
+<h4>XLINK 4.53L - 2002-05-30</h4>
+
+<ul>
+
+<li><a NAME="ew11847b"></a><b>EW11847</b> XLINK failed to allocate
+    extra space (the +NNNN in the segment definition command) for
+    segments that were created on the command line and placed using
+    far placement. This bug was still present in 4.53K.<p></li>
+
+<li><a NAME="ew12002"></a><b>EW12002</b> When using the static overlay
+    system XLINK warned, [w39], for uncalled functions that weren't
+    included in the output file.<p></li>
+
+<li><a NAME="ew12019"></a><b>EW12019</b> XLINK could produce erroneous
+    debug information when two libraries contained the same symbol,
+    one of the definitions was strong and the other weak and the weak
+    definition was encountered before the strong one.<p></li>
+
+<li><a NAME="ew12063"></a><b>EW12063</b> XLINK could crash when trying
+    to link modules with more then 32767 types.  XLIB could crash when
+    trying to list object code on output files with more than 32767
+    types.<p></li>
+
+</ul>
+
+<h4>XLINK 4.53K - 2002-04-17</h4>
+
+<ul>
+
+<li><a NAME="ew11802"></a><b>EW11802</b></a> XLINK crashed while trying to
+    handle empty loaded common segments.  <p></li>
+
+<li><a NAME="ew11806"></a><b>EW11806</b></a> Type checking could result in
+    an internal error for deeply nested circular types.  <p></li>
+
+<li><a NAME="ew11815"></a><b>EW11815</b> XLINK removed unused segments
+    without taking into account that other segments might depend on
+    the unused segment being present at some address.  <p></li>
+
+<li><a NAME="ew11821"></a><b>EW11821</b> XLINK erroneously claimed
+    that some names of structs and unions were C++ identifiers for the
+    IEEE-695 format for UBROF 8 and later.  <p></li>
+
+<li><a NAME="ew11836"></a><b>EW11836</b> XLINK erroneously claimed
+    that the names of some variables were C++ indentifiers for the
+    coff format for UBROF 8 and later.  <p></li>
+
+<li><a NAME="ew11847"></a><b>EW11847</b> XLINK failed to allocate
+    extra space (the +NNNN in the segment definition command) for
+    segments that were created on the command line and placed using
+    far placement.
+ 
+</ul>
+
+
+
+<h4>XLINK 4.53J - 2002-03-18</h4>
+
+<ul>
+
+<li><a NAME="ew11621"></a><b>EW11621</b> Type checking for K&R
+    functions has been weakened to eliminate unwanted type conflict
+    diagnostics for code compiled with newer compilers that provide
+    less detailed information about calls to such functions.  <p></li>
+
+<li><a NAME="ew11616"></a><b>EW11616</b> The information about whether
+    a function type involved in a type conflict diagnostic was K&R or
+    prototyped was reversed. K&R function types were marked as
+    prototyped, and prototyped function types were marked as K&R.
+    <p></li>
+
+<li><a NAME="ew11615"></a><b>EW11615</b> ARM-ELF specifies a flag,
+    EF_ARM_HAS_ENTRY, for keeping track of if an image has an entry
+    point or not. XLINK now sets this flag for the ARM processor when
+    outputting ARM-ELF/DWARF.  <p></li>
+
+<li><a NAME="ew11572"></a><b>EW11572</b> XLINK erroneously treated a
+    register pair as two registers for the M32C processor in the
+    ELF/DWARF output format.  <p></li>
+
+<li> XLINK/XLIB now support the U8 target. <p> </li>
+
+</ul>
+
+<h4>XLINK 4.53I - 2002-02-19</h4>
+
+<ul>
+
+<li><a NAME="ew11520"></a><b>EW11520</b> XLINK calculated the wrong
+    value for SFE (Segment End) directives for segments placed using
+    far placement when the entire segment did not fit in a single 64K
+    page. See Important information for <a href="#SFEError">4.53I</a>.
+    <p></li>
+
+<li><a NAME="ew11515"></a><b>EW11515</b> XLINK now removes worthless
+    segment placement commands so that it is possible to place them
+    into unavailable memory.  <p></li>
+
+</ul>
+
+<h4>XLINK 4.53H - 2002-02-15</h4>
+
+<ul>
+
+<li><a NAME="ew11430"></a><b>EW11430</b> There was a problem in
+    matching null names read in from object files using UBROF 7 or
+    earlier with those read in from object files using UBROF 8 or
+    later. This could cause spurious type conflict warnings for
+    struct/unions with unnamed fields when one file was compiled as C
+    code and the other as EC++ code.  <p></li>
+
+<li><a NAME="ew11362"></a><b>EW11362</b> Linking files using UBROF
+    version 5, compiled with the option -rn (debug info, no source)
+    and containing no functions caused an internal error in XLINK when
+    doing output in UBROF version 5.  <p></li>
+
+<li><a NAME="ew11342"></a><b>EW11342:</b> XLINK always warned for
+    indirectly called functions doing indirect calls when using static
+    overlay, now the warning is only emitted if any of those functions
+    uses static overlay.  <p></li>
+
+<li><a NAME="ew11236"></a><b>EW11236</b> In the module map, each
+    segment part is supposed to get two lines describing the general
+    properties of the segment part.  For some segment parts the second
+    line was missing.  <p></li>
+
+<li><a NAME="ew11144"></a><b>EW11144</b> XLINK was unable to handle
+    local static variables and static functions for the IEEE-695
+    format in UBROF 8 and later. It erroneously claimed that those
+    were C++ identifiers.  <p></li>
+
+<li><a NAME="ew11014"></a><b>EW11014:</b> Coff output from XLINK for
+    the PIC18 processor was rejected by the coff to cod converter.
+    <p></li>
+
+<li>Improved conversion from UBROF version 9 to older versions.<p></li>
+
+<li>Improved handling of version resource.<p></li>
+
+</ul>
+
+<h4>XLINK 4.53G - 2002-01-15</h4>
+
+<ul>
+
+<li><a NAME="ew10952"></a><b>EW10952</b> The default extension for
+    m32c in XLIB was ",r48" instead of ".r48".  <p></li>
+
+<li><a NAME="ew10929"></a><b>EW10929</b> The right shift operator used
+    in UBROF relocation expressions now has defined behavior for shift
+    counts of 32 or more.  <p></li>
+
+<li><a NAME="ew10922"></a><b>EW10922</b> When absolute segments were
+    placed in non sorted order in the infiles XLINK lost track of them
+    in the listfiles and in the MSP430_txt format.  <p></li>
+
+<li> Improved handling of DWARF register pairs.  <p></li>
+
+</ul>
+
+
+<h4>XLINK 4.53F - 2001-11-30</h4>
+
+<ul>
+
+<li><a NAME="ew10782"></a><b>EW10782</b> Improved handling of scatter
+    loading of common segments.  <p></li>
+
+<li><a NAME="ew10713"></a><b>EW10713</b> XLINK crashed when linking
+    completely empty source files with debug information.  <p></li>
+
+<li><a NAME="ew10673"></a><b>EW10673</b> XLINK crashed when outputing
+    HTML listfiles on stdout, outputing HTML to file works fine.
+    <p></li>
+
+<li><a NAME="ew10666"></a><b>EW10666</b> XLIB crashed when the file
+    argument to -p is missing.  <p></li>
+
+<li><a NAME="ew10665"></a><b>EW10665</b> XLINK crashed when the first
+    module read claims to be of a higher UBROF revision than XLINK can
+    handle.  <p></li>
+
+<li><a NAME="ew10664"></a><b>EW10664</b> Using / together with
+    directory names containing . when relying on the default extension
+    caused XLINK to not use the extension and not find the file.
+    <p></li>
+
+<li><a NAME="ew10552"></a><b>EW10552:</b> [XLINK0148] When doing
+    output in the MSP430_TXT output format, XLINK included spurious
+    null bytes in common segments (usually interrupt vectors).<p></li>
+
+<li>
+    Improved debug info for SFR:s for the H8 processor.  <p></li>
+
+<li>
+    XLINK/XLIB now support the EZ80 processor.  <p></li>
+
+</ul>
+
+<h4>XLINK 4.53E - 2001-10-22</h4>
+
+<ul>
+
+<li><a NAME="xlink208"></a><b>XLINK208</b> XLINK could emit
+    superfluous address records during some circumstances when
+    generating intel-extended format.
+    
+    <p></li>
+
+<li><a NAME="xlink0207"></a><b>XLINK0207</b> [EW10493] XLINK
+    calculated the wrong size for t_symdol_def1s inside t_grp
+    records. This resulted in t_grp records that were larger than they
+    claimed to be. This was triggered only for UBROF 7 files. UBROF 6
+    uses t_symbol_def and UBROF 8+ uses t_symbol_def2.  <p></li>
+
+<li><a NAME="xlib0003"></a><b>XLIB0003</b> [EW10270] XLIB would try to
+    write to write-protected memory when setting a default
+    extension. This caused an access violation in some, but not all,
+    cases. <p></li>
+
+<li>
+    Added m32c as a synonyme for mc80.  <p></li>
+
+<li>
+    Added ELF/DWARF support for mc80/m32c.  <p></li>
+
+</ul>
+
+<h4>XLINK 4.53D - 2001-09-21</h4>
+
+<ul>
+
+<li><a NAME="xlink0205"></a><b>XLINK0205:</b> Generating ELF/DWARF,
+    aomf8096, aomf80196 and mpds with debug information for absolute
+    segments containing local symbols would cause XLINK to crash.
+    <p></li>
+
+<li><a NAME="xlink0204"></a><b>XLINK0204:</b> When using the AOMF251
+    output format, assembler modules with source line information
+    could cause XLINK to crash.  <p></li>
+
+<li><a NAME="xlink0203"></a><b>XLINK0203:</b> There was a bug in the
+    experimental address space sharing feature (-U) that could cause
+    XLINK to crash.  <p></li>
+
+<li><a NAME="xlink0202"></a><b>XLINK0202:</b> XLINK could crash when
+    reading output from the OMCONV converter used for the 80x96
+    product.  <p></li>
+
+<li><a NAME="xlink0153b"></a><b>XLINK0153:</b> Object data excluded
+    through the use of empty load (-E) still appears as zeros in many
+    binary object formats. This bug was fixed in 4.51S but
+    reintroduced in 4.52A.  <p></li>
+
+</ul>
+
+<h4>XLINK 4.53C - 2001-08-09</h4>
+    
+<ul>
+
+<li><a NAME="xlink0201"></a><b>XLINK0201:</b> Modules with more than
+    one unnamed struct/union with the same initial field names could
+    cause XLINK to crash during type unification.  <p></li>
+
+<li><a NAME="xlink0200"></a><b>XLINK0200:</b> XLINK crashed when
+    linking files compiled with the H8S compiler.  <p></li>
+
+<li><a NAME="xlink0199"></a><b>XLINK0199:</b> When linking UBROF 5
+    files and producing UBROF 5 output XLINK erroneously emitted
+    warning 51 (some source reference debug info was lost) and dropped
+    all source reference debug info from the output. This problem was
+    introduced in XLINK 4.52J.  <p></li>
+
+<li><a NAME="xlink0198"></a><b>XLINK0198:</b> XLINK crashed when
+    reading assembler modules with absolute code and no source debug
+    info. This problem was Introduced in XLINK 4.52C.  <p></li>
+
+<li><a NAME="xlink0197"></a><b>XLINK0197:</b> When using the SYSROF
+    output format, assembler modules with source line information for
+    absolute code caused XLINK to crash.  <p></li>
+
+<li><a NAME="xlink0196"></a><b>XLINK0196:</b> XLINK terminated with
+    error e113 (Corrupt input file) when linking modules with root
+    static overlay segment parts when packed segment placement (-P)
+    was used for the segment.  <p></li>
+
+<li><a NAME="xlink0195"></a><b>XLINK0195:</b> Using -e (symbol
+    replacement) with UBROF 9 input caused XLINK to produce corrupt
+    output files.  <p></li>
+
+<li>Using the <tt>-Fubrof</tt> output format caused XLINK to output a
+    file using the latest UBROF version known to XLINK, and not, as
+    documented, the latest UBROF version used in any of the input
+    files (like <tt>-Fdebug</tt>). This problem has existed ever since
+    the introduction of <tt>-Fubrof</tt> in XLINK 4.49A.  <p></li>
+
+<li>Eliminated a cause of spurious errors (e115 - incompatible symbol
+    definitions) for symbols included only for debug purposes.
+    <p></li>
+
+<li>Corrected a problem where XLINK sometimes excluded statement info
+    for inlined functions.  <p></li>
+
+</ul>
+
+<h4>XLINK 4.53B - 2001-06-18</h4>
+    
+<ul>
+
+<li><a NAME="xlink0194"></a><b>XLINK0194:</b> XLINK crashed if a
+    located variable and a command line defined symbol had the same
+    name.  <p></li>
+
+<li><a NAME="xlink0193"></a><b>XLINK0193:</b> The fix for source
+    statements after all function code in XLINK 4.53A could cause
+    C-SPY to crash when reading C/EC++ object files compiled with high
+    size optimization.  <p></li>
+
+<li><a NAME="xlink0192"></a><b>XLINK0192:</b> ASEGs in assembler
+    modules could cause XLINK 4.53A to crash.  <p></li>
+
+<li>Further adjustments the output when using the ELF output format to
+    work better with the CCS debugger from Texas Instruments for the
+    ARM processor.  <p></li>
+
+</ul>
+
+<h4>XLINK 4.53A - 2001-06-07</h4>
+    
+<ul>
+
+<li>XLINK now supports an arbitrary number of output files in
+    different output formats. An added feature over the experimental
+    support that has been present since XLINK 4.51G is the possibility
+    to restrict the output in one file to only one address space. See
+    <A HREF="xman.htm#chap17">xman.htm</a> for more information.
+    <p></li>
+
+<li>Added support for the cr16c processor.
+<p></li>
+
+<li>For the u8 processor, the CONST segment type is now considered to
+    be in the same address space as the CODE segment type.  <p></li>
+
+<li>Using the -ym format variant modifier (Output types in each
+    compilation unit, instead of once for all) for the output format
+    ELF resulted in XLINK producing an illegal output file.  <p></li>
+
+<li>Improved the prospects for continuing meaningfully (via -B) after
+    a Segment Already Defined error (error 101).  <p></li>
+
+<li><a NAME="xlink0191"></a><b>XLINK0191:</b> XLINK sometimes ignored
+    the alignment specification for empty segment parts. This could
+    cause incorrect code to be generated.  This problem was introduced
+    in XLINK 4.49A.  <p></li>
+
+<li><a NAME="xlink0190"></a><b>XLINK0190:</b> XLINK crashed if a range
+    error was detected in absolute code (assembler ASEG). This problem
+    was introduced in XLINK 4.52A.  <p></li>
+
+<li>When using the output format XCOFF78K, the line number information
+    for block/function end was off by one.  <p></li>
+
+<li>Some IAR compilers could emit debug information indicating a
+    statement after the end of the code for a function. These are now
+    no longer passed on by XLINK. This is known to have caused
+    problems when using the output format XCOFF78K.  <p></li>
+
+<li>Adjusted the output when using the ELF output format to work
+    better with the CCS debugger from Texas Instruments for the ARM
+    processor.  <p></li>
+
+<li>XLINK 4.53A is the first version of XLINK that works with the
+    Embedded Workbench version 3.  <p></li>
+
+<li>XLINK now outputs more information for error e16 (segment is too
+long for segment definition). All segments and absolute code that
+overlap the requested address ranges will be reported. This
+information will only appear in the linker list file if a list file is
+being generated. Otherwise it will appear together with the error
+message on standard output.
+<p></li>
+
+<li>New experimental feature: Address space sharing.<p>
+
+    <ul><pre>-U[(<i>segment type</i>)]<i>ranges</i>=[(<i>segment type</i>)]<i>ranges</i></pre></ul><p>
+
+    Each -U command line option declares that the memory given by the
+    ranges on the left side of the '=' sign is the same memory as that
+    given by the ranges on the right side. This has the effect that,
+    during segment placement, anything occupying some part of either
+    memory will be considered to reserve the corresponding part of the
+    other memory as well.<p>
+
+    The optional <tt>(<i>segment type</i>)</tt> that can be included
+    on each side of the '=' sign can be used to specify the address
+    space for architectures with multiple address spaces.<p>
+    
+    Example (assuming an architecture with separate code and address
+    spaces and that the CODE segment type corresponds to the code
+    address space and the DATA segment type to the data address
+    space):<p>
+
+    <ul><pre>
+-U(CODE)4000-5FFF=(DATA)11000-12FFF
+-P(CODE)MYCODE=4000-5FFF
+-P(DATA)MYCONST=11000-12FFF</pre></ul><p>
+
+    The first line declares that the memory at 4000-5FFF in the
+    code address space are also mapped at 11000-12FFF in the data
+    address space.<p>
+
+    The second line places the MYCODE segment into the memory at
+    4000-5FFF in the code address space. The corresponding bytes in
+    the data address space will also be reserved. If MYCODE occupies
+    the addresses 4000-473F, the range 11000-1173F in the data address
+    space will also be reserved.<p>
+
+    The third line will place the MYCONST segment into what ever parts
+    of the 11000-12FFF memory range are not reserved. In this case it
+    will behave as if it were written:
+    "<tt>-P(DATA)MYCONST=11740-12FFF</tt>".
+</li>
+
+</ul>
+<p>
+The text for the 4.53 (and earlier) series have been removed from this file.
+
+</ul>
+<hr>
+<font size=-1>Copyright (C) 1987-2010 IAR Systems AB.</font></hr>
+</body>
+</html>

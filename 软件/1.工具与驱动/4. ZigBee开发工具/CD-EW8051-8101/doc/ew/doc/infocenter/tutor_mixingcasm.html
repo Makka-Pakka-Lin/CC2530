@@ -1,0 +1,291 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <meta http-equiv="Content-Style-Type" content="text/css" />
+    <!-- MOTW-DISABLED saved from url=(0014)about:internet -->
+    <title>Mixing C and assembler modules</title>
+    <link rel="StyleSheet" href="css/tutor_mixingcasm.css" type="text/css" media="all" />
+    <link rel="StyleSheet" href="css/webworks.css" type="text/css" media="all" />
+    <script type="text/javascript" language="JavaScript1.2" src="scripts/expand.js"></script>
+    <script type="text/javascript" language="JavaScript1.2">
+      <!--
+        var  WebWorksRootPath = "";
+      // -->
+    </script>
+  </head>
+  <body class="" style="background-color: White; background-image: url(&quot;style/images/Gradient_slice.png&quot;); background-position: center top; background-repeat: repeat-x;">
+    <table align="left" summary="">
+      <tr>
+        <td class="WebWorks_Company_Logo_Top">
+          <img src="images/IAR_CMYK_transp_37px.png" alt="" />
+        </td>
+      </tr>
+    </table>
+    <br clear="all" />
+    <div class="Heading1"><a name="1043466">M</a>ixing C and assembler modules</div>
+    <div class="WebWorks_MiniTOC">
+      <div class="WebWorks_MiniTOC_Level1">
+        <a class="WebWorks_MiniTOC_Link" href="#1084208">Examining the calling convention</a>
+      </div>
+      <div class="WebWorks_MiniTOC_Level1">
+        <a class="WebWorks_MiniTOC_Link" href="#1084554">Adding an assembler module to the project</a>
+      </div>
+      <div class="WebWorks_MiniTOC_Level2">
+        <a class="WebWorks_MiniTOC_Link" href="#1085645">Setting up the project</a>
+      </div>
+    </div>
+    <div class="Ingress"><a name="1073815">In some projects it might be necessary to write certain pieces of source code </a>in assembler language. The tutorial first demonstrates how the compiler can be helpful in examining the calling convention, which you must be familiar with when calling assembler modules from C/C++ modules or vice versa. Furthermore, this tutorial demonstrates how you can easily combine source modules written in C with assembler modules, but the procedure is applicable to projects containing source modules written in C++, too, if your product package supports C++.</div>
+    <div class="Ingress"><a name="1077057">This tutorial assumes that you are familiar with the basics of the IAR </a>Embedded Workbench® IDE described in the previous tutorials.</div>
+    <div class="Heading2NoBrk"><a name="1084208">E</a>xamining the calling convention</div>
+    <div class="Body"><a name="1076907">When you write an assembler routine that is called from a C routine, you must be aware </a>of the calling convention that the compiler uses. If you create skeleton code in C and let the compiler produce an assembler output file from it, you can study the produced assembler output file and find the details of the calling convention. </div>
+    <div class="Body"><a name="1076908">In this example you will make the compiler create an assembler output file from the file </a><span class="Computer">Utilities.</span><span class="Computer">c</span>.</div>
+    <div class="List_step_first_outer" style="margin-left: 0.5062999999999767cm;">
+      <table border="0" cellspacing="0" cellpadding="0" summary="">
+        <tr style="vertical-align: baseline;">
+          <td>
+            <div class="List_step_first_inner" style="width: 13.994645669291998pt; white-space: nowrap;">
+              <span class="N_Step">1	</span>
+            </div>
+          </td>
+          <td width="100%">
+            <div class="List_step_first_inner"><a name="1076912">Create a new project in the same workspace </a><span class="Computer">tutorials</span> as used in the previous tutorial project, and name the project <span class="Computer">project2</span>.</div>
+          </td>
+        </tr>
+      </table>
+    </div>
+    <div class="List_step_outer" style="margin-left: 0.5062999999999767cm;">
+      <table border="0" cellspacing="0" cellpadding="0" summary="">
+        <tr style="vertical-align: baseline;">
+          <td>
+            <div class="List_step_inner" style="width: 13.994645669291998pt; white-space: nowrap;">
+              <span class="N_Step">2	</span>
+            </div>
+          </td>
+          <td width="100%">
+            <div class="List_step_inner"><a name="1077121">Add the files </a><span class="Computer">Tutor.</span><span class="Computer">c</span> and <span class="Computer">Utilities.c</span> to the project.</div>
+          </td>
+        </tr>
+      </table>
+    </div>
+    <div class="Body"><a name="1077609">To display an overview of the workspace, click the </a><span class="Menu_Command">Overview</span> tab available at the bottom of the Workspace window. To view only the newly created project, click the <span class="Menu_Command">project2</span> tab. For now, the <span class="Menu_Command">project2</span> view should be visible.</div>
+    <div class="List_step_outer" style="margin-left: 0.5062999999999767cm;">
+      <table border="0" cellspacing="0" cellpadding="0" summary="">
+        <tr style="vertical-align: baseline;">
+          <td>
+            <div class="List_step_inner" style="width: 13.994645669291998pt; white-space: nowrap;">
+              <span class="N_Step">3	</span>
+            </div>
+          </td>
+          <td width="100%">
+            <div class="List_step_inner"><a name="1082507">T</a>o set options, choose <span class="Menu_Command">Project&gt;Options</span>, and select the <span class="Menu_Command">G</span><span class="Menu_Command">eneral Options</span> category. On project level, the default factory settings should be used in this tutorial. Click <span class="Menu_Command">OK</span>.</div>
+          </td>
+        </tr>
+      </table>
+    </div>
+    <div class="List_step_outer" style="margin-left: 0.5062999999999767cm;">
+      <table border="0" cellspacing="0" cellpadding="0" summary="">
+        <tr style="vertical-align: baseline;">
+          <td>
+            <div class="List_step_inner" style="width: 13.994645669291998pt; white-space: nowrap;">
+              <span class="N_Step">4	</span>
+            </div>
+          </td>
+          <td width="100%">
+            <div class="List_step_inner"><a name="1077768">To set options on file level node, in the Workspace window, select the file </a><span class="Computer">Utilities.c</span>.</div>
+          </td>
+        </tr>
+      </table>
+    </div>
+    <div class="Body"><a name="1076917">Choose </a><span class="Menu_Command">Project&gt;Options</span>. You will notice that only the <span class="Menu_Command">C</span><span class="Menu_Command">/C++ Compiler</span> and <span class="Menu_Command">C</span><span class="Menu_Command">ustom </span><span class="Menu_Command">Build</span> categories are available.</div>
+    <div class="List_step_outer" style="margin-left: 0.5062999999999767cm;">
+      <table border="0" cellspacing="0" cellpadding="0" summary="">
+        <tr style="vertical-align: baseline;">
+          <td>
+            <div class="List_step_inner" style="width: 13.994645669291998pt; white-space: nowrap;">
+              <span class="N_Step">5	</span>
+            </div>
+          </td>
+          <td width="100%">
+            <div class="List_step_inner"><a name="1082057">In the </a><span class="Menu_Command">C</span><span class="Menu_Command">/C++ Compiler</span> category, select <span class="Menu_Command">Override</span> <span class="Menu_Command">inherited</span> <span class="Menu_Command">settings </span>and verify these settings:</div>
+          </td>
+        </tr>
+      </table>
+    </div>
+    <div class="TableAnchor"><a name="1082086"> </a></div>
+    <table class="Standard" style="text-align: left; width: 311.792881889764pt;" cellspacing="0" summary="">
+      <caption></caption>
+      <tr>
+        <td style="border-bottom-color: #7f7f7f; border-bottom-style: solid; border-bottom-width: 1.2pt; padding-bottom: 3pt; padding-left: 0pt; padding-right: 0pt; padding-top: 3pt; vertical-align: middle; width: 106.862003149606pt;">
+          <div class="CellHeading"><a name="1082066">Page</a></div>
+        </td>
+        <td style="border-bottom-color: #7f7f7f; border-bottom-style: solid; border-bottom-width: 1.2pt; padding-bottom: 3pt; padding-left: 0pt; padding-right: 0pt; padding-top: 3pt; vertical-align: middle; width: 204.930878740158pt;">
+          <div class="CellHeading"><a name="1082068">Option</a></div>
+        </td>
+      </tr>
+      <tr>
+        <td style="padding-bottom: 3pt; padding-left: 0pt; padding-right: 0pt; padding-top: 3pt; vertical-align: top;">
+          <div class="CellBody"><a name="1082070">Optimizations</a></div>
+        </td>
+        <td style="padding-bottom: 3pt; padding-left: 0pt; padding-right: 0pt; padding-top: 3pt; vertical-align: top;">
+          <div class="CellBody"><a name="1082072">Level</a>: None (Best debug support)</div>
+        </td>
+      </tr>
+      <tr>
+        <td style="padding-bottom: 3pt; padding-left: 0pt; padding-right: 0pt; padding-top: 3pt; vertical-align: top;">
+          <div class="CellBody"><a name="1082074">List</a></div>
+        </td>
+        <td style="padding-bottom: 3pt; padding-left: 0pt; padding-right: 0pt; padding-top: 3pt; vertical-align: top;">
+          <div class="CellBody"><a name="1082076">Output assembler file</a></div>
+          <div class="CellBody"><a name="1083183">   Include source</a></div>
+          <div class="CellBody"><a name="1082078">   Include call frame information (must be deselected).</a><span style="font-family: &quot;Times New Roman&quot;; font-size: 9.0pt;"></span></div>
+        </td>
+      </tr>
+    </table>
+    <div class="Note">
+      <span style="font-style: normal; font-variant: normal; font-weight: bold; text-transform: none; vertical-align: baseline;">Note: </span><a name="1082087">In this example you must use a low optimization level when you compile the </a>code, to show local and global variable accesses. If you use a higher level of optimization, the required references to local variables might be removed. However, the actual function declaration is not changed by the optimization level.</div>
+    <div class="List_step_outer" style="margin-left: 0.5062999999999767cm;">
+      <table border="0" cellspacing="0" cellpadding="0" summary="">
+        <tr style="vertical-align: baseline;">
+          <td>
+            <div class="List_step_inner" style="width: 13.994645669291998pt; white-space: nowrap;">
+              <span class="N_Step">6	</span>
+            </div>
+          </td>
+          <td width="100%">
+            <div class="List_step_inner"><a name="1077339">Click </a><span class="Menu_Command">OK </span>and return to the Workspace window.</div>
+          </td>
+        </tr>
+      </table>
+    </div>
+    <div class="List_step_outer" style="margin-left: 0.5062999999999767cm;">
+      <table border="0" cellspacing="0" cellpadding="0" summary="">
+        <tr style="vertical-align: baseline;">
+          <td>
+            <div class="List_step_inner" style="width: 13.994645669291998pt; white-space: nowrap;">
+              <span class="N_Step">7	</span>
+            </div>
+          </td>
+          <td width="100%">
+            <div class="List_step_inner"><a name="1076942">Compile the file </a><span class="Computer">Utilities.c</span>. You can find the output file <span class="Computer">Utilities.</span><span class="Computer">s</span><span class="Computer_parameter">xx</span> in the subdirectory <span class="Computer">projects\debug\list</span>.</div>
+          </td>
+        </tr>
+      </table>
+    </div>
+    <div class="List_step_outer" style="margin-left: 0.5062999999999767cm;">
+      <table border="0" cellspacing="0" cellpadding="0" summary="">
+        <tr style="vertical-align: baseline;">
+          <td>
+            <div class="List_step_inner" style="width: 13.994645669291998pt; white-space: nowrap;">
+              <span class="N_Step">8	</span>
+            </div>
+          </td>
+          <td width="100%">
+            <div class="List_step_inner"><a name="1076946">To examine the calling convention and to see how the </a>C or C++ code is represented in assembler language, open the file <span class="Computer">Utilities.</span><span class="Computer">s</span><span class="Computer_parameter">xx</span>.</div>
+          </td>
+        </tr>
+      </table>
+    </div>
+    <div class="Body"><a name="1076950">You can now study where and how parameters are passed, how to return to the program </a>location from where a function was called, and how to return a resulting value. You can also see which registers an assembler-level routine must preserve.</div>
+    <div class="Note">
+      <span style="font-style: normal; font-variant: normal; font-weight: bold; text-transform: none; vertical-align: baseline;">Note: </span><a name="1084067">The generated assembler source file might contain compiler</a>-internal information, for example <span class="Computer">CFI</span> directives. These directives are available for debugging purpose and you should ignore these details.</div>
+    <div class="Body"><a name="1085008">To obtain the correct interface for your own application functions, you should create </a>skeleton code for each function that you need.</div>
+    <div class="Body"><a name="1076894">For more information about the calling convention used in the compiler, see the </a><span class="Reference">IAR </span><span class="Reference">C/C++ Compiler Reference Guide</span><span class="Reference">.</span></div>
+    <div class="Heading2NoBrk"><a name="1084554">A</a>dding an assembler module to the project</div>
+    <div class="Body"><a name="1076259">This tutorial demonstrates how you can easily create a project containing both assembler </a>modules and C modules. You will also compile the project and view the assembler output list file.</div>
+    <div class="Heading3NoBrk"><a name="1085645">S</a>etting up the project</div>
+    <div class="List_step_first_outer" style="margin-left: 0.5062999999999767cm;">
+      <table border="0" cellspacing="0" cellpadding="0" summary="">
+        <tr style="vertical-align: baseline;">
+          <td>
+            <div class="List_step_first_inner" style="width: 13.994645669291998pt; white-space: nowrap;">
+              <span class="N_Step">1	</span>
+            </div>
+          </td>
+          <td width="100%">
+            <div class="List_step_first_inner"><a name="1085649">Modify </a><span class="Computer">project2</span> by adding the <span class="Computer">Utilities.</span><span class="Computer">s</span><span class="Computer_parameter">xx</span>  (<span class="Computer">Utilities.s</span> for ILINK) file that you just created and removing the <span class="Computer">Utilities.c</span> file.</div>
+          </td>
+        </tr>
+      </table>
+    </div>
+    <div class="Note">
+      <span style="font-style: normal; font-variant: normal; font-weight: bold; text-transform: none; vertical-align: baseline;">Note: </span><a name="1077519">To view assembler files in the </a><span class="Menu_Command">Add files</span> dialog box, choose <span class="Menu_Command">Project&gt;Add Files</span> and choose <span class="Menu_Command">Assembler Files</span> from the <span class="Menu_Command">Files of type</span> drop-down list.</div>
+    <div class="List_step_outer" style="margin-left: 0.5062999999999767cm;">
+      <table border="0" cellspacing="0" cellpadding="0" summary="">
+        <tr style="vertical-align: baseline;">
+          <td>
+            <div class="List_step_inner" style="width: 13.994645669291998pt; white-space: nowrap;">
+              <span class="N_Step">2	</span>
+            </div>
+          </td>
+          <td width="100%">
+            <div class="List_step_inner"><a name="1082288">Select the project level node in the Workspace window, choose </a><span class="Menu_Command">Project&gt;Options</span>. Use the default settings in the <span class="Menu_Command">G</span><span class="Menu_Command">eneral Options</span>, <span class="Menu_Command">C</span><span class="Menu_Command">/C++ Compiler</span>, and <span class="Menu_Command">L</span><span class="Menu_Command">inker</span> categories. Select the <span class="Menu_Command">A</span><span class="Menu_Command">ssembler</span> category, click the <span class="Menu_Command">List</span> tab, and select the option <span class="Menu_Command">Output list file</span>.</div>
+          </td>
+        </tr>
+      </table>
+    </div>
+    <div class="Body"><a name="1052988">C</a>lick <span class="Menu_Command">OK</span>.</div>
+    <div class="List_step_outer" style="margin-left: 0.5062999999999767cm;">
+      <table border="0" cellspacing="0" cellpadding="0" summary="">
+        <tr style="vertical-align: baseline;">
+          <td>
+            <div class="List_step_inner" style="width: 13.994645669291998pt; white-space: nowrap;">
+              <span class="N_Step">3	</span>
+            </div>
+          </td>
+          <td width="100%">
+            <div class="List_step_inner"><a name="1077544">Select the file </a><span class="Computer">Utilities.</span><span class="Computer">s</span><span class="Computer_parameter">xx</span> in the Workspace window and choose <span class="Menu_Command">Project&gt;Compile</span> to assemble it. </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+    <div class="Body"><a name="1076285">Assuming that the source file was assembled successfully, the file </a><span class="Computer">Utilities</span><span class="Computer">.</span><span class="Computer">r</span><span class="Computer_parameter">xx</span>  (<span class="Computer">Utilities.o</span> for ILINK) is created, containing the linkable object code.</div>
+    <div class="Heading4"><a name="1076287">Viewing the assembler list file</a></div>
+    <div class="List_step_outer" style="margin-left: 0.5062999999999767cm;">
+      <table border="0" cellspacing="0" cellpadding="0" summary="">
+        <tr style="vertical-align: baseline;">
+          <td>
+            <div class="List_step_inner" style="width: 13.994645669291998pt; white-space: nowrap;">
+              <span class="N_Step">4	</span>
+            </div>
+          </td>
+          <td width="100%">
+            <div class="List_step_inner"><a name="1065895">Open the list file by double-clicking the file </a><span class="Computer">Utilities</span><span class="Computer">.lst</span> available in the <span class="Computer">Output</span> folder icon in the Workspace window.</div>
+          </td>
+        </tr>
+      </table>
+    </div>
+    <div class="Body"><a name="1076642">The </a><span style="font-style: italic;">end</span> of the file contains a summary of errors and warnings that were generated.</div>
+    <div class="Body"><a name="1076609">For further details of the list file format, see the </a><span class="Reference">I</span><span class="Reference">AR Assembler Reference Guide</span><span class="Reference">.</span></div>
+    <div class="List_step_outer" style="margin-left: 0.5062999999999767cm;">
+      <table border="0" cellspacing="0" cellpadding="0" summary="">
+        <tr style="vertical-align: baseline;">
+          <td>
+            <div class="List_step_inner" style="width: 13.994645669291998pt; white-space: nowrap;">
+              <span class="N_Step">5	</span>
+            </div>
+          </td>
+          <td width="100%">
+            <div class="List_step_inner"><a name="1066095">Choose </a><span class="Menu_Command">Project&gt;Make</span> to relink <span class="Computer">project2</span>.</div>
+          </td>
+        </tr>
+      </table>
+    </div>
+    <div class="List_step_outer" style="margin-left: 0.5062999999999767cm;">
+      <table border="0" cellspacing="0" cellpadding="0" summary="">
+        <tr style="vertical-align: baseline;">
+          <td>
+            <div class="List_step_inner" style="width: 13.994645669291998pt; white-space: nowrap;">
+              <span class="N_Step">6	</span>
+            </div>
+          </td>
+          <td width="100%">
+            <div class="List_step_inner"><a name="1066099">Start C-SPY to run the </a><span class="Computer">project2.</span><span class="Computer">d</span><span class="Computer_parameter">xx</span>  (<span class="Computer">Utilities.out</span> for ILINK) application and see that it behaves like the application in the previous tutorial.</div>
+          </td>
+        </tr>
+      </table>
+    </div>
+    <div class="Body"><a name="1082344">E</a>xit the debugger when you are done.</div>
+  </body>
+</html>

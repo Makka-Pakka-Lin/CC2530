@@ -1,0 +1,3547 @@
+div.N_Footer
+{
+  color: #000000;
+  font-family: Arial, Helvetica, Univers, Sans-Serif;
+  font-size: 9.0pt;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  margin-bottom: 0.0pt;
+  margin-left: 1cm;
+  margin-right: 0pt;
+  margin-top: 0.0pt;
+  text-align: Left;
+  text-indent: 0pt;
+  text-transform: none;
+  vertical-align: baseline;
+}
+
+.N_Footer_outer
+{
+  margin-bottom: 0.0pt;
+  margin-right: 0pt;
+  margin-top: 0.0pt;
+}
+
+.N_Footer_inner
+{
+  color: #000000;
+  font-family: Arial, Helvetica, Univers, Sans-Serif;
+  font-size: 9.0pt;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  text-align: Left;
+  text-transform: none;
+  vertical-align: baseline;
+  margin-left: 0pt;
+  margin-right: 0pt;
+  margin-top: 0pt;
+  margin-bottom: 0pt;
+  padding-left: 0pt;
+  padding-right: 0pt;
+  padding-top: 0pt;
+  padding-bottom: 0pt;
+}
+
+div.N_Footer_L
+{
+  color: #000000;
+  font-family: Arial, Helvetica, Univers, Sans-Serif;
+  font-size: 8.0pt;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: bold;
+  margin-bottom: 0.0pt;
+  margin-left: 1cm;
+  margin-right: 0pt;
+  margin-top: 0.0pt;
+  text-align: Left;
+  text-indent: 0pt;
+  text-transform: none;
+  vertical-align: baseline;
+}
+
+.N_Footer_L_outer
+{
+  margin-bottom: 0.0pt;
+  margin-right: 0pt;
+  margin-top: 0.0pt;
+}
+
+.N_Footer_L_inner
+{
+  color: #000000;
+  font-family: Arial, Helvetica, Univers, Sans-Serif;
+  font-size: 8.0pt;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: bold;
+  text-align: Left;
+  text-transform: none;
+  vertical-align: baseline;
+  margin-left: 0pt;
+  margin-right: 0pt;
+  margin-top: 0pt;
+  margin-bottom: 0pt;
+  padding-left: 0pt;
+  padding-right: 0pt;
+  padding-top: 0pt;
+  padding-bottom: 0pt;
+}
+
+div.N_Footer_R
+{
+  color: #000000;
+  font-family: Arial, Helvetica, Univers, Sans-Serif;
+  font-size: 9.0pt;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  margin-bottom: 0.0pt;
+  margin-left: 1cm;
+  margin-right: 0pt;
+  margin-top: 0.0pt;
+  text-align: Right;
+  text-indent: 0pt;
+  text-transform: none;
+  vertical-align: baseline;
+}
+
+.N_Footer_R_outer
+{
+  margin-bottom: 0.0pt;
+  margin-right: 0pt;
+  margin-top: 0.0pt;
+}
+
+.N_Footer_R_inner
+{
+  color: #000000;
+  font-family: Arial, Helvetica, Univers, Sans-Serif;
+  font-size: 9.0pt;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  text-align: Right;
+  text-transform: none;
+  vertical-align: baseline;
+  margin-left: 0pt;
+  margin-right: 0pt;
+  margin-top: 0pt;
+  margin-bottom: 0pt;
+  padding-left: 0pt;
+  padding-right: 0pt;
+  padding-top: 0pt;
+  padding-bottom: 0pt;
+}
+
+div.N_Header_L
+{
+  color: #000000;
+  font-family: Arial, Helvetica, Univers, Sans-Serif;
+  font-size: 8.0pt;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  margin-bottom: 0.0pt;
+  margin-left: 1cm;
+  margin-right: 0pt;
+  margin-top: 0.0pt;
+  text-align: Left;
+  text-indent: 0pt;
+  text-transform: none;
+  vertical-align: baseline;
+}
+
+.N_Header_L_outer
+{
+  margin-bottom: 0.0pt;
+  margin-right: 0pt;
+  margin-top: 0.0pt;
+}
+
+.N_Header_L_inner
+{
+  color: #000000;
+  font-family: Arial, Helvetica, Univers, Sans-Serif;
+  font-size: 8.0pt;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  text-align: Left;
+  text-transform: none;
+  vertical-align: baseline;
+  margin-left: 0pt;
+  margin-right: 0pt;
+  margin-top: 0pt;
+  margin-bottom: 0pt;
+  padding-left: 0pt;
+  padding-right: 0pt;
+  padding-top: 0pt;
+  padding-bottom: 0pt;
+}
+
+div.N_Header_R
+{
+  color: #000000;
+  font-family: Arial, Helvetica, Univers, Sans-Serif;
+  font-size: 8.0pt;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: bold;
+  margin-bottom: 0.0pt;
+  margin-left: 1cm;
+  margin-right: 0pt;
+  margin-top: 0.0pt;
+  text-align: Right;
+  text-indent: 0pt;
+  text-transform: none;
+  vertical-align: baseline;
+}
+
+.N_Header_R_outer
+{
+  margin-bottom: 0.0pt;
+  margin-right: 0pt;
+  margin-top: 0.0pt;
+}
+
+.N_Header_R_inner
+{
+  color: #000000;
+  font-family: Arial, Helvetica, Univers, Sans-Serif;
+  font-size: 8.0pt;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: bold;
+  text-align: Right;
+  text-transform: none;
+  vertical-align: baseline;
+  margin-left: 0pt;
+  margin-right: 0pt;
+  margin-top: 0pt;
+  margin-bottom: 0pt;
+  padding-left: 0pt;
+  padding-right: 0pt;
+  padding-top: 0pt;
+  padding-bottom: 0pt;
+}
+
+div.N_PageNo_L
+{
+  color: #000000;
+  font-family: Arial, Helvetica, Univers, Sans-Serif;
+  font-size: 8.5pt;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: bold;
+  margin-bottom: 0.0pt;
+  margin-left: 1cm;
+  margin-right: 0pt;
+  margin-top: 0.0pt;
+  text-align: Left;
+  text-indent: 0pt;
+  text-transform: none;
+  vertical-align: baseline;
+}
+
+.N_PageNo_L_outer
+{
+  margin-bottom: 0.0pt;
+  margin-right: 0pt;
+  margin-top: 0.0pt;
+}
+
+.N_PageNo_L_inner
+{
+  color: #000000;
+  font-family: Arial, Helvetica, Univers, Sans-Serif;
+  font-size: 8.5pt;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: bold;
+  text-align: Left;
+  text-transform: none;
+  vertical-align: baseline;
+  margin-left: 0pt;
+  margin-right: 0pt;
+  margin-top: 0pt;
+  margin-bottom: 0pt;
+  padding-left: 0pt;
+  padding-right: 0pt;
+  padding-top: 0pt;
+  padding-bottom: 0pt;
+}
+
+div.N_PageNo_R
+{
+  color: #000000;
+  font-family: Arial, Helvetica, Univers, Sans-Serif;
+  font-size: 8.5pt;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: bold;
+  margin-bottom: 0.0pt;
+  margin-left: 1cm;
+  margin-right: 0pt;
+  margin-top: 0.0pt;
+  text-align: Right;
+  text-indent: 0pt;
+  text-transform: none;
+  vertical-align: baseline;
+}
+
+.N_PageNo_R_outer
+{
+  margin-bottom: 0.0pt;
+  margin-right: 0pt;
+  margin-top: 0.0pt;
+}
+
+.N_PageNo_R_inner
+{
+  color: #000000;
+  font-family: Arial, Helvetica, Univers, Sans-Serif;
+  font-size: 8.5pt;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: bold;
+  text-align: Right;
+  text-transform: none;
+  vertical-align: baseline;
+  margin-left: 0pt;
+  margin-right: 0pt;
+  margin-top: 0pt;
+  margin-bottom: 0pt;
+  padding-left: 0pt;
+  padding-right: 0pt;
+  padding-top: 0pt;
+  padding-bottom: 0pt;
+}
+
+div.N_Watermark
+{
+  color: #e5e5e5;
+  font-family: Arial, Helvetica, Univers, Sans-Serif;
+  font-size: 96.0pt;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: bold;
+  margin-bottom: 57.0pt;
+  margin-left: 1cm;
+  margin-right: 0pt;
+  margin-top: 0.0pt;
+  text-align: Center;
+  text-indent: 0pt;
+  text-transform: none;
+  vertical-align: baseline;
+}
+
+.N_Watermark_outer
+{
+  margin-bottom: 57.0pt;
+  margin-right: 0pt;
+  margin-top: 0.0pt;
+}
+
+.N_Watermark_inner
+{
+  color: #e5e5e5;
+  font-family: Arial, Helvetica, Univers, Sans-Serif;
+  font-size: 96.0pt;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: bold;
+  text-align: Center;
+  text-transform: none;
+  vertical-align: baseline;
+  margin-left: 0pt;
+  margin-right: 0pt;
+  margin-top: 0pt;
+  margin-bottom: 0pt;
+  padding-left: 0pt;
+  padding-right: 0pt;
+  padding-top: 0pt;
+  padding-bottom: 0pt;
+}
+
+div.Annotation_C
+{
+  color: #000000;
+  font-family: Arial, Helvetica, Univers, Sans-Serif;
+  font-size: 7.0pt;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  margin-bottom: 0.0pt;
+  margin-left: 1cm;
+  margin-right: 0pt;
+  margin-top: 0.0pt;
+  text-align: Center;
+  text-indent: 0pt;
+  text-transform: none;
+  vertical-align: baseline;
+}
+
+.Annotation_C_outer
+{
+  margin-bottom: 0.0pt;
+  margin-right: 0pt;
+  margin-top: 0.0pt;
+}
+
+.Annotation_C_inner
+{
+  color: #000000;
+  font-family: Arial, Helvetica, Univers, Sans-Serif;
+  font-size: 7.0pt;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  text-align: Center;
+  text-transform: none;
+  vertical-align: baseline;
+  margin-left: 0pt;
+  margin-right: 0pt;
+  margin-top: 0pt;
+  margin-bottom: 0pt;
+  padding-left: 0pt;
+  padding-right: 0pt;
+  padding-top: 0pt;
+  padding-bottom: 0pt;
+}
+
+div.Annotation_L
+{
+  color: #000000;
+  font-family: Arial, Helvetica, Univers, Sans-Serif;
+  font-size: 7.0pt;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  margin-bottom: 0.0pt;
+  margin-left: 1cm;
+  margin-right: 0pt;
+  margin-top: 0.0pt;
+  text-align: Left;
+  text-indent: 0pt;
+  text-transform: none;
+  vertical-align: baseline;
+}
+
+.Annotation_L_outer
+{
+  margin-bottom: 0.0pt;
+  margin-right: 0pt;
+  margin-top: 0.0pt;
+}
+
+.Annotation_L_inner
+{
+  color: #000000;
+  font-family: Arial, Helvetica, Univers, Sans-Serif;
+  font-size: 7.0pt;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  text-align: Left;
+  text-transform: none;
+  vertical-align: baseline;
+  margin-left: 0pt;
+  margin-right: 0pt;
+  margin-top: 0pt;
+  margin-bottom: 0pt;
+  padding-left: 0pt;
+  padding-right: 0pt;
+  padding-top: 0pt;
+  padding-bottom: 0pt;
+}
+
+div.Annotation_R
+{
+  color: #000000;
+  font-family: Arial, Helvetica, Univers, Sans-Serif;
+  font-size: 7.0pt;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  margin-bottom: 0.0pt;
+  margin-left: 1cm;
+  margin-right: 0pt;
+  margin-top: 0.0pt;
+  text-align: Right;
+  text-indent: 0pt;
+  text-transform: none;
+  vertical-align: baseline;
+}
+
+.Annotation_R_outer
+{
+  margin-bottom: 0.0pt;
+  margin-right: 0pt;
+  margin-top: 0.0pt;
+}
+
+.Annotation_R_inner
+{
+  color: #000000;
+  font-family: Arial, Helvetica, Univers, Sans-Serif;
+  font-size: 7.0pt;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  text-align: Right;
+  text-transform: none;
+  vertical-align: baseline;
+  margin-left: 0pt;
+  margin-right: 0pt;
+  margin-top: 0pt;
+  margin-bottom: 0pt;
+  padding-left: 0pt;
+  padding-right: 0pt;
+  padding-top: 0pt;
+  padding-bottom: 0pt;
+}
+
+div.AttFixaNoteText
+{
+  color: #000000;
+  font-family: Arial, Helvetica, Univers, Sans-Serif;
+  font-size: 9.0pt;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  margin-bottom: 0.0pt;
+  margin-left: 1cm;
+  margin-right: 0pt;
+  margin-top: 3.0pt;
+  text-align: Left;
+  text-indent: 0pt;
+  text-transform: none;
+  vertical-align: baseline;
+}
+
+.AttFixaNoteText_outer
+{
+  margin-bottom: 0.0pt;
+  margin-right: 0pt;
+  margin-top: 3.0pt;
+}
+
+.AttFixaNoteText_inner
+{
+  color: #000000;
+  font-family: Arial, Helvetica, Univers, Sans-Serif;
+  font-size: 9.0pt;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  text-align: Left;
+  text-transform: none;
+  vertical-align: baseline;
+  margin-left: 0pt;
+  margin-right: 0pt;
+  margin-top: 0pt;
+  margin-bottom: 0pt;
+  padding-left: 0pt;
+  padding-right: 0pt;
+  padding-top: 0pt;
+  padding-bottom: 0pt;
+}
+
+div.AttFixaNoteTitle
+{
+  color: #000000;
+  font-family: Arial, Helvetica, Univers, Sans-Serif;
+  font-size: 9.0pt;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: bold;
+  margin-bottom: 0.0pt;
+  margin-left: 1cm;
+  margin-right: 0pt;
+  margin-top: 0.0pt;
+  text-align: Left;
+  text-indent: 0pt;
+  text-transform: none;
+  vertical-align: baseline;
+}
+
+.AttFixaNoteTitle_outer
+{
+  margin-bottom: 0.0pt;
+  margin-right: 0pt;
+  margin-top: 0.0pt;
+}
+
+.AttFixaNoteTitle_inner
+{
+  color: #000000;
+  font-family: Arial, Helvetica, Univers, Sans-Serif;
+  font-size: 9.0pt;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: bold;
+  text-align: Left;
+  text-transform: none;
+  vertical-align: baseline;
+  margin-left: 0pt;
+  margin-right: 0pt;
+  margin-top: 0pt;
+  margin-bottom: 0pt;
+  padding-left: 0pt;
+  padding-right: 0pt;
+  padding-top: 0pt;
+  padding-bottom: 0pt;
+}
+
+div.Body
+{
+  color: Black;
+  font-family: Arial, Verdana, Helvetica, Sans-Serif;
+  font-size: 12px;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  line-height: 18px;
+  margin-bottom: 5.6693pt;
+  margin-left: 1cm;
+  margin-right: 0pt;
+  margin-top: 5.6693pt;
+  text-align: Left;
+  text-indent: 0pt;
+  text-transform: none;
+  vertical-align: baseline;
+}
+
+.Body_outer
+{
+  margin-bottom: 5.6693pt;
+  margin-right: 0pt;
+  margin-top: 5.6693pt;
+}
+
+.Body_inner
+{
+  color: Black;
+  font-family: Arial, Verdana, Helvetica, Sans-Serif;
+  font-size: 12px;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  line-height: 18px;
+  text-align: Left;
+  text-transform: none;
+  vertical-align: baseline;
+  margin-left: 0pt;
+  margin-right: 0pt;
+  margin-top: 0pt;
+  margin-bottom: 0pt;
+  padding-left: 0pt;
+  padding-right: 0pt;
+  padding-top: 0pt;
+  padding-bottom: 0pt;
+}
+
+div.Body_Func
+{
+  color: Black;
+  font-family: Arial, Verdana, Helvetica, Sans-Serif;
+  font-size: 0.9em;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  line-height: 18px;
+  margin-bottom: 5.6693pt;
+  margin-left: 1cm;
+  margin-right: 0pt;
+  margin-top: 20.0pt;
+  text-align: Left;
+  text-indent: 0pt;
+  text-transform: none;
+  vertical-align: baseline;
+}
+
+.Body_Func_outer
+{
+  margin-bottom: 5.6693pt;
+  margin-right: 0pt;
+  margin-top: 20.0pt;
+}
+
+.Body_Func_inner
+{
+  color: Black;
+  font-family: Arial, Verdana, Helvetica, Sans-Serif;
+  font-size: 0.9em;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  line-height: 18px;
+  text-align: Left;
+  text-transform: none;
+  vertical-align: baseline;
+  margin-left: 0pt;
+  margin-right: 0pt;
+  margin-top: 0pt;
+  margin-bottom: 0pt;
+  padding-left: 0pt;
+  padding-right: 0pt;
+  padding-top: 0pt;
+  padding-bottom: 0pt;
+}
+
+div.Body_in_list
+{
+  color: Black;
+  font-family: Arial, Verdana, Helvetica, Sans-Serif;
+  font-size: 12px;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  line-height: 18px;
+  margin-bottom: 3.0pt;
+  margin-left: 1cm;
+  margin-right: 0pt;
+  margin-top: 3.0pt;
+  text-align: Left;
+  text-indent: 0pt;
+  text-transform: none;
+  vertical-align: baseline;
+}
+
+.Body_in_list_outer
+{
+  margin-bottom: 3.0pt;
+  margin-right: 0pt;
+  margin-top: 3.0pt;
+}
+
+.Body_in_list_inner
+{
+  color: Black;
+  font-family: Arial, Verdana, Helvetica, Sans-Serif;
+  font-size: 12px;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  line-height: 18px;
+  text-align: Left;
+  text-transform: none;
+  vertical-align: baseline;
+  margin-left: 0pt;
+  margin-right: 0pt;
+  margin-top: 0pt;
+  margin-bottom: 0pt;
+  padding-left: 0pt;
+  padding-right: 0pt;
+  padding-top: 0pt;
+  padding-bottom: 0pt;
+}
+
+div.Body_in_list_01
+{
+  color: Black;
+  font-family: Arial, Verdana, Helvetica, Sans-Serif;
+  font-size: 12px;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  line-height: 18px;
+  margin-bottom: 3.0pt;
+  margin-left: 1cm;
+  margin-right: 0pt;
+  margin-top: 3.0pt;
+  text-align: Left;
+  text-indent: 0pt;
+  text-transform: none;
+  vertical-align: baseline;
+}
+
+.Body_in_list_01_outer
+{
+  margin-bottom: 3.0pt;
+  margin-right: 0pt;
+  margin-top: 3.0pt;
+}
+
+.Body_in_list_01_inner
+{
+  color: Black;
+  font-family: Arial, Verdana, Helvetica, Sans-Serif;
+  font-size: 12px;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  line-height: 18px;
+  text-align: Left;
+  text-transform: none;
+  vertical-align: baseline;
+  margin-left: 0pt;
+  margin-right: 0pt;
+  margin-top: 0pt;
+  margin-bottom: 0pt;
+  padding-left: 0pt;
+  padding-right: 0pt;
+  padding-top: 0pt;
+  padding-bottom: 0pt;
+}
+
+div.Body_in_list_02
+{
+  color: Black;
+  font-family: Arial, Verdana, Helvetica, Sans-Serif;
+  font-size: 12px;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  line-height: 18px;
+  margin-bottom: 3.0pt;
+  margin-left: 1cm;
+  margin-right: 0pt;
+  margin-top: 3.0pt;
+  text-align: Left;
+  text-indent: 0pt;
+  text-transform: none;
+  vertical-align: baseline;
+}
+
+.Body_in_list_02_outer
+{
+  margin-bottom: 3.0pt;
+  margin-right: 0pt;
+  margin-top: 3.0pt;
+}
+
+.Body_in_list_02_inner
+{
+  color: Black;
+  font-family: Arial, Verdana, Helvetica, Sans-Serif;
+  font-size: 12px;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  line-height: 18px;
+  text-align: Left;
+  text-transform: none;
+  vertical-align: baseline;
+  margin-left: 0pt;
+  margin-right: 0pt;
+  margin-top: 0pt;
+  margin-bottom: 0pt;
+  padding-left: 0pt;
+  padding-right: 0pt;
+  padding-top: 0pt;
+  padding-bottom: 0pt;
+}
+
+div.Body_list
+{
+  color: Black;
+  font-family: Arial, Verdana, Helvetica, Sans-Serif;
+  font-size: 12px;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  line-height: 18px;
+  margin-bottom: 3.0pt;
+  margin-left: 1cm;
+  margin-right: 0pt;
+  margin-top: 3.0pt;
+  text-align: Left;
+  text-indent: 0pt;
+  text-transform: none;
+  vertical-align: baseline;
+}
+
+.Body_list_outer
+{
+  margin-bottom: 3.0pt;
+  margin-right: 0pt;
+  margin-top: 3.0pt;
+}
+
+.Body_list_inner
+{
+  color: Black;
+  font-family: Arial, Verdana, Helvetica, Sans-Serif;
+  font-size: 12px;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  line-height: 18px;
+  text-align: Left;
+  text-transform: none;
+  vertical-align: baseline;
+  margin-left: 0pt;
+  margin-right: 0pt;
+  margin-top: 0pt;
+  margin-bottom: 0pt;
+  padding-left: 0pt;
+  padding-right: 0pt;
+  padding-top: 0pt;
+  padding-bottom: 0pt;
+}
+
+div.BodyPrint
+{
+  color: Black;
+  font-family: Arial, Verdana, Helvetica, Sans-Serif;
+  font-size: 12px;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  line-height: 18px;
+  margin-bottom: 5.6693pt;
+  margin-left: 1cm;
+  margin-right: 0pt;
+  margin-top: 5.6693pt;
+  text-align: Left;
+  text-indent: 0pt;
+  text-transform: none;
+  vertical-align: baseline;
+}
+
+.BodyPrint_outer
+{
+  margin-bottom: 5.6693pt;
+  margin-right: 0pt;
+  margin-top: 5.6693pt;
+}
+
+.BodyPrint_inner
+{
+  color: Black;
+  font-family: Arial, Verdana, Helvetica, Sans-Serif;
+  font-size: 12px;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  line-height: 18px;
+  text-align: Left;
+  text-transform: none;
+  vertical-align: baseline;
+  margin-left: 0pt;
+  margin-right: 0pt;
+  margin-top: 0pt;
+  margin-bottom: 0pt;
+  padding-left: 0pt;
+  padding-right: 0pt;
+  padding-top: 0pt;
+  padding-bottom: 0pt;
+}
+
+div.CellBody
+{
+  color: Black;
+  font-family: Arial, Verdana, Helvetica, Sans-Serif;
+  font-size: 12px;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  line-height: 18px;
+  margin-bottom: 0.0pt;
+  margin-left: 1cm;
+  margin-right: 0pt;
+  margin-top: 0.0pt;
+  text-align: Left;
+  text-indent: 0pt;
+  text-transform: none;
+  vertical-align: baseline;
+}
+
+.CellBody_outer
+{
+  margin-bottom: 0.0pt;
+  margin-right: 0pt;
+  margin-top: 0.0pt;
+}
+
+.CellBody_inner
+{
+  color: Black;
+  font-family: Arial, Verdana, Helvetica, Sans-Serif;
+  font-size: 12px;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  line-height: 18px;
+  text-align: Left;
+  text-transform: none;
+  vertical-align: baseline;
+  margin-left: 0pt;
+  margin-right: 0pt;
+  margin-top: 0pt;
+  margin-bottom: 0pt;
+  padding-left: 0pt;
+  padding-right: 0pt;
+  padding-top: 0pt;
+  padding-bottom: 0pt;
+}
+
+div.CellHeading
+{
+  color: #000000;
+  font-family: Arial, Helvetica, Univers, Sans-Serif;
+  font-size: 12px;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: bold;
+  margin-bottom: 0.0pt;
+  margin-left: 1cm;
+  margin-right: 0pt;
+  margin-top: 0.0pt;
+  text-align: Left;
+  text-indent: 0pt;
+  text-transform: none;
+  vertical-align: baseline;
+}
+
+.CellHeading_outer
+{
+  margin-bottom: 0.0pt;
+  margin-right: 0pt;
+  margin-top: 0.0pt;
+}
+
+.CellHeading_inner
+{
+  color: #000000;
+  font-family: Arial, Helvetica, Univers, Sans-Serif;
+  font-size: 12px;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: bold;
+  text-align: Left;
+  text-transform: none;
+  vertical-align: baseline;
+  margin-left: 0pt;
+  margin-right: 0pt;
+  margin-top: 0pt;
+  margin-bottom: 0pt;
+  padding-left: 0pt;
+  padding-right: 0pt;
+  padding-top: 0pt;
+  padding-bottom: 0pt;
+}
+
+div.Error_Description
+{
+  color: #000000;
+  font-family: Arial, Helvetica, Univers, Sans-Serif;
+  font-size: 9.0pt;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  margin-bottom: 5.6693pt;
+  margin-left: 1cm;
+  margin-right: 0pt;
+  margin-top: 0.0pt;
+  text-align: Left;
+  text-indent: 0pt;
+  text-transform: none;
+  vertical-align: baseline;
+}
+
+.Error_Description_outer
+{
+  margin-bottom: 5.6693pt;
+  margin-right: 0pt;
+  margin-top: 0.0pt;
+}
+
+.Error_Description_inner
+{
+  color: #000000;
+  font-family: Arial, Helvetica, Univers, Sans-Serif;
+  font-size: 9.0pt;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  text-align: Left;
+  text-transform: none;
+  vertical-align: baseline;
+  margin-left: 0pt;
+  margin-right: 0pt;
+  margin-top: 0pt;
+  margin-bottom: 0pt;
+  padding-left: 0pt;
+  padding-right: 0pt;
+  padding-top: 0pt;
+  padding-bottom: 0pt;
+}
+
+div.Error_Heading
+{
+  color: #000000;
+  font-family: Arial, Helvetica, Univers, Sans-Serif;
+  font-size: 9.0pt;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: bold;
+  margin-bottom: 0.0pt;
+  margin-left: 1cm;
+  margin-right: 0pt;
+  margin-top: 5.6693pt;
+  text-align: Left;
+  text-indent: -34.0157480314961pt;
+  text-transform: none;
+  vertical-align: baseline;
+}
+
+.Error_Heading_outer
+{
+  margin-bottom: 0.0pt;
+  margin-right: 0pt;
+  margin-top: 5.6693pt;
+}
+
+.Error_Heading_inner
+{
+  color: #000000;
+  font-family: Arial, Helvetica, Univers, Sans-Serif;
+  font-size: 9.0pt;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: bold;
+  text-align: Left;
+  text-transform: none;
+  vertical-align: baseline;
+  margin-left: 0pt;
+  margin-right: 0pt;
+  margin-top: 0pt;
+  margin-bottom: 0pt;
+  padding-left: 0pt;
+  padding-right: 0pt;
+  padding-top: 0pt;
+  padding-bottom: 0pt;
+}
+
+div.Error_Heading_first
+{
+  color: #000000;
+  font-family: Arial, Helvetica, Univers, Sans-Serif;
+  font-size: 9.0pt;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: bold;
+  margin-bottom: 0.0pt;
+  margin-left: 1cm;
+  margin-right: 0pt;
+  margin-top: 5.6693pt;
+  text-align: Left;
+  text-indent: -34.0157480314961pt;
+  text-transform: none;
+  vertical-align: baseline;
+}
+
+.Error_Heading_first_outer
+{
+  margin-bottom: 0.0pt;
+  margin-right: 0pt;
+  margin-top: 5.6693pt;
+}
+
+.Error_Heading_first_inner
+{
+  color: #000000;
+  font-family: Arial, Helvetica, Univers, Sans-Serif;
+  font-size: 9.0pt;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: bold;
+  text-align: Left;
+  text-transform: none;
+  vertical-align: baseline;
+  margin-left: 0pt;
+  margin-right: 0pt;
+  margin-top: 0pt;
+  margin-bottom: 0pt;
+  padding-left: 0pt;
+  padding-right: 0pt;
+  padding-top: 0pt;
+  padding-bottom: 0pt;
+}
+
+div.Error_Prog
+{
+  color: #000000;
+  font-family: Arial, Helvetica, Univers, Sans-Serif;
+  font-size: 8.0pt;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  margin-bottom: 0.0pt;
+  margin-left: 1cm;
+  margin-right: 0pt;
+  margin-top: 0.0pt;
+  text-align: Left;
+  text-indent: 0pt;
+  text-transform: none;
+  vertical-align: baseline;
+}
+
+.Error_Prog_outer
+{
+  margin-bottom: 0.0pt;
+  margin-right: 0pt;
+  margin-top: 0.0pt;
+}
+
+.Error_Prog_inner
+{
+  color: #000000;
+  font-family: Arial, Helvetica, Univers, Sans-Serif;
+  font-size: 8.0pt;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  text-align: Left;
+  text-transform: none;
+  vertical-align: baseline;
+  margin-left: 0pt;
+  margin-right: 0pt;
+  margin-top: 0pt;
+  margin-bottom: 0pt;
+  padding-left: 0pt;
+  padding-right: 0pt;
+  padding-top: 0pt;
+  padding-bottom: 0pt;
+}
+
+div.Figure
+{
+  color: #000000;
+  font-family: Arial, Helvetica, Univers, Sans-Serif;
+  font-size: 7.0pt;
+  font-style: italic;
+  font-variant: normal;
+  font-weight: normal;
+  margin-bottom: 5.6693pt;
+  margin-left: 1cm;
+  margin-right: 0pt;
+  margin-top: 0.0pt;
+  text-align: Left;
+  text-indent: 0pt;
+  text-transform: none;
+  vertical-align: baseline;
+}
+
+.Figure_outer
+{
+  margin-bottom: 5.6693pt;
+  margin-right: 0pt;
+  margin-top: 0.0pt;
+}
+
+.Figure_inner
+{
+  color: #000000;
+  font-family: Arial, Helvetica, Univers, Sans-Serif;
+  font-size: 7.0pt;
+  font-style: italic;
+  font-variant: normal;
+  font-weight: normal;
+  text-align: Left;
+  text-transform: none;
+  vertical-align: baseline;
+  margin-left: 0pt;
+  margin-right: 0pt;
+  margin-top: 0pt;
+  margin-bottom: 0pt;
+  padding-left: 0pt;
+  padding-right: 0pt;
+  padding-top: 0pt;
+  padding-bottom: 0pt;
+}
+
+div.FigureHelp
+{
+  color: #000000;
+  font-family: Arial, Helvetica, Univers, Sans-Serif;
+  font-size: 7.0pt;
+  font-style: italic;
+  font-variant: normal;
+  font-weight: normal;
+  margin-bottom: 5.6693pt;
+  margin-left: 1cm;
+  margin-right: 0pt;
+  margin-top: 0.0pt;
+  text-align: Left;
+  text-indent: 0pt;
+  text-transform: none;
+  vertical-align: baseline;
+}
+
+.FigureHelp_outer
+{
+  margin-bottom: 5.6693pt;
+  margin-right: 0pt;
+  margin-top: 0.0pt;
+}
+
+.FigureHelp_inner
+{
+  color: #000000;
+  font-family: Arial, Helvetica, Univers, Sans-Serif;
+  font-size: 7.0pt;
+  font-style: italic;
+  font-variant: normal;
+  font-weight: normal;
+  text-align: Left;
+  text-transform: none;
+  vertical-align: baseline;
+  margin-left: 0pt;
+  margin-right: 0pt;
+  margin-top: 0pt;
+  margin-bottom: 0pt;
+  padding-left: 0pt;
+  padding-right: 0pt;
+  padding-top: 0pt;
+  padding-bottom: 0pt;
+}
+
+div.GraphicFrame
+{
+  color: #000000;
+  font-family: Arial, Helvetica, Univers, Sans-Serif;
+  font-size: 6.0pt;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  margin-bottom: 5.6693pt;
+  margin-left: 1cm;
+  margin-right: 0pt;
+  margin-top: 0.0pt;
+  text-align: Left;
+  text-indent: 0pt;
+  text-transform: none;
+  vertical-align: baseline;
+}
+
+.GraphicFrame_outer
+{
+  margin-bottom: 5.6693pt;
+  margin-right: 0pt;
+  margin-top: 0.0pt;
+}
+
+.GraphicFrame_inner
+{
+  color: #000000;
+  font-family: Arial, Helvetica, Univers, Sans-Serif;
+  font-size: 6.0pt;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  text-align: Left;
+  text-transform: none;
+  vertical-align: baseline;
+  margin-left: 0pt;
+  margin-right: 0pt;
+  margin-top: 0pt;
+  margin-bottom: 0pt;
+  padding-left: 0pt;
+  padding-right: 0pt;
+  padding-top: 0pt;
+  padding-bottom: 0pt;
+}
+
+div.GraphicFrameHelp
+{
+  color: #000000;
+  font-family: Arial, Helvetica, Univers, Sans-Serif;
+  font-size: 6.0pt;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  margin-bottom: 5.6693pt;
+  margin-left: 1cm;
+  margin-right: 0pt;
+  margin-top: 0.0pt;
+  text-align: Left;
+  text-indent: 0pt;
+  text-transform: none;
+  vertical-align: baseline;
+}
+
+.GraphicFrameHelp_outer
+{
+  margin-bottom: 5.6693pt;
+  margin-right: 0pt;
+  margin-top: 0.0pt;
+}
+
+.GraphicFrameHelp_inner
+{
+  color: #000000;
+  font-family: Arial, Helvetica, Univers, Sans-Serif;
+  font-size: 6.0pt;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  text-align: Left;
+  text-transform: none;
+  vertical-align: baseline;
+  margin-left: 0pt;
+  margin-right: 0pt;
+  margin-top: 0pt;
+  margin-bottom: 0pt;
+  padding-left: 0pt;
+  padding-right: 0pt;
+  padding-top: 0pt;
+  padding-bottom: 0pt;
+}
+
+div.GroupTitlesIX
+{
+  color: #000099;
+  font-family: Arial, Helvetica, Univers, Sans-Serif;
+  font-size: 24px;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: bold;
+  margin-bottom: 0.0pt;
+  margin-left: 1cm;
+  margin-right: 0pt;
+  margin-top: 12.0pt;
+  text-align: Left;
+  text-indent: 0pt;
+  text-transform: none;
+  vertical-align: baseline;
+}
+
+.GroupTitlesIX_outer
+{
+  margin-bottom: 0.0pt;
+  margin-right: 0pt;
+  margin-top: 12.0pt;
+}
+
+.GroupTitlesIX_inner
+{
+  color: #000099;
+  font-family: Arial, Helvetica, Univers, Sans-Serif;
+  font-size: 24px;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: bold;
+  text-align: Left;
+  text-transform: none;
+  vertical-align: baseline;
+  margin-left: 0pt;
+  margin-right: 0pt;
+  margin-top: 0pt;
+  margin-bottom: 0pt;
+  padding-left: 0pt;
+  padding-right: 0pt;
+  padding-top: 0pt;
+  padding-bottom: 0pt;
+}
+
+div.Heading1
+{
+  color: White;
+  font-family: Arial, Helvetica, Univers, Sans-Serif;
+  font-size: 1.6em;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: 300;
+  margin-bottom: 10px;
+  margin-left: 1px;
+  margin-right: 1px;
+  margin-top: 1px;
+  padding-bottom: 10px;
+  padding-top: 10px;
+  text-align: Left;
+  text-indent: 0pt;
+  text-transform: none;
+  vertical-align: baseline;
+}
+
+.Heading1_outer
+{
+  margin-bottom: 10px;
+  margin-right: 1px;
+  margin-top: 1px;
+  padding-bottom: 10px;
+  padding-top: 10px;
+}
+
+.Heading1_inner
+{
+  color: White;
+  font-family: Arial, Helvetica, Univers, Sans-Serif;
+  font-size: 1.6em;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: 300;
+  text-align: Left;
+  text-transform: none;
+  vertical-align: baseline;
+  margin-left: 0pt;
+  margin-right: 0pt;
+  margin-top: 0pt;
+  margin-bottom: 0pt;
+  padding-left: 0pt;
+  padding-right: 0pt;
+  padding-top: 0pt;
+  padding-bottom: 0pt;
+}
+
+div.Heading2
+{
+  color: #E5A303;
+  font-family: Arial, Helvetica, Univers, Sans-Serif;
+  font-size: 1.4em;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  margin-bottom: 12px;
+  margin-left: 1cm;
+  margin-right: 1px;
+  margin-top: 22px;
+  text-align: Left;
+  text-indent: 0pt;
+  text-transform: none;
+  vertical-align: baseline;
+}
+
+.Heading2_outer
+{
+  margin-bottom: 12px;
+  margin-right: 1px;
+  margin-top: 22px;
+}
+
+.Heading2_inner
+{
+  color: #E5A303;
+  font-family: Arial, Helvetica, Univers, Sans-Serif;
+  font-size: 1.4em;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  text-align: Left;
+  text-transform: none;
+  vertical-align: baseline;
+  margin-left: 0pt;
+  margin-right: 0pt;
+  margin-top: 0pt;
+  margin-bottom: 0pt;
+  padding-left: 0pt;
+  padding-right: 0pt;
+  padding-top: 0pt;
+  padding-bottom: 0pt;
+}
+
+div.Heading2NoBrk
+{
+  color: #E5A303;
+  font-family: Arial, Helvetica, Univers, Sans-Serif;
+  font-size: 1.4em;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: bold;
+  margin-bottom: 12px;
+  margin-left: 1cm;
+  margin-right: 1px;
+  margin-top: 22px;
+  text-align: Left;
+  text-indent: 0pt;
+  text-transform: uppercase;
+  vertical-align: baseline;
+}
+
+.Heading2NoBrk_outer
+{
+  margin-bottom: 12px;
+  margin-right: 1px;
+  margin-top: 22px;
+}
+
+.Heading2NoBrk_inner
+{
+  color: #E5A303;
+  font-family: Arial, Helvetica, Univers, Sans-Serif;
+  font-size: 1.4em;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: bold;
+  text-align: Left;
+  text-transform: uppercase;
+  vertical-align: baseline;
+  margin-left: 0pt;
+  margin-right: 0pt;
+  margin-top: 0pt;
+  margin-bottom: 0pt;
+  padding-left: 0pt;
+  padding-right: 0pt;
+  padding-top: 0pt;
+  padding-bottom: 0pt;
+}
+
+div.Heading3
+{
+  color: #E5A303;
+  font-family: Arial, Helvetica, Univers, Sans-Serif;
+  font-size: 1.2em;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: bold;
+  margin-bottom: 1px;
+  margin-left: 1cm;
+  margin-right: 0pt;
+  margin-top: 26px;
+  padding-bottom: 1px;
+  text-align: left;
+  text-indent: 0px;
+  text-transform: none;
+  vertical-align: baseline;
+}
+
+.Heading3_outer
+{
+  margin-bottom: 1px;
+  margin-right: 0pt;
+  margin-top: 26px;
+  padding-bottom: 1px;
+}
+
+.Heading3_inner
+{
+  color: #E5A303;
+  font-family: Arial, Helvetica, Univers, Sans-Serif;
+  font-size: 1.2em;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: bold;
+  text-align: left;
+  text-transform: none;
+  vertical-align: baseline;
+  margin-left: 0pt;
+  margin-right: 0pt;
+  margin-top: 0pt;
+  margin-bottom: 0pt;
+  padding-left: 0pt;
+  padding-right: 0pt;
+  padding-top: 0pt;
+  padding-bottom: 0pt;
+}
+
+div.Heading3NoBrk
+{
+  color: #E5A303;
+  font-family: Arial, Helvetica, Univers, Sans-Serif;
+  font-size: 1.2em;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: 100;
+  margin-bottom: 1px;
+  margin-left: 1cm;
+  margin-right: 0pt;
+  margin-top: 26px;
+  padding-bottom: 1px;
+  padding-left: 0pt;
+  text-align: left;
+  text-indent: 0px;
+  text-transform: capitalize;
+  vertical-align: baseline;
+}
+
+.Heading3NoBrk_outer
+{
+  margin-bottom: 1px;
+  margin-right: 0pt;
+  margin-top: 26px;
+  padding-bottom: 1px;
+  padding-left: 0pt;
+}
+
+.Heading3NoBrk_inner
+{
+  color: #E5A303;
+  font-family: Arial, Helvetica, Univers, Sans-Serif;
+  font-size: 1.2em;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: 100;
+  text-align: left;
+  text-transform: capitalize;
+  vertical-align: baseline;
+  margin-left: 0pt;
+  margin-right: 0pt;
+  margin-top: 0pt;
+  margin-bottom: 0pt;
+  padding-left: 0pt;
+  padding-right: 0pt;
+  padding-top: 0pt;
+  padding-bottom: 0pt;
+}
+
+div.Heading3Ref
+{
+  color: #E5A303;
+  font-family: Arial, Helvetica, Univers, Sans-Serif;
+  font-size: 1.2em;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: 100;
+  margin-bottom: 1px;
+  margin-left: 1cm;
+  margin-right: 0pt;
+  margin-top: 26px;
+  padding-bottom: 1px;
+  padding-left: 0pc;
+  text-align: left;
+  text-indent: 0px;
+  text-transform: capitalize;
+  vertical-align: baseline;
+}
+
+.Heading3Ref_outer
+{
+  margin-bottom: 1px;
+  margin-right: 0pt;
+  margin-top: 26px;
+  padding-bottom: 1px;
+  padding-left: 0pc;
+}
+
+.Heading3Ref_inner
+{
+  color: #E5A303;
+  font-family: Arial, Helvetica, Univers, Sans-Serif;
+  font-size: 1.2em;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: 100;
+  text-align: left;
+  text-transform: capitalize;
+  vertical-align: baseline;
+  margin-left: 0pt;
+  margin-right: 0pt;
+  margin-top: 0pt;
+  margin-bottom: 0pt;
+  padding-left: 0pt;
+  padding-right: 0pt;
+  padding-top: 0pt;
+  padding-bottom: 0pt;
+}
+
+div.Heading4
+{
+  color: #515151;
+  font-family: Arial, Helvetica, Univers, Sans-Serif;
+  font-size: 1em;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: 700;
+  margin-bottom: 1px;
+  margin-left: 1cm;
+  margin-right: 0pt;
+  margin-top: 11.3386pt;
+  padding-bottom: 1px;
+  text-align: left;
+  text-indent: 0px;
+  text-transform: none;
+  vertical-align: baseline;
+}
+
+.Heading4_outer
+{
+  margin-bottom: 1px;
+  margin-right: 0pt;
+  margin-top: 11.3386pt;
+  padding-bottom: 1px;
+}
+
+.Heading4_inner
+{
+  color: #515151;
+  font-family: Arial, Helvetica, Univers, Sans-Serif;
+  font-size: 1em;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: 700;
+  text-align: left;
+  text-transform: none;
+  vertical-align: baseline;
+  margin-left: 0pt;
+  margin-right: 0pt;
+  margin-top: 0pt;
+  margin-bottom: 0pt;
+  padding-left: 0pt;
+  padding-right: 0pt;
+  padding-top: 0pt;
+  padding-bottom: 0pt;
+}
+
+div.Heading4BreakInHelp
+{
+  color: Black;
+  font-family: Arial, Helvetica, Univers, Sans-Serif;
+  font-size: 15px;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: bold;
+  margin-bottom: 1px;
+  margin-left: 1cm;
+  margin-right: 0pt;
+  margin-top: 11.3386pt;
+  padding-bottom: 1px;
+  text-align: left;
+  text-indent: 0px;
+  text-transform: none;
+  vertical-align: baseline;
+}
+
+.Heading4BreakInHelp_outer
+{
+  margin-bottom: 1px;
+  margin-right: 0pt;
+  margin-top: 11.3386pt;
+  padding-bottom: 1px;
+}
+
+.Heading4BreakInHelp_inner
+{
+  color: Black;
+  font-family: Arial, Helvetica, Univers, Sans-Serif;
+  font-size: 15px;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: bold;
+  text-align: left;
+  text-transform: none;
+  vertical-align: baseline;
+  margin-left: 0pt;
+  margin-right: 0pt;
+  margin-top: 0pt;
+  margin-bottom: 0pt;
+  padding-left: 0pt;
+  padding-right: 0pt;
+  padding-top: 0pt;
+  padding-bottom: 0pt;
+}
+
+div.Heading4NoBreakInHelp
+{
+  color: Black;
+  font-family: Arial, Helvetica, Univers, Sans-Serif;
+  font-size: 15px;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: bold;
+  margin-bottom: 1px;
+  margin-left: 0px;
+  margin-right: 0pt;
+  margin-top: 11.3386pt;
+  padding-bottom: 1px;
+  padding-left: 0pc;
+  text-align: left;
+  text-indent: 0px;
+  text-transform: none;
+  vertical-align: baseline;
+}
+
+.Heading4NoBreakInHelp_outer
+{
+  margin-bottom: 1px;
+  margin-right: 0pt;
+  margin-top: 11.3386pt;
+  padding-bottom: 1px;
+  padding-left: 0pc;
+}
+
+.Heading4NoBreakInHelp_inner
+{
+  color: Black;
+  font-family: Arial, Helvetica, Univers, Sans-Serif;
+  font-size: 15px;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: bold;
+  text-align: left;
+  text-transform: none;
+  vertical-align: baseline;
+  margin-left: 0pt;
+  margin-right: 0pt;
+  margin-top: 0pt;
+  margin-bottom: 0pt;
+  padding-left: 0pt;
+  padding-right: 0pt;
+  padding-top: 0pt;
+  padding-bottom: 0pt;
+}
+
+div.Heading4Ref
+{
+  color: Black;
+  font-family: Arial, Helvetica, Univers, Sans-Serif;
+  font-size: 15px;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: bold;
+  margin-bottom: 1px;
+  margin-left: 0px;
+  margin-right: 0pt;
+  margin-top: 11.0pt;
+  padding-bottom: 1px;
+  padding-left: 0pc;
+  text-align: left;
+  text-indent: 0px;
+  text-transform: none;
+  vertical-align: baseline;
+}
+
+.Heading4Ref_outer
+{
+  margin-bottom: 1px;
+  margin-right: 0pt;
+  margin-top: 11.0pt;
+  padding-bottom: 1px;
+  padding-left: 0pc;
+}
+
+.Heading4Ref_inner
+{
+  color: Black;
+  font-family: Arial, Helvetica, Univers, Sans-Serif;
+  font-size: 15px;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: bold;
+  text-align: left;
+  text-transform: none;
+  vertical-align: baseline;
+  margin-left: 0pt;
+  margin-right: 0pt;
+  margin-top: 0pt;
+  margin-bottom: 0pt;
+  padding-left: 0pt;
+  padding-right: 0pt;
+  padding-top: 0pt;
+  padding-bottom: 0pt;
+}
+
+div.Heading5
+{
+  color: Black;
+  font-family: Arial, Helvetica, Univers, Sans-Serif;
+  font-size: 13px;
+  font-style: italic;
+  font-variant: normal;
+  font-weight: bold;
+  margin-bottom: 5.6693pt;
+  margin-left: 1cm;
+  margin-right: 0pt;
+  margin-top: 11.3386pt;
+  padding-left: 0cm;
+  text-align: left;
+  text-indent: 0px;
+  text-transform: none;
+  vertical-align: baseline;
+}
+
+.Heading5_outer
+{
+  margin-bottom: 5.6693pt;
+  margin-right: 0pt;
+  margin-top: 11.3386pt;
+  padding-left: 0cm;
+}
+
+.Heading5_inner
+{
+  color: Black;
+  font-family: Arial, Helvetica, Univers, Sans-Serif;
+  font-size: 13px;
+  font-style: italic;
+  font-variant: normal;
+  font-weight: bold;
+  text-align: left;
+  text-transform: none;
+  vertical-align: baseline;
+  margin-left: 0pt;
+  margin-right: 0pt;
+  margin-top: 0pt;
+  margin-bottom: 0pt;
+  padding-left: 0pt;
+  padding-right: 0pt;
+  padding-top: 0pt;
+  padding-bottom: 0pt;
+}
+
+div.Ingress
+{
+  color: Black;
+  font-family: Arial, Verdana, Helvetica, Sans-Serif;
+  font-size: 12px;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  line-height: 18px;
+  margin-bottom: 8.5039pt;
+  margin-left: 1cm;
+  margin-right: 0pt;
+  margin-top: 0.0pt;
+  text-align: Left;
+  text-indent: 0pt;
+  text-transform: none;
+  vertical-align: baseline;
+}
+
+.Ingress_outer
+{
+  margin-bottom: 8.5039pt;
+  margin-right: 0pt;
+  margin-top: 0.0pt;
+}
+
+.Ingress_inner
+{
+  color: Black;
+  font-family: Arial, Verdana, Helvetica, Sans-Serif;
+  font-size: 12px;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  line-height: 18px;
+  text-align: Left;
+  text-transform: none;
+  vertical-align: baseline;
+  margin-left: 0pt;
+  margin-right: 0pt;
+  margin-top: 0pt;
+  margin-bottom: 0pt;
+  padding-left: 0pt;
+  padding-right: 0pt;
+  padding-top: 0pt;
+  padding-bottom: 0pt;
+}
+
+div.Ingress_bullet
+{
+  color: Black;
+  font-family: Arial, Verdana, Helvetica, Sans-Serif;
+  font-size: 12px;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  line-height: 18px;
+  margin-bottom: 8.5039pt;
+  margin-left: 1cm;
+  margin-right: 0pt;
+  margin-top: 0.0pt;
+  text-align: Left;
+  text-indent: -11.3385826771654pt;
+  text-transform: none;
+  vertical-align: baseline;
+}
+
+.Ingress_bullet_outer
+{
+  margin-bottom: 8.5039pt;
+  margin-right: 0pt;
+  margin-top: 0.0pt;
+}
+
+.Ingress_bullet_inner
+{
+  color: Black;
+  font-family: Arial, Verdana, Helvetica, Sans-Serif;
+  font-size: 12px;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  line-height: 18px;
+  text-align: Left;
+  text-transform: none;
+  vertical-align: baseline;
+  margin-left: 0pt;
+  margin-right: 0pt;
+  margin-top: 0pt;
+  margin-bottom: 0pt;
+  padding-left: 0pt;
+  padding-right: 0pt;
+  padding-top: 0pt;
+  padding-bottom: 0pt;
+}
+
+div.IngressPrint
+{
+  color: Black;
+  font-family: Arial, Verdana, Helvetica, Sans-Serif;
+  font-size: 12px;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  line-height: 18px;
+  margin-bottom: 8.5039pt;
+  margin-left: 1cm;
+  margin-right: 0pt;
+  margin-top: 0.0pt;
+  text-align: Left;
+  text-indent: 0pt;
+  text-transform: none;
+  vertical-align: baseline;
+}
+
+.IngressPrint_outer
+{
+  margin-bottom: 8.5039pt;
+  margin-right: 0pt;
+  margin-top: 0.0pt;
+}
+
+.IngressPrint_inner
+{
+  color: Black;
+  font-family: Arial, Verdana, Helvetica, Sans-Serif;
+  font-size: 12px;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  line-height: 18px;
+  text-align: Left;
+  text-transform: none;
+  vertical-align: baseline;
+  margin-left: 0pt;
+  margin-right: 0pt;
+  margin-top: 0pt;
+  margin-bottom: 0pt;
+  padding-left: 0pt;
+  padding-right: 0pt;
+  padding-top: 0pt;
+  padding-bottom: 0pt;
+}
+
+div.List_bullet
+{
+  color: Black;
+  font-family: Arial, Verdana, Helvetica, Sans-Serif;
+  font-size: 12px;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  line-height: 18px;
+  margin-bottom: 3.0pt;
+  margin-left: 1cm;
+  margin-right: 0pt;
+  margin-top: 3.0pt;
+  text-align: Left;
+  text-indent: -11.3385826771654pt;
+  text-transform: none;
+  vertical-align: baseline;
+}
+
+.List_bullet_outer
+{
+  margin-bottom: 3.0pt;
+  margin-right: 0pt;
+  margin-top: 3.0pt;
+}
+
+.List_bullet_inner
+{
+  color: Black;
+  font-family: Arial, Verdana, Helvetica, Sans-Serif;
+  font-size: 12px;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  line-height: 18px;
+  text-align: Left;
+  text-transform: none;
+  vertical-align: baseline;
+  margin-left: 0pt;
+  margin-right: 0pt;
+  margin-top: 0pt;
+  margin-bottom: 0pt;
+  padding-left: 0pt;
+  padding-right: 0pt;
+  padding-top: 0pt;
+  padding-bottom: 0pt;
+}
+
+div.List_bullet_01
+{
+  color: Black;
+  font-family: Arial, Verdana, Helvetica, Sans-Serif;
+  font-size: 12px;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  line-height: 18px;
+  margin-bottom: 3.0pt;
+  margin-left: 1cm;
+  margin-right: 0pt;
+  margin-top: 3.0pt;
+  text-align: Left;
+  text-indent: -11.3385826771653pt;
+  text-transform: none;
+  vertical-align: baseline;
+}
+
+.List_bullet_01_outer
+{
+  margin-bottom: 3.0pt;
+  margin-right: 0pt;
+  margin-top: 3.0pt;
+}
+
+.List_bullet_01_inner
+{
+  color: Black;
+  font-family: Arial, Verdana, Helvetica, Sans-Serif;
+  font-size: 12px;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  line-height: 18px;
+  text-align: Left;
+  text-transform: none;
+  vertical-align: baseline;
+  margin-left: 0pt;
+  margin-right: 0pt;
+  margin-top: 0pt;
+  margin-bottom: 0pt;
+  padding-left: 0pt;
+  padding-right: 0pt;
+  padding-top: 0pt;
+  padding-bottom: 0pt;
+}
+
+div.List_bullet_02
+{
+  color: Black;
+  font-family: Arial, Verdana, Helvetica, Sans-Serif;
+  font-size: 12px;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  line-height: 18px;
+  margin-bottom: 3.0pt;
+  margin-left: 1cm;
+  margin-right: 0pt;
+  margin-top: 3.0pt;
+  text-align: Left;
+  text-indent: -11.338582677165401pt;
+  text-transform: none;
+  vertical-align: baseline;
+}
+
+.List_bullet_02_outer
+{
+  margin-bottom: 3.0pt;
+  margin-right: 0pt;
+  margin-top: 3.0pt;
+}
+
+.List_bullet_02_inner
+{
+  color: Black;
+  font-family: Arial, Verdana, Helvetica, Sans-Serif;
+  font-size: 12px;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  line-height: 18px;
+  text-align: Left;
+  text-transform: none;
+  vertical-align: baseline;
+  margin-left: 0pt;
+  margin-right: 0pt;
+  margin-top: 0pt;
+  margin-bottom: 0pt;
+  padding-left: 0pt;
+  padding-right: 0pt;
+  padding-top: 0pt;
+  padding-bottom: 0pt;
+}
+
+div.List_no
+{
+  color: #000000;
+  font-family: Arial, Helvetica, Univers, Sans-Serif;
+  font-size: 9.0pt;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  margin-bottom: 5.6693pt;
+  margin-left: 1cm;
+  margin-right: 0pt;
+  margin-top: 5.6693pt;
+  text-align: Left;
+  text-indent: -11.3385826771654pt;
+  text-transform: none;
+  vertical-align: baseline;
+}
+
+.List_no_outer
+{
+  margin-bottom: 5.6693pt;
+  margin-right: 0pt;
+  margin-top: 5.6693pt;
+}
+
+.List_no_inner
+{
+  color: #000000;
+  font-family: Arial, Helvetica, Univers, Sans-Serif;
+  font-size: 9.0pt;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  text-align: Left;
+  text-transform: none;
+  vertical-align: baseline;
+  margin-left: 0pt;
+  margin-right: 0pt;
+  margin-top: 0pt;
+  margin-bottom: 0pt;
+  padding-left: 0pt;
+  padding-right: 0pt;
+  padding-top: 0pt;
+  padding-bottom: 0pt;
+}
+
+div.List_no_01
+{
+  color: #000000;
+  font-family: Arial, Helvetica, Univers, Sans-Serif;
+  font-size: 9.0pt;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  margin-bottom: 5.6693pt;
+  margin-left: 1cm;
+  margin-right: 0pt;
+  margin-top: 0.0pt;
+  text-align: Left;
+  text-indent: -11.3385826771653pt;
+  text-transform: none;
+  vertical-align: baseline;
+}
+
+.List_no_01_outer
+{
+  margin-bottom: 5.6693pt;
+  margin-right: 0pt;
+  margin-top: 0.0pt;
+}
+
+.List_no_01_inner
+{
+  color: #000000;
+  font-family: Arial, Helvetica, Univers, Sans-Serif;
+  font-size: 9.0pt;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  text-align: Left;
+  text-transform: none;
+  vertical-align: baseline;
+  margin-left: 0pt;
+  margin-right: 0pt;
+  margin-top: 0pt;
+  margin-bottom: 0pt;
+  padding-left: 0pt;
+  padding-right: 0pt;
+  padding-top: 0pt;
+  padding-bottom: 0pt;
+}
+
+div.List_no_02
+{
+  color: #000000;
+  font-family: Arial, Helvetica, Univers, Sans-Serif;
+  font-size: 9.0pt;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  margin-bottom: 5.6693pt;
+  margin-left: 1cm;
+  margin-right: 0pt;
+  margin-top: 0.0pt;
+  text-align: Left;
+  text-indent: -11.338582677165401pt;
+  text-transform: none;
+  vertical-align: baseline;
+}
+
+.List_no_02_outer
+{
+  margin-bottom: 5.6693pt;
+  margin-right: 0pt;
+  margin-top: 0.0pt;
+}
+
+.List_no_02_inner
+{
+  color: #000000;
+  font-family: Arial, Helvetica, Univers, Sans-Serif;
+  font-size: 9.0pt;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  text-align: Left;
+  text-transform: none;
+  vertical-align: baseline;
+  margin-left: 0pt;
+  margin-right: 0pt;
+  margin-top: 0pt;
+  margin-bottom: 0pt;
+  padding-left: 0pt;
+  padding-right: 0pt;
+  padding-top: 0pt;
+  padding-bottom: 0pt;
+}
+
+div.List_no_first
+{
+  color: #000000;
+  font-family: Arial, Helvetica, Univers, Sans-Serif;
+  font-size: 9.0pt;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  margin-bottom: 5.6693pt;
+  margin-left: 1cm;
+  margin-right: 0pt;
+  margin-top: 5.6693pt;
+  text-align: Left;
+  text-indent: -11.3385826771654pt;
+  text-transform: none;
+  vertical-align: baseline;
+}
+
+.List_no_first_outer
+{
+  margin-bottom: 5.6693pt;
+  margin-right: 0pt;
+  margin-top: 5.6693pt;
+}
+
+.List_no_first_inner
+{
+  color: #000000;
+  font-family: Arial, Helvetica, Univers, Sans-Serif;
+  font-size: 9.0pt;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  text-align: Left;
+  text-transform: none;
+  vertical-align: baseline;
+  margin-left: 0pt;
+  margin-right: 0pt;
+  margin-top: 0pt;
+  margin-bottom: 0pt;
+  padding-left: 0pt;
+  padding-right: 0pt;
+  padding-top: 0pt;
+  padding-bottom: 0pt;
+}
+
+div.List_no_first_01
+{
+  color: #000000;
+  font-family: Arial, Helvetica, Univers, Sans-Serif;
+  font-size: 9.0pt;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  margin-bottom: 5.6693pt;
+  margin-left: 1cm;
+  margin-right: 0pt;
+  margin-top: 5.6693pt;
+  text-align: Left;
+  text-indent: -11.3385826771653pt;
+  text-transform: none;
+  vertical-align: baseline;
+}
+
+.List_no_first_01_outer
+{
+  margin-bottom: 5.6693pt;
+  margin-right: 0pt;
+  margin-top: 5.6693pt;
+}
+
+.List_no_first_01_inner
+{
+  color: #000000;
+  font-family: Arial, Helvetica, Univers, Sans-Serif;
+  font-size: 9.0pt;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  text-align: Left;
+  text-transform: none;
+  vertical-align: baseline;
+  margin-left: 0pt;
+  margin-right: 0pt;
+  margin-top: 0pt;
+  margin-bottom: 0pt;
+  padding-left: 0pt;
+  padding-right: 0pt;
+  padding-top: 0pt;
+  padding-bottom: 0pt;
+}
+
+div.List_no_first_02
+{
+  color: #000000;
+  font-family: Arial, Helvetica, Univers, Sans-Serif;
+  font-size: 9.0pt;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  margin-bottom: 5.6693pt;
+  margin-left: 1cm;
+  margin-right: 0pt;
+  margin-top: 5.6693pt;
+  text-align: Left;
+  text-indent: -11.338582677165401pt;
+  text-transform: none;
+  vertical-align: baseline;
+}
+
+.List_no_first_02_outer
+{
+  margin-bottom: 5.6693pt;
+  margin-right: 0pt;
+  margin-top: 5.6693pt;
+}
+
+.List_no_first_02_inner
+{
+  color: #000000;
+  font-family: Arial, Helvetica, Univers, Sans-Serif;
+  font-size: 9.0pt;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  text-align: Left;
+  text-transform: none;
+  vertical-align: baseline;
+  margin-left: 0pt;
+  margin-right: 0pt;
+  margin-top: 0pt;
+  margin-bottom: 0pt;
+  padding-left: 0pt;
+  padding-right: 0pt;
+  padding-top: 0pt;
+  padding-bottom: 0pt;
+}
+
+div.List_step
+{
+  color: Black;
+  font-family: Arial, Verdana, Helvetica, Sans-Serif;
+  font-size: 12px;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  line-height: 18px;
+  margin-bottom: 5.6693pt;
+  margin-left: 1cm;
+  margin-right: 0pt;
+  margin-top: 5.6693pt;
+  text-align: Left;
+  text-indent: -13.994645669291998pt;
+  text-transform: none;
+  vertical-align: baseline;
+}
+
+.List_step_outer
+{
+  margin-bottom: 5.6693pt;
+  margin-right: 0pt;
+  margin-top: 5.6693pt;
+}
+
+.List_step_inner
+{
+  color: Black;
+  font-family: Arial, Verdana, Helvetica, Sans-Serif;
+  font-size: 12px;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  line-height: 18px;
+  text-align: Left;
+  text-transform: none;
+  vertical-align: baseline;
+  margin-left: 0pt;
+  margin-right: 0pt;
+  margin-top: 0pt;
+  margin-bottom: 0pt;
+  padding-left: 0pt;
+  padding-right: 0pt;
+  padding-top: 0pt;
+  padding-bottom: 0pt;
+}
+
+div.List_step_first
+{
+  color: Black;
+  font-family: Arial, Verdana, Helvetica, Sans-Serif;
+  font-size: 12px;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  line-height: 18px;
+  margin-bottom: 5.6693pt;
+  margin-left: 1cm;
+  margin-right: 0pt;
+  margin-top: 5.6693pt;
+  text-align: left;
+  text-indent: -13.994645669291998pt;
+  text-transform: none;
+  vertical-align: baseline;
+}
+
+.List_step_first_outer
+{
+  margin-bottom: 5.6693pt;
+  margin-right: 0pt;
+  margin-top: 5.6693pt;
+}
+
+.List_step_first_inner
+{
+  color: Black;
+  font-family: Arial, Verdana, Helvetica, Sans-Serif;
+  font-size: 12px;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  line-height: 18px;
+  text-align: left;
+  text-transform: none;
+  vertical-align: baseline;
+  margin-left: 0pt;
+  margin-right: 0pt;
+  margin-top: 0pt;
+  margin-bottom: 0pt;
+  padding-left: 0pt;
+  padding-right: 0pt;
+  padding-top: 0pt;
+  padding-bottom: 0pt;
+}
+
+div.Listing
+{
+  color: #000000;
+  font-family: Arial, Helvetica, Univers, Sans-Serif;
+  font-size: 7.0pt;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  margin-bottom: 0.0pt;
+  margin-left: 1cm;
+  margin-right: 0pt;
+  margin-top: 0.0pt;
+  text-align: Left;
+  text-indent: 0pt;
+  text-transform: none;
+  vertical-align: baseline;
+}
+
+.Listing_outer
+{
+  margin-bottom: 0.0pt;
+  margin-right: 0pt;
+  margin-top: 0.0pt;
+}
+
+.Listing_inner
+{
+  color: #000000;
+  font-family: Arial, Helvetica, Univers, Sans-Serif;
+  font-size: 7.0pt;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  text-align: Left;
+  text-transform: none;
+  vertical-align: baseline;
+  margin-left: 0pt;
+  margin-right: 0pt;
+  margin-top: 0pt;
+  margin-bottom: 0pt;
+  padding-left: 0pt;
+  padding-right: 0pt;
+  padding-top: 0pt;
+  padding-bottom: 0pt;
+}
+
+div.Note
+{
+  color: Black;
+  font-family: Arial, Verdana, Helvetica, Sans-Serif;
+  font-size: 12px;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  line-height: 18px;
+  margin-bottom: 5.6693pt;
+  margin-left: 1cm;
+  margin-right: 0pt;
+  margin-top: 5.6693pt;
+  text-align: Left;
+  text-indent: 0pt;
+  text-transform: none;
+  vertical-align: baseline;
+}
+
+.Note_outer
+{
+  margin-bottom: 5.6693pt;
+  margin-right: 0pt;
+  margin-top: 5.6693pt;
+}
+
+.Note_inner
+{
+  color: Black;
+  font-family: Arial, Verdana, Helvetica, Sans-Serif;
+  font-size: 12px;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  line-height: 18px;
+  text-align: Left;
+  text-transform: none;
+  vertical-align: baseline;
+  margin-left: 0pt;
+  margin-right: 0pt;
+  margin-top: 0pt;
+  margin-bottom: 0pt;
+  padding-left: 0pt;
+  padding-right: 0pt;
+  padding-top: 0pt;
+  padding-bottom: 0pt;
+}
+
+div.Prog
+{
+  color: #000000;
+  font-family: Monospace, 'Courier New', Courier;
+  font-size: 12px;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  margin-bottom: 0.0pt;
+  margin-left: 1cm;
+  margin-right: 0pt;
+  margin-top: 0.0pt;
+  text-align: Left;
+  text-indent: 0pt;
+  text-transform: none;
+  vertical-align: baseline;
+}
+
+.Prog_outer
+{
+  margin-bottom: 0.0pt;
+  margin-right: 0pt;
+  margin-top: 0.0pt;
+}
+
+.Prog_inner
+{
+  color: #000000;
+  font-family: Monospace, 'Courier New', Courier;
+  font-size: 12px;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  text-align: Left;
+  text-transform: none;
+  vertical-align: baseline;
+  margin-left: 0pt;
+  margin-right: 0pt;
+  margin-top: 0pt;
+  margin-bottom: 0pt;
+  padding-left: 0pt;
+  padding-right: 0pt;
+  padding-top: 0pt;
+  padding-bottom: 0pt;
+}
+
+div.Prog_in_list
+{
+  color: #000000;
+  font-family: Monospace, 'Courier New', Courier;
+  font-size: 12px;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  margin-bottom: 0.0pt;
+  margin-left: 1cm;
+  margin-right: 0pt;
+  margin-top: 0.0pt;
+  text-align: Left;
+  text-indent: 0pt;
+  text-transform: none;
+  vertical-align: baseline;
+}
+
+.Prog_in_list_outer
+{
+  margin-bottom: 0.0pt;
+  margin-right: 0pt;
+  margin-top: 0.0pt;
+}
+
+.Prog_in_list_inner
+{
+  color: #000000;
+  font-family: Monospace, 'Courier New', Courier;
+  font-size: 12px;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  text-align: Left;
+  text-transform: none;
+  vertical-align: baseline;
+  margin-left: 0pt;
+  margin-right: 0pt;
+  margin-top: 0pt;
+  margin-bottom: 0pt;
+  padding-left: 0pt;
+  padding-right: 0pt;
+  padding-top: 0pt;
+  padding-bottom: 0pt;
+}
+
+div.ReviewersNoteText
+{
+  color: #000000;
+  font-family: Arial, Helvetica, Univers, Sans-Serif;
+  font-size: 9.0pt;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  margin-bottom: 0.0pt;
+  margin-left: 1cm;
+  margin-right: 0pt;
+  margin-top: 3.0pt;
+  text-align: Left;
+  text-indent: 0pt;
+  text-transform: none;
+  vertical-align: baseline;
+}
+
+.ReviewersNoteText_outer
+{
+  margin-bottom: 0.0pt;
+  margin-right: 0pt;
+  margin-top: 3.0pt;
+}
+
+.ReviewersNoteText_inner
+{
+  color: #000000;
+  font-family: Arial, Helvetica, Univers, Sans-Serif;
+  font-size: 9.0pt;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  text-align: Left;
+  text-transform: none;
+  vertical-align: baseline;
+  margin-left: 0pt;
+  margin-right: 0pt;
+  margin-top: 0pt;
+  margin-bottom: 0pt;
+  padding-left: 0pt;
+  padding-right: 0pt;
+  padding-top: 0pt;
+  padding-bottom: 0pt;
+}
+
+div.ReviewersNoteTitle
+{
+  color: #000000;
+  font-family: Arial, Helvetica, Univers, Sans-Serif;
+  font-size: 9.0pt;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: bold;
+  margin-bottom: 0.0pt;
+  margin-left: 1cm;
+  margin-right: 0pt;
+  margin-top: 0.0pt;
+  text-align: Left;
+  text-indent: 0pt;
+  text-transform: none;
+  vertical-align: baseline;
+}
+
+.ReviewersNoteTitle_outer
+{
+  margin-bottom: 0.0pt;
+  margin-right: 0pt;
+  margin-top: 0.0pt;
+}
+
+.ReviewersNoteTitle_inner
+{
+  color: #000000;
+  font-family: Arial, Helvetica, Univers, Sans-Serif;
+  font-size: 9.0pt;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: bold;
+  text-align: Left;
+  text-transform: none;
+  vertical-align: baseline;
+  margin-left: 0pt;
+  margin-right: 0pt;
+  margin-top: 0pt;
+  margin-bottom: 0pt;
+  padding-left: 0pt;
+  padding-right: 0pt;
+  padding-top: 0pt;
+  padding-bottom: 0pt;
+}
+
+div.Syntax_Func
+{
+  color: #000000;
+  font-family: Arial, Helvetica, Univers, Sans-Serif;
+  font-size: 8.0pt;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  margin-bottom: 5.6693pt;
+  margin-left: 1cm;
+  margin-right: 0pt;
+  margin-top: 20.0pt;
+  text-align: Left;
+  text-indent: -34.0157480314961pt;
+  text-transform: none;
+  vertical-align: baseline;
+}
+
+.Syntax_Func_outer
+{
+  margin-bottom: 5.6693pt;
+  margin-right: 0pt;
+  margin-top: 20.0pt;
+}
+
+.Syntax_Func_inner
+{
+  color: #000000;
+  font-family: Arial, Helvetica, Univers, Sans-Serif;
+  font-size: 8.0pt;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  text-align: Left;
+  text-transform: none;
+  vertical-align: baseline;
+  margin-left: 0pt;
+  margin-right: 0pt;
+  margin-top: 0pt;
+  margin-bottom: 0pt;
+  padding-left: 0pt;
+  padding-right: 0pt;
+  padding-top: 0pt;
+  padding-bottom: 0pt;
+}
+
+div.TableAnchor
+{
+  color: #000000;
+  font-family: Arial, Helvetica, Univers, Sans-Serif;
+  font-size: 6.0pt;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  margin-bottom: 0.0pt;
+  margin-left: 1cm;
+  margin-right: 0pt;
+  margin-top: 0.0pt;
+  text-align: Left;
+  text-indent: 0pt;
+  text-transform: none;
+  vertical-align: baseline;
+}
+
+.TableAnchor_outer
+{
+  margin-bottom: 0.0pt;
+  margin-right: 0pt;
+  margin-top: 0.0pt;
+}
+
+.TableAnchor_inner
+{
+  color: #000000;
+  font-family: Arial, Helvetica, Univers, Sans-Serif;
+  font-size: 6.0pt;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  text-align: Left;
+  text-transform: none;
+  vertical-align: baseline;
+  margin-left: 0pt;
+  margin-right: 0pt;
+  margin-top: 0pt;
+  margin-bottom: 0pt;
+  padding-left: 0pt;
+  padding-right: 0pt;
+  padding-top: 0pt;
+  padding-bottom: 0pt;
+}
+
+div.TableFootnote
+{
+  color: #000000;
+  font-family: Arial, Helvetica, Univers, Sans-Serif;
+  font-size: 7.0pt;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: bold;
+  margin-bottom: 0.0pt;
+  margin-left: 1cm;
+  margin-right: 0pt;
+  margin-top: 0.0pt;
+  text-align: Left;
+  text-indent: 0pt;
+  text-transform: none;
+  vertical-align: baseline;
+}
+
+.TableFootnote_outer
+{
+  margin-bottom: 0.0pt;
+  margin-right: 0pt;
+  margin-top: 0.0pt;
+}
+
+.TableFootnote_inner
+{
+  color: #000000;
+  font-family: Arial, Helvetica, Univers, Sans-Serif;
+  font-size: 7.0pt;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: bold;
+  text-align: Left;
+  text-transform: none;
+  vertical-align: baseline;
+  margin-left: 0pt;
+  margin-right: 0pt;
+  margin-top: 0pt;
+  margin-bottom: 0pt;
+  padding-left: 0pt;
+  padding-right: 0pt;
+  padding-top: 0pt;
+  padding-bottom: 0pt;
+}
+
+div.TableRefFirst
+{
+  color: #000000;
+  font-family: Arial, Helvetica, Univers, Sans-Serif;
+  font-size: 8.0pt;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  margin-bottom: 0.0pt;
+  margin-left: 1cm;
+  margin-right: 0pt;
+  margin-top: 0.0pt;
+  text-align: Left;
+  text-indent: 0pt;
+  text-transform: none;
+  vertical-align: baseline;
+}
+
+.TableRefFirst_outer
+{
+  margin-bottom: 0.0pt;
+  margin-right: 0pt;
+  margin-top: 0.0pt;
+}
+
+.TableRefFirst_inner
+{
+  color: #000000;
+  font-family: Arial, Helvetica, Univers, Sans-Serif;
+  font-size: 8.0pt;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  text-align: Left;
+  text-transform: none;
+  vertical-align: baseline;
+  margin-left: 0pt;
+  margin-right: 0pt;
+  margin-top: 0pt;
+  margin-bottom: 0pt;
+  padding-left: 0pt;
+  padding-right: 0pt;
+  padding-top: 0pt;
+  padding-bottom: 0pt;
+}
+
+div.TableRefItem
+{
+  color: #000000;
+  font-family: Arial, Helvetica, Univers, Sans-Serif;
+  font-size: 8.0pt;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  margin-bottom: 5.0pt;
+  margin-left: 1cm;
+  margin-right: 0pt;
+  margin-top: 0.0pt;
+  text-align: Left;
+  text-indent: 0pt;
+  text-transform: none;
+  vertical-align: baseline;
+}
+
+.TableRefItem_outer
+{
+  margin-bottom: 5.0pt;
+  margin-right: 0pt;
+  margin-top: 0.0pt;
+}
+
+.TableRefItem_inner
+{
+  color: #000000;
+  font-family: Arial, Helvetica, Univers, Sans-Serif;
+  font-size: 8.0pt;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  text-align: Left;
+  text-transform: none;
+  vertical-align: baseline;
+  margin-left: 0pt;
+  margin-right: 0pt;
+  margin-top: 0pt;
+  margin-bottom: 0pt;
+  padding-left: 0pt;
+  padding-right: 0pt;
+  padding-top: 0pt;
+  padding-bottom: 0pt;
+}
+
+div.TableRefLast
+{
+  color: #000000;
+  font-family: Arial, Helvetica, Univers, Sans-Serif;
+  font-size: 8.0pt;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  margin-bottom: 0.0pt;
+  margin-left: 1cm;
+  margin-right: 0pt;
+  margin-top: 0.0pt;
+  text-align: Left;
+  text-indent: 0pt;
+  text-transform: none;
+  vertical-align: baseline;
+}
+
+.TableRefLast_outer
+{
+  margin-bottom: 0.0pt;
+  margin-right: 0pt;
+  margin-top: 0.0pt;
+}
+
+.TableRefLast_inner
+{
+  color: #000000;
+  font-family: Arial, Helvetica, Univers, Sans-Serif;
+  font-size: 8.0pt;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  text-align: Left;
+  text-transform: none;
+  vertical-align: baseline;
+  margin-left: 0pt;
+  margin-right: 0pt;
+  margin-top: 0pt;
+  margin-bottom: 0pt;
+  padding-left: 0pt;
+  padding-right: 0pt;
+  padding-top: 0pt;
+  padding-bottom: 0pt;
+}
+
+div.TableTitle
+{
+  color: #000000;
+  font-family: Arial, Helvetica, Univers, Sans-Serif;
+  font-size: 7.0pt;
+  font-style: italic;
+  font-variant: normal;
+  font-weight: normal;
+  margin-bottom: 0.0pt;
+  margin-left: 1cm;
+  margin-right: 0pt;
+  margin-top: 0.0pt;
+  text-align: Left;
+  text-indent: 0pt;
+  text-transform: none;
+  vertical-align: baseline;
+}
+
+.TableTitle_outer
+{
+  margin-bottom: 0.0pt;
+  margin-right: 0pt;
+  margin-top: 0.0pt;
+}
+
+.TableTitle_inner
+{
+  color: #000000;
+  font-family: Arial, Helvetica, Univers, Sans-Serif;
+  font-size: 7.0pt;
+  font-style: italic;
+  font-variant: normal;
+  font-weight: normal;
+  text-align: Left;
+  text-transform: none;
+  vertical-align: baseline;
+  margin-left: 0pt;
+  margin-right: 0pt;
+  margin-top: 0pt;
+  margin-bottom: 0pt;
+  padding-left: 0pt;
+  padding-right: 0pt;
+  padding-top: 0pt;
+  padding-bottom: 0pt;
+}
+
+div.TableTitleHelp
+{
+  color: #000000;
+  font-family: Arial, Helvetica, Univers, Sans-Serif;
+  font-size: 7.0pt;
+  font-style: italic;
+  font-variant: normal;
+  font-weight: normal;
+  margin-bottom: 0.0pt;
+  margin-left: 1cm;
+  margin-right: 0pt;
+  margin-top: 0.0pt;
+  text-align: Left;
+  text-indent: 0pt;
+  text-transform: none;
+  vertical-align: baseline;
+}
+
+.TableTitleHelp_outer
+{
+  margin-bottom: 0.0pt;
+  margin-right: 0pt;
+  margin-top: 0.0pt;
+}
+
+.TableTitleHelp_inner
+{
+  color: #000000;
+  font-family: Arial, Helvetica, Univers, Sans-Serif;
+  font-size: 7.0pt;
+  font-style: italic;
+  font-variant: normal;
+  font-weight: normal;
+  text-align: Left;
+  text-transform: none;
+  vertical-align: baseline;
+  margin-left: 0pt;
+  margin-right: 0pt;
+  margin-top: 0pt;
+  margin-bottom: 0pt;
+  padding-left: 0pt;
+  padding-right: 0pt;
+  padding-top: 0pt;
+  padding-bottom: 0pt;
+}
+
+div.TextInset
+{
+  color: #000000;
+  font-family: Arial, Helvetica, Univers, Sans-Serif;
+  font-size: 6.0pt;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  margin-bottom: 0.0pt;
+  margin-left: 1cm;
+  margin-right: 0pt;
+  margin-top: 0.0pt;
+  text-align: Left;
+  text-indent: 0pt;
+  text-transform: none;
+  vertical-align: baseline;
+}
+
+.TextInset_outer
+{
+  margin-bottom: 0.0pt;
+  margin-right: 0pt;
+  margin-top: 0.0pt;
+}
+
+.TextInset_inner
+{
+  color: #000000;
+  font-family: Arial, Helvetica, Univers, Sans-Serif;
+  font-size: 6.0pt;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  text-align: Left;
+  text-transform: none;
+  vertical-align: baseline;
+  margin-left: 0pt;
+  margin-right: 0pt;
+  margin-top: 0pt;
+  margin-bottom: 0pt;
+  padding-left: 0pt;
+  padding-right: 0pt;
+  padding-top: 0pt;
+  padding-bottom: 0pt;
+}
+
+div.WritersNoteText
+{
+  color: #000000;
+  font-family: Arial, Helvetica, Univers, Sans-Serif;
+  font-size: 9.0pt;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  margin-bottom: 0.0pt;
+  margin-left: 1cm;
+  margin-right: 0pt;
+  margin-top: 3.0pt;
+  text-align: Left;
+  text-indent: 0pt;
+  text-transform: none;
+  vertical-align: baseline;
+}
+
+.WritersNoteText_outer
+{
+  margin-bottom: 0.0pt;
+  margin-right: 0pt;
+  margin-top: 3.0pt;
+}
+
+.WritersNoteText_inner
+{
+  color: #000000;
+  font-family: Arial, Helvetica, Univers, Sans-Serif;
+  font-size: 9.0pt;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  text-align: Left;
+  text-transform: none;
+  vertical-align: baseline;
+  margin-left: 0pt;
+  margin-right: 0pt;
+  margin-top: 0pt;
+  margin-bottom: 0pt;
+  padding-left: 0pt;
+  padding-right: 0pt;
+  padding-top: 0pt;
+  padding-bottom: 0pt;
+}
+
+div.WritersNoteTitle
+{
+  color: #000000;
+  font-family: Arial, Helvetica, Univers, Sans-Serif;
+  font-size: 9.0pt;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: bold;
+  margin-bottom: 0.0pt;
+  margin-left: 1cm;
+  margin-right: 0pt;
+  margin-top: 0.0pt;
+  text-align: Left;
+  text-indent: 0pt;
+  text-transform: none;
+  vertical-align: baseline;
+}
+
+.WritersNoteTitle_outer
+{
+  margin-bottom: 0.0pt;
+  margin-right: 0pt;
+  margin-top: 0.0pt;
+}
+
+.WritersNoteTitle_inner
+{
+  color: #000000;
+  font-family: Arial, Helvetica, Univers, Sans-Serif;
+  font-size: 9.0pt;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: bold;
+  text-align: Left;
+  text-transform: none;
+  vertical-align: baseline;
+  margin-left: 0pt;
+  margin-right: 0pt;
+  margin-top: 0pt;
+  margin-bottom: 0pt;
+  padding-left: 0pt;
+  padding-right: 0pt;
+  padding-top: 0pt;
+  padding-bottom: 0pt;
+}
+
+span.N_Bullet
+{
+  color: #000000;
+  font-family: ZapfDingbats;
+  font-size: 6.0pt;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  text-transform: none;
+  vertical-align: baseline;
+}
+
+span.N_No
+{
+  color: #000000;
+  font-family: Times;
+  font-size: 9.0pt;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  text-transform: none;
+  vertical-align: baseline;
+}
+
+span.N_Note
+{
+  font-family: Times;
+  font-size: 9.0pt;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: bold;
+  text-transform: none;
+  vertical-align: baseline;
+}
+
+span.N_Step
+{
+  color: #000000;
+  font-family: GillSans;
+  font-size: 10.0pt;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: bold;
+  text-transform: none;
+  vertical-align: baseline;
+}
+
+span.Computer
+{
+  font-family: Monospace, 'Courier New', Courier;
+  font-size: 12px;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  text-transform: none;
+  vertical-align: baseline;
+}
+
+span.Computer_parameter
+{
+  font-family: Monospace, 'Courier New', Courier;
+  font-size: 12px;
+  font-style: italic;
+  font-variant: normal;
+  font-weight: normal;
+  text-transform: none;
+  vertical-align: baseline;
+}
+
+span.Definition_List
+{
+  font-family: GillSans;
+  font-size: 9.0pt;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: bold;
+  text-transform: none;
+  vertical-align: baseline;
+}
+
+span.Emphasis
+{
+  font-style: italic;
+}
+
+span.Menu_Command
+{
+  font-style: normal;
+  font-variant: normal;
+  font-weight: bold;
+  text-transform: none;
+  vertical-align: baseline;
+}
+
+span.Reference
+{
+  font-style: italic;
+}
+
+table.Standard
+{
+  border-collapse: collapse;
+  margin-bottom: 6.0pt;
+  margin-left: 1cm;
+  margin-right: 0pt;
+  margin-top: 0.0pt;
+  padding-bottom: 3pt;
+  padding-left: 0pt;
+  padding-right: 0pt;
+  padding-top: 3pt;
+  text-align: left;
+}
+
+table.C_Definitions
+{
+  border-collapse: collapse;
+  margin-bottom: 6.0pt;
+  margin-left: 1cm;
+  margin-right: 0pt;
+  margin-top: 0.0pt;
+  padding-bottom: 4pt;
+  padding-left: 0pt;
+  padding-right: 0pt;
+  padding-top: 4pt;
+  text-align: left;
+}
+

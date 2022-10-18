@@ -1,0 +1,873 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+    "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<!--  $Id: ewTARGET.htm 51 2009-11-20 17:46:44Z peter $-->
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemalocation="http://www.w3.org/MarkUp/SCHEMA/xhtml11.xsd" xml:lang="en">
+<head>
+    <title>Release notes for the 8051 IAR Embedded Workbench product package</title>
+    <meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8" />
+    <link type="text/css" rel="stylesheet" media="all" href="style/ewic.css" />
+</head>
+<body>
+    <div id="topbanner">
+    </div>
+    <div id="titlebanner_small">
+        <h2>
+            Release notes for the 8051 IAR Embedded Workbench product package version 8.10.1
+        </h2>
+    </div>
+    <div class="breadcrumb">
+        <a href="index.ENU.html">IAR Information Center for 8051</a> | <a href="release_notes.ENU.html">
+            Release notes</a> | <a href="components.html">Components</a> | Release notes
+        for the 8051 IAR Embedded Workbench product package
+    </div>
+    <div class="mainblock">
+        <ul>
+            <li><a href="#important">Important information</a> </li>
+            <li><a href="#features">New features</a> </li>
+            <li><a href="#problems">Known problems</a> </li>
+            <li><a href="#pcorr">Program corrections</a> </li>
+            <li><a href="#manuals">User guide corrections</a> </li>
+            <li><a href="#misc">Miscellaneous</a> </li>
+            <li><a href="#history">Release history</a> </li>
+        </ul>
+        <!--======================================================================-->
+        <!-- IMPORTANT INFORMATION                                                -->
+        <!--======================================================================-->
+        <h3>
+            <a name="important" id="important"></a>Important information
+        </h3>
+    <ul>
+        <li>
+            <p>
+                If you are using multi-file compilation together with the banked memory model, you
+                must make sure that the size of each multi-file compiled module does not exceed
+                the size of the code bank on the device you are using.
+            </p>
+        </li>
+    </ul>
+        <!--======================================================================-->
+        <!-- NEW FEATURES                                                         -->
+        <!--======================================================================-->
+        <h3>
+            <a name="features" id="features"></a>New features
+        </h3>
+<ul>
+	<li>
+		<p><b>Find in files improvements</b><br>
+			You can now use regular expressions in the search field. There is also a new option that allows you to search all projects in the current workspace.
+    	</p>
+	</li>
+</ul>
+        <!--======================================================================-->
+        <!-- Known Problems-->
+        <!--======================================================================-->
+        <h3>
+            <a name="problems" id="problems"></a>Known Problems
+        </h3>
+<ul>
+  <li>
+    <p>
+      <a NAME="EW22130"><b>EW22130:</b></a>
+      The Project>Options>Custom Build>Custom Tool Configuration page is sometimes displayed on top of the OK and
+      Cancel buttons.
+    </p>
+  </li>
+</ul>
+        <!--======================================================================-->
+        <!-- Program Corrections                                                  -->
+        <!--======================================================================-->
+        <h3>
+            <a name="pcorr" id="pcorr"></a>Program Corrections
+        </h3>
+    <ul>
+     <li><p><a NAME="EW17696"><b>EW17696, EW18374:</b></a>
+	 The DPTR Addresses configuration dialog box sometimes failed to
+	 recognize values within the acceptable range. This has been corrected.
+     </p></li>
+     <li><p><a NAME="EW17898"><b>EW17898:</b></a>
+	 A <tt>:</tt> (colon) typed inside a comment no longer auto-indents the
+	 line.
+     </p></li>
+     <li><p><a NAME="EW20979"><b>EW20979:</b></a>
+	 The IDE does no longer terminate abnormally if a line containing a C
+	 preprocessor macro that ends with an open parenthesis is present in the
+	 file being edited.
+     </p></li>
+     <li><p><a NAME="EW21358"><b>EW21358:</b></a>
+	 SFR information has been corrected in several device header files in
+	 this release.
+     </p></li>
+     <li><p><a NAME="EW21811"><b>EW21811:</b></a>
+	 The editor's find-in-files feature would sometimes fail if the system
+	 settings for "Language for non-Unicode programs" were not set to
+	 English. This has been corrected.
+     </p></li>
+     <li><p><a NAME="EW21912"><b>EW21912:</b></a>
+	 The XDATA ranges in several linker configuration files has been
+	 corrected.
+     </p></li>
+     <li><p><a NAME="EW22040"><b>EW22040, EW22129:</b></a>
+	 Some of the documentation links in the Information Center were
+	 broken. This has been corrected.
+     </p></li>
+     <li><p><a NAME="EW22110"><b>EW22110:</b></a>
+	 An issue with the setup of PDATA pages in the linker configuration files,
+	 where the symbols ?PBANK_NUMBER and the high byte in the range
+	 _PDATA0_START-_PDATA0_END were not always the same, has been corrected.
+     </p></li>
+    </ul>
+        <!--======================================================================-->
+        <!-- USER GUIDE CORRECTIONS                                               -->
+        <!--======================================================================-->
+        <h3>
+            <a name="manuals" id="manuals"></a>User guide corrections
+        </h3>
+    <ul>
+        <li>None</li>
+    </ul>
+ 
+        <!--======================================================================-->
+        <!-- MISCELLANEOUS                                                        -->
+        <!--======================================================================-->
+        <h3>
+            <a name="misc" id="misc"></a>Miscellaneous
+        </h3>
+    <ul>
+        <li>Nothing</li>
+    </ul>
+        <!--======================================================================-->
+        <!-- RELEASE HISTORY                                                      -->
+        <!--======================================================================-->
+        <h3>
+            <a name="history" id="history"></a>Release history
+        </h3>
+    <p>
+        <b>V7.60.1, June 2010</b>
+    </p>
+    <p>
+        <b>Program corrections</b>
+    </p>
+    <ul>
+     <li><p><a NAME="EW21372"><b>EW21372:</b></a>
+               The command line build tool would in some circumstances
+               display a dialog and wait for user input before proceeding.
+               This has been corrected.
+     </p></li>
+     <li><p><a NAME="EW21607"><b>EW21607:</b></a>
+               Some projects in the tutorial could not be built by variants
+               of the product that does not allow assembly files to be
+               created. This has been corrected.
+     </p></li>
+     <li><p><a NAME="EW21636"><b>EW21636:</b></a>
+               License keys for the evaluation edition would sometimes
+               prematurely expire. This has been corrected.
+     </p></li>
+     <li><p><a NAME="EW20979"><b>EW20979:</b></a>
+               Open parenthesis in C macros no longer cause the IDE to
+               terminate.
+     </p></li>
+     <li><p><a NAME="EW20978"><b>EW20978:</b></a>
+               The tutorial section of the user guide no longer references ARM7TDMI.
+     </p></li>
+    </ul>
+    <p>
+        <b>V7.51A, March 2009</b>
+    </p>
+    <p>
+        No changes.
+    </p>
+    <p>
+        <b>V7.50C, September 2008</b>
+    </p>
+    <ul>
+        <li>
+            <p>
+                <b>EW20344</b><br>
+                The end of the extended stack segment is now derived from the beginning of the segment
+                plus the size of the extended stack.
+            </p>
+        </li>
+        <li>
+            <p>
+                <b>EW20509</b><br>
+                The address of the FLSTAT register in the include files for Silabs F12x family has
+                been corrected.
+            </p>
+        </li>
+        <li>
+            <p>
+                <b>EW20502</b><br>
+                C-Spy will no longer consider <tt>__sfr</tt> declared symbols located in IDATA memory.
+            </p>
+        </li>
+    </ul>
+    <p>
+        <b>V7.50A, June 2008</b>
+    </p>
+    <p>
+        <b>New features</b>
+    </p>
+    <ul>
+        <li>
+            <p>
+                <b>Multi-file compilation</b><br>
+                It is now possible to use the IAR Embedded Workbench IDE to define compilation units
+                with multiple files that will be compiled together, resulting in more efficient
+                code size optimization.
+            </p>
+        </li>
+        <li>
+            <p>
+                <b>visualSTATE build integration</b><br>
+                visualSTATE design projects can now be included in an IAR Embedded Workbench project.
+                This enables the code generation facility of visualSTATE to be run automatically
+                when needed as part of the normal IAR Embedded Workbench build chain.
+            </p>
+        </li>
+        <li>
+            <p>
+                The <b>Optimizations</b> tab in the Options menu has been redesigned to make it
+                easier to target your application for size or speed optimization.
+            </p>
+        </li>
+    </ul>
+    <p>
+        <b>V7.40B, March 2008</b>
+    </p>
+    <p>
+        No changes.
+    </p>
+    <p>
+        <b>V7.40A, February 2008</b>
+    </p>
+    <p>
+        <b>New features</b>
+    </p>
+    <ul>
+        <li>
+            <p>
+                The Code Bank page in the Options dialog box was modified to simplify the setup
+                of projects using banked memory.
+            </p>
+        </li>
+    </ul>
+    <p>
+        <b>Program corrections</b>
+    </p>
+    <ul>
+        <li>
+            <p>
+                <b>EW19345</b><br>
+                During some circumstances, saving only the current project file would erroneously
+                display the message "The project xxx.ewp has been modified on disk.Would you like
+                to reload the project?".
+            </p>
+        </li>
+        <li>
+            <p>
+                <b>EW19772</b><br>
+                Several issues related to the Source Code Control (SCC) integration has been fixed.
+            </p>
+        </li>
+        <li>
+            <p>
+                <b>EW18511</b><br>
+                The source browser did not recognize some 8051-specific keywords. This has been
+                corrected.
+            </p>
+        </li>
+        <li>
+            <p>
+                <b>EW19415</b><br>
+                The Arithmetic Unit option page was never used and has been removed.
+            </p>
+        </li>
+    </ul>
+    <p>
+        <b>V7.30B, September 2007</b>
+    </p>
+    <p>
+        No changes.
+    </p>
+    <p>
+        <b>V7.30A, August 2007</b>
+    </p>
+    <p>
+        <b>New Features:</b><br>
+    </p>
+    <p>
+        The compiler preprocessor options dialog box has been updated so that the default
+        include path now also contains the path to CLIB or DLIB. The default include path
+        has been made aware of which library type that currently is selected.
+    </p>
+    <p>
+        <b>Corrected Problems</b>
+    </p>
+    <ul>
+        <li>
+            <p>
+                <b>EW19254</b><br>
+                When the debugger loads a project, the following error message could be generated:
+                "Load module failed".
+            </p>
+        </li>
+        <li>
+            <p>
+                <b>EW19111</b><br>
+                The problem when converting the compiler include path into the standard include
+                paths is now fixed.
+            </p>
+        </li>
+        <li>
+            <p>
+                <b>EW17944</b><br>
+                The SFRs RCAP2L/RCAP2H where misspelled for Silabs F020 Device description files.
+            </p>
+        </li>
+        <li>
+            <p>
+                <b>EW17374</b><br>
+                In some cases the calling convention option was not updated with the possible calling
+                conventions when the "Large" data model was selected.
+            </p>
+        </li>
+        <li>
+            <p>
+                <b>EW15973</b><br>
+                If you close down 8051 IAR Embedded Workbench directly after selecting a new derivative,
+                the Device description file on the Setup page selected from the C-SPY category might
+                not be updated.
+            </p>
+        </li>
+    </ul>
+    <p>
+        <b>7.21A, May 2007</b>
+    </p>
+    <p>
+        <b>Corrected Problems:</b>
+    </p>
+    <ul>
+        <li>
+            <p>
+                <b>EW18919, EW18374</b><br>
+                The DPS value was not correctly set after choosing a derivative that has 2 or more
+                DPTR's.
+            </p>
+        </li>
+        <li>
+            <p>
+                <b>EW18888</b><br>
+                FAR_CODE and FAR_CODE_C segments are now properly paged into 64k chunks.
+            </p>
+        </li>
+        <li>
+            <p>
+                <b>EW18887</b><br>
+                The missing segments CODE_N and FAR_CODE_N have been added to lnk_base.xcl.
+            </p>
+        </li>
+        <li>
+            <p>
+                <b>EW18705,18920</b><br>
+                The linker file lnk51ew_C8051F410.xcl did not set up FAR_DATA_END correctly.
+            </p>
+        </li>
+        <li>
+            <p>
+                <b>EW18414, EW18296</b><br>
+                The __dbg_xxxxx.c functions were not included in the product package for dlib. This
+                also made it impossible to build the fibonacci tutorial. This has been fixed.
+            </p>
+        </li>
+        <li>
+            <p>
+                <b>EW18240,17852</b><br>
+                The installation package for the Limited Edition has been corrected. Previously
+                when the 8051 IAR Embedded Workbench was started the error message "Failed to locate
+                the Debugger package DebuggerGui.dll - No debugger will be present" was shown.
+            </p>
+        </li>
+        <li>
+            <p>
+                <b>EW17340</b><br>
+                The compiler preprocessor include path was not updated with CLIB or DLIB sub-path
+                when the CLIB or DLIB libraries were selected.
+            </p>
+        </li>
+        <li>
+            <p>
+                <b>EW14713</b><br>
+                The default include path for a project did not contain the path to CLIB or DLIB.
+            </p>
+        </li>
+    </ul>
+    <p>
+        <b>7.20H</b>
+    </p>
+    <p>
+        <b>Corrected Problems:</b>
+    </p>
+    <ul>
+        <li>
+            <p>
+                <b>EW17571</b><br>
+                $PROJ_DIR$ paths in ewp file changes to $EW_DIR$.
+            </p>
+        </li>
+    </ul>
+    <p>
+        <b>7.20D, May 2006</b>
+    </p>
+    <p>
+        <b>Corrected Problems:</b>
+    </p>
+    <ul>
+        <li>
+            <p>
+                <b>EW17897</b><br>
+                There was conflicting definitions of some of the interrupt vectors and the defined
+                SFR bits in the target header files.
+            </p>
+        </li>
+        <li>
+            <p>
+                <b>EW18051</b>
+                <br>
+                Corrected misspelled SFR names in the header and DDF file for the device P89C51.
+            </p>
+        </li>
+    </ul>
+    <p>
+        <b>7.20C, Jan 2006</b>
+    </p>
+    <p>
+        <b>New configuration files added</b>
+    </p>
+    <p>
+        The following configuration files has been added or updated:
+    </p>
+    <ul>
+        <li>
+            <p>
+                <b>Analog Devices</b><br>
+                The Analog Devices family <b>ADu848</b> has updated DDF and H files.
+            </p>
+        </li>
+        <li>
+            <p>
+                <b>Atmel</b><br>
+                The Atmel family <b>AT80C51SNDx</b> has new DDF and H files.
+            </p>
+        </li>
+        <li>
+            <p>
+                <b>Chipcon</b><br>
+                All H, DDF and XCL files for <b>CC2430</b>, <b>CC2431</b> and <b>CC2510</b>. The
+                devices <b>CC2430</b> and <b>CC2431</b> also have new XCL files for banked applications.
+            </p>
+        </li>
+        <li>
+            <p>
+                <b>Infineon</b><br>
+                The Infineon family <b>XC866</b> has updated DDF and H files.
+            </p>
+        </li>
+        <li>
+            <p>
+                <b>Philips</b><br>
+                The Philips family <b>P89C5x</b> has updated DDF and H files.
+            </p>
+        </li>
+        <li>
+            <p>
+                <b>Silicon Laboratories</b><br>
+                The Silicon Laboratories families<br>
+                <b>C8051F019, C8051F047, C8051F046, C8051F045, C8051F044, C8051F018, C8051F067, C8051F066,
+                    C8051F065, C8051F064, C8051F063, C8051F062, C8051F061, C8051F060, C8051F335, C8051F334,
+                    C8051F333, C8051F317, C8051F316, C8051F315, C8051F314, C8051F313, C8051F312, C8051F332,
+                    C8051F321, C8051F320, C8051F353, C8051F352, C8051F351, C8051F350, C8051F331, C8051F330</b><br>
+                has updated or new DDF, I51 and H files.
+            </p>
+        </li>
+        <li>
+            <p>
+                <b>Texas Instruments</b><br>
+                Configuration files, DDF, H and I51, for Texas Instruments families <b>MSC1201x</b>
+                and <b>MSC1202x</b> have been added.
+            </p>
+        </li>
+    </ul>
+    <p>
+        <b>Corrected problems</b>
+    </p>
+    <ul>
+        <li>
+            <p>
+                <b>EW17739</b><br>
+                The SFR bits in the SPI0CN bit register was declared in reversed order.
+            </p>
+        </li>
+        <li>
+            <p>
+                <b>EW17390, EW17572</b><br>
+                The configuration files for Philips P89C51 family has been updated with missing
+                SFRs, SFR bits and interrupt information.
+            </p>
+        </li>
+        <li>
+            <p>
+                <b>EW17499</b><br>
+                The SFR EDARH for Analog Devices ADu848 family was misspelled.
+            </p>
+        </li>
+        <li>
+            <p>
+                <b>EW17634</b><br>
+                The CHECKSUM segment definition has been corrected.
+            </p>
+        </li>
+        <li>
+            <p>
+                <b>EW17568</b><br>
+                The PDATA initialization in the linker configuration files has been corrected.
+            </p>
+        </li>
+    </ul>
+    <p>
+        <b>7.20B, Nov 2005</b>
+    </p>
+    <p>
+        <b>Corrected problems</b>
+    </p>
+    <ul>
+        <li>
+            <p>
+                <b>CStartup updated</b><br>
+                It was not possible to build applications that contained the CStartup.s51 source
+                file. The CSTARTUP module was declared as PROGRAM and not MODULE as it should have
+                been declared. All libraries has been rebuilt to included this updated CStartup.s51
+                code.
+            </p>
+        </li>
+        <li>
+            <p>
+                <b>EW17500</b><br>
+                Added SFR information that was missing in the Philips P89C51/2/8 configuration files.
+            </p>
+        </li>
+        <li>
+            <p>
+                <b>EW17533</b><br>
+                The Workbench GUI would pass the options entered in "Linker/Extra Options" as many
+                times as there was translated files (C and ASM) in the application.
+            </p>
+        </li>
+        <li>
+            <p>
+                <b>CHECKSUM segment</b><br>
+                The CHECKSUM segment was missing in the linker configuration file lnk_base.xcl.
+            </p>
+        </li>
+    </ul>
+    <p>
+        <b>7.20A, Oct 2005</b>
+    </p>
+    <p>
+        <b>New features</b>
+    </p>
+    <ul>
+        <li>
+            <p>
+                <b>Support for C++</b><br>
+                This is the first compiler for 8051 targets that takes full advantage of the possibilities
+                in C++.<br>
+                Read more about C++ in the <a href="EW8051_CompilerReference.pdf">8051 IAR C/C++ Compiler
+                    Reference Guide</a>.
+            </p>
+        </li>
+        <li>
+            <p>
+                <b>Debugger driver for Chipcon CC2430 family</b><br>
+                A debugger driver for the Chipcon CC2430 SoC ZigBee development kit has been added
+                in this release of the 8051 Embedded Workbench.
+            </p>
+        </li>
+        <li>
+            <p>
+                <b>Generic ROM-monitor template project</b><br>
+                A generic ROM-monitor template project is included. With this project and the delivered
+                source files it is now possible to build your own ROM-monitor for additional 8051
+                boards and kits.<br>
+                For more information about this, see the <a href="EW8051_HWDebuggerReference.pdf">8051
+                    IAR C-SPY Hardware Debugger Systems User Guide</a>.
+            </p>
+        </li>
+        <li>
+            <p>
+                <b>ROM-monitor debug support for Analog Devices</b><br>
+                ROM-monitor debug support for Analog Devices ADu84x family added.<br>
+                For more information about this, see the <a href="EW8051_HWDebuggerReference.pdf">8051
+                    IAR C-SPY Hardware Debugger Systems User Guide</a>
+            </p>
+        </li>
+        <li>
+            <p>
+                <b>ROM-monitor debug support for Texas Instrument</b><br>
+                ROM-monitor debug support for Texas Instrument MSC1211 family added.<br>
+                For more information about this, see the <a href="EW8051_HWDebuggerReference.pdf">8051
+                    IAR C-SPY Hardware Debugger Systems User Guide</a>
+            </p>
+        </li>
+        <li>
+            <p>
+                <b>Full source code for both CLIB and DLIB included</b><br>
+                All source code for the libraries CLIB (standard C library) and DLIB (C and C++
+                library) are included. This means that together with the library projects for CLIB
+                and DLIB all libraries needed can be easily built.
+            </p>
+        </li>
+    </ul>
+    <p>
+        <b>Corrected problems</b>
+    </p>
+    <ul>
+        <li>
+            <p>
+                <b>EW17374</b><br>
+                The calling convention option is now updated with the selected calling convention
+                when the "Large" data model is selected.
+            </p>
+        </li>
+        <li>
+            <p>
+                <b>EW17376</b><br>
+                The addresses for multiple DPTR's in the "Configure..." dialog box were sometimes
+                not updated when selecting a derivative with multiple DPTR's.
+            </p>
+        </li>
+        <li>
+            <p>
+                <b>EW17338:</b><br>
+                The default setting for ATMEL89C51ED2 did not have any pre built library.
+            </p>
+        </li>
+    </ul>
+    <p>
+        <b>7.10A, July 2005</b>
+    </p>
+    <p>
+        <b>New features</b>
+    </p>
+    <ul>
+        <li>
+            <p>
+                <b>Source control system</b><br>
+                IAR Embedded Workbench can now identify and access any third-party <b>Source Control
+                    System</b> that conforms to the <b>SCC</b> interface published by Microsoft.
+            </p>
+        </li>
+        <li>
+            <p>
+                <b>Source Browser</b><br>
+                Easy navigation to functions, types, variables and macros and with filtering possibilities.
+            </p>
+        </li>
+        <li>
+            <p>
+                <b>Find in Files</b><br>
+                Selecting project files or file groups made easy in <b>Find in Files</b>.
+            </p>
+        </li>
+        <li>
+            <p>
+                <b>Pre- and post-build</b> actions added.
+            </p>
+        </li>
+        <li>
+            <p>
+                <b>Source file navigation</b><br>
+                A "Web navigate" type of source code navigation has been added that allows you to
+                navigate back and forward to previously visited source locations.
+            </p>
+        </li>
+        <li>
+            <p>
+                <b>Smart indentation</b> of source code.
+            </p>
+        </li>
+        <li>
+            <p>
+                <b>Drag-and-drop of workspace</b> <b>(.eww)</b> and project <b>(.ewp)</b> files
+                to workspace window.
+            </p>
+        </li>
+        <li>
+            <p>
+                <b>Open files with an external application</b><br>
+                To open files in a project with another application than the built-in editor, choose
+                <b>Tools->Configure Viewers</b> and configure which application to use for a specific
+                filename extension.
+            </p>
+        </li>
+        <li>
+            <p>
+                <b>File properties</b><br>
+                You can now right-click a file in the Workspace window to display the file properties.
+            </p>
+        </li>
+        <li>
+            <p>
+                <b>File name and line number</b> are now displayed in the <b>Build log</b> window.
+            </p>
+        </li>
+        <li>
+            <p>
+                The <b>Compile</b> command can now be applied to a selection of files.
+            </p>
+        </li>
+        <li>
+            <p>
+                <b>Removing trailing blanks</b><br>
+                The Editor now removes trailing blanks when text files are saved. To turn off this
+                feature choose <b>Tools->Options</b> and click the <b>Editor</b> tab.
+            </p>
+        </li>
+        <li>
+            <p>
+                <b>Log build messages</b> in file feature added.
+            </p>
+        </li>
+        <li>
+            <p>
+                <b>Context menu </b>for editor tabs added.
+            </p>
+        </li>
+        <li>
+            <p>
+                <b>Import File List</b> feature added.
+            </p>
+        </li>
+        <li>
+            <p>
+                <b>Dockable windows</b><br>
+                State-of-the-art window management with dockable windows and multiple views.
+            </p>
+        </li>
+        <li>
+            <p>
+                <b>Template projects</b><br>
+                Allow a novice user to get a project that links and runs "out of the box" and specific
+                ready-made project configurations.
+            </p>
+        </li>
+    </ul>
+    <p>
+        <b>Corrected problems</b>
+    </p>
+    <ul>
+        <li>
+            <p>
+                <b>EW16095</b><br>
+                The keywords <tt>__far_rom</tt> and <tt>__huge_rom</tt> are now correctly highlighted
+                in IAR Embedded Workbench.
+            </p>
+        </li>
+        <li>
+            <p>
+                <b>EW15825</b><br>
+                The SFR's <b>SCON0</b> and <b>SCON1</b> now have bits defined in the header and
+                DDF files.
+            </p>
+        </li>
+        <li>
+            <p>
+                <b>EW15977</b><br>
+                The context-sensitive help has been updated.
+            </p>
+        </li>
+        <li>
+            <p>
+                <b>EW16680</b><br>
+                The bits for Port 0-3 were defined in reversed order.
+            </p>
+        </li>
+    </ul>
+    <p>
+        <b>6.11A, October 2004</b>
+    </p>
+    <p>
+        <b>New features</b>
+    </p>
+    <ul>
+        <li>
+            <p>
+                You can now export the file name extensions set for one user to be applied for an
+                entire project. All added file name extensions are saved in the file <b>8051.xov</b>.
+                Exporting the file name extension to an entire project can be done by moving/copying
+                the file <b>8051.xov</b> from the local user directory to the project directory.<br>
+                On Windows XP you will find <b>8051.xov</b> in the directory <tt>Documents and Settings\&lt;local-user&gt;\Application
+                    Data\IAR Embedded Workbench\8051</tt>.
+            </p>
+        </li>
+    </ul>
+    <p>
+        <b>Corrected problems</b>
+    </p>
+    <ul>
+        <li>
+            <p>
+                <b>EW15869</b><br>
+                The assembler definition of register <b>B</b> in the header files <b>io8051F310.h</b>
+                and <b>io8051F311.h</b> has been removed.
+            </p>
+        </li>
+        <li>
+            <p>
+                <b>EW15816</b><br>
+                The editor now does syntax highlight of assembler keywords in assembler source files.
+            </p>
+        </li>
+        <li>
+            <p>
+                <b>EW15815</b><br>
+                The order of the bits in the derivative support files for Silabs <b>C8051F310</b>
+                and <b>C8051F311</b> is now correct.
+            </p>
+        </li>
+        <li>
+            <p>
+                <b>EW15258</b><br>
+                The device description file for Texas Instrument derivative <b>MSC1210</b> is now
+                opened in the debugger when the derivative is selected as the target derivative.
+            </p>
+        </li>
+        <li>
+            <p>
+                <b>EW15113</b><br>
+                The address of port 1 in Atmel <b>AT89S51</b> support files is now correct.
+            </p>
+        </li>
+        <li>
+            <p>
+                <b>EW15023</b><br>
+                The segments <b>BDATA_N</b> and <b>BDATA_I</b> have been added to the default linker
+                command file.
+            </p>
+        </li>
+        <li>
+            <p>
+                <b>EW15006</b><br>
+                Interrupt definitions for Infineon derivatives is now correct.
+            </p>
+        </li>
+    </ul>
+    <p>
+        <b>6.10A, February 2004</b>
+    </p>
+    <p>
+        Initial release.
+    </p>
+    </div>
+</body>
+</html>

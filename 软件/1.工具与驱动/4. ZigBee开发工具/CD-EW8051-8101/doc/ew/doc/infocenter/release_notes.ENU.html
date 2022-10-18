@@ -1,0 +1,138 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+    "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+     xsi:schemaLocation="http://www.w3.org/MarkUp/SCHEMA/xhtml11.xsd"
+     xml:lang="en">
+<META HTTP-EQUIV="content-type" CONTENT="application/xhtml+xml; charset=utf-8" />
+  <head>
+    <title>IAR Information Center for 8051 - RELEASE NOTES</title>
+    <link type="text/css" rel="stylesheet" media="all" href="style/ewic.css" />
+  </head>
+  <body>
+  <div id="topbanner"></div>
+  <div id="titlebanner_small">
+    <h2>IAR Information Center for 8051</h2>
+  </div>
+  <div class="rightcol">
+  <table class="rightcol">
+   <tr class="link1">
+     <td><a href="getting_started.ENU.html"><img class="button" src="images/buttons/getting-started.png" alt="GETTING STARTED" /></a></td>
+     <td><h3>GETTING STARTED</h3></td>
+   </tr>
+   <tr class="link2">
+     <td><a href="user_guides.ENU.html"><img class="button" src="images/buttons/userguides.png" alt="USER GUIDES" /></a></td>
+     <td><h3>USER GUIDES</h3></td>
+   </tr>
+   <tr class="link3">
+     <td><a href="iarfile://$EW_DIR$/8051/examples/ExampleDirInfo.xml_auto"><img class="button" src="images/buttons/exampleprojects.png" alt="EXAMPLE PROJECTS" title="(Link requires IDE)" /></a></td>
+     <td><h3>EXAMPLE PROJECTS</h3></td>
+   </tr>
+   <tr class="link4">
+     <td><a href="tutorials.ENU.html"><img class="button" src="images/buttons/tutorials.png" alt="TUTORIALS" /></a></td>
+     <td><h3>TUTORIALS</h3></td>
+   </tr>
+   <tr class="link5">
+     <td><a href="support.ENU.html"><img class="button" src="images/buttons/support.png" alt="SUPPORT" /></a></td>
+     <td><h3>SUPPORT</h3></td>
+   </tr>
+  </table>
+  </div>
+  <div class="breadcrumb"><a href="index.ENU.html">IAR Information Center for 8051</a> | RELEASE NOTES</div>
+  <div class="mainblock">
+   <h2>RELEASE NOTES</h2>
+   <h2>for IAR Embedded Workbench for 8051 version 8.10.1</h2>
+<p>Read about the latest features, new device support, and program corrections in the release notes.</p>
+<p><ul>
+  <li><a href="#highlights">Highlights</a> 
+  <li><a href="#important">Important information</a> 
+  <li><a href="components.html">Release notes for individual components</a> 
+  <li><a href="product_packages.html">Product packages</a> 
+  <li><a href="installation.html">Installation and license activation</a>
+  </ul></p>
+<h3><a name="highlights"></a>Highlights</h3>
+<ul>
+    <li>
+        <p>
+            <b>C99 compliance</b><br>
+            The IAR C/C++ Compiler for 8051 now supports the ISO/IEC 9899:1999 standard.
+        </p>
+    </li>
+    <li>
+        <p>
+            <b>Updated runtime libraries</b><br>
+            CLIB has been extended to better support constants and strings placed in CODE memory.
+        </p>
+    </li>
+    <li><b>Improved debugging</b>
+        <ul>
+            <li>The number of hardware breakpoints used by the runtime library can now be configured,
+                making it possible to free up more breakpoints for use in the application code.
+            </li>
+            <li>You can now start the debugger with or without downloading code, using two new buttons
+                on the toolbar and two new Project menu commands. There are also two new corresponding
+                ways to restart the debugger during the debug session. </li>
+            <li>A new Timeline window in the simulator allows for graphically correlated visualization
+                of the call stack and the interrupt log, plotted against time. </li>
+        </ul>
+    </li>
+    <li>
+        <p>
+            <b>New C-SPY Debugging Guide</b><br>
+            This new user guide is intended to help you take advantage of all features in the
+            IAR C-SPY Debugger.
+        </p>
+    </li>
+    <li>
+        <p>
+            <b>New and updated device support files</b><br>
+            For a complete list of supported devices, refer to the <a href="http://www.iar.se/p882/p882_eng.php#anchor02">
+                IAR Systems web page</a>.
+        </p>
+    </li>
+</ul>
+<h3><a name="important"></a>Important information</h3>
+<ul>
+<h4>Upgrade information</h4>
+  <ul>
+  <li><b>Before you install</b><br>
+  <p>To avoid any problems, do not install this release in a directory where you
+    have previously installed any older version of IAR Embedded Workbench.
+    It is recommended that you either uninstall an 
+    earlier product, or install this release in a separate directory. As before, 
+    however, it is possible to install different products, all using the same version 
+    of the main application, in the same root directory.
+  </p></li>
+  <li><b>Windows Vista</b><br>
+      <p>
+      Windows Vista has a new security mechanism called UAC (User Access Control).
+      Disabling UAC will make Vista work more like XP,
+      but this is not recommended because it will reduce the security of the computer.
+      It is not necessary to run the IAR Embedded Workbench IDE as an administrator.
+      However, if you are not, modifications to the installed product tree in
+      <tt>C:\Program Files\IAR Systems</tt>
+      might not work as intended and could give unexpected results.
+      One example is opening and building projects directly from the installed product tree.
+      The build will succeed, but the resulting files (object, list, ...) will not appear where expected.
+      Instead all output files will be redirected by Vista to
+      <tt>C:\Users\&lt;user name&gt;\AppData\Local\VirtualStore\Program Files\IAR Systems</tt>.
+      To avoid this, the preferred way is to copy the examples to a location outside Program Files,
+      either manually or automatically by opening them via the <b>IAR Information Center</b>.
+      </p></li>
+  </ul>
+</ul>
+<h3>Trademarks</h3>
+<ul>
+<p align="justify"><font size=-1>
+    IAR Systems, IAR Embedded Workbench, C-SPY, visualSTATE, From Idea to Target,
+    IAR KickStart Kit, IAR PowerPac, IAR YellowSuite, and IAR are trademarks or
+    registered trademarks owned by IAR Systems AB.</p>
+<p>
+    Microsoft and Windows are registered trademarks of Microsoft Corporation. Adobe and Acrobat Reader are registered trademarks of Adobe Systems Incorporated. CodeWright is a registered trademark of Starbase Corporation.
+    All other product names are trademarks or registered trademarks of their respective owners.
+</font></p></ul>
+<br><font SIZE="1">Copyright &copy; 2005-2011 IAR Systems AB.</font>
+<p></p> 
+  </div>
+  </body>
+</html>

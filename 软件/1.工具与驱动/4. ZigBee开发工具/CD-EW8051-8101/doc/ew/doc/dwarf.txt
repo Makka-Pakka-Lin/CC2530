@@ -1,0 +1,667 @@
+                        ====================
+                        ELF/DWARF from XLINK
+                        ====================
+
+Updated:        $Date: 2010-02-05 14:07:22 +0100 (fr, 05 feb 2010) $
+Archived:       $Revision: 42975 $
+
+This document describes particularities of XLINK's ELF/DWARF output.
+
+
+========
+Contents
+========
+
+  1. Overview
+  2. Program Scope Entries
+  3. Type Entries
+  4. Source Line Information
+  5. C++ Names
+  6. Auto Variables
+  7. Supported Targets
+  8. Removed Variables
+  9. Call Frame Information
+ 10. Note Section
+ 11. Register tuples
+
+===========
+1. Overview
+===========
+
+XLINK output conforms to ELF as described in "Executable and Linkable
+Format (ELF)", and DWARF version 2, as described in "DWARF Debugging
+Information Format" revision 2.0.0 (July 27, 1993), both part of the
+Tools Interface Standard Portable Formats Specification, Version 1.1.
+
+XLINK output is always an ELF executable file, not an ELF relocatable
+file. It can contain the following sections:
+
+   .shstrtab            Section names
+   .strtab              Strings
+   .symtab              Symbol table
+   .debug_info          DWARF debug info
+   .debug_abbrev        DWARF abbreviation table
+   .debug_line          DWARF source line info
+   .debug_frame         DWARF call frame info
+   .debug_aranges       DWARF quick lookup table
+   .debug_pubnames	DWARF quick lookup table
+   .note.iar            Note section with IAR format flags
+
+The .debug_info, .debug_abbrev, .debug_line, .debug_frame,
+.debug_aranges and .debug_pubnames sections are not output if the -yn
+format variant modifier is given. The -yw format variant modifier
+suppresses generation of the .debug_aranges section. The -yb format
+variant modifier suppresses generation of the .debug_pubnames section.
+
+The .debug_frame section is only output by the linker if the code was
+compiled with a compiler that provides this information (basically a
+compiler that uses UBROF 9 or later).
+
+
+========================
+2. Program Scope Entries
+========================
+
+This is to specify which record types are used for each entry type.
+
+All DW_AT_location attributes use a single DW_OP_addr operation.
+
+Compilation Unit        (DW_TAG_compile_unit)
+----------------
+
+  Possible children: Variable
+                     Label
+                     Static Data Member Definition
+                     Function
+                     All types
+    DW_AT_comp_dir      DW_FORM_string
+    DW_AT_name          DW_FORM_string
+    DW_AT_language      DW_FORM_data1
+    DW_AT_stmt_list     DW_FORM_data4
+    DW_AT_producer      DW_FORM_string
+    DW_AT_low_pc	DW_FROM_addr
+    DW_AT_high_pc	DW_FROM_addr
+
+Note: The data for DW_AT_comp_dir is always an empty string ("") in
+      output from XLINK, it is output only because one DWARF-reader
+      demanded that it should be present.
+
+Variable                (DW_TAG_variable)
+--------
+
+    DW_AT_type          DW_FORM_ref_addr
+    DW_AT_name          DW_FORM_string
+    DW_AT_external      DW_FORM_flag                For file scope variables
+    DW_AT_location      DW_FORM_block1
+
+Label                   (DW_TAG_label)
+-----
+
+    DW_AT_name          DW_FORM_string
+    DW_AT_external      DW_FORM_flag
+    DW_AT_location      DW_FORM_block1
+
+Static Data Member Definition (DW_TAG_variable)
+-----------------------------
+
+    DW_AT_specification DW_FORM_ref_addr        Declaration (in class)
+    DW_AT_type          DW_FORM_ref_addr
+    DW_AT_name          DW_FORM_string
+    DW_AT_external      DW_FORM_flag
+    DW_AT_location      DW_FORM_block1
+
+Function                (DW_TAG_subprogram)
+--------
+
+  Possible children: Variable
+                     Lexical Block
+
+    DW_AT_name          DW_FORM_string
+    DW_AT_type          DW_FORM_ref_addr
+    DW_AT_external      DW_FORM_data1
+    DW_AT_artificial    DW_FORM_data1
+    DW_AT_decl_file     DW_FORM_udata             May be omitted
+    DW_AT_decl_line     DW_FORM_udata             May be omitted
+    DW_AT_decl_column   DW_FORM_udata             May be omitted
+    DW_AT_low_pc        DW_FORM_addr
+    DW_AT_high_pc       DW_FORM_addr
+
+Member Function Definition (DW_TAG_subprogram)
+--------------------------
+
+  Possible children: Variable
+                     Lexical Block
+
+    DW_AT_specification DW_FORM_ref_addr        Declaration (in class)
+    DW_AT_decl_file     DW_FORM_udata           May be omitted
+    DW_AT_decl_line     DW_FORM_udata           May be omitted
+    DW_AT_decl_column   DW_FORM_udata           May be omitted
+    DW_AT_low_pc        DW_FORM_addr
+    DW_AT_high_pc       DW_FORM_addr
+
+Lexical Block           (DW_TAG_lexical_block)
+-------------
+
+  Possible children: Variable
+                     Lexical Block
+
+    DW_AT_low_pc        DW_FORM_addr
+    DW_AT_high_pc       DW_FORM_addr
+
+
+===============
+3. Type Entries
+===============
+
+Unless the -ym format variant modifier is used, type information is
+output once, in the first compilation unit, and then referred to using
+address-type references (DW_AT_FORM_ref_addr). In XLINK versions prior
+to XLINK 4.51S these references used offsets from the start of the
+.debug_info section. In XLINK versions starting with 4.51S the
+references use offsets from the start of the entire file, unless the
+-ys format variant modifier is used, in which case section offsets are
+used. See the note section for how to determine which was used.
+
+If the -ym format variant modifier is uses, type information is
+duplicated in each compilation unit, and referred to using compilation
+unit relative references (DW_AT_FORM_ref_udata).
+
+All DW_AT_data_member_location attributes use a single
+DW_OP_plus_uconst operation to encode an offset from the start of the
+containing object.
+
+Basic Type              (DW_TAG_base_type)
+----------
+
+  The "void" type has a a byte size of 0 and a DW_ATE_signed encoding.
+
+    DW_AT_name          DW_FORM_string
+    DW_AT_encoding      DW_FORM_data1
+    DW_AT_byte_size     DW_FORM_data1
+
+Typedef                 (DW_TAG_typedef)
+-------
+
+    DW_AT_type          DW_FORM_ref_addr
+    DW_AT_name          DW_FORM_string
+
+Enum Type               (DW_TAG_enumeration_type)
+---------
+
+  Possible children: Enum Constant
+
+    DW_AT_name          DW_FORM_string
+    DW_AT_byte_size     DW_FORM_udata
+
+Enum Constant           (DW_TAG_enumerator)
+-------------
+
+    DW_AT_name          DW_FORM_string
+    DW_AT_const_value   DW_FORM_udata
+
+Pointer To Member Type  (DW_TAG_ptr_to_member_type)
+----------------------
+
+    DW_AT_type            DW_FORM_ref_addr
+    DW_AT_containing_type DW_FORM_ref_addr
+
+Function Type           (DW_TAG_subroutine_type)
+-------------
+
+  Possible children: Parameter
+                     Varargs Parameter
+
+    DW_AT_type          DW_FORM_ref_addr     Not present for void functions
+    DW_AT_prototyped    DW_FORM_data1
+
+Parameter               (DW_TAG_formal_parameter)
+---------
+
+    DW_AT_type          DW_FORM_ref_addr
+
+Varargs Parameter       (DW_TAG_unspecified_parameters)
+-----------------
+
+Pointer Type            (DW_TAG_pointer_type)
+------------
+
+    DW_AT_type          DW_FORM_ref_addr
+    DW_AT_address_class DW_FORM_data1        If address_class is wanted
+
+Reference Type          (DW_TAG_reference_type)
+--------------
+
+    DW_AT_type          DW_FORM_ref_addr
+    DW_AT_address_class DW_FORM_data1        If address_class is wanted
+
+Array Type              (DW_TAG_array_type)
+----------
+
+  Possible children: Array Index
+
+    DW_AT_type          DW_FORM_ref_addr
+    DW_AT_byte_size     DW_FORM_udata
+
+Array Index             (DW_TAG_subrange_type)
+-----------
+
+    DW_AT_count         DW_FORM_udata
+
+Structure Type          (DW_TAG_structure_type
+--------------           DW_TAG_union_type
+                         DW_TAG_class_type)
+
+  Possible children: Data Member
+                     Bit Field
+                     Base Class
+                     Static Data Member Declaration
+                     Function Member Declaration
+
+    DW_AT_name          DW_FORM_string
+    DW_AT_byte_size     DW_FORM_udata
+
+Bit Field               (DW_TAG_member)
+---------
+
+    DW_AT_name                 DW_FORM_string
+    DW_AT_data_member_location DW_FORM_block1
+    DW_AT_accessibility        DW_FORM_data1
+    DW_AT_type                 DW_FORM_ref_addr
+    DW_AT_byte_size            DW_FORM_data1
+    DW_AT_bit_offset           DW_FORM_data1
+    DW_AT_bit_size             DW_FORM_data1
+
+Base Class              (DW_TAG_inheritance)
+----------
+
+    DW_AT_data_member_location DW_FORM_block1
+    DW_AT_accessibility        DW_FORM_data1
+    DW_AT_virtuality           DW_FORM_data1
+    DW_AT_type                 DW_FORM_ref_addr
+
+Data Member             (DW_TAG_member)
+-----------
+
+    DW_AT_name                 DW_FORM_string
+    DW_AT_data_member_location DW_FORM_block1
+    DW_AT_accessibility        DW_FORM_data1
+    DW_AT_type                 DW_FORM_ref_addr
+    DW_AT_artificial	       DW_FORM_data1
+
+Static Data Member Declaration (DW_TAG_variable)
+------------------------------
+
+    DW_AT_declaration   DW_FORM_data1           Always true
+    DW_AT_name          DW_FORM_string
+    DW_AT_type          DW_FORM_ref_addr
+    DW_AT_accessibility DW_FORM_data1
+    DW_AT_artificial    DW_FORM_data1
+    DW_AT_location	DW_FORM_block1
+
+Member Function Declaration    (DW_TAG_subprogram)
+---------------------------
+
+    DW_AT_declaration   DW_FORM_data1           Always true
+    DW_AT_name          DW_FORM_string
+    DW_AT_type          DW_FORM_ref_addr
+    DW_AT_accessibility DW_FORM_data1
+    DW_AT_virtuality    DW_FORM_data1
+    DW_AT_artificial    DW_FORM_data1
+
+Const Type              (DW_TAG_const_type)
+----------
+
+    DW_AT_type          DW_FORM_ref_addr
+
+Volatile Type           (DW_TAG_volatile_type)
+-------------
+
+    DW_AT_type          DW_FORM_ref_addr
+
+
+==========================
+4. Source Line Information
+==========================
+
+No include directory information is produced. All source file names
+are given as complete paths where possible.
+
+Each function is treated as a separate sequence of machine
+instructions, that is the source line information for each function is
+terminated by a DW_LNE_end_sequence opcode.
+
+XLINK currently (4.53A) uses both END_SEQUENCE and SET_LINE(1) to
+get correct line numbers. XLINK does this to allow its ELF/DWARF-output 
+to work better with the CCS debugger from Texas Instrument. It is 
+possible that SET_LINE(1) will be removed in future versions.
+
+============
+5. C++ Names
+============
+
+The names of C++ functions are given in full human-readable form. This
+will result in functions having names like "Y::bar(union Z __brel &)".
+Member functions and data members are given with their class-scope
+names when their declarations are given in a class/struct/union. This
+means that the declaration of the above function will be
+"bar(union Z __brel &)" in the type entry.
+
+The names of C++ special functions are also given in full
+human-readable form. This will result in names like
+"operator new(size_t)".
+
+The same is also true for template functions and classes.
+
+
+=================
+6. Auto Variables
+=================
+
+Pre XLINK 4.59N
+---------------
+
+XLINK does not produce fully correct location expressions for most
+targets, since this information is not currently provided by IAR
+compilers. Auto variable locations are usually given as an offset from
+a Virtual Frame Pointer, which is defined as the value of the Stack
+Pointer at the first statement in a routine. In DWARF output XLINK
+translates this to simple offsets from the Stack Pointer, which is
+normally the correct thing at low optimization levels, since then the
+compilers keep the value of the Stack Pointer the same at the start of
+each statement.
+
+Targets that use an actual Frame Pointer do not, of course, have this
+problem.
+
+Post XLINK 4.59N
+----------------
+
+As many modern IAR compilers now produce the information to support
+correct auto variable locations in DWARF, XLINK, starting with version
+4.59N, produces location lists for a frame base, and outputs location
+expressions based on this frame base for variables located on the
+stack. Currently this feature is only active for the IAR ARM tool
+suite.
+
+
+====================
+7. Supported Targets
+====================
+
+All supported targets have an address size of 4.
+
+* 6811
+
+  Machine constant: 70 (hex 0x46)
+  Assembler name:   "A6811"
+  Compiler name:    "ICC6811"
+  Register codes:   As 6812
+
+* 6812
+
+  Machine constant: 53 (hex 0x35)
+  Assembler name:   "A6812"
+  Compiler name:    "ICC6812"
+  Register codes:   0 = A
+                    1 = B
+                    3 = D
+                    7 = X
+                    8 = Y
+		   40 = B-Y
+		   41 = A-X
+		   42 = D-Y
+		   43 = D-X
+
+* 6816
+
+  Machine constant: 69 (hex 0x45)
+  Assembler name:   "A6816"
+  Compiler name:    "ICC6816"
+  Register codes:   None
+
+* ARM
+
+  Machine constant: 40 (hex 0x28)
+  Assembler name:   "AARM"
+  Compiler name:    "ICCARM"
+  Register codes:   Rx (0 <= x <= 15) is coded as x (0-15)
+  	   	    Sx (0 <= x <= 31) is coded as x + 64 (64-95)
+		    Dx (0 <= x <= 15) is coded as 2 * x + 64 (64-94)
+
+* AVR32
+
+  Machine constant: 6317 (hex 0x18AD)
+  Assembler name:   "AAVR32"
+  Compiler name:    "ICCAVR32"
+  Register codes:   Rx (0 <= x <= 14) is coded as x (0-14)
+
+* Coldfire
+
+  Machine constant: 4 (hex 0x4)
+  Assembler name:   "ACF"
+  Compiler name:    "ICCCF"
+  Register codes:   Dx  (0 <= x <= 7) is coded as  0 + x (0-7)
+                    Ax  (0 <= x <= 7) is coded as  8 + x (8-15)
+                    FPx (0 <= x <= 7) is coded as 16 + x (16-23)
+
+* H8
+
+  Machine constant: 46 (hex 0x2E) H8/300
+  	  	    48 (hex 0x30) H8S
+  Assembler name:   "AH8"
+  Compiler name:    "ICCH8"
+  Register codes:   ERx (0 <= x <= 7) is coded as  0 + x (0-7)
+                    RxL (0 <= x <= 7) is coded as 32 + x (32-39)
+		    RxH (0 <= x <= 7) is coded as 40 + x (40-47)
+		    Rx  (0 <= x <= 7) is coded as 48 + x (48-55)
+		    Ex  (0 <= x <= 7) is coded as 56 + x (56-63)
+
+* M16C
+  
+  Machine constant: 7200 (hex 0x1C20)
+  Assembler name:   "AM16C"
+  Compiler name:    "ICCM16C"
+  Register codes:    0 = R0L
+  	   	     1 = R0H
+		     2 = R1L
+		     3 = R1H
+		     4 = R2L
+		     5 = R2H
+		     6 = R3L
+		     7 = R3H
+		  8-15 =  Rx (RxH:RxL) (0 <= x <= 7) is coded as 8 + x
+		    16 = R2:R0
+		    17 = R3:R1
+		    18 = R6:R4
+		    19 = R7:R5 
+		 20-23 = Ax (0 <= x <= 3) is coded 20 + x
+  Address classes:  0 = none
+                    1 = near
+                    2 = far
+                    3 = huge
+                    4 = bit
+                    5 = bitvar (new)
+                    6 = bitvar (old)
+                    9 = code
+  
+
+* M32C / MC80
+
+  Machine constant: 7296 (hex 0x1C80)
+  Assembler name:   "AM32C"   or "AMC80"
+  Compiler name:    "ICCM32C" or "ICCMC80"
+  Register codes:   See M16C
+  Address classes:  1 = __near
+                    2 = __far
+                    3 = __huge
+                    6 = __bitvar
+  
+* R32C / M32C/100
+
+  Machine constant: 162 (hex 0xA2)
+  Assembler name:   "AR32C"
+  Compiler name:    "ICCR32C"
+  Register codes:    0 = R0L
+  	   	     1 = R0H
+		     2 = R1L
+		     3 = R1H
+		     4 = R2L
+		     5 = R2H
+		     6 = R3L
+		     7 = R3H
+		  8-15 = Rx (RxH:RxL) (0 <= x <= 7) is coded as 8 + x
+		    16 = R2:R0
+		    17 = R3:R1
+		    18 = R6:R4
+		    19 = R7:R5
+                 20-23 = Ax (0 <= x <= 3) is coded 20 + x
+                   114 = A1:A0
+		   115 = A3:A2
+  Address classes:  3 = code24
+                    4 = code32
+		    5 = data16
+		    6 = data24
+                    7 = data32
+		    8 = sbdata16
+		    9 = sbdata24
+
+
+* S08
+
+  Machine constant: 21256 (hex 0x5308)
+  Assembler name:   "AS08"
+  Compiler name:    "ICCS08"
+  Register codes:   0 = A
+  	   	    1 = H
+		    2 = X
+		    3 = HX (H:X)
+		    4 = SP
+
+* SH7000
+
+  Machine constant: 42 (hex 0x2A)
+  Assembler name:   "ASH"
+  Compiler name:    "ICCSH"
+  Register codes:   Rx (0 <= x <= 15) is coded as x
+  	   	    45 = A0
+		    46 = A1
+		    47 = X0
+		    48 = X1
+		    49 = Y0
+		    50 = Y1
+		    53 = M0
+		    54 = M1
+		    		    
+  Functions with the __frame object attribute use a frame pointer, and
+  all auto variable locations in such functions are given as offsets
+  from R14. For other functions, offsets are given from R15, which may
+  be incorrect at higher levels of optimization. See the Auto
+  Variables section of this document for a little more detail about
+  this.
+
+* v850
+
+  Machine constant: 28927 (octal 070377)
+  Assembler name:   "AV850"
+  Compiler name:    "ICCV850"
+  Register codes:   Rx (0 <= x <= 31) is coded as x
+
+
+====================
+8. Removed Variables
+====================
+
+XLINK currently (4.53A) removes variables that the compiler managed
+to remove during optimization. In previous versions XLINK instead
+output them with an empty location. The reason for the removal is
+to allow XLINK's ELF/DWARF-output to work better with the CCS 
+debugger from Texas Instrument. It is possible that variables 
+not will be removed in future versions.
+
+
+=========================
+9. Call Frame Information
+=========================
+
+The encoding of offsets from the Canonical Frame Address in Call Frame
+Information in DWARF has been open to a certain amount of
+interpretation. By default, XLINK's output differs from the clarified
+specification in the DWARF 3 document in two ways:
+
+  1) The offsets in the DW_CFA_def_cfa and DW_CFA_def_cfa_offset
+     instructions are factored using the data alignment factor.
+  2) The offsets in the DW_CFA_offset and DW_CFA_offset_extended
+     instructions are factored using the negative of the data
+     alignment factor.
+
+If the -yo format variant modifier is specified, XLINK will produce
+output where:
+
+  1) The offsets in the DW_CFA_def_cfa and DW_CFA_def_cfa_offset
+     instructions are NOT factored using the data alignment factor.
+  2) The offsets in the DW_CFA_offset and DW_CFA_offset_extended
+     instructions are factored using the POSITIVE of the data
+     alignment factor.
+
+An example: In a situation where the data alignment factor is 4, the
+CFA is SP + 4 and the return address is in the top cell of the stack
+(that is, at CFA[-4]), the following call frame instructions could be
+used when -yo is not specified:
+
+  DW_CFA_def_cfa_offset 1
+  DW_CFA_offset         <return address column>, 1
+
+(Incidentally, this corresponds to the usage in appendix 5 in the
+DWARF 2.0 reference manual).
+
+When -yo is specified, the data alignment factor will instead be -4
+and the following call frame instructions will be output:
+
+  DW_CFA_def_cfa_offset 4
+  DW_CFA_offset         <return address column>, 1
+
+See the note section for how to determine which was used in a
+particular output file.
+
+
+===============
+10. Note Section
+===============
+
+Starting with release 4.59N, ELF output from XLINK contains a note
+section named .note.iar. Each entry in this section has a name of
+"IAR". There are currently two types defined:
+
+  IAR_NOTE_TYPE_ref_addr_uses_file_offsets  0
+  IAR_NOTE_TYPE_cfa_offsets_are_nonstandard 1
+
+In both cases the descriptor is a 4 byte value, where a non-zero value
+represents the boolean value "true".
+
+If the flag with the type IAR_NOTE_TYPE_ref_addr_uses_file_offsets is
+true, address-type references (DW_AT_FORM_ref_addr) use offsets from
+the start of the file. If the flag is false, offsets from the start of
+the .debug_info section are used. See the Type Entries section for
+more on this.
+
+If the flag with the type IAR_NOTE_TYPE_cfa_offsets_are_nonstandard is
+true, a nonstandard interpretation of the offsets in the call frame
+instructions DW_CFA_offset, DW_CFA_offset_extended, DW_CFA_def_cfa,
+and DW_CFA_def_cfa_offset is used. See the Call Frame Information
+section for more on this.
+
+===============
+11. Register tuples
+===============
+
+Register tuples (a tuple consists of n registers, n = 2, a register
+pair, is the most common case) are often output as consecutive
+register pairs. R(x)...R(x+n-1). For processors that have not defined
+explicit numbers for register tuples this will be output as R(x)
+alone. The debugger has to use the size of the variable to understand
+that R(x) as not enough to hold the entire variable and that the rest
+can be found in the R(x)'s successors. It is possible that the
+compiler will generate debug information where the involved registers
+not are consecutive, there is currently no way to get correct debug
+information in these cases. XLINK will generate a warning if this
+happens.

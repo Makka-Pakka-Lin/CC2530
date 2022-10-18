@@ -1,0 +1,494 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <meta http-equiv="Content-Style-Type" content="text/css" />
+    <!-- MOTW-DISABLED saved from url=(0014)about:internet -->
+    <title>Debugging using the IAR C-SPY Debugger</title>
+    <link rel="StyleSheet" href="css/tutor_debugging.css" type="text/css" media="all" />
+    <link rel="StyleSheet" href="css/webworks.css" type="text/css" media="all" />
+    <script type="text/javascript" language="JavaScript1.2" src="scripts/expand.js"></script>
+    <script type="text/javascript" language="JavaScript1.2">
+      <!--
+        var  WebWorksRootPath = "";
+      // -->
+    </script>
+  </head>
+  <body class="" style="background-color: White; background-image: url(&quot;style/images/Gradient_slice.png&quot;); background-position: center top; background-repeat: repeat-x;">
+    <table align="left" summary="">
+      <tr>
+        <td class="WebWorks_Company_Logo_Top">
+          <img src="images/IAR_CMYK_transp_37px.png" alt="" />
+        </td>
+      </tr>
+    </table>
+    <br clear="all" />
+    <div class="Heading1"><a name="1082772">Debugging using the IAR </a>C-SPY Debugger </div>
+    <div class="WebWorks_MiniTOC">
+      <div class="WebWorks_MiniTOC_Level1">
+        <a class="WebWorks_MiniTOC_Link" href="#1100843">Debugging the application</a>
+      </div>
+      <div class="WebWorks_MiniTOC_Level2">
+        <a class="WebWorks_MiniTOC_Link" href="#1075019">Starting the debugger</a>
+      </div>
+      <div class="WebWorks_MiniTOC_Level2">
+        <a class="WebWorks_MiniTOC_Link" href="#1076338">Organizing the windows</a>
+      </div>
+      <div class="WebWorks_MiniTOC_Level2">
+        <a class="WebWorks_MiniTOC_Link" href="#1100319">Inspecting source statements</a>
+      </div>
+      <div class="WebWorks_MiniTOC_Level2">
+        <a class="WebWorks_MiniTOC_Link" href="#1098667">Inspecting variables </a>
+      </div>
+      <div class="WebWorks_MiniTOC_Level2">
+        <a class="WebWorks_MiniTOC_Link" href="#1099019">Setting and monitoring breakpoints</a>
+      </div>
+      <div class="WebWorks_MiniTOC_Level2">
+        <a class="WebWorks_MiniTOC_Link" href="#1077527">Monitoring registers</a>
+      </div>
+      <div class="WebWorks_MiniTOC_Level2">
+        <a class="WebWorks_MiniTOC_Link" href="#1050201">Monitoring memory</a>
+      </div>
+      <div class="WebWorks_MiniTOC_Level2">
+        <a class="WebWorks_MiniTOC_Link" href="#1019921">Viewing terminal I/O</a>
+      </div>
+      <div class="WebWorks_MiniTOC_Level2">
+        <a class="WebWorks_MiniTOC_Link" href="#1077170">Reaching program exit</a>
+      </div>
+    </div>
+    <div class="Ingress"><a name="1074027">This </a>tutorial continues the development cycle started in the previous tutorial and explores the basic features of C-SPY®.</div>
+    <div class="Ingress"><a name="1086183">Note that, depending on what IAR Systems product package you have </a>installed, C-SPY might or might not be included. The tutorials assume that you are using the C-SPY Simulator.</div>
+    <div class="Heading2NoBrk"><a name="1100843">D</a>ebugging the application</div>
+    <div class="Body"><a name="1099044">The </a><span class="Computer">project1.</span><span class="Computer">d</span><span class="Computer_parameter">xx</span> application, created in the previous tutorial, is now ready to be run in C-SPY where you can watch variables, set breakpoints, view code in disassembly mode, monitor registers and memory, and print the program output in the Terminal I/O window, etc.</div>
+    <div class="Heading3NoBrk"><a name="1075019">Starting the debugger</a></div>
+    <div class="Body"><a name="1076987">Before starting C-SPY, you must set a few options.</a></div>
+    <div class="List_step_first_outer" style="margin-left: 0.5062999999999767cm;">
+      <table border="0" cellspacing="0" cellpadding="0" summary="">
+        <tr style="vertical-align: baseline;">
+          <td>
+            <div class="List_step_first_inner" style="width: 13.994645669291998pt; white-space: nowrap;">
+              <span class="N_Step">1	</span>
+            </div>
+          </td>
+          <td width="100%">
+            <div class="List_step_first_inner"><a name="1076991">Choose </a><span class="Menu_Command">Project&gt;Options</span> and then the <span class="Menu_Command">D</span><span class="Menu_Command">ebugger</span> category. On the <span class="Menu_Command">Setup</span> page, make sure that you have chosen <span class="Menu_Command">Simulator</span> from the <span class="Menu_Command">Driver</span> drop-down list and that <span class="Menu_Command">Run to </span><span class="Menu_Command">main</span> is selected. Click <span class="Menu_Command">OK</span>.</div>
+          </td>
+        </tr>
+      </table>
+    </div>
+    <div class="List_step_outer" style="margin-left: 0.5062999999999767cm;">
+      <table border="0" cellspacing="0" cellpadding="0" summary="">
+        <tr style="vertical-align: baseline;">
+          <td>
+            <div class="List_step_inner" style="width: 13.994645669291998pt; white-space: nowrap;">
+              <span class="N_Step">2	</span>
+            </div>
+          </td>
+          <td width="100%">
+            <div class="List_step_inner"><a name="1077003">Choose </a><span class="Menu_Command">Project&gt;</span><span class="Menu_Command">Download and Debug</span>. Alternatively, click <img class="Default" src="images/tutor_debugging.2.1.01.jpg" width="27" height="24" style="display: inline; float: none; left: 0.0; top: 0.0;" alt="" /> the <span class="Menu_Command">Download and </span><span class="Menu_Command">Debug</span> button in the toolbar. C-SPY starts with the <span class="Computer">project1.</span><span class="Computer">d</span><span class="Computer_parameter">xx</span> application loaded. In addition to the windows already opened in the IDE, a set of C-SPY-specific windows are now available.</div>
+          </td>
+        </tr>
+      </table>
+    </div>
+    <div class="Heading3NoBrk"><a name="1076338">Organizing the windows</a></div>
+    <div class="Body"><a name="1091347">In the IDE, </a>you can <span class="Emphasis">dock</span> windows at specific places, and organize them in tab groups. You can also make a window <span class="Emphasis">floating,</span> which means it is always on top of other windows. If you change the size or position of a floating window, other currently open windows are not affected. </div>
+    <div class="Body"><a name="1092803"><img class="Default" src="images/tutor_debugging.2.1.02.jpg" width="30" height="36" style="display: inline; float: none; left: 0.0; top: 0.0;" alt="" /></a>The status bar, located at the bottom of the IAR Embedded Workbench<span style="vertical-align: super;">®</span> IDE main window, contains useful help about how to arrange windows. For further details, see the <span class="Reference">IDE Project Management and Building Guide</span>.</div>
+    <div class="Body"><a name="1077664">M</a>ake sure the following windows and window contents are open and visible on the screen: the Workspace window with the active build configuration <span class="Menu_Command">tutorials – project1</span>, the editor window with the source files <span class="Computer">Tutor.c</span> and <span class="Computer">Utilities.c</span>, and the Debug Log window.</div>
+    <div class="GraphicFrameHelp"><a name="1078373"><img class="Default" src="images/tutor_debugging.2.1.03.jpg" width="922" height="770" style="display: block; float: none; left: 0.0; top: 0.0;" alt="" /></a></div>
+    <div class="Note">
+      <span style="font-style: normal; font-variant: normal; font-weight: bold; text-transform: none; vertical-align: baseline;">Note: </span><a name="1076690">Depending on the tool</a>chain you are using, the current position—indicated by a green arrow—might now be <span class="Computer">main</span> or <span class="Computer">callCount</span>.</div>
+    <div class="Heading3NoBrk"><a name="1100319">Inspecting source statements</a></div>
+    <div class="List_step_first_outer" style="margin-left: 0.5062999999999767cm;">
+      <table border="0" cellspacing="0" cellpadding="0" summary="">
+        <tr style="vertical-align: baseline;">
+          <td>
+            <div class="List_step_first_inner" style="width: 13.994645669291998pt; white-space: nowrap;">
+              <span class="N_Step">1	</span>
+            </div>
+          </td>
+          <td width="100%">
+            <div class="List_step_first_inner"><a name="1076463">To inspect the source statements, double-click the file </a><span class="Computer">Tutor.c</span> in the Workspace window.</div>
+          </td>
+        </tr>
+      </table>
+    </div>
+    <div class="List_step_outer" style="margin-left: 0.5062999999999767cm;">
+      <table border="0" cellspacing="0" cellpadding="0" summary="">
+        <tr style="vertical-align: baseline;">
+          <td>
+            <div class="List_step_inner" style="width: 13.994645669291998pt; white-space: nowrap;">
+              <span class="N_Step">2	</span>
+            </div>
+          </td>
+          <td width="100%">
+            <div class="List_step_inner"><a name="1103872">With the file </a><span class="Computer">Tutor.c</span> displayed in the editor window, first step over with the <span class="Menu_Command">Debug&gt;Step Over</span> command.</div>
+          </td>
+        </tr>
+      </table>
+    </div>
+    <div class="Body"><a name="1103880">Alternatively, click</a> <img class="Default" src="images/tutor_debugging.2.1.04.jpg" width="23" height="22" style="display: inline; float: none; left: 0.0; top: 0.0;" alt="" /> the <span class="Menu_Command">Step Over</span> button on the toolbar. </div>
+    <div class="Body"><a name="1103881">Step until the call to the </a><span class="Computer">InitFib</span> function.</div>
+    <div class="GraphicFrameHelp"><a name="1020074"><img class="Default" src="images/tutor_debugging.2.1.05.jpg" width="533" height="389" style="display: block; float: none; left: 0.0; top: 0.0;" alt="" /></a></div>
+    <div class="List_step_outer" style="margin-left: 0.5062999999999767cm;">
+      <table border="0" cellspacing="0" cellpadding="0" summary="">
+        <tr style="vertical-align: baseline;">
+          <td>
+            <div class="List_step_inner" style="width: 13.994645669291998pt; white-space: nowrap;">
+              <span class="N_Step">3	</span>
+            </div>
+          </td>
+          <td width="100%">
+            <div class="List_step_inner"><a name="1018642">Choose </a><span class="Menu_Command">Debug</span>&gt;<span class="Menu_Command">Step Into</span> to step into the function <span class="Computer">InitFib</span>.</div>
+          </td>
+        </tr>
+      </table>
+    </div>
+    <div class="Body"><a name="1040476">Alternatively, click</a> <img class="Default" src="images/tutor_debugging.2.1.06.jpg" width="23" height="22" style="display: inline; float: none; left: 0.0; top: 0.0;" alt="" /> the <span class="Menu_Command">Step Into</span> button on the toolbar.</div>
+    <div class="Body"><a name="1064507">At source level, the </a><span class="Menu_Command">Step Over</span> and <span class="Menu_Command">Step Into</span> commands allow you to execute your application a statement at a time. <span class="Menu_Command">Step Into</span> continues stepping inside function or subroutine calls, whereas <span class="Menu_Command">Step Over</span> executes each function call in a single step. For further details, see the <span class="Reference">C-SPY® Debugging Guide</span>.</div>
+    <div class="Body"><a name="1024395">When </a><span class="Menu_Command">Step Into</span> is executed you will notice that the active window changes to <span class="Computer">Utilities.c</span> as the function <span class="Computer">InitFib</span> is located in this file.</div>
+    <div class="List_step_outer" style="margin-left: 0.5062999999999767cm;">
+      <table border="0" cellspacing="0" cellpadding="0" summary="">
+        <tr style="vertical-align: baseline;">
+          <td>
+            <div class="List_step_inner" style="width: 13.994645669291998pt; white-space: nowrap;">
+              <span class="N_Step">4	</span>
+            </div>
+          </td>
+          <td width="100%">
+            <div class="List_step_inner"><a name="1023683">Use the</a><span class="Menu_Command"> Step Into</span> command until you reach the <span class="Computer">for</span> loop.</div>
+          </td>
+        </tr>
+      </table>
+    </div>
+    <div class="GraphicFrameHelp"><a name="1036654"><img class="Default" src="images/tutor_debugging.2.1.07.jpg" width="511" height="249" style="display: block; float: none; left: 0.0; top: 0.0;" alt="" /></a></div>
+    <div class="List_step_outer" style="margin-left: 0.5062999999999767cm;">
+      <table border="0" cellspacing="0" cellpadding="0" summary="">
+        <tr style="vertical-align: baseline;">
+          <td>
+            <div class="List_step_inner" style="width: 13.994645669291998pt; white-space: nowrap;">
+              <span class="N_Step">5	</span>
+            </div>
+          </td>
+          <td width="100%">
+            <div class="List_step_inner"><a name="1036031">Use </a><span class="Menu_Command">Step Over</span> until you are back in the header of the <span class="Computer">for</span> loop. Notice that the step points are on <span style="font-size: 7.0pt; font-style: italic;"></span>a function call level, not on a statement level.</div>
+          </td>
+        </tr>
+      </table>
+    </div>
+    <div class="Body"><a name="1104003">You can also step on a statement level. Choose </a><span class="Menu_Command">Debug&gt;Next statement</span> to execute one statement at a time. Alternatively, click <img class="Default" src="images/tutor_debugging.2.1.08.jpg" width="23" height="24" style="display: inline; float: none; left: 0.0; top: 0.0;" alt="" /> the <span class="Menu_Command">Next statement</span> button on the toolbar. </div>
+    <div class="Body"><a name="1104004">Notice how this command differs from the </a><span class="Menu_Command">Step Over</span> and the <span class="Menu_Command">Step Into</span> commands.</div>
+    <div class="List_step_outer" style="margin-left: 0.5062999999999767cm;margin-bottom: 5.6693pt; margin-top: 5.6693pt;">
+      <table border="0" cellspacing="0" cellpadding="0" summary="">
+        <tr style="vertical-align: baseline;">
+          <td>
+            <div class="List_step_inner" style="width: 13.994645669291998pt; white-space: nowrap;">
+              <span class="N_Step">6	</span>
+            </div>
+          </td>
+          <td width="100%">
+            <div class="List_step_inner"><a name="1098661">Debugging with C-SPY is usually quicker and more straightforward in C/C++ source </a>mode. However, if you want to have full control over low-level routines, you can debug in disassembly mode where each step corresponds to one assembler instruction. C-SPY lets you switch freely between the two modes.</div>
+          </td>
+        </tr>
+      </table>
+    </div>
+    <div class="Body"><a name="1098663">Choose </a><span class="Menu_Command">View&gt;Disassembly </span>to open the Disassembly window, if it is not already open.You will see the assembler code corresponding to the current C statement.</div>
+    <div class="Body"><a name="1098664">Try the step commands also in the Disassembly window.</a></div>
+    <div class="Heading3NoBrk"><a name="1098667">Inspecting variables </a></div>
+    <div class="Body"><a name="1103769">C-SPY allows you to watch variables or expressions in the source code, so that you can </a>keep track of their values as you execute your application. You can look at a variable in several ways. For example, point at it in the source window with the mouse pointer, or open one of the Auto, Locals, Live Watch, Statics, or Watch windows. In this tutorial, we will look into some of these methods.For more information about inspecting variables, see the <span class="Reference">C-SPY® Debugging Guide</span>.</div>
+    <div class="Note">
+      <span style="font-style: normal; font-variant: normal; font-weight: bold; text-transform: none; vertical-align: baseline;">Note: </span><a name="1103774">When optimization level </a><span class="Menu_Command">None</span> is used, all non-static variables will live during their entire scope and thus, the variables are fully debuggable. When higher levels of optimizations are used, variables might not be fully debuggable.</div>
+    <div class="Heading4"><a name="1076171">Using the Auto window</a></div>
+    <div class="List_step_first_outer" style="margin-left: 0.5062999999999767cm;">
+      <table border="0" cellspacing="0" cellpadding="0" summary="">
+        <tr style="vertical-align: baseline;">
+          <td>
+            <div class="List_step_first_inner" style="width: 13.994645669291998pt; white-space: nowrap;">
+              <span class="N_Step">1	</span>
+            </div>
+          </td>
+          <td width="100%">
+            <div class="List_step_first_inner"><a name="1037524">Choose </a><span class="Menu_Command">View&gt;Auto</span> to open the Auto window. </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+    <div class="Body"><a name="1037525">The Auto window will show the current value of recently modified expressions.</a></div>
+    <div class="GraphicFrameHelp"><a name="1024096"><img class="Default" src="images/tutor_debugging.2.1.09.jpg" width="416" height="166" style="display: block; float: none; left: 0.0; top: 0.0;" alt="" /></a></div>
+    <div class="List_step_outer" style="margin-left: 0.5062999999999767cm;">
+      <table border="0" cellspacing="0" cellpadding="0" summary="">
+        <tr style="vertical-align: baseline;">
+          <td>
+            <div class="List_step_inner" style="width: 13.994645669291998pt; white-space: nowrap;">
+              <span class="N_Step">2	</span>
+            </div>
+          </td>
+          <td width="100%">
+            <div class="List_step_inner"><a name="1075335">Keep stepping to see how the values change.</a></div>
+          </td>
+        </tr>
+      </table>
+    </div>
+    <div class="Heading4"><a name="1075332">Setting a watchpoint</a></div>
+    <div class="Body"><a name="1066300">Next you will use the Watch window to inspect variables.</a></div>
+    <div class="List_step_outer" style="margin-left: 0.5062999999999767cm;">
+      <table border="0" cellspacing="0" cellpadding="0" summary="">
+        <tr style="vertical-align: baseline;">
+          <td>
+            <div class="List_step_inner" style="width: 13.994645669291998pt; white-space: nowrap;">
+              <span class="N_Step">3	</span>
+            </div>
+          </td>
+          <td width="100%">
+            <div class="List_step_inner"><a name="1050233">Choose </a><span class="Menu_Command">View&gt;Watch</span> to open the Watch window. Notice that it is, by default, grouped together with the currently open Auto window; the windows are located as a <span class="Emphasis">tab group</span>.</div>
+          </td>
+        </tr>
+      </table>
+    </div>
+    <div class="List_step_outer" style="margin-left: 0.5062999999999767cm;">
+      <table border="0" cellspacing="0" cellpadding="0" summary="">
+        <tr style="vertical-align: baseline;">
+          <td>
+            <div class="List_step_inner" style="width: 13.994645669291998pt; white-space: nowrap;">
+              <span class="N_Step">4	</span>
+            </div>
+          </td>
+          <td width="100%">
+            <div class="List_step_inner"><a name="1092012">Set a watchpoint on the variable </a><span class="Computer">i</span> using this procedure: Click the dotted rectangle in the Watch window. In the entry field that appears, type <span class="Computer">i</span> and press the Enter key.</div>
+          </td>
+        </tr>
+      </table>
+    </div>
+    <div class="Body"><a name="1050234">You can also drag a variable from the editor window to the Watch window. </a></div>
+    <div class="List_step_outer" style="margin-left: 0.5062999999999767cm;">
+      <table border="0" cellspacing="0" cellpadding="0" summary="">
+        <tr style="vertical-align: baseline;">
+          <td>
+            <div class="List_step_inner" style="width: 13.994645669291998pt; white-space: nowrap;">
+              <span class="N_Step">5	</span>
+            </div>
+          </td>
+          <td width="100%">
+            <div class="List_step_inner"><a name="1050235">Select the </a><span class="Computer">Fib</span> array in the <span class="Computer">InitFib</span> function, then drag it to the Watch window. </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+    <div class="Body"><a name="1078712">The Watch window will show the current value of </a><span class="Computer">i</span> and <span class="Computer">Fib</span>. You can expand the <span class="Computer">Fib</span> array to watch it in more detail.</div>
+    <div class="GraphicFrameHelp"><a name="1050240"><img class="Default" src="images/tutor_debugging.2.1.10.jpg" width="419" height="310" style="display: block; float: none; left: 0.0; top: 0.0;" alt="" /></a></div>
+    <div class="List_step_outer" style="margin-left: 0.5062999999999767cm;">
+      <table border="0" cellspacing="0" cellpadding="0" summary="">
+        <tr style="vertical-align: baseline;">
+          <td>
+            <div class="List_step_inner" style="width: 13.994645669291998pt; white-space: nowrap;">
+              <span class="N_Step">6	</span>
+            </div>
+          </td>
+          <td width="100%">
+            <div class="List_step_inner"><a name="1050243">Execute some more steps to see how the values of </a><span class="Computer">i</span> and <span class="Computer">Fib</span> change. </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+    <div class="List_step_outer" style="margin-left: 0.5062999999999767cm;">
+      <table border="0" cellspacing="0" cellpadding="0" summary="">
+        <tr style="vertical-align: baseline;">
+          <td>
+            <div class="List_step_inner" style="width: 13.994645669291998pt; white-space: nowrap;">
+              <span class="N_Step">7	</span>
+            </div>
+          </td>
+          <td width="100%">
+            <div class="List_step_inner"><a name="1050244">To remove a variable from the Watch window, select it and press </a><span class="Menu_Command">Delete</span>.</div>
+          </td>
+        </tr>
+      </table>
+    </div>
+    <div class="Heading3NoBrk"><a name="1099019">Setting and monitoring breakpoints</a></div>
+    <div class="Body"><a name="1099281">C-SPY contains a powerful breakpoint system with many features.</a> For detailed information about breakpoints, see the <span class="Reference">C-SPY® Debugging Guide</span>.</div>
+    <div class="Body"><a name="1099285">The most convenient way is usually to set breakpoints interactively, simply by </a>positioning the insertion point in or near a statement and then choosing the <span class="Menu_Command">Toggle </span><span class="Menu_Command">Breakpoint</span> command.</div>
+    <div class="List_step_first_outer" style="margin-left: 0.5062999999999767cm;">
+      <table border="0" cellspacing="0" cellpadding="0" summary="">
+        <tr style="vertical-align: baseline;">
+          <td>
+            <div class="List_step_first_inner" style="width: 13.994645669291998pt; white-space: nowrap;">
+              <span class="N_Step">1	</span>
+            </div>
+          </td>
+          <td width="100%">
+            <div class="List_step_first_inner"><a name="1050489">Set a breakpoint on the </a>function call <span class="Computer">GetFib(i)</span><span style="font-size: 7.0pt; font-style: italic;"></span> using this procedure: First, click the <span class="Computer">Utilities.c</span> tab in the editor window and click in the statement to position the insertion point. Then choose <span class="Menu_Command">Edit&gt;Toggle Breakpoint</span>. </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+    <div class="Body"><a name="1050494">Alternatively, click</a> <img class="Default" src="images/tutor_debugging.2.1.11.jpg" width="22" height="22" style="display: inline; float: none; left: 0.0; top: 0.0;" alt="" /> the <span class="Menu_Command">Toggle Breakpoint</span> button on the toolbar.</div>
+    <div class="Body"><a name="1102122">A breakpoint will be set at this </a><span style="font-size: 7.0pt; font-style: italic;"></span>function call. The function call will be highlighted and there will be a <span class="Menu_Command">red dot</span> in the margin to show that there is a breakpoint there.</div>
+    <div class="GraphicFrameHelp"><a name="1102132"><img class="Default" src="images/tutor_debugging.2.1.12.jpg" width="510" height="204" style="display: block; float: none; left: 0.0; top: 0.0;" alt="" /></a></div>
+    <div class="Body"><a name="1076776">To view all defined breakpoints, choose </a><span class="Menu_Command">View&gt;Breakpoints</span> to open the Breakpoints window. You can find information about the breakpoint execution in the Debug Log window.</div>
+    <div class="Heading4"><a name="1076779">Executing up to a breakpoint</a></div>
+    <div class="List_step_outer" style="margin-left: 0.5062999999999767cm;">
+      <table border="0" cellspacing="0" cellpadding="0" summary="">
+        <tr style="vertical-align: baseline;">
+          <td>
+            <div class="List_step_inner" style="width: 13.994645669291998pt; white-space: nowrap;">
+              <span class="N_Step">2	</span>
+            </div>
+          </td>
+          <td width="100%">
+            <div class="List_step_inner"><a name="1104095">To execute your application until it reaches the breakpoint, choose </a><span class="Menu_Command">Debug&gt;Go</span>. </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+    <div class="Body"><a name="1104099">Alternatively, click</a> <img class="Default" src="images/tutor_debugging.2.1.13.jpg" width="23" height="22" style="display: inline; float: none; left: 0.0; top: 0.0;" alt="" /> the <span class="Menu_Command">Go</span> button on the toolbar.</div>
+    <div class="Body"><a name="1104100">The application will execute up to the breakpoint you</a> have set. The Watch window will display the value of the <span class="Computer">Fib</span> expression and the Debug Log window will contain information about the breakpoint.</div>
+    <div class="List_step_outer" style="margin-left: 0.5062999999999767cm;">
+      <table border="0" cellspacing="0" cellpadding="0" summary="">
+        <tr style="vertical-align: baseline;">
+          <td>
+            <div class="List_step_inner" style="width: 13.994645669291998pt; white-space: nowrap;">
+              <span class="N_Step">3	</span>
+            </div>
+          </td>
+          <td width="100%">
+            <div class="List_step_inner"><a name="1086365">Select the breakpoint, right</a>-click and choose <span class="Menu_Command">Toggle Breakpoint (Code)</span> from the context menu, alternatively choose <span class="Menu_Command">Toggle Breakpoint</span> from the <span class="Menu_Command">Edit</span> menu to remove the breakpoint.</div>
+          </td>
+        </tr>
+      </table>
+    </div>
+    <div class="Heading3NoBrk"><a name="1077527">M</a>onitoring registers</div>
+    <div class="Body"><a name="1050683">The Register window lets you monitor and modify the contents of the processor </a>registers.</div>
+    <div class="List_step_first_outer" style="margin-left: 0.5062999999999767cm;">
+      <table border="0" cellspacing="0" cellpadding="0" summary="">
+        <tr style="vertical-align: baseline;">
+          <td>
+            <div class="List_step_first_inner" style="width: 13.994645669291998pt; white-space: nowrap;">
+              <span class="N_Step">1	</span>
+            </div>
+          </td>
+          <td width="100%">
+            <div class="List_step_first_inner"><a name="1050686">Choose </a><span class="Menu_Command">View&gt;Register</span> to open the Register window.</div>
+          </td>
+        </tr>
+      </table>
+    </div>
+    <div class="List_step_outer" style="margin-left: 0.5062999999999767cm;">
+      <table border="0" cellspacing="0" cellpadding="0" summary="">
+        <tr style="vertical-align: baseline;">
+          <td>
+            <div class="List_step_inner" style="width: 13.994645669291998pt; white-space: nowrap;">
+              <span class="N_Step">2	</span>
+            </div>
+          </td>
+          <td width="100%">
+            <div class="List_step_inner"><span class="Menu_Command"><a name="1050692">Step Over</a></span> to execute the next instructions, and watch how the values change in the Register window.</div>
+          </td>
+        </tr>
+      </table>
+    </div>
+    <div class="List_step_outer" style="margin-left: 0.5062999999999767cm;">
+      <table border="0" cellspacing="0" cellpadding="0" summary="">
+        <tr style="vertical-align: baseline;">
+          <td>
+            <div class="List_step_inner" style="width: 13.994645669291998pt; white-space: nowrap;">
+              <span class="N_Step">3	</span>
+            </div>
+          </td>
+          <td width="100%">
+            <div class="List_step_inner"><a name="1050693">Close the Register window.</a></div>
+          </td>
+        </tr>
+      </table>
+    </div>
+    <div class="Heading3NoBrk"><a name="1050201">Monitoring memory</a></div>
+    <div class="Body"><a name="1048860">The Memory window lets you monitor selected areas of memory. In the following </a>example, the memory corresponding to the array <span class="Computer">Fib</span> will be monitored.</div>
+    <div class="List_step_first_outer" style="margin-left: 0.5062999999999767cm;">
+      <table border="0" cellspacing="0" cellpadding="0" summary="">
+        <tr style="vertical-align: baseline;">
+          <td>
+            <div class="List_step_first_inner" style="width: 13.994645669291998pt; white-space: nowrap;">
+              <span class="N_Step">1	</span>
+            </div>
+          </td>
+          <td width="100%">
+            <div class="List_step_first_inner"><a name="1048862">Choose </a><span class="Menu_Command">View&gt;Memory</span> to open the Memory window.</div>
+          </td>
+        </tr>
+      </table>
+    </div>
+    <div class="List_step_outer" style="margin-left: 0.5062999999999767cm;">
+      <table border="0" cellspacing="0" cellpadding="0" summary="">
+        <tr style="vertical-align: baseline;">
+          <td>
+            <div class="List_step_inner" style="width: 13.994645669291998pt; white-space: nowrap;">
+              <span class="N_Step">2	</span>
+            </div>
+          </td>
+          <td width="100%">
+            <div class="List_step_inner"><a name="1048864">Make the Utilities.c window active and select </a><span class="Computer">Fib</span>. Then drag it from the C source window to the Memory window. </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+    <div class="Body"><a name="1048865">The memory contents in the Memory window corresponding to </a><span class="Computer">Fib</span> will be selected.</div>
+    <div class="Body"><a name="1048877">I</a>f not all of the memory units have been initialized by the <span class="Computer">InitFib</span> function of the C application yet, continue to step over and you will notice how the memory contents are updated.</div>
+    <div class="Body"><a name="1048878">To change the memory contents, edit the values in the Memory window. Just place the </a>insertion point at the memory content that you want to edit and type the desired value.</div>
+    <div class="Body"><a name="1082617">Close the Memory window.</a></div>
+    <div class="Heading3NoBrk"><a name="1019921">Viewing terminal I/O</a></div>
+    <div class="Body"><a name="1099069">Sometimes you might have to debug constructions in your application that make use of </a><span class="Computer">stdin</span> and <span class="Computer">stdout</span> without the possibility of having hardware support. C-SPY lets you simulate <span class="Computer">stdin</span> and <span class="Computer">stdout</span> by using the Terminal I/O window. </div>
+    <div class="Note">
+      <span style="font-style: normal; font-variant: normal; font-weight: bold; text-transform: none; vertical-align: baseline;">Note: </span><a name="1099070">The Terminal I/O window is only available in C-SPY if you have linked your </a>project using the output option <span class="Menu_Command">With I/O emulation modules</span>. This means that some low-level routines are linked that direct <span class="Computer">stdin</span> and <span class="Computer">stdout</span> to the Terminal I/O window, see <span class="Reference"><a href="tutor_projectmanagement.html#1077998" title="Creating an application project">Linking the application</a></span>.</div>
+    <div class="List_step_first_outer" style="margin-left: 0.5062999999999767cm;">
+      <table border="0" cellspacing="0" cellpadding="0" summary="">
+        <tr style="vertical-align: baseline;">
+          <td>
+            <div class="List_step_first_inner" style="width: 13.994645669291998pt; white-space: nowrap;">
+              <span class="N_Step">1	</span>
+            </div>
+          </td>
+          <td width="100%">
+            <div class="List_step_first_inner"><a name="1077160">Choose </a><span class="Menu_Command">View&gt;Terminal I/O</span> to display the output from the I/O operations.</div>
+          </td>
+        </tr>
+      </table>
+    </div>
+    <div class="GraphicFrameHelp"><a name="1077178"><img class="Default" src="images/tutor_debugging.2.1.15.jpg" width="333" height="313" style="display: block; float: none; left: 0.0; top: 0.0;" alt="" /></a></div>
+    <div class="Body"><a name="1086390">The contents of the window depends on how far you have executed the application.</a></div>
+    <div class="Heading3NoBrk"><a name="1077170">Reaching program exit</a></div>
+    <div class="List_step_first_outer" style="margin-left: 0.5062999999999767cm;">
+      <table border="0" cellspacing="0" cellpadding="0" summary="">
+        <tr style="vertical-align: baseline;">
+          <td>
+            <div class="List_step_first_inner" style="width: 13.994645669291998pt; white-space: nowrap;">
+              <span class="N_Step">1	</span>
+            </div>
+          </td>
+          <td width="100%">
+            <div class="List_step_first_inner"><a name="1104168">To complete the execution of your application, choose </a><span class="Menu_Command">Debug&gt;Go</span>.</div>
+          </td>
+        </tr>
+      </table>
+    </div>
+    <div class="Body"><a name="1104172">Alternatively, click</a> <img class="Default" src="images/tutor_debugging.2.1.16.jpg" width="23" height="22" style="display: inline; float: none; left: 0.0; top: 0.0;" alt="" /> the <span class="Menu_Command">Go</span> button on the toolbar.</div>
+    <div class="Body"><a name="1104173">As no more breakpoints are encountered, C-SPY reaches the end of the application and </a>a <span class="Computer">Program</span> <span class="Computer">exit</span> <span class="Computer">reached</span> message is printed in the Debug Log window.</div>
+    <div class="GraphicFrameHelp"><a name="1076969"><img class="Default" src="images/tutor_debugging.2.1.17.jpg" width="560" height="198" style="display: block; float: none; left: 0.0; top: 0.0;" alt="" /></a></div>
+    <div class="Body"><a name="1086394">All output from the application has now been displayed in the Terminal I/O window.</a></div>
+    <div class="Body"><a name="1019937">If you want to start again with the existing application, choose </a><span class="Menu_Command">Debug&gt;Reset</span>, or click <img class="Default" src="images/tutor_debugging.2.1.18.jpg" width="23" height="22" style="display: inline; float: none; left: 0.0; top: 0.0;" alt="" /> the <span class="Menu_Command">Reset</span> button on the toolbar.</div>
+    <div class="List_step_outer" style="margin-left: 0.5062999999999767cm;">
+      <table border="0" cellspacing="0" cellpadding="0" summary="">
+        <tr style="vertical-align: baseline;">
+          <td>
+            <div class="List_step_inner" style="width: 13.994645669291998pt; white-space: nowrap;">
+              <span class="N_Step">2	</span>
+            </div>
+          </td>
+          <td width="100%">
+            <div class="List_step_inner"><a name="1019942">To exit from C-SPY, choose </a><span class="Menu_Command">Debug&gt;Stop Debugging</span>. Alternatively, click <img class="Default" src="images/tutor_debugging.2.1.19.jpg" width="27" height="23" style="display: inline; float: none; left: 0.0; top: 0.0;" alt="" /> the <span class="Menu_Command">Stop </span><span class="Menu_Command">D</span><span class="Menu_Command">ebugging</span> button on the toolbar. The IAR Embedded Workbench IDE main window is displayed.</div>
+          </td>
+        </tr>
+      </table>
+    </div>
+    <div class="Body"><a name="1024117">C-SPY also provides many other debugging facilities. Some of these—for example </a>macros and interrupt simulation—are described in the following tutorial chapters.</div>
+    <div class="Body"><a name="1021867">For further details about how to use C-SPY, see</a> the <span class="Reference">C-SPY® Debugging Guide</span>.</div>
+  </body>
+</html>

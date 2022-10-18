@@ -1,0 +1,261 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+    "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<!--  $Id: csTARGET.htm 51 2009-11-20 17:46:44Z peter $-->
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemalocation="http://www.w3.org/MarkUp/SCHEMA/xhtml11.xsd" xml:lang="en">
+<head>
+    <title>Release notes for the Analog Devices driver </title>
+    <meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8" />
+    <link type="text/css" rel="stylesheet" media="all" href="style/ewic.css" />
+</head>
+<body>
+    <div id="topbanner">
+    </div>
+    <div id="titlebanner_small">
+        <h2>
+            Release notes for the Analog Devices driver version 8.10.1
+        </h2>
+    </div>
+    <div class="breadcrumb">
+        <a href="index.ENU.html">IAR Information Center for 8051</a> | <a href="release_notes.ENU.html">
+            Release notes</a> | <a href="components.html">Components</a>
+            | Release notes for the Analog Devices driver
+    </div>
+    <div class="mainblock">
+        <ul>
+            <li><a href="#important">Important information</a> </li>
+            <li><a href="#features">New features</a> </li>
+            <li><a href="#problems">Known problems</a> </li>
+            <li><a href="#pcorr">Program corrections</a> </li>
+            <li><a href="#manuals">User guide corrections</a> </li>
+            <li><a href="#misc">Miscellaneous</a> </li>
+            <li><a href="#history">Release history</a> </li>
+        </ul>
+        <!--======================================================================-->
+        <!-- IMPORTANT INFORMATION                                                -->
+        <!--======================================================================-->
+        <h3>
+            <a name="important" id="important"></a>Important information
+        </h3>
+    <ul>
+        <li>
+            <p>
+                In case you are using <b>1 pin Emulation POD USB with ISO</b> you can speed up the
+                communication by doing the following: Select <b>Device Manager</b> and expand the
+                <b>Ports(COM & LPT) </b>setting. Open properties for <b>1-pin Emulation POD USB with
+                    ISO</b> and select the <b>Port Settings</b> property page. Click the <b>Advanced</b>...
+                button and set <b>Latency Timer</b> to 1 msec.
+            </p>
+        </li>
+    </ul>
+        <!--======================================================================-->
+        <!-- NEW FEATURES                                                         -->
+        <!--======================================================================-->
+        <h3>
+            <a name="features" id="features"></a>New features
+        </h3>
+    <ul>
+        <li>
+            <p>
+                The cache used by the Memory window will now update itself at runtime to also
+                reflect changes to code memory.
+            </p>
+        </li>
+        <li>
+            <p>
+                When the device is programmed, the contents of the data flash area is now retained
+                by default. A new option, <b>Erase data flash</b>, has also been added. When selected,
+                this option will clear the contents of the data flash area when the device is programmed.
+            </p>
+        </li>
+    </ul>
+        <!--======================================================================-->
+        <!-- Known Problems-->
+        <!--======================================================================-->
+        <h3>
+            <a name="problems" id="problems"></a>Known Problems
+        </h3>
+    <ul>
+        <li>
+            <p>
+                The following devices are not supported:
+            </p>
+            <ul>
+                <li>ADUC812</li>
+                <li>ADUC814</li>
+                <li>ADUC816</li>
+                <li>ADUC824</li>
+            </ul>
+        </li>
+    </ul>
+
+        <!--======================================================================-->
+        <!-- Program Corrections                                                  -->
+        <!--======================================================================-->
+        <h3>
+            <a name="pcorr" id="pcorr"></a>Program Corrections
+        </h3>
+    <ul>
+        <li>
+            <p>None.</p>
+        </li>
+    </ul>
+        <!--======================================================================-->
+        <!-- USER GUIDE CORRECTIONS                                               -->
+        <!--======================================================================-->
+        <h3>
+            <a name="manuals" id="manuals"></a>User guide corrections
+        </h3>
+    <ul>
+        <li>None</li>
+    </ul>
+ 
+        <!--======================================================================-->
+        <!-- MISCELLANEOUS                                                        -->
+        <!--======================================================================-->
+        <h3>
+            <a name="misc" id="misc"></a>Miscellaneous
+        </h3>
+    <ul>
+        <li>Nothing</li>
+    </ul>
+        <!--======================================================================-->
+        <!-- RELEASE HISTORY                                                      -->
+        <!--======================================================================-->
+        <h3>
+            <a name="history" id="history"></a>Release history
+        </h3>
+    <p>
+        <b>V7.51A, March 2009</b>
+    </p>
+    <p>
+        No changes.
+    </p>
+
+    <p>
+        <b>V7.50A, June 2008</b>
+    </p>
+    <ul>
+        <li>
+            <p>
+                The stack plugin is now able to initialize the extended stack correctly.<br>
+            </p>
+        </li>
+    </ul>
+
+    <p>
+        <b>V7.40A, February 2008</b>
+    </p>
+    <ul>
+        <li>
+            <p>
+                Sometimes breakpoints were not removed at the end of a debug session due to a problem
+                with the CODE memory cache of the driver. This has been corrected.
+            </p>
+        </li>
+    </ul>
+    <p>
+        <b>V7.30B, September 2007</b>
+    </p>
+    <p>
+        No changes.
+    </p>
+    <p>
+        <b>V7.21A, March 2007</b>
+    </p>
+    <ul>
+        <li>
+            <p>
+                When single stepping through C code, sometimes stepping over a return statement
+                could cause the debugger to loose track of its current position.
+            </p>
+        </li>
+    </ul>
+    <p>
+        <b>V7.20H, Nov 2006</b>
+    </p>
+    <ul>
+        <li>
+            <p>
+                The driver now supports both ADu and ADe devices.
+            </p>
+            <li>
+                <p>
+                    The driver has been updated to improve stability and download speed.
+                </p>
+            </li>
+    </ul>
+    <p>
+        <b>V7.20D, May 2006</b>
+    </p>
+    <ul>
+        <li>
+            <p>
+                There is a new option named 'CPU core clock frequency'. Here are the frequencies
+                for some of the boards:
+            </p>
+            <ul>
+                <li>ADUC831 11059200 (if the 11.0592MHz crystal is used)</li>
+            </ul>
+            <ul>
+                <li>ADUC832 16777216</li>
+            </ul>
+            <ul>
+                <li>ADUC834 12582912</li>
+            </ul>
+            <ul>
+                <li>ADUC836 12582912</li>
+            </ul>
+            <ul>
+                <li>ADUC841 11059200 (if the 11.0592MHz crystal is used)</li>
+            </ul>
+            <ul>
+                <li>ADUC842 16777216</li>
+            </ul>
+            <ul>
+                <li>ADUC843 16777216</li>
+            </ul>
+            <ul>
+                <li>ADUC845 12582912</li>
+            </ul>
+            <ul>
+                <li>ADUC846 12582912</li>
+            </ul>
+            <ul>
+                <li>ADUC847 12582912</li>
+            </ul>
+            <ul>
+                <li>ADUC848 12582912</li>
+            </ul>
+            <li>
+                <p>
+                    The communication between the host and the device has been improved. This improvement
+                    will make all the debug commands execute faster.
+                </p>
+            </li>
+    </ul>
+    <p>
+        <b>V7.20B, Nov 2005</b>
+    </p>
+    <ul>
+        <li>
+            <p>
+                It is now possible to select among more than just 4 different COM ports.
+            </p>
+        </li>
+    </ul>
+    <p>
+        <b>V7.20A, Oct 2005 </b>
+    </p>
+    <p>
+        No changes.
+    </p>
+    <p>
+        <b>V7.10A, July 2005 </b>
+    </p>
+    <p>
+        Initial release.
+    </p>
+    </div>
+</body>
+</html>

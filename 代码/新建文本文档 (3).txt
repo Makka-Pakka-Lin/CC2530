@@ -1,0 +1,15 @@
+#include<stdio.h>
+int main(){
+	int b,c,d;
+	for(int a;100<=a<=999);
+	sacnf("%d",&a);
+	b = a/100
+	c = a/10%10;
+	d = a%10;
+	if(b*b*b+c*c*c+d*d*d ==a){
+		printf("这个数是水仙花数"，%d);
+	}
+	else{
+		printf("这个数不是水仙花数"，%d)
+	}
+}

@@ -1,0 +1,355 @@
+/* fcb913 Title banner
+   e5a303 Dark
+   ffcb53 Light
+*/
+
+* {
+    font-family: Arial, Helvetica, Univers, sans-serif
+}
+
+
+a {
+    text-decoration: none;
+    color: #1158a8;
+}
+
+
+b,strong {
+    color: #515151;
+}
+
+
+tt {
+    font-family: monospace;
+}
+
+body {
+    padding: 0;
+    margin: 0;
+    font-size: 0.9em;
+}
+
+div#topbanner {
+    height: 76px;
+    min-width: 860px;
+    background-image: url(images/PCB_banner_bg.png);
+    background-repeat: repeat;
+    margin: 0;
+    padding: 0;
+}
+
+div#titlebanner {
+    height: 106px;
+    min-width: 860px;
+    background-image: url(images/Gradient_slice.png);
+    background-repeat: repeat;
+    margin: 0;
+    margin-bottom: 10px;
+}
+
+div#titlebanner img#bannerlogo {
+    float: right;
+    margin-top: 58px;
+    margin-right: 13px;
+}
+    
+div#titlebanner div {
+    padding-left: 20px;
+    padding-top: 20px;
+    width: 860px;
+    color: white;
+    float:left; position:relative; margin-right:-598px;
+}
+
+div#titlebanner h1 {
+    margin: 0;
+    font-weight: lighter;
+    color: white;
+}
+
+div#titlebanner p {
+    margin-top: 5px;
+    width: 600px;
+    font-size: 15px;
+    font-weight: 100;
+    color: white;
+}
+
+div.breadcrumb {
+    color: #dd8721;
+    font-size: 0.70em;
+    margin-left: 24px;
+    margin-bottom: 24px;
+/*    border-left: 1px dashed #FBFBFB;
+    border-top: 1px dashed #FBFBFB;
+    border-bottom: 1px dashed #FBFBFB;*/
+}
+
+div.breadcrumb a {
+    color: #e5a303;
+    text-decoration: none;
+}
+
+table#buttonarray {
+    border-collapse: separate;
+    border-spacing: 15px;
+    float: left;
+}
+
+table#buttonarray tr {
+    margin: 0;
+    padding: 0;
+}
+
+table#buttonarray td {
+    width: 130px;
+    min-width: 130px;
+    height: 150px;
+    font-size: 10px;
+    padding: 0;
+    vertical-align: top;
+    overflow: hidden;
+    background-image: url(images/cslice.png);
+    background-repeat: repeat-x;
+}
+
+table#buttonarray td img.button {
+    margin: 10px;
+}
+
+table#buttonarray td div.buttoncontainer {
+    width: 68px;
+    height: 69px;
+    margin: 0;
+    margin-left: 30px;
+    margin-top: -2px;
+    background-image: url(images/button_shadow.png);    
+    background-repeat: no-repeat;
+    background-position: -1px -1px;
+}
+
+table#buttonarray td div.textcontainer {
+    width: 116px;
+    min-width: 116px;
+    height: 79px;
+/*    overflow: hidden;*/
+    margin-left: 5px;
+    margin-bottom: 4px;
+    margin-top: -2px;
+    padding: 0;
+    text-align: center;
+}
+
+h2 {
+    font-weight: 100;
+    font-size: 1.2em;
+    color: #e5a303;
+    margin: 1px;
+}
+
+h3 {
+    font-weight: 700;
+    font-size: 11px;
+    color: #e5a303;
+    padding-bottom: 1px;
+    margin-bottom: 1px;
+}
+.mainblock h3 {
+    font-size: 1.00em;
+}
+
+h4 {
+    font-weight: 700;
+    font-size: 1.0em;
+    color: #515151;
+    padding-bottom: 1px;
+    margin-bottom: 1px;
+}
+
+
+table#buttonarray td div.textcontainer h3 {
+    display: block;
+    width: 100%;
+    text-align: center;
+    margin: 0;
+    margin-bottom: 2px;
+    padding: 0;
+}
+
+table#buttonarray td div.textcontainer p {
+    display: block;
+    font-weight: normal;
+    font-size: 10px;
+    line-height: 13px;
+    width: 116px;
+    text-align: left;
+    padding: 0;
+    padding-left: 2px;
+    margin: 0;
+}
+
+table#buttonarray td div.leftedge {
+    margin: 0;
+    padding: 0;
+    width: 6px;
+    height: 150px;
+    float: left;
+    background-image: url(images/cleftedge.png);
+    background-repeat: no-repeat;
+}
+
+table#buttonarray td div.rightedge {
+    margin: 0;
+    padding: 0;
+    width: 6px;
+    height: 150px;
+    float: right;
+    background-image: url(images/crightedge.png);
+    background-repeat: no-repeat;
+}
+
+p {
+    padding-top: 2px;
+    margin-top: 2px;
+    color: #313131;
+}
+
+p.lead {
+    font-weight: bold;
+    color: #313131;
+}
+
+div.distance {
+    height: 15px;
+}
+
+hr {
+  height: .1em;
+  color: #fff;
+  background-color: transparent;
+  border: 0;
+  border-top: 1px dashed #BBB;
+  margin: 10px;
+  margin-left: 15px;
+  margin-right: 15px;
+}
+
+div#titlebanner_small {
+    height: 24px;
+    min-width: 600px;
+    background-color: #fcb913;
+    margin: 0;
+    margin-bottom: 10px;
+    padding: 0;
+    color: white;
+}
+
+div#titlebanner_small h2 {
+    color: white;
+    margin-top: 0;
+    margin-left: 22px;
+}
+
+img.button {
+  border: 0;
+}
+
+div.rightcol {
+    float: right;
+    margin-left: 32px;
+    padding: 24px;
+    padding-left: 24px;
+    padding-right: 0;
+    margin-right: 0;
+    width: 200px;
+    border-left: 1px dashed #AAA;
+}
+
+div.rightcol table tr {
+    vertical-align: middle;
+}
+
+div.rightcol table tr td h3 {
+    margin: 0;
+}
+
+div.ppcol { /* in top level example page */
+    float: right;
+    margin-left: 32px;
+    padding: 24px;
+    padding-left: 24px;
+    padding-right: 0;
+    margin-right: 0;
+    width: 300px;
+    border-left: 1px dashed #AAA;
+}
+
+div.ppcol table tr.link1 {
+    height: 80px;
+}
+
+div.mainblock {
+    padding-left: 32px;
+}
+
+div.mainblock p,div.mainblock li {
+    font-size: 10pt;
+}
+
+a img {
+    display: inline;
+    border: 0;
+    padding: 0;
+    padding-left: 2px;
+    padding-right: 2px;
+}
+
+li.nobullet {
+    list-style: none;
+    text-indent: -25px;
+    padding-left: 25px;
+    margin-left: -20px;
+}
+
+code {
+
+    font-family: Courier, "Courier New", monospace;
+}
+
+
+table.guides_ul tr {
+    padding-bottom: 10px; 
+}
+
+
+table.example_ul th {
+    vertical-align: top;
+    padding: 5px 10px 5px 10px;
+    text-align: left;
+    background-color: #e0e0e0;
+}
+
+table.example_ul td.image {
+    text-align: center; /* center the buttons in the table cell */
+}
+
+table.example_ul td {
+    padding: 10px;
+    background-color: #EFEFEF;
+}
+
+table.example_ul td.name, table.example_ul th.name {
+/*    padding-left: 20px;*/
+    width: 220px;
+}
+
+
+table.userguides td {
+/*    padding-top: 12px; */
+}
+
+
+table.userguides td.text {
+    padding-left: 8px;
+    font-size: 1.05em; 
+}

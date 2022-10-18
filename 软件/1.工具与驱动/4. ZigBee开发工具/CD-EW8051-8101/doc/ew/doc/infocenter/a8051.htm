@@ -1,0 +1,206 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+    "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<!--  $Id: aTARGET.htm 51 2009-11-20 17:46:44Z peter $-->
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemalocation="http://www.w3.org/MarkUp/SCHEMA/xhtml11.xsd" xml:lang="en">
+<head>
+    <title>Release notes for the IAR Assembler for 8051</title>
+    <meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8" />
+    <link type="text/css" rel="stylesheet" media="all" href="style/ewic.css" />
+</head>
+<body>
+    <div id="topbanner">
+    </div>
+    <div id="titlebanner_small">
+        <h2>
+            Release notes for IAR Assembler for 8051 version 8.10.1
+        </h2>
+    </div>
+    <div class="breadcrumb">
+        <a href="index.ENU.html">IAR Information Center for 8051</a> | <a href="release_notes.ENU.html">
+            Release notes</a> | <a href="components.html">Components</a> | Release notes for the IAR Assembler for 8051
+    </div>
+    <div class="mainblock">
+        <ul>
+            <li><a href="#important">Important information</a> </li>
+            <li><a href="#features">New features</a> </li>
+            <li><a href="#problems">Known problems</a> </li>
+            <li><a href="#pcorr">Program corrections</a> </li>
+            <li><a href="#manuals">User guide corrections</a> </li>
+            <li><a href="#misc">Miscellaneous</a> </li>
+            <li><a href="#history">Release history</a> </li>
+        </ul>
+        <!--======================================================================-->
+        <!-- IMPORTANT INFORMATION                                                -->
+        <!--======================================================================-->
+        <h3>
+            <a name="important" id="important"></a>Important information
+        </h3>
+    <ul>
+        <li>
+        	<p>
+	        	The precedence order of assembler operators specified without parentheses
+	        	now follows the order described in the Assembler Reference Guide.
+        	</p>
+        </li>
+    </ul>
+        <!--======================================================================-->
+        <!-- NEW FEATURES                                                         -->
+        <!--======================================================================-->
+        <h3>
+            <a name="features" id="features"></a>New features
+        </h3>
+<ul>
+  <li> 
+    <p>
+      None.
+    </p>
+  </li>
+</ul>
+        <!--======================================================================-->
+        <!-- Known Problems-->
+        <!--======================================================================-->
+        <h3>
+            <a name="problems" id="problems"></a>Known Problems
+        </h3>
+    <ul>
+        <li>
+            <p>
+                <b>EW17003</b><br>
+                Symbols with bit addresses for bit EQU label information in other than bit segments
+                are displayed incorrectly in the linker map listing file. However, their actual
+                address is correct.
+            </p>
+        </li>
+    </ul>
+        <!--======================================================================-->
+        <!-- Program Corrections                                                  -->
+        <!--======================================================================-->
+        <h3>
+            <a name="pcorr" id="pcorr"></a>Program Corrections
+        </h3>
+    <ul>
+     <li><p><a NAME="EW21359"><b>EW21359:</b></a>
+               An uncontrolled termination of the assembler occuring
+               if a MOV instruction was given three operands has been corrected.
+     </p></li>
+    </ul>
+        <!--======================================================================-->
+        <!-- USER GUIDE CORRECTIONS                                               -->
+        <!--======================================================================-->
+        <h3>
+            <a name="manuals" id="manuals"></a>User guide corrections
+        </h3>
+    <ul>
+        <li>None</li>
+    </ul>
+ 
+        <!--======================================================================-->
+        <!-- MISCELLANEOUS                                                        -->
+        <!--======================================================================-->
+        <h3>
+            <a name="misc" id="misc"></a>Miscellaneous
+        </h3>
+    <ul>
+        <li>Nothing. </li>
+    </ul>
+ 
+        <!--======================================================================-->
+        <!-- RELEASE HISTORY                                                      -->
+        <!--======================================================================-->
+        <h3>
+            <a name="history" id="history"></a>Release history
+        </h3>
+    <p>
+        <b>V7.51A, March 2009</b>
+    </p>
+    <p>
+        No changes.
+    </p>
+    <p>
+        <b>V7.50A, June 2008</b>
+    </p>
+    <p>
+        No changes.
+    </p>
+    <p>
+        <b>V7.40A, February 2008</b>
+    </p>
+    <ul>
+        <li>
+            <p>
+                <b>EW18916</b><br>
+                During some circumstances, assembler <b>DEFINE</b> statements that contained calculations
+                based on symbolic values (for instance <b>DEFINE symbol+3</b>) would get calculated
+                in the wrong way.
+            </p>
+        </li>
+    </ul>
+    <p>
+        <b>V7.30B, September 2007</b>
+    </p>
+    <p>
+        No changes.
+    </p>
+    <p>
+        <b>V7.30A, August 2007</b>
+    </p>
+    <ul>
+        <li>
+            <p>
+                <b>EW17382</b><br>
+                A Fatal Error was generated if an EXTERN declared value was used as parameter to
+                the ORG directive. The error message has been improved to clarify the problem.
+            </p>
+        </li>
+    </ul>
+    <p>
+        <b>V7.20A, October 2005</b>
+    </p>
+    <p>
+        No changes.
+    </p>
+    <p>
+        <b>V7.10A, July 2005</b>
+    </p>
+    <ul>
+        <li>
+            <p>
+                <b>EW16357, EW16998</b><br>
+                Previously the assembler supported many undocumented register symbols; this support
+                has now been removed. Instead they have been added to the header files for the respective
+                derivative. In this way all SFRs are handled in the same way. The SFRs now directly
+                supported by the assembler are <tt>ACC</tt> (accumulator), <tt>B</tt>, <tt>PSW</tt>,
+                <tt>SP</tt>, <tt>DPL</tt> and <tt>DPH</tt>. Further the following bits in the <tt>PSW</tt>
+                register are supported: <tt>AC</tt>, <tt>F0</tt>, <tt>RS1</tt>, <tt>RS0</tt>,<tt>OV</tt>,
+                <tt>P</tt>.
+            </p>
+        </li>
+    </ul>
+    <p>
+        <b>V6.11A, October 2004</b>
+    </p>
+    <ul>
+        <li>
+            <p>
+                <b>EW12015</b><br>
+                The <tt>DC8, DC16, DC24, DC32, DS8, DS16, DS24, DS32</tt> assembler directives are
+                now supported.
+            </p>
+        </li>
+        <li>
+            <p>
+                <b>EW12014</b><br>
+                The <tt>ODD</tt> directive now works as intended.
+            </p>
+        </li>
+    </ul>
+    <p>
+        <b>V6.10A, February 2004</b>
+    </p>
+    <p>
+        Initial release.
+    </p>
+    </div>
+</body>
+</html>

@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <meta http-equiv="Content-Style-Type" content="text/css" />
+    <!-- MOTW-DISABLED saved from url=(0014)about:internet -->
+    <title>Creating and using libraries</title>
+    <link rel="StyleSheet" href="css/tutor_libraries.css" type="text/css" media="all" />
+    <link rel="StyleSheet" href="css/webworks.css" type="text/css" media="all" />
+    <script type="text/javascript" language="JavaScript1.2" src="scripts/expand.js"></script>
+    <script type="text/javascript" language="JavaScript1.2">
+      <!--
+        var  WebWorksRootPath = "";
+      // -->
+    </script>
+  </head>
+  <body class="" style="background-color: White; background-image: url(&quot;style/images/Gradient_slice.png&quot;); background-position: center top; background-repeat: repeat-x;">
+    <table align="left" summary="">
+      <tr>
+        <td class="WebWorks_Company_Logo_Top">
+          <img src="images/IAR_CMYK_transp_37px.png" alt="" />
+        </td>
+      </tr>
+    </table>
+    <br clear="all" />
+    <div class="Heading1"><a name="1051844">Creating and using </a>libraries</div>
+    <div class="WebWorks_MiniTOC">
+      <div class="WebWorks_MiniTOC_Level1">
+        <a class="WebWorks_MiniTOC_Link" href="#1072303">Using libraries</a>
+      </div>
+      <div class="WebWorks_MiniTOC_Level2">
+        <a class="WebWorks_MiniTOC_Link" href="#1052345">Creating a new project</a>
+      </div>
+      <div class="WebWorks_MiniTOC_Level2">
+        <a class="WebWorks_MiniTOC_Link" href="#1052415">Creating a library project</a>
+      </div>
+      <div class="WebWorks_MiniTOC_Level2">
+        <a class="WebWorks_MiniTOC_Link" href="#1052521">Using the library in your application project</a>
+      </div>
+    </div>
+    <div class="Ingress"><span style="font-family: &quot;Times New Roman&quot;; font-size: 9.0pt;"><a name="1052293"></a></span>This tutorial demonstrates how to create a library project and how you can combine it with an application project.</div>
+    <div class="Ingress"><a name="1066836">This tutorial assumes that you are familiar with the basics of the IAR </a>Embedded Workbench® IDE described in the previous tutorial chapters.</div>
+    <div class="Heading2NoBrk"><a name="1072303">U</a>sing libraries</div>
+    <div class="Body"><a name="1052296">If you are working on a large project, you will soon accumulate a collection of useful </a>modules that contain one or more routines to be used by several of your applications. To avoid having to assemble or compile a module each time it is needed, you can store such modules as object files, that is, assembled or compiled but not linked.</div>
+    <div class="Body"><a name="1052297">You can collect many modules in a single object file which then is referred to as a </a><span style="font-style: italic;">library</span>. It is recommended that you use library files to create collections of related routines, such as a device driver.</div>
+    <div class="Body"><a name="1072735">If your product package includes the XLINK linker, use the IAR XAR Library Builder </a>to build libraries, and if your product package includes the ILINK linker, use the IAR Archive Tool <span class="Computer">iarchive</span><span style="font-family: &quot;Microsoft Sans Serif&quot;; font-size: 8.0pt;"></span> to build libraries.</div>
+    <div class="Heading4"><a name="1067548">The Main.</a>s<span class="Emphasis">x</span><span class="Emphasis">x</span> program </div>
+    <div class="Body"><a name="1071056">T</a>he <span class="Computer">Main.s</span><span class="Computer_parameter">x</span><span class="Computer_parameter">x</span> or <span class="Computer">Main.s</span> program uses a routine called <span class="Computer">max</span> to set the contents of one register to the maximum value of two other registers. The <span class="Computer">EXTERN</span> directive declares <span class="Computer">max</span> as an external symbol, to be resolved at link time.</div>
+    <div class="Body"><a name="1052321">A copy of the program is provided in the </a><span class="Computer_parameter">c</span><span class="Computer_parameter">puname</span><span class="Computer">\tutor</span> directory.</div>
+    <div class="Heading4"><a name="1052330">The library routines</a></div>
+    <div class="Body"><a name="1071064">T</a>he two library routines will form a separately assembled library. It consists of the <span class="Computer">max</span> routine called by <span class="Computer">main</span>, and a corresponding <span class="Computer">min</span> routine, both of which operate on the contents of the registers used in the <span class="Computer">Main.s</span><span class="Emphasis">x</span><span class="Emphasis">x</span> or <span class="Computer">Main.s</span> program. The <span class="Computer">Maxmin.</span><span class="Computer">s</span><span class="Computer_parameter">xx</span>  file contains these library routines and a copy is provided in the <span class="Computer_parameter">c</span><span class="Computer_parameter">puname</span><span class="Computer">\tutor</span> directory.</div>
+    <div class="Body"><a name="1052337">The routines are defined as library modules by the </a><span class="Computer">MODULE</span> directive (XLINK only), which instructs the IAR XLINK Linker to include the modules only if they are referenced by another module. </div>
+    <div class="Body"><a name="1052339">The </a><span class="Computer">PUBLIC</span> directive makes the <span class="Computer">max</span> and <span class="Computer">min</span> symbols public to other modules.</div>
+    <div class="Body"><a name="1052342">For detailed information about the </a><span class="Computer">MODULE</span> and <span class="Computer">PUBLIC</span> directives, see the <span class="Reference">I</span><span class="Reference">AR </span><span class="Reference">Assembler Reference Guide</span>.</div>
+    <div class="Heading3NoBrk"><a name="1052345">Creating a new project</a></div>
+    <div class="List_step_first_outer" style="margin-left: 0.5062999999999767cm;">
+      <table border="0" cellspacing="0" cellpadding="0" summary="">
+        <tr style="vertical-align: baseline;">
+          <td>
+            <div class="List_step_first_inner" style="width: 13.994645669291998pt; white-space: nowrap;">
+              <span class="N_Step">1	</span>
+            </div>
+          </td>
+          <td width="100%">
+            <div class="List_step_first_inner"><a name="1052346">In the workspace </a><span class="Computer">tutorials</span> used in previous chapters, add a new project called <span class="Computer">project5</span>. </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+    <div class="List_step_outer" style="margin-left: 0.5062999999999767cm;">
+      <table border="0" cellspacing="0" cellpadding="0" summary="">
+        <tr style="vertical-align: baseline;">
+          <td>
+            <div class="List_step_inner" style="width: 13.994645669291998pt; white-space: nowrap;">
+              <span class="N_Step">2	</span>
+            </div>
+          </td>
+          <td width="100%">
+            <div class="List_step_inner"><a name="1052353">Add the file </a><span class="Computer">Main.</span><span class="Computer">s</span><span class="Computer_parameter">xx</span> or <span class="Computer">Main.s</span> to the new project.</div>
+          </td>
+        </tr>
+      </table>
+    </div>
+    <div class="List_step_outer" style="margin-left: 0.5062999999999767cm;">
+      <table border="0" cellspacing="0" cellpadding="0" summary="">
+        <tr style="vertical-align: baseline;">
+          <td>
+            <div class="List_step_inner" style="width: 13.994645669291998pt; white-space: nowrap;">
+              <span class="N_Step">3	</span>
+            </div>
+          </td>
+          <td width="100%">
+            <div class="List_step_inner"><a name="1071089">To set options, choose </a><span class="Menu_Command">Project&gt;Options.</span> Select the <span class="Menu_Command">G</span><span class="Menu_Command">eneral Options</span> category and click the <span class="Menu_Command">Library Configuration</span> tab. Choose <span class="Menu_Command">None</span> from the <span class="Menu_Command">Library</span> drop-down list, which means that a standard C/C++ library will not be linked.</div>
+          </td>
+        </tr>
+      </table>
+    </div>
+    <div class="Body"><a name="1071090">T</a>he default options are used for the other option categories.</div>
+    <div class="List_step_outer" style="margin-left: 0.5062999999999767cm;">
+      <table border="0" cellspacing="0" cellpadding="0" summary="">
+        <tr style="vertical-align: baseline;">
+          <td>
+            <div class="List_step_inner" style="width: 13.994645669291998pt; white-space: nowrap;">
+              <span class="N_Step">4	</span>
+            </div>
+          </td>
+          <td width="100%">
+            <div class="List_step_inner"><a name="1066525">To assemble the file </a><span class="Computer">Main.</span><span class="Computer">s</span><span class="Computer_parameter">xx</span> or <span class="Computer">Main.s</span>, choose <span class="Menu_Command">Project&gt;Compile</span>.</div>
+          </td>
+        </tr>
+      </table>
+    </div>
+    <div class="Body"><a name="1052401">You can also click</a> <img class="Default" src="images/tutor_libraries.6.1.1.jpg" width="26" height="25" style="display: inline; float: none; left: 0.0; top: 0.0;" alt="" /> the <span class="Menu_Command">Compile</span> button on the toolbar.</div>
+    <div class="Heading3NoBrk"><a name="1052415">Creating a library project</a></div>
+    <div class="Body"><a name="1067134">Now you are ready to create a library project.</a></div>
+    <div class="List_step_first_outer" style="margin-left: 0.5062999999999767cm;">
+      <table border="0" cellspacing="0" cellpadding="0" summary="">
+        <tr style="vertical-align: baseline;">
+          <td>
+            <div class="List_step_first_inner" style="width: 13.994645669291998pt; white-space: nowrap;">
+              <span class="N_Step">1	</span>
+            </div>
+          </td>
+          <td width="100%">
+            <div class="List_step_first_inner"><a name="1067065">In the same workspace </a><span class="Computer">tutorials</span>, add a new project called <span class="Computer">tutor_library</span>.</div>
+          </td>
+        </tr>
+      </table>
+    </div>
+    <div class="List_step_outer" style="margin-left: 0.5062999999999767cm;">
+      <table border="0" cellspacing="0" cellpadding="0" summary="">
+        <tr style="vertical-align: baseline;">
+          <td>
+            <div class="List_step_inner" style="width: 13.994645669291998pt; white-space: nowrap;">
+              <span class="N_Step">2	</span>
+            </div>
+          </td>
+          <td width="100%">
+            <div class="List_step_inner"><a name="1067087">Add the file </a><span class="Computer">M</span><span class="Computer">axmin.</span><span class="Computer">s</span><span class="Computer_parameter">xx</span> to the project.</div>
+          </td>
+        </tr>
+      </table>
+    </div>
+    <div class="List_step_outer" style="margin-left: 0.5062999999999767cm;">
+      <table border="0" cellspacing="0" cellpadding="0" summary="">
+        <tr style="vertical-align: baseline;">
+          <td>
+            <div class="List_step_inner" style="width: 13.994645669291998pt; white-space: nowrap;">
+              <span class="N_Step">3	</span>
+            </div>
+          </td>
+          <td width="100%">
+            <div class="List_step_inner"><a name="1067099">To set options, choose </a><span class="Menu_Command">Project&gt;Options.</span> In the <span class="Menu_Command">G</span><span class="Menu_Command">eneral Options</span> category, verify these settings:</div>
+          </td>
+        </tr>
+      </table>
+    </div>
+    <div class="TableAnchor"><a name="1067114">&nbsp;</a></div>
+    <table class="Standard" style="text-align: left; width: 312.2618173228344pt;" cellspacing="0" summary="">
+      <caption></caption>
+      <tr>
+        <td style="border-bottom-color: #7f7f7f; border-bottom-style: solid; border-bottom-width: 1.2pt; padding-bottom: 3pt; padding-left: 0pt; padding-right: 0pt; padding-top: 3pt; vertical-align: middle; width: 85.4913826771654pt;">
+          <div class="CellHeading"><a name="1067102">Page</a></div>
+        </td>
+        <td style="border-bottom-color: #7f7f7f; border-bottom-style: solid; border-bottom-width: 1.2pt; padding-bottom: 3pt; padding-left: 0pt; padding-right: 0pt; padding-top: 3pt; vertical-align: middle; width: 226.770434645669pt;">
+          <div class="CellHeading"><a name="1067104">Option</a></div>
+        </td>
+      </tr>
+      <tr>
+        <td style="padding-bottom: 3pt; padding-left: 0pt; padding-right: 0pt; padding-top: 3pt; vertical-align: top;">
+          <div class="CellBody"><a name="1067106">Output</a></div>
+        </td>
+        <td style="padding-bottom: 3pt; padding-left: 0pt; padding-right: 0pt; padding-top: 3pt; vertical-align: top;">
+          <div class="CellBody"><a name="1067108">Output file: Library</a></div>
+        </td>
+      </tr>
+      <tr>
+        <td style="padding-bottom: 3pt; padding-left: 0pt; padding-right: 0pt; padding-top: 3pt; vertical-align: top;">
+          <div class="CellBody"><a name="1071106">Library Configuration</a></div>
+        </td>
+        <td style="padding-bottom: 3pt; padding-left: 0pt; padding-right: 0pt; padding-top: 3pt; vertical-align: top;">
+          <div class="CellBody"><a name="1071108">Library: None</a></div>
+        </td>
+      </tr>
+    </table>
+    <div class="Body"><a name="1072907">Note that </a><span class="Menu_Command">L</span><span class="Menu_Command">ibrary Builder</span> appears in the list of categories, which means that the IAR XAR Library Builder (for XLINK) or IAR Archive Tool <span class="Computer">iarchive</span><span style="font-family: &quot;Microsoft Sans Serif&quot;; font-size: 8.0pt;"></span> (for ILINK) is added to the build toolchain. You do not have to set any specific options specific for library building for this tutorial.</div>
+    <div class="Body"><a name="1072901">Click </a><span class="Menu_Command">OK. </span></div>
+    <div class="List_step_outer" style="margin-left: 0.5062999999999767cm;">
+      <table border="0" cellspacing="0" cellpadding="0" summary="">
+        <tr style="vertical-align: baseline;">
+          <td>
+            <div class="List_step_inner" style="width: 13.994645669291998pt; white-space: nowrap;">
+              <span class="N_Step">4	</span>
+            </div>
+          </td>
+          <td width="100%">
+            <div class="List_step_inner"><a name="1072862">Choose </a><span class="Menu_Command">Project&gt;Make</span>.</div>
+          </td>
+        </tr>
+      </table>
+    </div>
+    <div class="Body"><a name="1067180">The library output file </a><span class="Computer">tutor_library.</span><span class="Computer">r</span><span class="Computer">xx</span> has now been created in the <span class="Computer">projects\Debug\Exe</span> directory.</div>
+    <div class="Heading3NoBrk"><a name="1052521">Using the library in your application project</a></div>
+    <div class="Body"><a name="1052522">Now add your library containing the </a>maxmin routine to <span class="Computer">project5</span>.</div>
+    <div class="List_step_first_outer" style="margin-left: 0.5062999999999767cm;">
+      <table border="0" cellspacing="0" cellpadding="0" summary="">
+        <tr style="vertical-align: baseline;">
+          <td>
+            <div class="List_step_first_inner" style="width: 13.994645669291998pt; white-space: nowrap;">
+              <span class="N_Step">1	</span>
+            </div>
+          </td>
+          <td width="100%">
+            <div class="List_step_first_inner"><a name="1067315">In the Workspace window, click the </a><span class="Menu_Command">project5</span> tab. Choose <span class="Menu_Command">Project&gt;Add Files</span> and add the file <span class="Computer">tutor_library.</span><span class="Computer">r</span><span class="Computer">xx</span> (<span class="Computer">tutor_library.a</span> for ILINK) located in the <span class="Computer">projects\Debug\Exe</span> directory. Click <span class="Menu_Command">Open</span>.</div>
+          </td>
+        </tr>
+      </table>
+    </div>
+    <div class="List_step_outer" style="margin-left: 0.5062999999999767cm;">
+      <table border="0" cellspacing="0" cellpadding="0" summary="">
+        <tr style="vertical-align: baseline;">
+          <td>
+            <div class="List_step_inner" style="width: 13.994645669291998pt; white-space: nowrap;">
+              <span class="N_Step">2	</span>
+            </div>
+          </td>
+          <td width="100%">
+            <div class="List_step_inner"><a name="1067319">Click</a> <img class="Default" src="images/tutor_libraries.6.1.2.jpg" width="23" height="26" style="display: inline; float: none; left: 0.0; top: 0.0;" alt="" /> <span class="Menu_Command">Make</span> to build your project.</div>
+          </td>
+        </tr>
+      </table>
+    </div>
+    <div class="List_step_outer" style="margin-left: 0.5062999999999767cm;">
+      <table border="0" cellspacing="0" cellpadding="0" summary="">
+        <tr style="vertical-align: baseline;">
+          <td>
+            <div class="List_step_inner" style="width: 13.994645669291998pt; white-space: nowrap;">
+              <span class="N_Step">3	</span>
+            </div>
+          </td>
+          <td width="100%">
+            <div class="List_step_inner"><a name="1067269">You have now combined a library with an executable project, and the application is </a>ready to be executed. For information about how to manipulate the library, see the <span class="Reference">I</span><span class="Reference">AR </span><span class="Reference">Linker and Library Tools Reference Guide</span><span class="Reference"> </span>if you built the library using XAR and IAR Archive Tool documentation available in the <span class="Reference">IAR C/C++ Development Guide</span> if you built the library using <span class="Computer">iarchive</span><span style="font-family: &quot;Microsoft Sans Serif&quot;; font-size: 8.0pt;"></span>.</div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </body>
+</html>

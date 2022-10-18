@@ -1,0 +1,323 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <meta http-equiv="Content-Style-Type" content="text/css" />
+    <!-- MOTW-DISABLED saved from url=(0014)about:internet -->
+    <title>Using C++</title>
+    <link rel="StyleSheet" href="css/tutor_usingEC++.css" type="text/css" media="all" />
+    <link rel="StyleSheet" href="css/webworks.css" type="text/css" media="all" />
+    <script type="text/javascript" language="JavaScript1.2" src="scripts/expand.js"></script>
+    <script type="text/javascript" language="JavaScript1.2">
+      <!--
+        var  WebWorksRootPath = "";
+      // -->
+    </script>
+  </head>
+  <body class="" style="background-color: White; background-image: url(&quot;style/images/Gradient_slice.png&quot;); background-position: center top; background-repeat: repeat-x;">
+    <table align="left" summary="">
+      <tr>
+        <td class="WebWorks_Company_Logo_Top">
+          <img src="images/IAR_CMYK_transp_37px.png" alt="" />
+        </td>
+      </tr>
+    </table>
+    <br clear="all" />
+    <div class="Heading1"><a name="1052646">U</a>sing C++</div>
+    <div class="WebWorks_MiniTOC">
+      <div class="WebWorks_MiniTOC_Level1">
+        <a class="WebWorks_MiniTOC_Link" href="#1065234">Creating a C++ application</a>
+      </div>
+      <div class="WebWorks_MiniTOC_Level2">
+        <a class="WebWorks_MiniTOC_Link" href="#1051957">Compiling and linking the C++ application</a>
+      </div>
+      <div class="WebWorks_MiniTOC_Level2">
+        <a class="WebWorks_MiniTOC_Link" href="#1052007">Setting a breakpoint and executing to it</a>
+      </div>
+      <div class="WebWorks_MiniTOC_Level2">
+        <a class="WebWorks_MiniTOC_Link" href="#1052040">Printing the Fibonacci numbers</a>
+      </div>
+    </div>
+    <div class="Ingress"><a name="1055998">In this </a>tutorial, C++ is used to create a C++ class. The class is then used for creating two independent objects, and the application is built and debugged. We also show an example of how to set a conditional breakpoint.</div>
+    <div class="Ingress"><a name="1059903">This tutorial assumes that you are familiar with the basics of the IAR </a>Embedded Workbench® IDE described in the previous tutorials.</div>
+    <div class="Ingress"><a name="1059934">N</a>ote that, depending on what IAR Systems product package you have installed, support for C++ might or might not be included. This tutorial assumes that the product supports C++.</div>
+    <div class="Heading2NoBrk"><a name="1065234">C</a>reating a C++ application</div>
+    <div class="Body"><a name="1051951">This tutorial demonstrates how to use the C++ features. The tutorial consists of two files: </a></div>
+    <div class="List_bullet_outer" style="margin-left: 0.5999999999999984cm;">
+      <table border="0" cellspacing="0" cellpadding="0" summary="">
+        <tr style="vertical-align: baseline;">
+          <td>
+            <div class="List_bullet_inner" style="width: 11.3385826771654pt; white-space: nowrap;">
+              <img src="images/bullet.png" alt="*" border="0" width="10" height="9" /> </div>
+          </td>
+          <td width="100%">
+            <div class="List_bullet_inner"><span class="Computer"><a name="1056673">Fibonacci.h</a></span> and <span class="Computer">Fibonacci.cpp</span> define a class <span class="Computer">Fibonacci</span> that can be used to extract a series of Fibonacci numbers </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+    <div class="List_bullet_outer" style="margin-left: 0.5999999999999984cm;">
+      <table border="0" cellspacing="0" cellpadding="0" summary="">
+        <tr style="vertical-align: baseline;">
+          <td>
+            <div class="List_bullet_inner" style="width: 11.3385826771654pt; white-space: nowrap;">
+              <img src="images/bullet.png" alt="*" border="0" width="10" height="9" /> </div>
+          </td>
+          <td width="100%">
+            <div class="List_bullet_inner"><span class="Computer"><a name="1056685">CppTutor.cpp</a></span> creates two objects, <span class="Computer">fib1</span> and <span class="Computer">fib2</span>, from the class <span class="Computer">Fibonacci</span> and extracts two sequences of Fibonacci numbers using the <span class="Computer">Fibonacci</span> class. </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+    <div class="Body"><a name="1056690">To demonstrate that the two objects are independent of each other, the numbers are </a>extracted at different speeds. A number is extracted from <span class="Computer">fib1</span> each turn in the loop while a number is extracted from <span class="Computer">fib2</span> only every second turn. </div>
+    <div class="Body"><a name="1057844">The object </a><span class="Computer">fib1</span> is created using the default constructor while the definition of <span class="Computer">fib2</span> uses the constructor that takes an integer as its argument.</div>
+    <div class="Heading3NoBrk"><a name="1051957">Compiling and linking the C++ application</a></div>
+    <div class="List_step_first_outer" style="margin-left: 0.5062999999999767cm;">
+      <table border="0" cellspacing="0" cellpadding="0" summary="">
+        <tr style="vertical-align: baseline;">
+          <td>
+            <div class="List_step_first_inner" style="width: 13.994645669291998pt; white-space: nowrap;">
+              <span class="N_Step">1	</span>
+            </div>
+          </td>
+          <td width="100%">
+            <div class="List_step_first_inner"><a name="1051958">In the workspace </a><span class="Computer">tutorials</span> used in the previous chapters, create a new project, <span class="Computer">project3</span>.</div>
+          </td>
+        </tr>
+      </table>
+    </div>
+    <div class="List_step_outer" style="margin-left: 0.5062999999999767cm;">
+      <table border="0" cellspacing="0" cellpadding="0" summary="">
+        <tr style="vertical-align: baseline;">
+          <td>
+            <div class="List_step_inner" style="width: 13.994645669291998pt; white-space: nowrap;">
+              <span class="N_Step">2	</span>
+            </div>
+          </td>
+          <td width="100%">
+            <div class="List_step_inner"><a name="1059003">Add the files </a><span class="Computer">Fibonacci.cpp</span> and <span class="Computer">CppTutor.cpp</span> to <span class="Computer">project3</span>.</div>
+          </td>
+        </tr>
+      </table>
+    </div>
+    <div class="List_step_outer" style="margin-left: 0.5062999999999767cm;margin-bottom: 5.6693pt; margin-top: 5.6693pt;">
+      <table border="0" cellspacing="0" cellpadding="0" summary="">
+        <tr style="vertical-align: baseline;">
+          <td>
+            <div class="List_step_inner" style="width: 13.994645669291998pt; white-space: nowrap;">
+              <span class="N_Step">3	</span>
+            </div>
+          </td>
+          <td width="100%">
+            <div class="List_step_inner"><a name="1064624">C</a>hoose <span class="Menu_Command">Project&gt;Options</span> and make sure the default factory settings are used.</div>
+          </td>
+        </tr>
+      </table>
+    </div>
+    <div class="Note" style="margin-bottom: 5.6693pt; margin-top: 5.6693pt;">
+      <span style="font-style: normal; font-variant: normal; font-weight: bold; text-transform: none; vertical-align: baseline;">Note: </span><a name="1064625">For this application, the default stack size might be too small. For further </a>information about the required settings, see the <span class="Computer">CppTutor.cpp</span> file.</div>
+    <div class="Body"><a name="1065877">In addition to the default settings, you must switch to the C++ programming language, </a>which is supported by the IAR DLIB Library. To use a DLIB library, choose the <span class="Menu_Command">G</span><span class="Menu_Command">eneral Options</span> category and click the <span class="Menu_Command">Library Configuration</span> tab. From the <span class="Menu_Command">Library</span> drop-down list, choose <span class="Menu_Command">Normal DLIB</span> (for some product packages <span class="Menu_Command">DLIB</span>).</div>
+    <div class="Body"><a name="1065884">To switch to the C++ programming language, choose the </a><span class="Menu_Command">C</span><span class="Menu_Command">/C++ Compiler</span> category and click the <span class="Menu_Command">Language</span> tab. Choose <span class="Menu_Command">Language&gt;C++,</span> <span class="Menu_Command">C++ dialect&gt;E</span><span class="Menu_Command">mbedded C++</span> and press <span class="Menu_Command">Ok</span>.</div>
+    <div class="Body"><a name="1064636">To read more about the IAR DLIB Library and the C++ support, see the compiler </a>documentation<span class="Reference">.</span></div>
+    <div class="List_step_outer" style="margin-left: 0.5062999999999767cm;">
+      <table border="0" cellspacing="0" cellpadding="0" summary="">
+        <tr style="vertical-align: baseline;">
+          <td>
+            <div class="List_step_inner" style="width: 13.994645669291998pt; white-space: nowrap;">
+              <span class="N_Step">4	</span>
+            </div>
+          </td>
+          <td width="100%">
+            <div class="List_step_inner"><a name="1052125">Choose </a><span class="Menu_Command">Project&gt;Make</span> to compile and link your application.</div>
+          </td>
+        </tr>
+      </table>
+    </div>
+    <div class="Body"><a name="1051999">Alternatively, click</a> <img class="Default" src="images/tutor_usingEC++.4.1.1.jpg" width="23" height="26" style="display: inline; float: none; left: 0.0; top: 0.0;" alt="" /> the <span class="Menu_Command">Make</span> button on the toolbar. The <span class="Menu_Command">Make</span> command compiles and links those files that have been modified.</div>
+    <div class="List_step_outer" style="margin-left: 0.5062999999999767cm;">
+      <table border="0" cellspacing="0" cellpadding="0" summary="">
+        <tr style="vertical-align: baseline;">
+          <td>
+            <div class="List_step_inner" style="width: 13.994645669291998pt; white-space: nowrap;">
+              <span class="N_Step">5	</span>
+            </div>
+          </td>
+          <td width="100%">
+            <div class="List_step_inner"><a name="1052000">Choose </a><span class="Menu_Command">Project&gt;Debug</span> to start C-SPY.</div>
+          </td>
+        </tr>
+      </table>
+    </div>
+    <div class="Heading3NoBrk"><a name="1052007">Setting a breakpoint and executing to it</a></div>
+    <div class="List_step_first_outer" style="margin-left: 0.5062999999999767cm;">
+      <table border="0" cellspacing="0" cellpadding="0" summary="">
+        <tr style="vertical-align: baseline;">
+          <td>
+            <div class="List_step_first_inner" style="width: 13.994645669291998pt; white-space: nowrap;">
+              <span class="N_Step">1	</span>
+            </div>
+          </td>
+          <td width="100%">
+            <div class="List_step_first_inner"><a name="1052008">Open the CppTutor.cpp window if it is not already open. </a></div>
+          </td>
+        </tr>
+      </table>
+    </div>
+    <div class="List_step_outer" style="margin-left: 0.5062999999999767cm;">
+      <table border="0" cellspacing="0" cellpadding="0" summary="">
+        <tr style="vertical-align: baseline;">
+          <td>
+            <div class="List_step_inner" style="width: 13.994645669291998pt; white-space: nowrap;">
+              <span class="N_Step">2	</span>
+            </div>
+          </td>
+          <td width="100%">
+            <div class="List_step_inner"><a name="1052009">To see how the object is constructed, </a>set a breakpoint on the C++ object <span class="Computer">fib1</span> on this line:</div>
+          </td>
+        </tr>
+      </table>
+    </div>
+    <div class="Prog"><a name="1052010">Fibonacci fib1;</a></div>
+    <div class="GraphicFrameHelp"><a name="1052015"><img class="Default" src="images/tutor_usingEC++.4.1.2.jpg" width="521" height="375" style="display: block; float: none; left: 0.0; top: 0.0;" alt="" /></a></div>
+    <div class="List_step_outer" style="margin-left: 0.5062999999999767cm;">
+      <table border="0" cellspacing="0" cellpadding="0" summary="">
+        <tr style="vertical-align: baseline;">
+          <td>
+            <div class="List_step_inner" style="width: 13.994645669291998pt; white-space: nowrap;">
+              <span class="N_Step">3	</span>
+            </div>
+          </td>
+          <td width="100%">
+            <div class="List_step_inner"><a name="1052017">Choose </a><span class="Menu_Command">Debug&gt;Go</span>, or click the <span class="Menu_Command">Go</span> button on the toolbar.</div>
+          </td>
+        </tr>
+      </table>
+    </div>
+    <div class="Body"><a name="1052018">The cursor should now be placed at the breakpoint.</a></div>
+    <div class="List_step_outer" style="margin-left: 0.5062999999999767cm;">
+      <table border="0" cellspacing="0" cellpadding="0" summary="">
+        <tr style="vertical-align: baseline;">
+          <td>
+            <div class="List_step_inner" style="width: 13.994645669291998pt; white-space: nowrap;">
+              <span class="N_Step">4	</span>
+            </div>
+          </td>
+          <td width="100%">
+            <div class="List_step_inner"><a name="1052019">To step into the constructor, choose </a><span class="Menu_Command">Debug&gt;Step Into</span> or click the <span class="Menu_Command">Step Into</span> button in the toolbar. Then click <span class="Menu_Command">Step Out</span> again. </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+    <div class="List_step_outer" style="margin-left: 0.5062999999999767cm;">
+      <table border="0" cellspacing="0" cellpadding="0" summary="">
+        <tr style="vertical-align: baseline;">
+          <td>
+            <div class="List_step_inner" style="width: 13.994645669291998pt; white-space: nowrap;">
+              <span class="N_Step">5	</span>
+            </div>
+          </td>
+          <td width="100%">
+            <div class="List_step_inner"><span class="Menu_Command"><a name="1064425">Step Over</a></span> until the line:</div>
+          </td>
+        </tr>
+      </table>
+    </div>
+    <div class="Prog"><a name="1064426">cout &lt;&lt; fib1.next();</a></div>
+    <div class="Body"><span class="Menu_Command"><a name="1060332">Step Into </a></span>until you are in the function <span class="Computer">next</span> in the file <span class="Computer">Fibonacci.cpp</span>.</div>
+    <div class="List_step_outer" style="margin-left: 0.5062999999999767cm;">
+      <table border="0" cellspacing="0" cellpadding="0" summary="">
+        <tr style="vertical-align: baseline;">
+          <td>
+            <div class="List_step_inner" style="width: 13.994645669291998pt; white-space: nowrap;">
+              <span class="N_Step">6	</span>
+            </div>
+          </td>
+          <td width="100%">
+            <div class="List_step_inner"><a name="1060333">Use the </a><span class="Menu_Command">Go to function</span> button <img class="Default" src="images/tutor_usingEC++.4.1.3.jpg" width="17" height="16" style="display: inline; float: none; left: 0.0; top: 0.0;" alt="" /> in the lower left corner of the editor window and double-click the function name <span class="Computer">n</span><span class="Computer">th</span> to find and go to the function. Set a breakpoint on the function call <span style="font-family: &quot;Microsoft Sans Serif&quot;; font-size: 8.5pt;">nth(n-1)</span>at the line</div>
+          </td>
+        </tr>
+      </table>
+    </div>
+    <div class="Prog"><a name="1060018">value = nth(n-1) + nth(n-2);</a></div>
+    <div class="List_step_outer" style="margin-left: 0.5062999999999767cm;">
+      <table border="0" cellspacing="0" cellpadding="0" summary="">
+        <tr style="vertical-align: baseline;">
+          <td>
+            <div class="List_step_inner" style="width: 13.994645669291998pt; white-space: nowrap;">
+              <span class="N_Step">7	</span>
+            </div>
+          </td>
+          <td width="100%">
+            <div class="List_step_inner"><a name="1058093">It can be interesting to backtrace the function calls a few levels down and to examine </a>the value of the parameter for each function call. If you add a condition to the breakpoint, the break will not be triggered until the condition is true, and you will be able to see each function call in the Call Stack window.</div>
+          </td>
+        </tr>
+      </table>
+    </div>
+    <div class="Body"><a name="1058094">To open the Breakpoints window, choose </a><span class="Menu_Command">View&gt;Breakpoints</span>. Select the breakpoint in the Breakpoints window, right-click to open the context menu, and choose <span class="Menu_Command">Edit</span> to open the <span class="Menu_Command">Edit Breakpoint</span> dialog box. </div>
+    <div class="GraphicFrameHelp"><a name="1065177"><img class="Default" src="images/tutor_usingEC++.4.1.4.jpg" width="476" height="385" style="display: block; float: none; left: 0.0; top: 0.0;" alt="" /></a></div>
+    <div class="Body"><a name="1065168">Set the value in the </a><span class="Menu_Command">Skip count</span> text box to <span class="Computer">4</span> and click <span class="Menu_Command">OK</span>.</div>
+    <div class="Heading4"><a name="1059651">Looking at the function calls</a></div>
+    <div class="List_step_outer" style="margin-left: 0.5062999999999767cm;">
+      <table border="0" cellspacing="0" cellpadding="0" summary="">
+        <tr style="vertical-align: baseline;">
+          <td>
+            <div class="List_step_inner" style="width: 13.994645669291998pt; white-space: nowrap;">
+              <span class="N_Step">8	</span>
+            </div>
+          </td>
+          <td width="100%">
+            <div class="List_step_inner"><a name="1059652">Choose </a><span class="Menu_Command">Debug&gt;Go</span> to execute the application until the breakpoint condition is fulfilled. </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+    <div class="List_step_outer" style="margin-left: 0.5062999999999767cm;">
+      <table border="0" cellspacing="0" cellpadding="0" summary="">
+        <tr style="vertical-align: baseline;">
+          <td>
+            <div class="List_step_inner" style="width: 13.994645669291998pt; white-space: nowrap;">
+              <span class="N_Step">9	</span>
+            </div>
+          </td>
+          <td width="100%">
+            <div class="List_step_inner"><a name="1059653">When C-SPY stops at the breakpoint, choose </a><span class="Menu_Command">View&gt;Call Stack</span> to open the Call Stack window.</div>
+          </td>
+        </tr>
+      </table>
+    </div>
+    <div class="GraphicFrameHelp"><a name="1059657"><img class="Default" src="images/tutor_usingEC++.4.1.5.jpg" width="207" height="194" style="display: block; float: none; left: 0.0; top: 0.0;" alt="" /></a></div>
+    <div class="Body"><a name="1058062">Five instances of the function </a><span class="Computer">nth</span> are displayed on the call stack. Because the Call Stack window displays the values of the function parameters, you can see the different values of <span class="Computer">n</span> in the different function instances.</div>
+    <div class="Body"><a name="1058063">You can also open the Register window to see how it is updated as you trace the function </a>calls by double-clicking on the function instances.</div>
+    <div class="Heading3NoBrk"><a name="1052040">Printing the Fibonacci numbers</a></div>
+    <div class="List_step_first_outer" style="margin-left: 0.5062999999999767cm;">
+      <table border="0" cellspacing="0" cellpadding="0" summary="">
+        <tr style="vertical-align: baseline;">
+          <td>
+            <div class="List_step_first_inner" style="width: 13.994645669291998pt; white-space: nowrap;">
+              <span class="N_Step">1	</span>
+            </div>
+          </td>
+          <td width="100%">
+            <div class="List_step_first_inner"><a name="1052041">Open the Terminal I/O window from the </a><span class="Menu_Command">View</span> menu.</div>
+          </td>
+        </tr>
+      </table>
+    </div>
+    <div class="List_step_outer" style="margin-left: 0.5062999999999767cm;">
+      <table border="0" cellspacing="0" cellpadding="0" summary="">
+        <tr style="vertical-align: baseline;">
+          <td>
+            <div class="List_step_inner" style="width: 13.994645669291998pt; white-space: nowrap;">
+              <span class="N_Step">2	</span>
+            </div>
+          </td>
+          <td width="100%">
+            <div class="List_step_inner"><a name="1052042">Remove the breakpoints and run the application to the end and verify the Fibonacci </a>sequences being printed.</div>
+          </td>
+        </tr>
+      </table>
+    </div>
+    <div class="GraphicFrameHelp"><a name="1052046"><img class="Default" src="images/tutor_usingEC++.4.1.6.jpg" width="445" height="324" style="display: block; float: none; left: 0.0; top: 0.0;" alt="" /></a></div>
+  </body>
+</html>

@@ -1,0 +1,247 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+    "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<!--  $Id: csTARGET.htm 51 2009-11-20 17:46:44Z peter $-->
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemalocation="http://www.w3.org/MarkUp/SCHEMA/xhtml11.xsd" xml:lang="en">
+<head>
+    <title>Release notes for the Texas Instruments / Chipcon driver </title>
+    <meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8" />
+    <link type="text/css" rel="stylesheet" media="all" href="style/ewic.css" />
+</head>
+<body>
+    <div id="topbanner">
+    </div>
+    <div id="titlebanner_small">
+        <h2>
+            Release notes for the Texas Instruments / Chipcon driver version 8.10.1
+        </h2>
+    </div>
+    <div class="breadcrumb">
+        <a href="index.ENU.html">IAR Information Center for 8051</a> | <a href="release_notes.ENU.html">
+            Release notes</a> | <a href="components.html">Components</a>
+            | Release notes for the Texas Instruments / Chipcon driver
+    </div>
+    <div class="mainblock">
+        <ul>
+            <li><a href="#important">Important information</a> </li>
+            <li><a href="#features">New features</a> </li>
+            <li><a href="#problems">Known problems</a> </li>
+            <li><a href="#pcorr">Program corrections</a> </li>
+            <li><a href="#manuals">User guide corrections</a> </li>
+            <li><a href="#misc">Miscellaneous</a> </li>
+            <li><a href="#history">Release history</a> </li>
+        </ul>
+        <!--======================================================================-->
+        <!-- IMPORTANT INFORMATION                                                -->
+        <!--======================================================================-->
+        <h3>
+            <a name="important" id="important"></a>Important information
+        </h3>
+    <ul>
+        <li>
+            <p>
+                Starting with version 7.40A of IAR Embedded Workbench for 8051, this driver was
+                renamed to "Texas Instruments" in all IDE dialog boxes.
+            </p>
+        </li>
+    </ul>
+        <!--======================================================================-->
+        <!-- NEW FEATURES                                                         -->
+        <!--======================================================================-->
+        <h3>
+            <a name="features" id="features"></a>New features
+        </h3>
+    <ul>
+        <li>
+            <p>
+                Support has been added for the CC2540 device family.
+            </p>
+        </li>
+    </ul>
+        <!--======================================================================-->
+        <!-- Known Problems-->
+        <!--======================================================================-->
+        <h3>
+            <a name="problems" id="problems"></a>Known Problems
+        </h3>
+    <ul>
+        <li>
+            <p>
+                <b>EW18593</b><br>
+                It is not possible to set breakpoints when using preprocessed C source code with
+                #line statements unless you write the absolute path for the file e.g: <tt>#line 3 "c:\\path\\file.c"</tt>
+            </p>
+        </li>
+    </ul>
+        <!--======================================================================-->
+        <!-- Program Corrections                                                  -->
+        <!--======================================================================-->
+        <h3>
+            <a name="pcorr" id="pcorr"></a>Program Corrections
+        </h3>
+<ul>
+     <li><p><a NAME="EW22134"><b>EW22134</b></a><br>
+	 Attempting to view memory mapped SFR registers in C-SPY for certain
+	 devices would result in lost communication with the hardware. This has
+	 been corrected.
+     </p></li>
+     <li><p><a NAME="EW22157"><b>EW22157</b></a><br>
+	 The default bank mask value was not correct for certain TI/CC devices;
+	 this has been corrected.
+     </p></li>
+     <li><p><a NAME="EW22278"><b>EW22278</b></a><br>
+	 It is now possible to specify a flash page number greater than 64.
+     </p></li>
+</ul>
+        <!--======================================================================-->
+        <!-- USER GUIDE CORRECTIONS                                               -->
+        <!--======================================================================-->
+        <h3>
+            <a name="manuals" id="manuals"></a>User guide corrections
+        </h3>
+    <ul>
+        <li>None</li>
+    </ul>
+ 
+        <!--======================================================================-->
+        <!-- MISCELLANEOUS                                                        -->
+        <!--======================================================================-->
+        <h3>
+            <a name="misc" id="misc"></a>Miscellaneous
+        </h3>
+    <ul>
+        <li>Nothing</li>
+    </ul>
+        <!--======================================================================-->
+        <!-- RELEASE HISTORY                                                      -->
+        <!--======================================================================-->
+        <h3>
+            <a name="history" id="history"></a>Release history
+        </h3>
+    <p>
+        <b>V7.60.4, August 2010</b>
+    </p>
+     <p><a NAME="EW21926"><b>EW21926</b></a><br>
+                Support for handling --ks_version reenabled.
+     </p>
+    <p>
+        <b>V7.60.1, June 2010</b>
+    </p>
+    <p>
+                Support has been added for the CC25xx device family. The options dialog for this
+                driver has also been modify to accomodate for the different mechanism used for protecting
+                flash memory for these devices. Flash pages that are to be protected should be specifies
+                as a string of decimal caracters, according to the example provided in the options
+                dialog.
+    </p>
+    <p>
+        <b>V7.51A, March 2009</b>
+    </p>
+    <p>
+        No changes.
+    </p>
+    <p>
+        <b>V7.50A, June 2008</b>
+    </p>
+    <p>
+        No changes.
+    </p>
+    <p>
+        <b>V7.40A, Feb 2008</b>
+    </p>
+    <p>
+        No changes.
+    </p>
+    <p>
+        <b>V7.30B, September 2007</b>
+    </p>
+    <ul>
+        <li>
+            <p>
+                An error was corrected that could cause a page being written to flash to partially
+                overwrite a previously written page with garbage data.
+            </p>
+        </li>
+    </ul>
+    <p>
+        <b>7.21A, May 2007</b>
+    </p>
+    <ul>
+        <li>
+            <p>
+                Flash protection (boot block, debug inteface and page) added.
+            </p>
+        </li>
+        <li>
+            <p>
+                Retain memory pages added. Pages to be retined should be entered on the form <tt>1,2,3,4....62,63</tt>.
+                To retain IEEE address "IEEE" can be entered.
+            </p>
+        </li>
+        <li>
+            <p>
+                Mapping <b>SFRs</b> and <b>XDATA</b> to <b>CODE</b> memory when using unified memory
+                access could sometimes cause inadvertent reads of registers that use hardware clearing.
+            </p>
+        </li>
+    </ul>
+    <p>
+        <b>7.20H, Nov 2007</b>
+    </p>
+    <ul>
+        <li>
+            <p>
+                Better support for the latest revision of CC2430.
+            </p>
+        </li>
+        <li>
+            <p>
+                The driver has been updated in order to improve overall stability.
+            </p>
+        </li>
+        <li>
+            <p>
+                The Chipcon driver dialog window has been updated with improved logic to handle
+                checkbox options.
+            </p>
+        </li>
+    </ul>
+    <p>
+        <b>7.20D, May 2006</b>
+    </p>
+    <ul>
+        <li>
+            <p>
+                A new menu option, Leave target running, has been added in the Chipcon debug menu.
+                Selecting this option will leave the target system running when the debug session
+                is closed.
+            </p>
+        </li>
+        <li>
+            <p>
+                The FMAP register was erroneously overwritten when execution was stopped. This could
+                cause problems if execution was stopped while running in an interrupt or library
+                routine.
+            </p>
+        </li>
+    </ul>
+    <p>
+        <b>7.20C, January 2006</b>
+    </p>
+    <ul>
+        <li>
+            <p>
+                Smaller update of the debuggers has been done for this release. Most updates have
+                been done to improve the stability and speed of the various debuggers.
+            </p>
+        </li>
+    </ul>
+    <p>
+        <b>7.20A, October 2005</b>
+    </p>
+    <p>
+        Initial release.
+    </p>
+    </div>
+</body>
+</html>

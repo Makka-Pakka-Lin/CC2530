@@ -1,0 +1,296 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+   <meta name="GENERATOR" content="Mozilla/4.73 [en] (WinNT; I) [Netscape]">
+   <title>Readme file for the IAR XAR Library Builder V5.0.2.5</title>
+</head>
+<body bgcolor="#FFDE00">
+
+<h2>Readme file for the IAR XAR Library Builder V5.0.2.5</h2>
+<font size=-1>Updated: Nov 05, 2010 [IJYB]</font>
+
+<ul>
+
+<li><a href="xlink.htm">The IAR Universal Linker</a></li>
+
+<li><a href="xman.htm">Manual Corrections and Updates</a></li>
+
+<li><a href="#important">Important information</a></li>
+
+<li><a href="#problems">Known Problems in Current Version</a></li>
+
+<li><a href="#pcorr">Program Corrections and Updates</a></li>
+
+<li><a href="#manual">The XAR online manual</a></li>
+</ul>
+
+</ul>
+
+<h3><a NAME="important"></a>Important information</h3>
+<ul>
+
+<h4>XAR 5.0.0.1 - 2010-May-17</h4>
+<ul>
+  <li> The version number now uses Major.Minor.Revision.Buildnumber.</li><p>
+</ul>
+
+<h4>XAR 4.61K - 2009-Feb-04</h4>
+<ul>
+  <li> The version of XAR is now tied to the version number of XLINK.</li><p>
+</ul>
+
+<h4>XAR 1.03A - 2002-03-18</h4>
+<ul>
+<li>
+     XAR, the IAR Universal Library Builder, is now included in the
+     XLINK package. XAR has a very simple command line interface to
+     construct library files from object files, which is likely to be
+     far more convenient than using XLIB for the same purpose. <p>
+</li>
+</ul>
+</ul>
+<h3><a NAME="problems"></a>Known problems in Current Version</h3>
+<ul>
+<h4>XAR 5.0.0.2 - 2010-Jun-15</h4> 
+<ul>
+  <li> There are currently no known problems.</li><p>
+</ul>
+</ul>
+<h3><a NAME="pcorr"></a>Program Corrections and Updates</h3>
+<h3><a NAME="pcorr"></a>Program Corrections and Updates</h3>
+<ul>
+  <h4>XAR 5.0.0.2 - 2010-Jun-15</h4> 
+  <ul>
+     <li> The 5.0.0.1 XAR executable did not have version information.<li><p>
+  </ul>
+  <h4>XAR 4.61M - 2009-Apr-24</h4> 
+  <ul>
+    <li> The signon message was erroneous in XAR 4.61L.</li><p>
+  </ul>
+  <h4>XAR 1.03O - 2008-Mar-04</h4>
+  <ul>
+    <li> XAR now handles protected UBROF files.</li><p>
+  </ul>
+  <h4>XAR 1.03L - 2005-04-15</h4>
+  <ul>
+    <li> XAR terminated with an error when a UBROF file that was the
+         result of the last module being deleted from a UBROF file by
+         the XLIB Librarian was encountered.</li><p>
+
+  </ul>
+  <h4>XAR 1.03J - 2004-02-27</h4>
+  <ul>
+    <li> Xar could terminate with an access violation while reading
+         the extended command line file. This problem was introduced
+         in XAR1.03I.</li><p> 
+  </ul>
+
+  <h4>XAR 1.03I - 2004-02-17</h4>
+  <ul>
+    <li> Better support for building libraries from the IAR Embedded Workbench.
+    </li></p>
+    <li> XAR terminated with an access violation if the length of a line
+         in the extended command line file exceeded 65535 characters. If XAR
+	 encounters such a line now it terminates with error 15 (A file name 
+	 in the file `<i>file</i>` exceeds the maximum file name length of 
+	 <i>number</i> characters.).</li><p>
+    <li> If the library building operation failed, XAR did not remove the
+         incomplete library file.</li><p>
+    <li> XAR now accepts white spaces and // comments in the extended 
+         command line file.</li><p>
+  </ul>
+
+  <h4>XAR 1.03H - 2003-10-06</h4>
+  <ul>
+    <li> The sign on message of XAR did not display the options in 
+         alphabetical order</li><p>
+  </ul>
+
+  <h4>XAR 1.03G - 2003-04-11</h4>
+  <ul>
+    <li> When XAR encountered a totally empty (0 bytes) file, the produced 
+         library file had an incorrect checksum.</li><p>
+  </ul>
+
+  <h4>XAR 1.03E - 2002-10-17</h4>
+  <ul>
+    <li> XAR crashed when given just one argument, -V or -S. </li<p>
+  </ul>
+
+  <h4>XAR 1.03D - 2002-09-27</h4>
+  <ul>
+    <li> XAR could crash when used with the -x option. </li><p>
+  </ul>
+
+  <h4>XAR 1.03C - 2002-07-10</h4>
+  <ul>
+    <li> XAR can now read command files using the 
+         <a href="#XAROptions">-x option</a>. Everything in 
+         the command file will be interpreted as if it was entered on the 
+         command line. The main reason for this is that large libraries 
+         sometimes requires so many files that they become larger than the 
+	 buffer allocated by the process XAR is run from. Note that this is 
+	 a limitation in the OS/shell, not a limitation in XAR. </li><p>      
+
+   <li> XAR now warns when it encounters the same input file more than once.
+        This is almost certainly an error but XAR will allow you to build
+	the library anyway.</li><p>
+  </ul>
+
+  <h4>XAR 1.03B - 2002-05-30</h4>
+  <ul> 
+    <li> XAR now handles empty infiles, this was considered an error earlier.
+    </li><p>
+  </ul>
+
+  <h4>XAR 1.03A - 2002-03-18</h4>
+
+  <ul>
+    <li> This is the first public release of XAR so no problems are fixed.
+    </li><p>
+  </ul>
+</ul>
+<h3><a NAME="manual">XAR manual</a></h3>
+<ul>
+  <b>Table of contents</b><p>
+  <tt>[1.03A]&nbsp;</tt><a HREF="#XARUsage">Usage of XAR</a><br>
+  <tt>[1.03I]&nbsp;</tt><a HREF="#XAROptions">XAR options</a><br>
+  <tt>[1.03I]&nbsp;</tt><a HREF="#XARExtendedCommandLineFile">XAR
+                                Extended Command Line File</a><br>
+  <tt>[1.03C]&nbsp;</tt><a HREF="#XARWarnings">Warning codes in XAR</a><br>
+  <tt>[1.03I]&nbsp;</tt><a HREF="#XARErrors">Error codes in XAR</a><br><p>
+    
+  <tt>
+    <b><a NAME="XARUsage"> Usage of XAR</a></b><p>
+    Building libraries with XAR is quite simple, just type either: <br>
+    xar <i>file1 file2 ... fileN</i> -o <i>lib</i><br>
+    or<br>
+    xar <i>lib file1 file2 ... fileN </i><br>
+    This will make XAR create a library called lib that consists of the 
+    files <i>file1</i> to <i>fileN</i>.<br><br>
+    <b><a NAME="XAROptions"> XAR options </a></b><p>
+    Aside from -o XAR has the following options:<br><br> 
+    <ul>
+	 -S Silent operation, nothing is printed if 
+	    everything went well, this is the default setting for 
+	    command line XAR.<p>
+         -V Verbose, this prints the progress of XAR while it builds 
+            libraries, this is the default setting for the XAR used by 
+            the IAR Embedded Workbench.<p>
+	 -x filename, this extends the command line with the contents
+	    of the file 'filename'. See <a href="#XARExtendedCommandLineFile">
+	    The Extended Command Line file</a> for the details.<p>
+    </ul>
+    <b><a NAME="XARExtendedCommandLineFile">XAR Extended Command Line File</a>
+    </b><p>
+    <dl>
+         XAR can read command files using the <a href="#XAROptions">-x 
+	 option</a>. The main reason for this is that large libraries 
+         sometimes requires so many files the command line becomes larger 
+	 than the buffer allocated by the process XAR is run from. Note 
+	 that this is a limitation in the OS/shell, not a limitation in 
+	 XAR. <p>
+
+	 The command file may only contain file names, white spaces
+	 and comments, not options. All options must be specified on
+	 the command line. <p>
+
+         <ul>
+           <li> White spaces at the beginning of a line are ignored.</li><p>
+           <li> All characters between an occurence of "//" and the next 
+	        newline are ignored.</li><p>
+           <li> All other characters are considered to be part of a file name.
+	        Once a non white space character has been encountered, the rest
+		of the line will be considered a file name or a comment.
+	      </li><p>
+         </ul><p>
+    </dl>
+    <b><a NAME="XARWarnings"> Warning codes in XAR</a></b><p>
+    <dl>
+        <dt> 0 File '<i>filename</i>' has already been added to the library
+	</dt>
+	<dd> The file was added to the library before the processing of this 
+	     file. This is almost certainly an error as all symbols in the 
+	     file will be multiply defined. </dd><p>
+    </dl>
+
+    <b><a NAME="XARErrors"> Error codes in XAR</a></b><p>
+    As simple as XAR is, sometimes something goes wrong. This is a list of 
+    the possible errors that XAR detects:<p>
+    <dl>
+	<dt> 0 Not enough memory</dt>  
+	<dd> XAR was unable to aquire the memory that it needed. </dd><p>
+
+	<dt> 1 -o option requires an argument</dt>  
+	<dd> XAR expects an argument after -o. </dd><p>
+
+	<dt> 2 Unknown option '<i>option</i>'</dt>  
+	<dd> XAR encountered an unknown option on the command line. </dd><p>
+
+	<dt> 3 Too few arguments</dt>  
+	<dd> XAR expects to find more arguments </dd><p>
+
+	<dt> 4 Same file as both input and output: '<i>filename</i>'</dt>  
+	<dd> One of the files is used as both input and output, 
+	     as this would destroy an infile it is forbidden. If you really 
+	     want to give the new library a name that is used by one of the 
+	     infiles you will have to use a temporary file to build the 
+	     library with XAR and rename that temporary file to the name 
+	     you want afterwards.</dd><p>
+
+	<dt> 5 Can't open library file '<i>filename</i>' for writing</dt>  
+	<dd> XAR was unable to open the library file for writing, the 
+	     most probable explanation for this is that the library file 
+	     is write protected.</dd><p>
+
+	<dt> 6 Can't open object file '<i>filename</i>'</dt>  
+	<dd> XAR was unable to open the object file, the most probable 
+	     explanation for this is that the file does not exist. </dd><p>
+
+	<dt> 7 Error occured while writing to library file</dt>  
+	<dd> An error ocurred while XAR was writing to the file. </dd><p>
+
+	<dt> 8 '<i>filename</i>' is not a valid UBROF file</dt>  
+	<dd> The file is not a valid UBROF file.</dd><p>
+
+	<dt> 9 Error occured while reading from '<i>filename</i>'</dt>  
+	<dd> An error ocurred while XAR was reading the file.</dd><p>
+
+	<dt> 10 Error occured while closing '<i>filename</i>'</dt>  
+	<dd> An error ocurred while XAR was closing the file. </dd><p>
+
+	<dt> 11 XAR didn't find any bytes to read, is '<i>filename</i>' 
+	        empty ?</dt>  
+	<dd> The object file seems to be empty. Note that this error 
+	     only can occur in older versions of XAR.</dd><p>
+
+	<dt> 12 '<i>filename</i>' didn't end as a valid UBROF file
+	        should</dt> 
+        <dd> The file did not end as a UBROF file is supposed to end.  
+             Either the file is corrupt or the assembler / compiler 
+             produces corrupt output.</dd><p>
+
+	<dt> 13 XAR can't fseek in library file </dt>  
+	<dd> The call to fseek failed.</dd><p>
+
+	<dt> 14 -x option requires an argument </dt>
+	<dd> You need to specify an argument for the -x option</dd><p>
+
+	<dt> 15 A file name in the file `<i>file</i>` exceeds the maximum
+	        file name length of <i>number</i> characters.</dt>
+	<dd> A file name in the extended command line file is too
+	     long. The only recognized delimiter in the input file is
+	     newline, everything else is interpreted as a part of the
+	     file name.</dd><p>
+    </dl>
+    Note: XAR does not distinguish between UBROF for different processors,
+    as far as it is concerned a UBROF file is a UBROF file and if a user
+    wants to build a library consisting of files from two different cpu:s
+    it allows it.<p>
+</tt>
+</ul>
+<hr>
+<font size=-1>Copyright (C) 1987-2010 IAR Systems AB.</font></hr>
+</body>
+</html>

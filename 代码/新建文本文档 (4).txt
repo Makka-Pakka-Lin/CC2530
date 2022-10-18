@@ -1,0 +1,58 @@
+#include<ioCC2530.h>
+int flag = 0;
+void delay(int x){
+	for(int y=x;y>0;y--){
+		for(int z=520;z>0;z--){
+		}
+	}
+}
+void init(){
+	P1SEL &= 0xCA
+	P1DIR |= 0xFC
+	P1 = 0;
+	IEN =0x04;
+	P1IEN = 0x02;
+	EA = 1;
+	T3TCL = 0x14;
+	T4ECL = 0x14;
+	T3CCTL0 = 0x64;
+	T3CCTL1 = 0x64;
+	T4CCTL1 = 0x64;
+	T4CCTL1 = 0x64;
+}
+
+void main(){
+	init(){
+		while(1){
+			switch(flag){
+				case1:
+					P1SEL = 0x1b;
+					T3CC0 = 0x00;
+					T3CC1 = 0x00;
+					T4CC0 = 0x00;
+					T4CC1 = 0x00;
+					break;
+				case2:
+					T3CC0 = 0xff;
+					T3CC1 = 0xff;
+					T4CC0 = 0xff;
+					T4CC1 = 0xff;
+				case3:
+					P1SEL =~0x1b;
+					break;
+			}
+		}
+	}
+}
+
+#pragma vector = 0x7b
+__interrupt void zd(){
+	if(!P1_2){
+	delay(100);
+	while(P1_2);
+	flag++;
+	if(flag ==4)
+	flag = 1;
+	P1IFG = 0;
+}
+P1IF = 0;

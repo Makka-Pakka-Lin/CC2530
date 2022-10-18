@@ -1,0 +1,416 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+    "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<!--  $Id: csTARGET.htm 51 2009-11-20 17:46:44Z peter $-->
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemalocation="http://www.w3.org/MarkUp/SCHEMA/xhtml11.xsd" xml:lang="en">
+<head>
+    <title>Release notes for the Silicon Laboratories driver </title>
+    <meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8" />
+    <link type="text/css" rel="stylesheet" media="all" href="style/ewic.css" />
+</head>
+<body>
+    <div id="topbanner">
+    </div>
+    <div id="titlebanner_small">
+        <h2>
+            Release notes for the Silicon Laboratories driver version 8.10.1
+        </h2>
+    </div>
+    <div class="breadcrumb">
+        <a href="index.ENU.html">IAR Information Center for 8051</a> | <a href="release_notes.ENU.html">
+            Release notes</a> | <a href="components.html">Components</a>
+            | Release notes for the Silicon Laboratories driver
+    </div>
+    <div class="mainblock">
+        <ul>
+            <li><a href="#important">Important information</a> </li>
+            <li><a href="#features">New features</a> </li>
+            <li><a href="#problems">Known problems</a> </li>
+            <li><a href="#pcorr">Program corrections</a> </li>
+            <li><a href="#manuals">User guide corrections</a> </li>
+            <li><a href="#misc">Miscellaneous</a> </li>
+            <li><a href="#history">Release history</a> </li>
+        </ul>
+        <!--======================================================================-->
+        <!-- IMPORTANT INFORMATION                                                -->
+        <!--======================================================================-->
+        <h3>
+            <a name="important" id="important"></a>Important information
+        </h3>
+    <ul>
+        <li>
+            <p>
+                When debugging C8051F3xx/F4xx/F5xx/F9xx devices the Silabs 2-wire interface must
+                be used. Enable this option on the Silabs <b>Download</b> page.
+            </p>
+        </li>
+        <li>
+            <p>
+                The watchdog timer (WDT) is by default on, which could cause unexpected behavior,
+                such as that the disassembly window displays data space instead of code space, due
+                to the periodically triggered interrupt. If the WDT is not used we recommend you
+                to disable it. This can be done in <tt>main</tt> , but in some cases this might
+                be too late. So if needed, place the code for disabling the WDT in the <tt>low_level_init()</tt>
+                function which is called from the <tt>cstartup</tt> code:
+            </p>
+            <pre>
+    __root char __low_level_init()
+    {  
+        /* code to disable WDT */
+
+        return 1;  // non zero will initialize data segment
+    }
+            </pre>
+        </li>
+    </ul>
+        <!--======================================================================-->
+        <!-- NEW FEATURES                                                         -->
+        <!--======================================================================-->
+        <h3>
+            <a name="features" id="features"></a>New features
+        </h3>
+<ul><li><p>None.</p></li></ul>
+        <!--======================================================================-->
+        <!-- Known Problems-->
+        <!--======================================================================-->
+        <h3>
+            <a name="problems" id="problems"></a>Known Problems
+        </h3>
+<ul>
+  <li>
+    <p><b>EW22392:</b><br>
+      Changing the value of the SFRPAGE register from the Register or Memory window does not work reliably for all devices.
+    </p>
+  </li>
+</ul>
+        <!--======================================================================-->
+        <!-- Program Corrections                                                  -->
+        <!--======================================================================-->
+        <h3>
+            <a name="pcorr" id="pcorr"></a>Program Corrections
+        </h3>
+<ul>
+     <li><p><a NAME="EW21942"><b>EW21942</b></a><br>
+	 It was not possible to write to SFR memory from the Register window or
+	 the SFR memory window when using the Silicon Laboratories USB debug
+	 adapter. This has been corrected.
+     </p></li>
+</ul>
+        <!--======================================================================-->
+        <!-- USER GUIDE CORRECTIONS                                               -->
+        <!--======================================================================-->
+        <h3>
+            <a name="manuals" id="manuals"></a>User guide corrections
+        </h3>
+    <ul>
+        <li>None</li>
+    </ul>
+ 
+        <!--======================================================================-->
+        <!-- MISCELLANEOUS                                                        -->
+        <!--======================================================================-->
+        <h3>
+            <a name="misc" id="misc"></a>Miscellaneous
+        </h3>
+    <ul>
+        <li>
+            <p>
+                Nothing.
+            </p>
+        </li>
+    </ul>
+        <!--======================================================================-->
+        <!-- RELEASE HISTORY                                                      -->
+        <!--======================================================================-->
+        <h3>
+            <a name="history" id="history"></a>Release history
+        </h3>
+    <p>
+        <b>V7.60.1, June 2010</b>
+    </p>
+    <p>
+        <b>Program corrections</b>
+    </p>
+    <ul>
+     <li><p><a NAME="EW21056"><b>EW21056</b></a><br>
+               The debugger now handles the scratchpad memory area that
+               exists in certain Silabs devices correctly.
+     </p></li>
+     <li><p><a NAME="EW21368"><b>EW21368</b></a><br>
+               The interrupt definitions for the Silabs F060 device has been
+               corrected.
+     </p></li>
+     <li><p><a NAME="EW21802"><b>EW21802</b></a><br>
+               The bitfield information for the Silabs F34x family has
+               been corrected.
+     </p></li>
+    </ul>
+
+    <p>
+        <b>New features</b>
+    </p>
+    <ul>
+      <li><p>
+          Support for the Si10xx, C8051F8xx and C8051F9xx families was added.
+        </p>
+      </li>
+    </ul>
+
+    <p>
+        <b>V7.51A, March 2009</b>
+    </p>
+    <p>
+        No changes.
+    </p>
+    <ul>
+        <li>
+            <p>None.</p>
+        </li>
+    </ul>
+    <p>
+        <b>7.50D, November 2008</b>
+    </p>
+    <ul>
+        <li>
+            <p>
+                <b>EW20642, EW20641</b><br>
+                Under certain conditions, the download process could fail to program some code memory
+                segments. This issue has been resolved.
+            </p>
+        </li>
+    </ul>
+    <p>
+        <b>7.50A, June 2008</b>
+    </p>
+    <p>
+        <b>New features</b>
+    </p>
+    <ul>
+        <li>
+            <p>
+                Support for the C8051F9xx, C8051F52xA, and C8051F53xA devices was added.
+            </p>
+        </li>
+    </ul>
+    <p>
+        <b>Miscellaneous</b>
+    </p>
+    <ul>
+        <li>
+            <p>
+                The <b>Cache code memory</b> option was removed from the <b>Silabs</b> menu in C-SPY
+                since dynamic updates of code memory is now enabled for all debugger drivers.
+            </p>
+        </li>
+    </ul>
+    <p>
+        <b>7.40A, February 2008</b>
+    </p>
+    <ul>
+        <li>
+            <p>
+                The debugger API was updated to the latest version.
+            </p>
+        </li>
+    </ul>
+    <p>
+        <b>7.30C, October 2007</b>
+    </p>
+    <ul>
+        <li>
+            <p>
+                <b>EW19779</b><br>
+                A problem with executing the driver from the command line via <tt>cspybat.exe</tt>
+                was fixed.
+            </p>
+        </li>
+    </ul>
+    <p>
+        <b>7.30B, September 2007</b>
+    </p>
+    <ul>
+        <li>
+            <p>
+                <b>EW18763</b><br>
+                Sometimes verify errors were incorrectly reported when loading code to the target
+                using the option "ROM mapped as data" under "Location for constants and strings".
+            </p>
+        </li>
+    </ul>
+    <p>
+        <b>7.21A, May 2007</b>
+    </p>
+    <p>
+        <b>New features</b>
+    </p>
+    <ul>
+        <li>
+            <p>
+                Support for banked code added.
+            </p>
+        </li>
+        <li>
+            <p>
+                Faster code download.
+            </p>
+        </li>
+    </ul>
+    <p>
+        <b>Program corrections</b>
+    </p>
+    <ul>
+        <li>
+            <p>
+                <b>EW18476</b><br>
+                Previously the application hung when the power supply was removed.
+            </p>
+        </li>
+    </ul>
+    <p>
+        <b>7.20H, Nov 2006</b>
+    </p>
+    <p>
+        <b>New features</b>
+    </p>
+    <ul>
+        <li>
+            <p>
+                Added support for Silabs C8051F34x devices.
+            </p>
+        </li>
+        <li>
+            <p>
+                Added configuration files for Silabs ioSi8250UM device.
+            </p>
+        </li>
+    </ul>
+    <p>
+        <b>7.20C, Jan 2006</b>
+    </p>
+    <p>
+        <b>New features</b>
+    </p>
+    <ul>
+        <li>
+            <p>
+                The driver now supports both the serial port and USB adapters.
+            </p>
+        </li>
+    </ul>
+    <p>
+        <b>Program corrections</b>
+    </p>
+    <ul>
+        <li>
+            <p>
+                Smaller update of the debuggers has been done for this release. Most updates have
+                been done to improve the stability and speed of the various debuggers.
+            </p>
+        </li>
+    </ul>
+    <p>
+        <b>7.20A, Oct 2005</b>
+    </p>
+    <p>
+        <b>Program corrections</b>
+    </p>
+    <ul>
+        <li>
+            <p>
+                <b>EW17047</b><br>
+                Momentary hangup after download using the JTAG interface (does not apply 2-wire
+                interface).
+            </p>
+        </li>
+        <li>
+            <p>
+                <b>EW15837</b><br>
+                When a breakpoint is reached, using theSilabs emulator, IAR C-SPY will not update
+                its window. The window is however updated immediately when for example the mouse
+                pointer is moved to the window.
+            </p>
+        </li>
+        <li>
+            <p>
+                <b>EW15985</b><br>
+                When using too much code in the Baseline and Kickstart edition, the error message
+                stated that the limits were 8192 and 4096 'Kbytes' respectively, when it should
+                instead state 'bytes'.
+            </p>
+        </li>
+        <li>
+            <p>
+                <b>EW15980</b><br>
+                Register bank 0 values are now displayed correctly.
+            </p>
+        </li>
+        <li>
+            <p>
+                <b>EW15903</b><br>
+                The code memory window is now updated correctly when modifying flash memory.
+            </p>
+        </li>
+        <li>
+            <p>
+                <b>EW15290</b><br>
+                The debugger now manages to display the memory content for Silabs C80F3xx boards.
+            </p>
+        </li>
+        <li>
+            <p>
+                <b>EW15008:</b><br>
+                When producing output in the AOMF8051 format and linking files from the IAR 8051
+                C/EC++ Compiler version 6, XLINK could produce incorrect code if any of the input
+                files contained debug information for a block local variable. See issue <a href="xlink.htm#ew15288">
+                    15288</a> in the XLINK release notes.
+            </p>
+        </li>
+    </ul>
+    <p>
+        <b>7.10A, July 2005</b>
+    </p>
+    <p>
+        No Changes.
+    </p>
+    <p>
+        <b>6.11A, October 2004</b>
+    </p>
+    <p>
+        <b>New features</b>
+    </p>
+    <ul>
+        <li>
+            <p>
+                The driver now supports both the serial port and USB adapters.
+            </p>
+        </li>
+    </ul>
+    <p>
+        <b>Program corrections</b>
+    </p>
+    <ul>
+        <li>
+            <p>
+                <b>EW15290:</b><br>
+                The debugger now manages to display the memory content for SiLabs F3XX boards.
+            </p>
+        </li>
+        <li>
+            <p>
+                <b>EW15008:</b><br>
+                When doing output in the AOMF8051 format and linking files from the IAR 8051 C/EC++
+                Compiler version 6, XLINK could produce incorrect code if any of the input files
+                contained debug information for a block local variable. See issue <a href="xlink.htm#ew15288">
+                    15288</a> in the XLINK release notes.
+            </p>
+        </li>
+    </ul>
+    <p>
+        <b>6.10A, February 2004</b>
+    </p>
+    <p>
+        Initial release.
+    </p>
+    </div>
+</body>
+</html>

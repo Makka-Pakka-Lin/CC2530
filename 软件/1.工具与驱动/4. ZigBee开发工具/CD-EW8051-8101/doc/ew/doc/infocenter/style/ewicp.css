@@ -1,0 +1,35 @@
+div#topbanner {
+    display: none;
+}
+
+div#titlebanner {
+    height: auto;
+}
+
+div#titlebanner img#bannerlogo {
+    float: right;
+    margin-top: 5px;
+    margin-right: 13px;
+    padding-bottom: 35px;
+}
+
+div#titlebanner div {
+    color: #ffcb53;
+    padding: 0;
+}
+
+div#titlebanner h1 {
+    color: #ffcb53;
+}
+
+div#titlebanner p {
+    color: #ffcb53;
+}
+
+table#buttonarray {
+    display: none;
+}
+
+h2 {
+    margin: 0;
+}

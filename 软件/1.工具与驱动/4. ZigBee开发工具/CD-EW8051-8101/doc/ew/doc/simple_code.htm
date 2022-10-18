@@ -1,0 +1,311 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+   <meta name="GENERATOR" content="Mozilla/4.73 [en] (WinNT; I) [Netscape]">
+   <title>Simple Code</title>
+</head>
+<body bgcolor="#FFDE00">
+
+<h2>The Simple Code output format</h2>
+<font size=-1>Updated:  Sep 15, 2004 [IJYB]</font>
+<br><font size=-1>Archived:  $Revision: 42975 $</font><p>
+
+<h3>Introduction </h3>
+
+    Simple-code is a generic flash loader format that has been
+    developed by IAR Systems. It is a simple binary format with
+    a few tags. The information in this document should be enough
+    to write a flash loader.<p>
+
+<h3>The file structure</h3> 
+    
+    The flash loader format file has a simple structure. The file
+    starts with a file header that contains information about the
+    entire program. After the file header records containing the bytes
+    of the program and their location follow. All fields in the file
+    are unsigned big endian values.<p>
+
+<h3>The file header</h3>
+
+    The file header uses a magic number to identify the file as a
+    simple-code file and it also contains the program's entry address
+    and program flags. The program entry is a 4 byte address but
+    because there might be several address spaces, a segment type
+    field for the entry address is also needed. Finally, the file
+    header contains a version information field.<p>
+
+<ul>
+
+    The following table shows the order and sizes of the fields of the
+    file header.<p>
+
+    <table border=2 cellspacing=1 cellpadding=1>
+      <tr>
+        <td> <b>Name</b> </td>
+	<td align=center> <b>Size in bytes</b> </td>
+      </tr>
+      <tr>
+        <td> Magic number </td>
+	<td align=center> 4 </td>
+      </tr>
+      <tr>
+        <td> Program flags </td>
+	<td align=center> 4 </td>
+      </tr>
+      <tr>
+        <td> Number of Program Bytes </td>
+	<td align=center> 4 </td>
+      </tr>
+      <tr>
+        <td> Version Information </td>
+	<td align=center> 2 </td>
+      </tr>
+    </table>
+
+
+
+<h4>Magic Number</h4>
+
+     The magic number for a simple-code file is 0x7F494152.<p>
+
+<h4>Program Flags</h4>
+ 
+    The program flags field supplies 32 bits. All are reserved for 
+    future use. <p>
+
+<h4>Number of program bytes</h4>
+
+    This is the number of program bytes in all data records in the file.<p>
+
+<h4>Version information</h4>
+
+    This is a plain 16-bit number, the current version number is 0.<p>
+
+</ul>
+
+<h3>The records</h3>
+
+    The first byte in the record is the record tag, it is used to
+    identify the different record types. Currently, (version 0) there
+    are three record types, data records that contain the program
+    bytes, entry records that contains the program's entry point and
+    end record that marks the end of the file and the file's
+    checksum. This might change in the future.<p>
+
+    Note that there is no alignment since the size of the data
+    record's program bytes not necessarily is a multiple of four.<p>
+
+<ul>
+
+<h4>Record tags</h4>
+
+    Currently (version 0) there are three record types. This might
+    change in future versions. Note that tag 0 is invalid and not used
+    by the format.<p>
+
+    <table border=2 cellspacing=1 cellpadding=1>
+      <tr>
+        <td><b>Name</b></td>
+	<td align=center><b>Value</b></td>
+      </tr>
+      <tr>
+        <td>Invalid record</td>
+	<td align=center>0</td>
+      </tr>
+      <tr>
+        <td>Data record</td>
+	<td align=center>1</td>
+      </tr>
+      <tr>
+        <td>Entry record</td>
+	<td align=center>2</td>
+      </tr>
+      <tr>
+        <td>End record</td>
+	<td align=center>3</td>
+      </tr>
+    </table>    
+
+<ul>
+
+<h5>Data record</h5>
+
+    The data record contains the program bytes of a consecutive range
+    of the program. The record contains the address of the first byte,
+    record flags, the number of bytes and the actual bytes.  The
+    records are ordered, they are first ordered in increasing segment
+    type order, then in increasing Record start address order.<p>
+
+    The following table shows the order and size of the data record's
+    fields.<p>
+
+    <table border=2 cellspacing=1 cellpadding=1>
+      <tr>
+        <td><b>Name</b></td>
+	<td align=center><b>Size</b></td>
+      </tr>
+      <tr>
+        <td>Record tag</td>
+	<td align=center>1</td>
+      </tr>
+      <tr>
+        <td>Segment type</td>
+	<td align=center>1</td>
+      </tr>
+      <tr>
+        <td>Record flags</td>
+	<td align=center>2</td>
+      </tr>
+      <tr>
+        <td>Record start address</td>
+	<td align=center>4</td>
+      </tr>
+      <tr>
+        <td>Number of program bytes</td>
+	<td align=center>4</td>
+      </tr>
+      <tr>
+        <td>Program bytes</td>
+	<td align=center>Number of program bytes</td>
+      </tr>
+    </table>        
+
+<h5>Entry record</h5>
+
+    The entry record contains the program's entry point. The record
+    only contains an address. There should be at most one entry record
+    in a file. It is up to each individual loader how to handle
+    the case where there is no entry record.<p>
+
+    The following table shows the order and size of the entry record's
+    fields.<p>
+
+    <table border=2 cellspacing=1 cellpadding=1>
+      <tr>
+        <td><b>Name</b></td>
+	<td align=center><b>Size</b></td>
+      </tr>
+      <tr>
+        <td>Record tag</td>
+	<td align=center>1</td>
+      </tr>
+      <tr>
+        <td>Entry address</td>
+	<td align=center>4</td>
+      </tr>
+      <tr>
+        <td>Segment type</td>
+	<td align=center>1</td>
+      </tr>
+    </table>
+
+<h5>End record</h5>
+
+    The end record marks the end of the file. The file must contain
+    exactly one such record and it must be the last record in the file. It
+    also contains a checksum of the rest of the file.<p>
+
+    The following table shows the order and size of the end record's
+    fields.<p>
+
+    <table border=2 cellspacing=1 cellpadding=1>
+      <tr>
+        <td><b>Name</b></td>
+	<td align=center><b>Size</b></td>
+      </tr>
+      <tr>
+        <td>Record tag</td>
+	<td align=center>1</td>
+      </tr>
+      <tr>
+        <td>Checksum</td>
+	<td align=center>4</td>
+      </tr>
+    </table>
+
+</ul>
+
+<h4>Segment types</h4>
+
+    If there is more than one address space, this field is used to
+    specify which address space the address in the file header or
+    record uses. Note that segment type 0 is invalid and not used by
+    the format.<p>
+
+    <table border=2 cellspacing=1 cellpadding=1>
+      <tr>
+        <td><b>Segment type</b></td>
+	<td align=center><b>Value</b></td>
+      </tr>
+      <tr>
+        <td>INVALID</td>
+	<td align=center>0</td>
+      </tr>
+      <tr>
+        <td>CODE</td>
+	<td align=center>1</td>
+      </tr>
+      <tr>
+        <td>DATA</td>
+	<td align=center>2</td>
+      </tr>
+      <tr>
+        <td>XDATA</td>
+	<td align=center>3</td>
+      </tr>
+      <tr>
+        <td>IDATA</td>
+	<td align=center>4</td>
+      </tr>
+      <tr>
+        <td>BIT</td>
+	<td align=center>5</td>
+      </tr>
+    </table>    
+
+<h4>Record flags</h4>
+
+    There are currently no record flags. All these bits are set to 0
+    and are reserved for future use.<p> 
+
+<h4>Record start address</h4>
+
+    This is the address of the first program byte in this record. The
+    segment type field specifies which address space the record start
+    address resides in. <p>
+
+<h4>Number of program bytes</h4>
+
+    This is the number of program bytes in the record.<p>
+
+<h4>Program bytes</h4>
+
+    These are the program bytes, the payload, of the data record. They
+    form a consecutive range in memory, starting on the record's start
+    address.<p>
+
+<h4>Entry address</h4>
+
+    This is the address of the program's entry point. The segment type
+    specifies which address space the entry point resides in.<p>
+
+<h4>Checksum</h4>
+
+    All bytes in the file, except the four checksum bytes, are
+    checksummed (the record tag for the checksum record is included in
+    the checksum). To keep the flash loader simple the standard
+    checksum is also simple; the sum of the file's individual program
+    bytes and the checksum (as an unsigned 4-byte quantity, not the
+    sum of the checksum's four bytes) must be zero. The checksum is
+    ~(sum of the file's bytes) + 1. It is possible to allow more
+    advanced check summing algorithms by using format modifiers, but
+    there is currently no such modifier. A more advanced checksum
+    algorithm will allow better error detection but will also require
+    a more complex flash loader.<p>
+
+</ul>
+<hr>
+<font size=-1>Copyright 2004 IAR Systems. All rights reserved.</font>
+</body>
+</html>

@@ -1,0 +1,38 @@
+[InterruptLog]
+LogEnabled=0
+SumEnabled=0
+GraphEnabled=0
+ShowTimeLog=1
+ShowTimeSum=1
+SumSortOrder=0
+[Interrupts]
+Enabled=1
+[MemoryMap]
+Enabled=0
+Base=0
+UseAuto=0
+TypeViolation=1
+UnspecRange=1
+ActionState=1
+[TraceHelper]
+Enabled=0
+ShowSource=1
+[DebugChecksum]
+Checksum=-814247896
+[Breakpoints]
+Bp0=_ "STD_CODE" "{$PROJ_DIR$\Untitled1.c}.29.1@1" 1 0 0 0 "" 0 ""
+Bp1=_ "STD_CODE" "{$PROJ_DIR$\Untitled1.c}.30.1@1" 1 0 0 0 "" 0 ""
+Bp2=_ "STD_CODE" "{$PROJ_DIR$\Untitled1.c}.31.1@1" 1 0 0 0 "" 0 ""
+Bp3=_ "STD_CODE" "{$PROJ_DIR$\Untitled1.c}.32.1@1" 1 0 0 0 "" 0 ""
+Bp4=_ "STD_CODE" "{$PROJ_DIR$\Untitled1.c}.33.1@1" 1 0 0 0 "" 0 ""
+Count=5
+[ChipconEmu]
+Stop timers on halt=1
+Leave target running=1
+[Log file]
+LoggingEnabled=_ 0
+LogFile=_ ""
+Category=_ 0
+[Aliases]
+Count=0
+SuppressDialog=0

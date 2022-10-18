@@ -1,0 +1,87 @@
+#include<ioCC2530.h>
+#define LED1 P1_3
+#define LED2 P1_4
+#define LED3 P1_0
+#define LED4 P1_1
+int flag = 0;
+void init(){
+	P1SEL &= ~0x1F;
+	P1DIR |= ~0x04;
+	P1DIR &= 0x1B;
+        P1 = 0;
+        
+        IEN2 = 0x10;
+        P1IEN = 0x04;
+        PICTL = 0x02;
+        EA = 1;
+}
+void delay(int x,int m){
+	for(int y=x; y >0;y--){
+		for(int z = 573; z>0;z--){
+		if(m!=flag){
+		return;
+		}
+		}
+	}
+}
+void main(){
+	init();
+        while(1){
+	switch(flag){
+case 0:
+  LED1 =0;
+  LED2 =0;
+  LED3 =0;
+  LED4 =0;
+        break;
+case 1:
+  delay(200,1);
+  LED1 =1;
+  LED4 =0;
+  LED2 =1;
+  delay(200,1);
+  LED1 =0;
+  LED3 =1;
+  delay(200,1);
+  LED2 =0;
+  LED4 =1;
+  delay(200,1);
+  LED3 =0;
+  LED1 =1;
+  delay(200,1);
+        break;
+case 2: 
+  delay(200,2);
+  LED4 =1;
+  LED1 =0;
+  LED3 =1;
+  delay(200,2);
+  LED4 =0;
+  LED2 =1;
+  delay(200,2);
+  LED3 =0;
+  LED1 =1;
+  delay(200,2);
+  LED2 =0;
+  LED4 =1;
+  delay(200,2);
+        break;
+        
+        }
+       
+        }
+
+}
+#pragma vector = 0x7b 
+__interrupt void zd(void)
+{
+	if(!P1_2){
+            while(!P1_2);
+          flag++;
+	if(flag == 3 )
+	flag = 0;	
+}
+	P1IFG = 0;
+P1IF = 0;
+}
+

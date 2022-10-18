@@ -1,0 +1,146 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+    "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<!--  $Id: csTARGET.htm 51 2009-11-20 17:46:44Z peter $-->
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemalocation="http://www.w3.org/MarkUp/SCHEMA/xhtml11.xsd" xml:lang="en">
+<head>
+    <title>Release notes for the MIPS Technologies (FS2) System Navigator driver </title>
+    <meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8" />
+    <link type="text/css" rel="stylesheet" media="all" href="style/ewic.css" />
+</head>
+<body>
+    <div id="topbanner">
+    </div>
+    <div id="titlebanner_small">
+        <h2>
+            Release notes for the MIPS Technologies (FS2) System Navigator driver version 8.10.1
+        </h2>
+    </div>
+    <div class="breadcrumb">
+        <a href="index.ENU.html">IAR Information Center for 8051</a> | <a href="release_notes.ENU.html">
+            Release notes</a> | <a href="components.html">Components</a>
+            | Release notes for the MIPS Technologies (FS2) System Navigator driver
+    </div>
+    <div class="mainblock">
+        <ul>
+            <li><a href="#important">Important information</a> </li>
+            <li><a href="#features">New features</a> </li>
+            <li><a href="#problems">Known problems</a> </li>
+            <li><a href="#pcorr">Program corrections</a> </li>
+            <li><a href="#manuals">User guide corrections</a> </li>
+            <li><a href="#misc">Miscellaneous</a> </li>
+            <li><a href="#history">Release history</a> </li>
+        </ul>
+        <!--======================================================================-->
+        <!-- IMPORTANT INFORMATION                                                -->
+        <!--======================================================================-->
+        <h3>
+            <a name="important" id="important"></a>Important information
+        </h3>
+    <ul>
+        <li>
+            <p>
+                The System Navigator software bundle must be installed and activated on your PC
+                before you can use this driver. Please refer to the documentation provided with
+                the System Navigator software for information on how to install this software.</p>
+        </li>
+        <li>
+            <p>
+                The <b>PATH</b> environment variable of your system must be updated to contain the
+                <tt>bin</tt> directory of your System Navigator installation (typically <tt>c:\program
+                    files\fs2\sysnav\bin</tt>). Please note that changing your system path might
+                require a reboot of your computer before the change takes effect.</p>
+        </li>
+        <li>
+            <p>
+                In order to be able to download application code to the target device the <tt>flash.cfg</tt>
+                file included in the System Navigator software package must contain an entry that
+                describes how to flash the device you are working with. Please refer to the System
+                Navigator documentation for information on how to update this file.</p>
+        </li>
+        <li>
+            <p>
+                The following options can be set for the driver in the options dialog:</p>
+            <ul>
+                <li>
+                    <p>
+                        <strong>Has program flash<br>
+                        </strong>Check this box if the device you are working with has flash
+                        memory that can contain executable code.</p>
+                    <p>
+                        <strong>Entry in flash.cfg<br>
+                        </strong>The label in the <tt>flash.cfg</tt> file that describes how to program the flash
+                        of the device you are working with.</p>
+                    <p>
+                        <strong>Flash areas<br>
+                        </strong>A list of the programmable addresses in the devices flash memory. This
+                        value is specified as a comma separated list of hexadecimal ranges, for instance:
+                        <tt>0x0000-0x1FFF, 0x3000-0x3FFF</tt>.</p>
+                    <p>
+                        <strong>Has program ram<br>
+                        </strong>Check this box if the device you are working with has ram memory that
+                        can contain executable code.</p>
+                    <p>
+                        <strong>Ram areas<br>
+                        </strong>A list of the executable addresses in the devices ram memory. This value
+                        is specified as a comma separated list of hexadecimal ranges, for instance: <tt>0x8000-0x87FF,
+                        0xC000-0xC7FF</tt>.</p>
+                </li>
+            </ul>
+        </li>
+    </ul>
+        <!--======================================================================-->
+        <!-- NEW FEATURES                                                         -->
+        <!--======================================================================-->
+        <h3>
+            <a name="features" id="features"></a>New features
+        </h3>
+        <!--======================================================================-->
+        <!-- Known Problems-->
+        <!--======================================================================-->
+        <h3>
+            <a name="problems" id="problems"></a>Known Problems
+        </h3>
+<ul><li><p>None.</p></li></ul>
+        <!--======================================================================-->
+        <!-- Program Corrections                                                  -->
+        <!--======================================================================-->
+        <h3>
+            <a name="pcorr" id="pcorr"></a>Program Corrections
+        </h3>
+    <ul>
+        <li>
+            <p>None.</p>
+        </li>
+    </ul>
+        <!--======================================================================-->
+        <!-- USER GUIDE CORRECTIONS                                               -->
+        <!--======================================================================-->
+        <h3>
+            <a name="manuals" id="manuals"></a>User guide corrections
+        </h3>
+    <ul>
+        <li>None</li>
+    </ul>
+ 
+        <!--======================================================================-->
+        <!-- MISCELLANEOUS                                                        -->
+        <!--======================================================================-->
+        <h3>
+            <a name="misc" id="misc"></a>Miscellaneous
+        </h3>
+        <!--======================================================================-->
+        <!-- RELEASE HISTORY                                                      -->
+        <!--======================================================================-->
+        <h3>
+            <a name="history" id="history"></a>Release history
+        </h3>
+    <p>
+        <b>V7.51B, May 2009</b>
+    </p>
+    <p>
+        Initial release.
+    </p>
+    </div>
+</body>
+</html>
